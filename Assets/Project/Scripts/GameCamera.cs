@@ -11,7 +11,7 @@ public class GameCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        translationOffset = new Vector3(0, target.GetComponent<CapsuleCollider>().height * 1.0f, 0);
+        // translationOffset = new Vector3(0, target.GetComponent<CapsuleCollider>().height * 1.0f, 0);
     }
 
     // Update is called once per frame
