@@ -251,6 +251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c49da3033fd3d42baa80ac2fe0d5b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  focalPoint: {fileID: 929399230}
+  focalDistance: 0.65
+  changeFocalSideKey: 113
 --- !u!4 &409810620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce,
@@ -372,7 +375,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929399230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0.8, z: 4}
+  m_LocalPosition: {x: -0.65, y: 0.8, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1212223536}

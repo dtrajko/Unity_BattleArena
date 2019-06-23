@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameCamera : MonoBehaviour
 {
-    [SerializeField] private GameObject target;
-    [SerializeField] private Vector3 translationOffset;
+    [SerializeField] private GameObject target = null;
+    [SerializeField] private Vector3 translationOffset = new Vector3(0, 0, 0);
     [SerializeField] private Vector3 followOffset = new Vector3(0, 1.5f, -3.5f);
 
     // Start is called before the first frame update
