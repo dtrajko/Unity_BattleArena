@@ -252,7 +252,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focalPoint: {fileID: 929399230}
-  focalDistance: 0.65
+  focalDistance: 0.3
+  focalSmoothness: 4
   changeFocalSideKey: 113
 --- !u!4 &409810620 stripped
 Transform:
@@ -375,7 +376,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929399230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.65, y: 0.8, z: 4}
+  m_LocalPosition: {x: -0.4, y: 1.4, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1212223536}
@@ -460,7 +461,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 1.4, z: -5.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -480,7 +481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 929399230}
   translationOffset: {x: 0, y: 0, z: 0}
-  followOffset: {x: 0, y: 1, z: -7}
+  followOffset: {x: 0, y: 0.4, z: -6}
 --- !u!1 &1212223535
 GameObject:
   m_ObjectHideFlags: 0
