@@ -8,6 +8,8 @@ public class GameCamera : MonoBehaviour
     [SerializeField] private Vector3 translationOffset = new Vector3(0, 0, 0);
     [SerializeField] private Vector3 followOffset = new Vector3(0, 0.4f, -6.0f);
 
+    private float verticalRotationAngle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +24,15 @@ public class GameCamera : MonoBehaviour
 
     void FixedUpdate()
     {
-        // 0 - 180 - 360
+        // Make the camera look at the target
         float yAngle = target.transform.eulerAngles.y;
         Quaternion rotation = Quaternion.Euler(0, yAngle, 0);
 
         transform.position = target.transform.position + rotation * followOffset;
         transform.LookAt(target.transform.position + translationOffset);
+
+        // Make the camera look up or down
+        verticalRotationAngle += Input.GetAxis("Mouse Y");
+        transform.RotateAround(target.transform.position, target.transform.right, -verticalRotationAngle);
     }
 }
