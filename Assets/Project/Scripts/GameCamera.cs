@@ -6,9 +6,11 @@ public class GameCamera : MonoBehaviour
 {
     [SerializeField] private GameObject target = null;
     [SerializeField] private GameObject rotationAnchorObject = null;
-
     [SerializeField] private Vector3 translationOffset = new Vector3(0, 0, 0);
     [SerializeField] private Vector3 followOffset = new Vector3(0, 0.4f, -6.0f);
+    [SerializeField] private float maxViewingAngle = 16f;
+    [SerializeField] private float minViewingAngle = -12f;
+    [SerializeField] private float rotationSensitivity = 2f;
 
     private float verticalRotationAngle;
 
@@ -34,7 +36,28 @@ public class GameCamera : MonoBehaviour
         transform.LookAt(target.transform.position + translationOffset);
 
         // Make the camera look up or down
-        verticalRotationAngle += Input.GetAxis("Mouse Y");
+        verticalRotationAngle += Input.GetAxis("Mouse Y") * rotationSensitivity;
+
+        // verticalRotationAngle between min and max limit version 1
+        verticalRotationAngle = Mathf.Clamp(verticalRotationAngle, minViewingAngle, maxViewingAngle);
+
+        /** verticalRotationAngle between min and max limit version 2
+        verticalRotationAngle = Mathf.Min(verticalRotationAngle, maxViewingAngle);
+        verticalRotationAngle = Mathf.Max(verticalRotationAngle, minViewingAngle);
+        */
+
+        /** verticalRotationAngle between min and max limit version 3
+        if (verticalRotationAngle > maxViewingAngle) {
+            verticalRotationAngle = maxViewingAngle;
+        }
+        if (verticalRotationAngle < minViewingAngle)
+        {
+            verticalRotationAngle = minViewingAngle;
+        }
+        */
+
+        Debug.Log("verticalRotationAngle: " + verticalRotationAngle);
+
         transform.RotateAround(target.transform.position, rotationAnchorObject.transform.right, -verticalRotationAngle);
     }
 }
