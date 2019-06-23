@@ -38,25 +38,8 @@ public class GameCamera : MonoBehaviour
         // Make the camera look up or down
         verticalRotationAngle += Input.GetAxis("Mouse Y") * rotationSensitivity;
 
-        // verticalRotationAngle between min and max limit version 1
+        // verticalRotationAngle between min and max limit
         verticalRotationAngle = Mathf.Clamp(verticalRotationAngle, minViewingAngle, maxViewingAngle);
-
-        /** verticalRotationAngle between min and max limit version 2
-        verticalRotationAngle = Mathf.Min(verticalRotationAngle, maxViewingAngle);
-        verticalRotationAngle = Mathf.Max(verticalRotationAngle, minViewingAngle);
-        */
-
-        /** verticalRotationAngle between min and max limit version 3
-        if (verticalRotationAngle > maxViewingAngle) {
-            verticalRotationAngle = maxViewingAngle;
-        }
-        if (verticalRotationAngle < minViewingAngle)
-        {
-            verticalRotationAngle = minViewingAngle;
-        }
-        */
-
-        Debug.Log("verticalRotationAngle: " + verticalRotationAngle);
 
         transform.RotateAround(target.transform.position, rotationAnchorObject.transform.right, -verticalRotationAngle);
     }
