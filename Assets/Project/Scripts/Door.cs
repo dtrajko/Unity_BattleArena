@@ -5,7 +5,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     [SerializeField] private bool opensInwards;
-    [SerializeField] private float openingSpeed = 1.0f;
+    [SerializeField] private float openingSpeed = 2.0f;
 
     private bool isOpen;
     private float targetAngle;
@@ -20,17 +20,14 @@ public class Door : MonoBehaviour
     void Update()
     {
         Quaternion smoothRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(0, targetAngle, 0), openingSpeed * Time.deltaTime);
-        // transform.localEulerAngles.y, targetAngle, openingSpeed * Time.deltaTime);
         transform.localRotation = smoothRotation;
     }
 
     public void Interact() {
         isOpen = !isOpen;
-        if (isOpen)
-        {
+        if (isOpen) {
             targetAngle = 90.0f * (opensInwards ? 1 : -1);
-        }
-        else {
+        } else {
             targetAngle = 0;
         }
     }
