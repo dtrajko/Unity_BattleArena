@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     [Header("Interaction")]
     [SerializeField] private GameCamera gameCamera;
     [SerializeField] private KeyCode interactionKey = KeyCode.E;
-    [SerializeField] private float interactionDistance = 4f;
+    [SerializeField] private float interactionDistance = 6f;
 
     private bool isFocalPointOnLeft = true;
 
@@ -48,6 +48,9 @@ public class Player : MonoBehaviour
             bool isHit = Physics.Raycast(gameCamera.transform.position, gameCamera.transform.forward, out hit, (int) interactionDistance);
             if (isHit) {
                 // Debug.Log("Hit object: " + hit.transform.name);
+                if (hit.transform.GetComponent<Door>()) {
+                    hit.transform.GetComponent<Door>().Interact();
+                }
             }
         }
     }
