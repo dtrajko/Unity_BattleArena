@@ -10,6 +10,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float focalSmoothness = 4f;
     [SerializeField] private KeyCode changeFocalSideKey = KeyCode.Q;
 
+    [Header("Interaction")]
+    [SerializeField] private GameCamera gameCamera;
+    [SerializeField] private KeyCode interactionKey = KeyCode.E;
+    [SerializeField] private float interactionDistance = 4f;
+
     private bool isFocalPointOnLeft = true;
 
     // Start is called before the first frame update
@@ -32,5 +37,18 @@ public class Player : MonoBehaviour
             focalPoint.transform.localPosition.y,
             focalPoint.transform.localPosition.z
         );
+
+        // Interaction logic
+        // #if UNITY_EDITOR
+        // Draw interaction line
+        Debug.DrawLine(gameCamera.transform.position, gameCamera.transform.position + gameCamera.transform.forward * interactionDistance, Color.green);
+        // #endif
+        if (Input.GetKeyDown(interactionKey)) {
+            RaycastHit hit;
+            bool isHit = Physics.Raycast(gameCamera.transform.position, gameCamera.transform.forward, out hit, (int) interactionDistance);
+            if (isHit) {
+                // Debug.Log("Hit object: " + hit.transform.name);
+            }
+        }
     }
 }

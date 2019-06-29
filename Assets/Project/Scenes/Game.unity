@@ -2803,6 +2803,9 @@ MonoBehaviour:
   focalDistance: 0.3
   focalSmoothness: 4
   changeFocalSideKey: 113
+  gameCamera: {fileID: 963194229}
+  interactionKey: 105
+  interactionDistance: 4
 --- !u!4 &409810620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce,
