@@ -8,8 +8,8 @@ public class GameCamera : MonoBehaviour
     [SerializeField] private GameObject rotationAnchorObject = null;
     [SerializeField] private Vector3 translationOffset = new Vector3(0, 0, 0);
     [SerializeField] private Vector3 followOffset = new Vector3(0, 0.4f, -6.0f);
-    [SerializeField] private float maxViewingAngle = 16f;
-    [SerializeField] private float minViewingAngle = -60f;
+    [SerializeField] private float maxViewingAngle = 10f;
+    [SerializeField] private float minViewingAngle = -12f;
     [SerializeField] private float rotationSensitivity = 2f;
 
     private float verticalRotationAngle;

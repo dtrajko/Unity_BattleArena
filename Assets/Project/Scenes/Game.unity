@@ -4399,6 +4399,7 @@ MonoBehaviour:
   gameCamera: {fileID: 963194229}
   interactionKey: 101
   interactionDistance: 6
+  hud: {fileID: 479900325}
 --- !u!4 &409810620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce,
@@ -4929,6 +4930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778bc7227e8471446aa838a2129675c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resourcesText: {fileID: 1840778272}
 --- !u!4 &479900326
 Transform:
   m_ObjectHideFlags: 0
@@ -8813,8 +8815,8 @@ MonoBehaviour:
   rotationAnchorObject: {fileID: 1092466224}
   translationOffset: {x: 0, y: 0, z: 0}
   followOffset: {x: 0, y: 0.4, z: -6}
-  maxViewingAngle: 16
-  minViewingAngle: -60
+  maxViewingAngle: 10
+  minViewingAngle: -12
   rotationSensitivity: 2
 --- !u!1 &967640139
 GameObject:
@@ -14572,8 +14574,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674107403}
-  m_LocalRotation: {x: -0.08170442, y: 0.7272108, z: 0.087915085, w: 0.6758401}
-  m_LocalPosition: {x: -11.901367, y: 3.0088196, z: -76.10369}
+  m_LocalRotation: {x: -0.11319765, y: 0.3607819, z: 0.044165656, w: 0.9247011}
+  m_LocalPosition: {x: -65.00928, y: -33.559204, z: -188.82076}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 322342785}
@@ -15309,7 +15311,7 @@ GameObject:
   - component: {fileID: 1840778272}
   - component: {fileID: 1840778274}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ResourcesText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
