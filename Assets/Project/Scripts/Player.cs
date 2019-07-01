@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour {
+
+    public enum PlayerTool {
+        Pickaxe,
+        None
+    }
+
     [Header("Focal Point Variables")]
     [SerializeField] private GameObject focalPoint = null;
     [SerializeField] private float focalDistance = -0.3f;
@@ -18,6 +23,10 @@ public class Player : MonoBehaviour
     [Header("Interface")]
     [SerializeField] private HUDController hud;
 
+    [Header("Gameplay")]
+    [SerializeField] private KeyCode toolSwitchKey = KeyCode.Tab;
+    [SerializeField] private PlayerTool tool;
+
     private bool isFocalPointOnLeft = true;
     private int resources = 20;
 
@@ -26,12 +35,14 @@ public class Player : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         hud.Resources = resources;
+        hud.ToolIndex = 0; // PlayerTool: Pickaxe
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(changeFocalSideKey)) {
+        if (Input.GetKeyDown(changeFocalSideKey))
+        {
             isFocalPointOnLeft = !isFocalPointOnLeft;
         }
 
@@ -48,15 +59,24 @@ public class Player : MonoBehaviour
         // Draw interaction line
         Debug.DrawLine(gameCamera.transform.position, gameCamera.transform.position + gameCamera.transform.forward * interactionDistance, Color.green);
         // #endif
-        if (Input.GetKeyDown(interactionKey)) {
+        if (Input.GetKeyDown(interactionKey))
+        {
             RaycastHit hit;
-            bool isHit = Physics.Raycast(gameCamera.transform.position, gameCamera.transform.forward, out hit, (int) interactionDistance);
-            if (isHit) {
+            bool isHit = Physics.Raycast(gameCamera.transform.position, gameCamera.transform.forward, out hit, (int)interactionDistance);
+            if (isHit)
+            {
                 // Debug.Log("Hit object: " + hit.transform.name);
-                if (hit.transform.GetComponent<Door>()) {
+                if (hit.transform.GetComponent<Door>())
+                {
                     hit.transform.GetComponent<Door>().Interact();
                 }
             }
+        }
+
+        // Tool switch logic
+        if (Input.GetKeyDown(toolSwitchKey))
+        {
+
         }
     }
 }
