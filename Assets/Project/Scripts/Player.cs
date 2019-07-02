@@ -6,7 +6,9 @@ public class Player : MonoBehaviour {
 
     public enum PlayerTool {
         Pickaxe,
-        Grenade,
+        ObstacleVertical,
+        ObstacleRamp,
+        ObstacleHorizontal,
         None
     }
 
@@ -27,7 +29,7 @@ public class Player : MonoBehaviour {
     [Header("Gameplay")]
     [SerializeField] private KeyCode toolSwitchKey = KeyCode.Tab;
     [SerializeField] private PlayerTool tool;
-    [SerializeField] private float resourceCollectionCooldown = 0.5f;
+    [SerializeField] private float resourceCollectionCooldown = 0.4f;
 
     private bool isFocalPointOnLeft = true;
     private int resources = 0;
@@ -84,32 +86,60 @@ public class Player : MonoBehaviour {
         hud.Tool = tool;
         if (Input.GetKeyDown(toolSwitchKey))
         {
-            int currentToolIndex = (int)tool;
-            currentToolIndex++;
-            if (currentToolIndex == System.Enum.GetNames(typeof(PlayerTool)).Length) {
-                currentToolIndex = 0;
-            }
-            tool = (PlayerTool)currentToolIndex;
-            hud.Tool = tool;
+            SwitchTool();
         }
 
         // Tool usage logic
         if (Input.GetAxis("Fire1") > 0) {
-            if (tool == PlayerTool.Pickaxe) {
-                RaycastHit hit;
-                bool isHit = Physics.Raycast(gameCamera.transform.position, gameCamera.transform.forward, out hit, (int)interactionDistance);
-                if (isHit)
+            UseTool();
+        }
+    }
+
+    private void SwitchTool() {
+        PlayerTool previousTool = tool;
+
+        // Cycle between the available tools
+        int currentToolIndex = (int)tool;
+        currentToolIndex++;
+        if (currentToolIndex == System.Enum.GetNames(typeof(PlayerTool)).Length)
+        {
+            currentToolIndex = 0;
+        }
+
+        // Get the new tool
+        tool = (PlayerTool)currentToolIndex;
+        hud.Tool = tool;
+
+        // Check for obstacle placement logic
+        if (tool == PlayerTool.ObstacleVertical) {
+            // Show an obstacle in placement mode
+            Debug.Log("Tool selector: ObstacleVertical");
+        } else if (tool == PlayerTool.ObstacleRamp) {
+            Debug.Log("Tool selector: ObstacleRamp");
+        } else if (tool == PlayerTool.ObstacleHorizontal) {
+            Debug.Log("Tool selector: ObstacleHorizontal");
+        } else if (previousTool == PlayerTool.ObstacleHorizontal) {
+            // Remove any obstacle in placement mode
+            Debug.Log("Tool selector: Exit Obstacle mode");
+        }
+    }
+
+    private void UseTool() {
+        if (tool == PlayerTool.Pickaxe)
+        {
+            RaycastHit hit;
+            bool isHit = Physics.Raycast(gameCamera.transform.position, gameCamera.transform.forward, out hit, (int)interactionDistance);
+            if (isHit)
+            {
+                if (resourceCollectionCooldownTimer <= 0
+                    && hit.transform.GetComponent<ResourceObject>() != null)
                 {
-                    if (resourceCollectionCooldownTimer <= 0
-                        && hit.transform.GetComponent<ResourceObject>() != null)
-                    {
-                        resourceCollectionCooldownTimer = resourceCollectionCooldown;
-                        ResourceObject resourceObject = hit.transform.GetComponent<ResourceObject>();
-                        int collectedResources = resourceObject.Collect();
-                        resources += collectedResources;
-                        hud.Resources = resources;
-                        // Debug.Log("Hit the object!");
-                    }
+                    resourceCollectionCooldownTimer = resourceCollectionCooldown;
+                    ResourceObject resourceObject = hit.transform.GetComponent<ResourceObject>();
+                    int collectedResources = resourceObject.Collect();
+                    resources += collectedResources;
+                    hud.Resources = resources;
+                    // Debug.Log("Hit the object!");
                 }
             }
         }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ResourceObject : MonoBehaviour
 {
-    [SerializeField] private int resourceAmount;
-    [SerializeField] private int amountOfHits;
+    [SerializeField] private int resourceAmount = 10;
+    [SerializeField] private int amountOfHits = 5;
     [SerializeField] private float hitScale = 0.8f;
     [SerializeField] private float hitSmoothness = 10.0f;
 
