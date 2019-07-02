@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 
     public enum PlayerTool {
         Pickaxe,
+        Grenade,
         None
     }
 
@@ -35,9 +36,10 @@ public class Player : MonoBehaviour {
     {
         Cursor.lockState = CursorLockMode.Locked;
         hud.Resources = resources;
+        tool = PlayerTool.Pickaxe;
         hud.Tool = tool; // PlayerTool: Pickaxe
     }
-
+ 
     // Update is called once per frame
     void Update()
     {
@@ -74,6 +76,7 @@ public class Player : MonoBehaviour {
         }
 
         // Tool switch logic
+        hud.Tool = tool;
         if (Input.GetKeyDown(toolSwitchKey))
         {
             int currentToolIndex = (int)tool;

@@ -6,11 +6,14 @@ using UnityEngine.UI;
 public class HUDController : MonoBehaviour
 {
     [Header("Interface Elements")]
-    [SerializeField] private Text resourcesText = null;
+    [SerializeField] private Text resourcesText;
 
     [Header("Tool Selector")]
-    [SerializeField] private GameObject toolFocus = null;
-    [SerializeField] private GameObject[] tools = null;
+    [SerializeField] private GameObject toolFocus;
+    [SerializeField] private GameObject toolContainer;
+    [SerializeField] private float focusSmoothness = 10.0f;
+
+    private float targetFocusX = 0;
 
     public int Resources {
         set {
@@ -20,17 +23,25 @@ public class HUDController : MonoBehaviour
 
     public Player.PlayerTool Tool {
         set {
-            toolFocus.transform.position = new Vector3(
-                tools[(int)value].transform.position.x,
-                toolFocus.transform.position.y
-            );
+            targetFocusX = toolContainer.transform.GetChild((int)value).transform.position.x;
         }
     }
 
     // Start is called before the first frame update
     void Start() {
+        targetFocusX = toolContainer.transform.GetChild(0).transform.position.x;
+        toolFocus.transform.position = new Vector3(
+            targetFocusX,
+            toolFocus.transform.position.y
+        );
     }
 
     // Update is called once per frame
-    void Update() {}
+    void Update() {
+
+        toolFocus.transform.position = new Vector3(
+            Mathf.Lerp(toolFocus.transform.position.x, targetFocusX, Time.deltaTime * focusSmoothness),
+            toolFocus.transform.position.y
+        );
+    }
 }
