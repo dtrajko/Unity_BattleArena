@@ -27,9 +27,11 @@ public class Player : MonoBehaviour {
     [Header("Gameplay")]
     [SerializeField] private KeyCode toolSwitchKey = KeyCode.Tab;
     [SerializeField] private PlayerTool tool;
+    [SerializeField] private float resourceCollectionCooldown = 1.0f;
 
     private bool isFocalPointOnLeft = true;
     private int resources = 20;
+    private float resourceCollectionCooldownTimer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +45,9 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        // Update timers
+        resourceCollectionCooldownTimer -= Time.deltaTime;
+
         if (Input.GetKeyDown(changeFocalSideKey))
         {
             isFocalPointOnLeft = !isFocalPointOnLeft;
@@ -95,11 +100,13 @@ public class Player : MonoBehaviour {
                 bool isHit = Physics.Raycast(gameCamera.transform.position, gameCamera.transform.forward, out hit, (int)interactionDistance);
                 if (isHit)
                 {
-                    if (hit.transform.GetComponent<ResourceObject>() != null)
+                    if (resourceCollectionCooldownTimer <= 0
+                        && hit.transform.GetComponent<ResourceObject>() != null)
                     {
+                        resourceCollectionCooldownTimer = resourceCollectionCooldown;
                         ResourceObject resourceObject = hit.transform.GetComponent<ResourceObject>();
                         resourceObject.Interact();
-                        Debug.Log("Hit the object!");
+                        // Debug.Log("Hit the object!");
                     }
                 }
             }
