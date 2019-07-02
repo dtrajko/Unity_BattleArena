@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
     {
         Cursor.lockState = CursorLockMode.Locked;
         hud.Resources = resources;
-        hud.ToolIndex = 0; // PlayerTool: Pickaxe
+        hud.Tool = tool; // PlayerTool: Pickaxe
     }
 
     // Update is called once per frame
@@ -76,7 +76,13 @@ public class Player : MonoBehaviour {
         // Tool switch logic
         if (Input.GetKeyDown(toolSwitchKey))
         {
-
+            int currentToolIndex = (int)tool;
+            currentToolIndex++;
+            if (currentToolIndex == System.Enum.GetNames(typeof(PlayerTool)).Length) {
+                currentToolIndex = 0;
+            }
+            tool = (PlayerTool)currentToolIndex;
+            hud.Tool = tool;
         }
     }
 }
