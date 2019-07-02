@@ -27,10 +27,10 @@ public class Player : MonoBehaviour {
     [Header("Gameplay")]
     [SerializeField] private KeyCode toolSwitchKey = KeyCode.Tab;
     [SerializeField] private PlayerTool tool;
-    [SerializeField] private float resourceCollectionCooldown = 1.0f;
+    [SerializeField] private float resourceCollectionCooldown = 0.5f;
 
     private bool isFocalPointOnLeft = true;
-    private int resources = 20;
+    private int resources = 0;
     private float resourceCollectionCooldownTimer = 0;
 
     // Start is called before the first frame update
@@ -105,7 +105,9 @@ public class Player : MonoBehaviour {
                     {
                         resourceCollectionCooldownTimer = resourceCollectionCooldown;
                         ResourceObject resourceObject = hit.transform.GetComponent<ResourceObject>();
-                        resourceObject.Interact();
+                        int collectedResources = resourceObject.Collect();
+                        resources += collectedResources;
+                        hud.Resources = resources;
                         // Debug.Log("Hit the object!");
                     }
                 }
