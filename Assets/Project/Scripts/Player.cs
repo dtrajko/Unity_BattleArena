@@ -87,5 +87,22 @@ public class Player : MonoBehaviour {
             tool = (PlayerTool)currentToolIndex;
             hud.Tool = tool;
         }
+
+        // Tool usage logic
+        if (Input.GetAxis("Fire1") > 0) {
+            if (tool == PlayerTool.Pickaxe) {
+                RaycastHit hit;
+                bool isHit = Physics.Raycast(gameCamera.transform.position, gameCamera.transform.forward, out hit, (int)interactionDistance);
+                if (isHit)
+                {
+                    if (hit.transform.GetComponent<ResourceObject>() != null)
+                    {
+                        ResourceObject resourceObject = hit.transform.GetComponent<ResourceObject>();
+                        resourceObject.Interact();
+                        Debug.Log("Hit the object!");
+                    }
+                }
+            }
+        }
     }
 }

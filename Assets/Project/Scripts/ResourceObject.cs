@@ -7,6 +7,8 @@ public class ResourceObject : MonoBehaviour
     [SerializeField] private int resourceAmount;
     [SerializeField] private int amountOfHits;
 
+    private int hits;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,9 @@ public class ResourceObject : MonoBehaviour
         
     }
     public void Interact() {
-
+        hits++;
+        if (hits >= amountOfHits) {
+            Destroy(gameObject);
+        }
     }
 }
