@@ -31,6 +31,9 @@ public class Player : MonoBehaviour {
     [SerializeField] private PlayerTool tool;
     [SerializeField] private float resourceCollectionCooldown = 0.4f;
 
+    [Header("Obstacles")]
+    [SerializeField] private GameObject[] obstaclePrefabs;
+
     private bool isFocalPointOnLeft = true;
     private int resources = 0;
     private float resourceCollectionCooldownTimer = 0;
