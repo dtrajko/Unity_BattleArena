@@ -94,6 +94,15 @@ public class Player : MonoBehaviour {
             SwitchTool();
         }
 
+        // Preserving the obstacles' horizontal rotation
+        if (currentObstacle != null) {
+            currentObstacle.transform.eulerAngles = new Vector3(
+                0,
+                currentObstacle.transform.eulerAngles.y,
+                currentObstacle.transform.eulerAngles.z
+            );
+        }
+
         // Tool usage logic
         if (Input.GetAxis("Fire1") > 0) {
             UseTool();
