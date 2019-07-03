@@ -8,6 +8,7 @@ public class Obstacle : MonoBehaviour
     [SerializeField] private int cost;
 
     private Collider obstacleCollider;
+    private Renderer obstacleRenderer;
 
     public int Cost {
         get {
@@ -25,10 +26,18 @@ public class Obstacle : MonoBehaviour
         obstacleCollider = GetComponentInChildren<Collider>();
         // Start with the obstacle collider disabled
         obstacleCollider.enabled = false;
+
+        // Work with transparency
+        obstacleRenderer = GetComponentInChildren<Renderer>();
+        obstacleRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+
     }
 
     public void Place() {
         // Enable the collider
         obstacleCollider.enabled = true;
+
+        // Make the obstacle opaque
+        obstacleRenderer.material.color = Color.white;
     }
 }
