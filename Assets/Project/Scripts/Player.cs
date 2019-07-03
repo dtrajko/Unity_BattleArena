@@ -32,11 +32,13 @@ public class Player : MonoBehaviour {
     [SerializeField] private float resourceCollectionCooldown = 0.4f;
 
     [Header("Obstacles")]
+    [SerializeField] private GameObject obstaclePlacementContainer;
     [SerializeField] private GameObject[] obstaclePrefabs;
 
     private bool isFocalPointOnLeft = true;
     private int resources = 0;
     private float resourceCollectionCooldownTimer = 0;
+    private GameObject currentObstacle;
 
     // Start is called before the first frame update
     void Start()
@@ -99,8 +101,6 @@ public class Player : MonoBehaviour {
     }
 
     private void SwitchTool() {
-        PlayerTool previousTool = tool;
-
         // Cycle between the available tools
         int currentToolIndex = (int)tool;
         currentToolIndex++;
@@ -114,16 +114,18 @@ public class Player : MonoBehaviour {
         hud.Tool = tool;
 
         // Check for obstacle placement logic
-        if (tool == PlayerTool.ObstacleVertical) {
-            // Show an obstacle in placement mode
-            Debug.Log("Tool selector: ObstacleVertical");
-        } else if (tool == PlayerTool.ObstacleRamp) {
-            Debug.Log("Tool selector: ObstacleRamp");
-        } else if (tool == PlayerTool.ObstacleHorizontal) {
-            Debug.Log("Tool selector: ObstacleHorizontal");
-        } else if (previousTool == PlayerTool.ObstacleHorizontal) {
-            // Remove any obstacle in placement mode
-            Debug.Log("Tool selector: Exit Obstacle mode");
+        int obstacleToAddIndex = -1;
+        if (tool == PlayerTool.ObstacleVertical) obstacleToAddIndex = 0;
+        else if (tool == PlayerTool.ObstacleRamp) obstacleToAddIndex = 1;
+        else if (tool == PlayerTool.ObstacleHorizontal) obstacleToAddIndex = 2;
+
+        if (currentObstacle != null) Destroy(currentObstacle);
+        if (obstacleToAddIndex >= 0) {
+            currentObstacle = Instantiate(obstaclePrefabs[obstacleToAddIndex]);
+            currentObstacle.transform.SetParent(obstaclePlacementContainer.transform);
+            currentObstacle.transform.localPosition = Vector3.zero;
+            currentObstacle.transform.localRotation = Quaternion.identity;
+            currentObstacle.GetComponentInChildren<Collider>().enabled = true;
         }
     }
 
