@@ -7,6 +7,7 @@ public class HUDController : MonoBehaviour
 {
     [Header("Interface Elements")]
     [SerializeField] private Text resourcesText;
+    [SerializeField] private Text resourcesRequirementText;
 
     [Header("Tool Selector")]
     [SerializeField] private GameObject toolFocus;
@@ -24,6 +25,16 @@ public class HUDController : MonoBehaviour
     public Player.PlayerTool Tool {
         set {
             targetFocusX = toolContainer.transform.GetChild((int)value).transform.position.x;
+            if (value != Player.PlayerTool.ObstacleVertical &&
+                value != Player.PlayerTool.ObstacleRamp &&
+                value != Player.PlayerTool.ObstacleHorizontal)
+            {
+                resourcesRequirementText.enabled = false;
+            }
+            else
+            {
+                resourcesRequirementText.enabled = true;
+            }
         }
     }
 
@@ -43,5 +54,16 @@ public class HUDController : MonoBehaviour
             Mathf.Lerp(toolFocus.transform.position.x, targetFocusX, Time.deltaTime * focusSmoothness),
             toolFocus.transform.position.y
         );
+    }
+
+    public void UpdateResourcesRequirement(int cost, int balance) {
+        resourcesRequirementText.text = "Requires: " + cost;
+        if (cost > balance)
+        {
+            resourcesRequirementText.color = Color.red;
+        }
+        else {
+            resourcesRequirementText.color = Color.white;
+        }
     }
 }

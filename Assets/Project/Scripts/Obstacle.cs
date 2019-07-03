@@ -9,22 +9,26 @@ public class Obstacle : MonoBehaviour
 
     private Collider obstacleCollider;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        obstacleCollider = GetComponentInChildren<Collider>();
+    public int Cost {
+        get {
+            return cost;
+        }
+    }
 
+    // Start is called before the first frame update
+    void Start() {}
+
+    // Update is called once per frame
+    void Update() { }
+
+    void Awake() {
+        obstacleCollider = GetComponentInChildren<Collider>();
         // Start with the obstacle collider disabled
         obstacleCollider.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Place() {
-
+        // Enable the collider
+        obstacleCollider.enabled = true;
     }
 }

@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9063802292457311015}
   - component: {fileID: 9063802292457311012}
+  - component: {fileID: 8478709331990066558}
+  - component: {fileID: 2628794990705541502}
   m_Layer: 0
   m_Name: ObstacleRamp
   m_TagString: Untagged
@@ -45,7 +47,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  cost: 4
+  cost: 6
+--- !u!114 &8478709331990066558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063802292457311014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5c153308033204ea62c09d74084168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceAmount: 0
+  amountOfHits: 5
+  hitScale: 0.8
+  hitSmoothness: 10
+--- !u!65 &2628794990705541502
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063802292457311014}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.12509, y: 1.7122219, z: 1.7188454}
+  m_Center: {x: 0.0035370588, y: -0.093898654, z: 0.088033676}
 --- !u!1001 &9063802292156802419
 PrefabInstance:
   m_ObjectHideFlags: 0

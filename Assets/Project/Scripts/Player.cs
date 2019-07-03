@@ -29,21 +29,28 @@ public class Player : MonoBehaviour {
     [Header("Gameplay")]
     [SerializeField] private KeyCode toolSwitchKey = KeyCode.Tab;
     [SerializeField] private PlayerTool tool;
+    [SerializeField] private int initialResourceCount = 100;
     [SerializeField] private float resourceCollectionCooldown = 0.4f;
 
     [Header("Obstacles")]
     [SerializeField] private GameObject obstaclePlacementContainer;
+    [SerializeField] private GameObject obstacleContainer;
     [SerializeField] private GameObject[] obstaclePrefabs;
+    [SerializeField] private float obstaclePlacementCooldown = 0.4f;
+
 
     private bool isFocalPointOnLeft = true;
     private int resources = 0;
     private float resourceCollectionCooldownTimer = 0;
+    private float obstaclePlacementCooldownTimer = 0;
     private GameObject currentObstacle;
+    private bool obstaclePlacementLock;
 
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        resources = initialResourceCount;
         hud.Resources = resources;
         tool = PlayerTool.Pickaxe;
         hud.Tool = tool; // PlayerTool: Pickaxe
@@ -54,6 +61,7 @@ public class Player : MonoBehaviour {
     {
         // Update timers
         resourceCollectionCooldownTimer -= Time.deltaTime;
+        obstaclePlacementCooldownTimer -= Time.deltaTime;
 
         if (Input.GetKeyDown(changeFocalSideKey))
         {
@@ -103,9 +111,20 @@ public class Player : MonoBehaviour {
             );
         }
 
-        // Tool usage logic
-        if (Input.GetAxis("Fire1") > 0) {
-            UseTool();
+        // Tool usage logic (continuous)
+        if (Input.GetAxis("Fire1") > 0.1f) {
+            UseToolContinuous();
+        }
+
+        // Tool usage logic (trigger)
+        if (Input.GetAxis("Fire1") > 0.1f) {
+            if (!obstaclePlacementLock) // it doesn't work properly, using resourceCollectionCooldownTimer instead
+            {
+                obstaclePlacementLock = true;
+                UseToolTrigger();
+            } else {
+                obstaclePlacementLock = false;
+            }
         }
     }
 
@@ -129,16 +148,21 @@ public class Player : MonoBehaviour {
         else if (tool == PlayerTool.ObstacleHorizontal) obstacleToAddIndex = 2;
 
         if (currentObstacle != null) Destroy(currentObstacle);
-        if (obstacleToAddIndex >= 0) {
+        if (obstacleToAddIndex >= 0)
+        {
             currentObstacle = Instantiate(obstaclePrefabs[obstacleToAddIndex]);
             currentObstacle.transform.SetParent(obstaclePlacementContainer.transform);
             currentObstacle.transform.localPosition = Vector3.zero;
             currentObstacle.transform.localRotation = Quaternion.identity;
+
+            hud.UpdateResourcesRequirement(currentObstacle.GetComponent<Obstacle>().Cost, resources);
+
             currentObstacle.GetComponentInChildren<Collider>().enabled = true;
+
         }
     }
 
-    private void UseTool() {
+    private void UseToolContinuous() {
         if (tool == PlayerTool.Pickaxe)
         {
             RaycastHit hit;
@@ -146,16 +170,33 @@ public class Player : MonoBehaviour {
             if (isHit)
             {
                 if (resourceCollectionCooldownTimer <= 0
-                    && hit.transform.GetComponent<ResourceObject>() != null)
+                    && hit.transform.GetComponentInChildren<ResourceObject>() != null)
                 {
                     resourceCollectionCooldownTimer = resourceCollectionCooldown;
                     ResourceObject resourceObject = hit.transform.GetComponent<ResourceObject>();
                     int collectedResources = resourceObject.Collect();
                     resources += collectedResources;
                     hud.Resources = resources;
-                    // Debug.Log("Hit the object!");
                 }
             }
+        }
+    }
+
+    private void UseToolTrigger() {
+        if (obstaclePlacementCooldownTimer <= 0 &&
+            currentObstacle != null &&
+            resources >= currentObstacle.GetComponent<Obstacle>().Cost)
+        {
+            resources -= currentObstacle.GetComponent<Obstacle>().Cost;
+            hud.Resources = resources;
+            hud.UpdateResourcesRequirement(currentObstacle.GetComponent<Obstacle>().Cost, resources);
+
+            obstaclePlacementCooldownTimer = obstaclePlacementCooldown;
+            GameObject newObstacle = Instantiate(currentObstacle);
+            newObstacle.transform.SetParent(obstacleContainer.transform);
+            newObstacle.transform.position = currentObstacle.transform.position;
+            newObstacle.transform.rotation = currentObstacle.transform.rotation;
+            newObstacle.GetComponent<Obstacle>().Place();
         }
     }
 }
