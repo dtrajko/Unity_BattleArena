@@ -1,16 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-public class Weapon
+public abstract class Weapon
 {
-    private int clipAmmunition;
-    private int totalAmmunition;
+    private int clipAmmunition = 0;
+    private int totalAmmunition = 0;
 
-    private int clipSize;
-    private int maxAmmunition;
-    private float reloadTime;
-    private float cooldownTime;
-    private bool isAutomatic;
+    protected int clipSize = 0;
+    protected int maxAmmunition = 0;
+    protected float reloadTime = 0.0f;
+    protected float cooldownTime = 0.0f;
+    protected bool isAutomatic = false;
 
     public int ClipAmmunition { get { return clipAmmunition; } set { clipAmmunition = value;  } }
     public int TotalAmmunition { get { return totalAmmunition; } set { totalAmmunition = value; } }
