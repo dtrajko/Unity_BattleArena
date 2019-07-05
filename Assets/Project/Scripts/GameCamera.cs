@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class GameCamera : MonoBehaviour
 {
-    [SerializeField] private GameObject target = null;
-    [SerializeField] private GameObject rotationAnchorObject = null;
+    [SerializeField] private GameObject target;
+    [SerializeField] private GameObject rotationAnchorObject;
     [SerializeField] private Vector3 translationOffset = new Vector3(0, 0, 0);
-    [SerializeField] private Vector3 followOffset = new Vector3(0, 0.4f, -6.0f);
-    [SerializeField] private float maxViewingAngle = 10f;
-    [SerializeField] private float minViewingAngle = -12f;
+    [SerializeField] private Vector3 followOffset = new Vector3(0, 0.4f, -4.2f);
+    [SerializeField] private float maxViewingAngle = 22f;
+    [SerializeField] private float minViewingAngle = -60f;
     [SerializeField] private float rotationSensitivity = 2f;
 
     private float verticalRotationAngle;
