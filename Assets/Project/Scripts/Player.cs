@@ -203,4 +203,41 @@ public class Player : MonoBehaviour {
             newObstacle.GetComponent<Obstacle>().Place();
         }
     }
+
+    private void OnTriggerEnter(Collider otherCollider) {
+        if (otherCollider.GetComponent<ItemBox>() != null) {
+            ItemBox itemBox = otherCollider.gameObject.GetComponent<ItemBox>();
+            if (itemBox.Type == ItemBox.ItemType.Pistol) {
+                GiveItem(itemBox.Type, itemBox.Amount);
+            }
+
+            Destroy(otherCollider.gameObject);
+        }
+    }
+
+    private void GiveItem(ItemBox.ItemType type, int amount) {
+        if (type == ItemBox.ItemType.Pistol) {
+            // Create a weapon reference
+            Weapon weapon = null;
+
+            // Check if we already have an instance of this weapon
+            for (int i = 0; i < weapons.Count; i++) {
+                if (weapons[i] is Pistol) {
+                    weapon = weapons[i];
+                }
+            }
+
+            // If we don't have a weapon of this type, create one and
+            // add it to the weapon list
+            if (weapon == null) {
+                weapon = new Pistol();
+                weapons.Add(weapon);
+            }
+
+            weapon.AddAmmunition(amount);
+            weapon.LoadClip();
+
+            Debug.Log("ClipAmmunition: " + weapon.ClipAmmunition + " TotalAmmunition: " + weapon.TotalAmmunition);
+        }
+    }
 }

@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class ItemBox : MonoBehaviour
 {
+    public enum ItemType {
+        Pistol
+    }
+
     [Header("Values")]
-    [SerializeField] private string itemName;
+    [SerializeField] private ItemType itemType;
     [SerializeField] private int itemAmount;
 
     [Header("Visuals")]
@@ -15,6 +19,9 @@ public class ItemBox : MonoBehaviour
 
     private GameObject floatingObject;
     private float verticalAngle;
+
+    public ItemType Type { get { return itemType; } }
+    public int Amount { get { return itemAmount; } }
 
     // Start is called before the first frame update
     void Start()

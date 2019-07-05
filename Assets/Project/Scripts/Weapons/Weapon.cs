@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 public abstract class Weapon
@@ -19,4 +20,17 @@ public abstract class Weapon
     public float ReloadTime { get { return reloadTime; } }
     public float CooldownTime { get { return cooldownTime; } }
     public bool IsAutomatic { get { return isAutomatic; } }
+
+    internal void AddAmmunition(int amount)
+    {
+        totalAmmunition = System.Math.Min(totalAmmunition + amount, maxAmmunition);
+    }
+
+    public void LoadClip() {
+        int maximumAmmunitionToLoad = clipSize - clipAmmunition;
+        int ammunitionToLoad = System.Math.Min(maximumAmmunitionToLoad, totalAmmunition);
+
+        clipAmmunition += ammunitionToLoad;
+        totalAmmunition -= ammunitionToLoad;
+    }
 }
