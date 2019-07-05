@@ -56,6 +56,7 @@ public class Player : MonoBehaviour {
         hud.Resources = resources;
         tool = PlayerTool.Pickaxe;
         hud.Tool = tool; // PlayerTool: Pickaxe
+        hud.UpdateWeapon(null);
 
         weapons = new List<Weapon>();
     }
@@ -237,7 +238,9 @@ public class Player : MonoBehaviour {
             weapon.AddAmmunition(amount);
             weapon.LoadClip();
 
-            Debug.Log("ClipAmmunition: " + weapon.ClipAmmunition + " TotalAmmunition: " + weapon.TotalAmmunition);
+            hud.UpdateWeapon(weapon);
+
+            // Debug.Log("ClipAmmunition: " + weapon.ClipAmmunition + " TotalAmmunition: " + weapon.TotalAmmunition);
         }
     }
 }

@@ -12,6 +12,7 @@ public abstract class Weapon
     protected float reloadTime = 0.0f;
     protected float cooldownTime = 0.0f;
     protected bool isAutomatic = false;
+    protected string name = "";
 
     public int ClipAmmunition { get { return clipAmmunition; } set { clipAmmunition = value;  } }
     public int TotalAmmunition { get { return totalAmmunition; } set { totalAmmunition = value; } }
@@ -20,6 +21,7 @@ public abstract class Weapon
     public float ReloadTime { get { return reloadTime; } }
     public float CooldownTime { get { return cooldownTime; } }
     public bool IsAutomatic { get { return isAutomatic; } }
+    public string Name { get { return name; } }
 
     internal void AddAmmunition(int amount)
     {

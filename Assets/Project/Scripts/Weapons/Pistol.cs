@@ -10,5 +10,6 @@ public class Pistol : Weapon
         reloadTime = 2.0f;
         cooldownTime = 0.25f;
         isAutomatic = false;
+        name = "Pistol";
     }
 }

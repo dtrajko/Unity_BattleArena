@@ -8,6 +8,8 @@ public class HUDController : MonoBehaviour
     [Header("Interface Elements")]
     [SerializeField] private Text resourcesText;
     [SerializeField] private Text resourcesRequirementText;
+    [SerializeField] private Text weaponNameText;
+    [SerializeField] private Text weaponAmmunitionText;
 
     [Header("Tool Selector")]
     [SerializeField] private GameObject toolFocus;
@@ -45,6 +47,8 @@ public class HUDController : MonoBehaviour
             targetFocusX,
             toolFocus.transform.position.y
         );
+        // weaponNameText.enabled = false;
+        // weaponAmmunitionText.enabled = false;
     }
 
     // Update is called once per frame
@@ -64,6 +68,20 @@ public class HUDController : MonoBehaviour
         }
         else {
             resourcesRequirementText.color = Color.white;
+        }
+    }
+
+    public void UpdateWeapon(Weapon weapon) {
+        if (weapon == null)
+        {
+            weaponNameText.enabled = false;
+            weaponAmmunitionText.enabled = false;
+        }
+        else {
+            weaponNameText.text = weapon.Name;
+            weaponAmmunitionText.text = weapon.ClipAmmunition + " / " + weapon.TotalAmmunition;
+            weaponNameText.enabled = true;
+            weaponAmmunitionText.enabled = true;
         }
     }
 }
