@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -147,7 +148,10 @@ public class Player : MonoBehaviour {
                 obstaclePlacementLock = false;
             }
         }
+
+        UpdateWeapon();
     }
+
     private void SwitchWeapon(int index)
     {
         if (index < weapons.Count) {
@@ -277,8 +281,15 @@ public class Player : MonoBehaviour {
             if (currentWeapon == weapon) {
                 hud.UpdateWeapon(weapon);
             }
+        }
+    }
 
-            // Debug.Log("ClipAmmunition: " + weapon.ClipAmmunition + " TotalAmmunition: " + weapon.TotalAmmunition);
+    private void UpdateWeapon()
+    {
+        if (weapon != null) {
+            float timeElapsed = Time.deltaTime;
+            bool isPressingTrigger = Input.GetAxis("Fire1") > 0.1f;
+            weapon.Update(timeElapsed, isPressingTrigger);
         }
     }
 }
