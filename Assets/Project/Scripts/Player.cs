@@ -47,6 +47,9 @@ public class Player : MonoBehaviour {
     private bool obstaclePlacementLock;
 
     private List<Weapon> weapons;
+    private Weapon weapon;
+
+    private bool isUsingTools = false;
 
     // Start is called before the first frame update
     void Start()
@@ -100,6 +103,19 @@ public class Player : MonoBehaviour {
             }
         }
 
+        // Select weapons
+        if (Input.GetKeyDown("1")) {
+            SwitchWeapon(0);
+        } else if (Input.GetKeyDown("2")) {
+            SwitchWeapon(1);
+        } else if(Input.GetKeyDown("3")) {
+            SwitchWeapon(2);
+        } else if (Input.GetKeyDown("4")) {
+            SwitchWeapon(3);
+        } else if (Input.GetKeyDown("5")) {
+            SwitchWeapon(4);
+        }
+
         // Tool switch logic
         hud.Tool = tool;
         if (Input.GetKeyDown(toolSwitchKey))
@@ -132,8 +148,28 @@ public class Player : MonoBehaviour {
             }
         }
     }
+    private void SwitchWeapon(int index)
+    {
+        if (index < weapons.Count) {
+            isUsingTools = false;
+
+            weapon = weapons[index];
+            hud.UpdateWeapon(weapon);
+
+            tool = PlayerTool.None;
+            hud.Tool = tool;
+
+            if (currentObstacle != null) Destroy(currentObstacle);
+        }
+    }
 
     private void SwitchTool() {
+
+        isUsingTools = true;
+
+        weapon = null;
+        hud.UpdateWeapon(weapon);
+
         // Cycle between the available tools
         int currentToolIndex = (int)tool;
         currentToolIndex++;
@@ -219,26 +255,28 @@ public class Player : MonoBehaviour {
     private void GiveItem(ItemBox.ItemType type, int amount) {
         if (type == ItemBox.ItemType.Pistol) {
             // Create a weapon reference
-            Weapon weapon = null;
+            Weapon currentWeapon = null;
 
             // Check if we already have an instance of this weapon
             for (int i = 0; i < weapons.Count; i++) {
                 if (weapons[i] is Pistol) {
-                    weapon = weapons[i];
+                    currentWeapon = weapons[i];
                 }
             }
 
             // If we don't have a weapon of this type, create one and
             // add it to the weapon list
-            if (weapon == null) {
-                weapon = new Pistol();
-                weapons.Add(weapon);
+            if (currentWeapon == null) {
+                currentWeapon = new Pistol();
+                weapons.Add(currentWeapon);
             }
 
-            weapon.AddAmmunition(amount);
-            weapon.LoadClip();
+            currentWeapon.AddAmmunition(amount);
+            currentWeapon.LoadClip();
 
-            hud.UpdateWeapon(weapon);
+            if (currentWeapon == weapon) {
+                hud.UpdateWeapon(weapon);
+            }
 
             // Debug.Log("ClipAmmunition: " + weapon.ClipAmmunition + " TotalAmmunition: " + weapon.TotalAmmunition);
         }
