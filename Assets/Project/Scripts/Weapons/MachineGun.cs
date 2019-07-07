@@ -11,5 +11,6 @@ public class MachineGun : Weapon
         cooldownDuration = 0.08f;
         isAutomatic = true;
         name = "Machine Gun";
+        aimVariation = 0.2f;
     }
 }

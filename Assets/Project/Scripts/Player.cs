@@ -42,6 +42,9 @@ public class Player : MonoBehaviour {
     [Header("Weapons")]
     [SerializeField] private GameObject shootOrigin;
 
+    [Header("Debug")]
+    [SerializeField] private GameObject debugPositionPrefab;
+
     private bool isFocalPointOnLeft = true;
     private int resources = 0;
     private float resourceCollectionCooldownTimer = 0;
@@ -316,14 +319,23 @@ public class Player : MonoBehaviour {
             gameCamera.transform.forward, out targetHit);
         if (isTargetHit) {
             Vector3 hitPosition = targetHit.point;
+            hitPosition = new Vector3(
+                hitPosition.x + UnityEngine.Random.Range(-weapon.AimVariation, weapon.AimVariation),
+                hitPosition.y + UnityEngine.Random.Range(-weapon.AimVariation, weapon.AimVariation),
+                hitPosition.z + UnityEngine.Random.Range(-weapon.AimVariation, weapon.AimVariation)
+            );
             Vector3 shootDirection = (hitPosition - shootOrigin.transform.position).normalized;
             RaycastHit shootHit;
             bool isShootHit = Physics.Raycast(shootOrigin.transform.position, shootDirection, out shootHit);
             if (isShootHit)
             {
+                GameObject debugPositionInstance = Instantiate(debugPositionPrefab);
+                debugPositionInstance.transform.position = shootHit.point;
+                Destroy(debugPositionInstance, 1.5f);
+
                 GameObject target = shootHit.transform.gameObject;
-                if (target.gameObject.name != "Terrain") Destroy(target.gameObject);
-                Debug.Log("Target name: " + target.name);
+                // if (target.gameObject.name != "Terrain") Destroy(target.gameObject);
+                // Debug.Log("Target name: " + target.name);
                 Debug.DrawLine(shootOrigin.transform.position, shootOrigin.transform.position + shootDirection * 100, Color.red);
             }
         }

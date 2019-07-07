@@ -5196,6 +5196,8 @@ MonoBehaviour:
   - {fileID: 2345090364550221860, guid: 53ea1431429e81f4c9bcb89713efb7d5, type: 3}
   obstaclePlacementCooldown: 0.4
   shootOrigin: {fileID: 606803627}
+  debugPositionPrefab: {fileID: 8897594785129476820, guid: 8bb961162f4081a439869a520031de8e,
+    type: 3}
 --- !u!4 &409810620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce,
