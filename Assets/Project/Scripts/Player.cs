@@ -331,11 +331,12 @@ public class Player : MonoBehaviour {
             {
                 GameObject debugPositionInstance = Instantiate(debugPositionPrefab);
                 debugPositionInstance.transform.position = shootHit.point;
-                Destroy(debugPositionInstance, 1.5f);
+                Destroy(debugPositionInstance, 0.5f);
 
                 GameObject target = shootHit.transform.gameObject;
-                // if (target.gameObject.name != "Terrain") Destroy(target.gameObject);
-                // Debug.Log("Target name: " + target.name);
+                if (target.GetComponent<Obstacle>() != null) {
+                    target.GetComponent<Obstacle>().Hit();
+                }
                 Debug.DrawLine(shootOrigin.transform.position, shootOrigin.transform.position + shootDirection * 100, Color.red);
             }
         }
