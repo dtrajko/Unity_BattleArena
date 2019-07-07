@@ -298,6 +298,28 @@ public class Player : MonoBehaviour {
 
             bool hasShot = weapon.Update(timeElapsed, isPressingTrigger);
             hud.UpdateWeapon(weapon);
+
+            if (hasShot) {
+                Shoot();
+            }
+        }
+    }
+
+    private void Shoot()
+    {
+        RaycastHit hit;
+        Vector3 origin = gameCamera.transform.position;
+        // origin += gameCamera.transform.forward * -gameCamera.FollowOffset.z * 1.0f;
+        origin += gameCamera.transform.forward * Vector3.Distance(gameCamera.transform.position, transform.position);
+
+        // #if UNITY_EDITOR
+        Debug.DrawLine(origin, origin + gameCamera.transform.forward * 1000, Color.red);
+        // #endif
+
+        bool isHit = Physics.Raycast(origin, gameCamera.transform.forward, out hit);
+        if (isHit) {
+            GameObject target = hit.transform.gameObject;
+            Debug.Log("Target name: " + target.name);
         }
     }
 }
