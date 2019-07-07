@@ -5195,6 +5195,7 @@ MonoBehaviour:
   - {fileID: 9063802292457311014, guid: 4f945b190f1af6348a9c7d2d8ea453a6, type: 3}
   - {fileID: 2345090364550221860, guid: 53ea1431429e81f4c9bcb89713efb7d5, type: 3}
   obstaclePlacementCooldown: 0.4
+  shootOrigin: {fileID: 606803627}
 --- !u!4 &409810620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce,
@@ -6452,6 +6453,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 598511048}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &606803627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 606803628}
+  m_Layer: 0
+  m_Name: ShootOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &606803628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606803627}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.015, y: 0.165, z: -0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1293872627}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &615094027 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: df4796b594b970842b69211cb0078c5d,
@@ -13233,7 +13264,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212223535}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -14222,6 +14253,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1269931112399674040, guid: f0c28bc7ed575374bb1539cc934aa9a2,
     type: 3}
   m_PrefabInstance: {fileID: 1289376825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1293872627 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 418840, guid: 7737647c22c1fc64a88d5cd030c352ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 409810617}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1303652010
 GameObject:
@@ -17981,8 +18018,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733844018}
-  m_LocalRotation: {x: -0.07769536, y: 0.1163702, z: 0.00913125, w: 0.99012023}
-  m_LocalPosition: {x: -0.67814004, y: 2.4687781, z: -22.84508}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.6399999, z: -22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 322342785}
@@ -21073,8 +21110,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000715531}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.6399999, z: -22}
+  m_LocalRotation: {x: -0.0024611547, y: 0.98443735, z: 0.013588222, w: 0.17519245}
+  m_LocalPosition: {x: -0.8086559, y: 2.7042851, z: -18.28081}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 322342785}

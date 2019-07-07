@@ -39,6 +39,8 @@ public class Player : MonoBehaviour {
     [SerializeField] private GameObject[] obstaclePrefabs;
     [SerializeField] private float obstaclePlacementCooldown = 0.4f;
 
+    [Header("Weapons")]
+    [SerializeField] private GameObject shootOrigin;
 
     private bool isFocalPointOnLeft = true;
     private int resources = 0;
@@ -307,19 +309,23 @@ public class Player : MonoBehaviour {
 
     private void Shoot()
     {
-        RaycastHit hit;
-        Vector3 origin = gameCamera.transform.position;
-        // origin += gameCamera.transform.forward * -gameCamera.FollowOffset.z * 1.0f;
-        origin += gameCamera.transform.forward * Vector3.Distance(gameCamera.transform.position, transform.position);
-
-        // #if UNITY_EDITOR
-        Debug.DrawLine(origin, origin + gameCamera.transform.forward * 1000, Color.red);
-        // #endif
-
-        bool isHit = Physics.Raycast(origin, gameCamera.transform.forward, out hit);
-        if (isHit) {
-            GameObject target = hit.transform.gameObject;
-            Debug.Log("Target name: " + target.name);
+        float distanceFromCamera = Vector3.Distance(gameCamera.transform.position, transform.position);
+        RaycastHit targetHit;
+        bool isTargetHit = Physics.Raycast(
+            gameCamera.transform.position + gameCamera.transform.forward * distanceFromCamera,
+            gameCamera.transform.forward, out targetHit);
+        if (isTargetHit) {
+            Vector3 hitPosition = targetHit.point;
+            Vector3 shootDirection = (hitPosition - shootOrigin.transform.position).normalized;
+            RaycastHit shootHit;
+            bool isShootHit = Physics.Raycast(shootOrigin.transform.position, shootDirection, out shootHit);
+            if (isShootHit)
+            {
+                GameObject target = shootHit.transform.gameObject;
+                if (target.gameObject.name != "Terrain") Destroy(target.gameObject);
+                Debug.Log("Target name: " + target.name);
+                Debug.DrawLine(shootOrigin.transform.position, shootOrigin.transform.position + shootDirection * 100, Color.red);
+            }
         }
     }
 }
