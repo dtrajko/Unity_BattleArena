@@ -250,6 +250,9 @@ public class Player : MonoBehaviour {
             ItemBox itemBox = otherCollider.gameObject.GetComponent<ItemBox>();
             if (itemBox.Type == ItemBox.ItemType.Pistol) {
                 GiveItem(itemBox.Type, itemBox.Amount);
+            } else if (itemBox.Type == ItemBox.ItemType.MachineGun)
+            {
+                GiveItem(itemBox.Type, itemBox.Amount);
             }
 
             Destroy(otherCollider.gameObject);
@@ -257,30 +260,28 @@ public class Player : MonoBehaviour {
     }
 
     private void GiveItem(ItemBox.ItemType type, int amount) {
-        if (type == ItemBox.ItemType.Pistol) {
-            // Create a weapon reference
-            Weapon currentWeapon = null;
+        // Create a weapon reference
+        Weapon currentWeapon = null;
 
-            // Check if we already have an instance of this weapon
-            for (int i = 0; i < weapons.Count; i++) {
-                if (weapons[i] is Pistol) {
-                    currentWeapon = weapons[i];
-                }
-            }
+        // Check if we already have an instance of this weapon
+        for (int i = 0; i < weapons.Count; i++) {
+            if (type == ItemBox.ItemType.Pistol && weapons[i] is Pistol) currentWeapon = weapons[i];
+            else if (type == ItemBox.ItemType.MachineGun && weapons[i] is MachineGun) currentWeapon = weapons[i];
+        }
 
-            // If we don't have a weapon of this type, create one and
-            // add it to the weapon list
-            if (currentWeapon == null) {
-                currentWeapon = new Pistol();
-                weapons.Add(currentWeapon);
-            }
+        // If we don't have a weapon of this type, create one and
+        // add it to the weapon list
+        if (currentWeapon == null) {
+            if (type == ItemBox.ItemType.Pistol) currentWeapon = new Pistol();
+            else if (type == ItemBox.ItemType.MachineGun) currentWeapon = new MachineGun();
+            weapons.Add(currentWeapon);
+        }
 
-            currentWeapon.AddAmmunition(amount);
-            currentWeapon.LoadClip();
+        currentWeapon.AddAmmunition(amount);
+        currentWeapon.LoadClip();
 
-            if (currentWeapon == weapon) {
-                hud.UpdateWeapon(weapon);
-            }
+        if (currentWeapon == weapon) {
+            hud.UpdateWeapon(weapon);
         }
     }
 

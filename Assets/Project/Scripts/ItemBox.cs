@@ -5,7 +5,8 @@ using UnityEngine;
 public class ItemBox : MonoBehaviour
 {
     public enum ItemType {
-        Pistol
+        Pistol,
+        MachineGun,
     }
 
     [Header("Values")]
