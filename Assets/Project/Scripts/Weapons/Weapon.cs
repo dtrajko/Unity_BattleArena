@@ -31,6 +31,8 @@ public abstract class Weapon
     public bool IsAutomatic { get { return isAutomatic; } }
     public string Name { get { return name; } }
 
+    public float ReloadTimer { get { return reloadTimer; } }
+
     internal void AddAmmunition(int amount)
     {
         totalAmmunition = System.Math.Min(totalAmmunition + amount, maxAmmunition);
