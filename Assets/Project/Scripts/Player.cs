@@ -169,6 +169,11 @@ public class Player : MonoBehaviour {
             hud.Tool = tool;
 
             if (currentObstacle != null) Destroy(currentObstacle);
+
+            // Zoom out
+            if (!(weapon is Sniper)) {
+                gameCamera.ZoomOut();
+            }
         }
     }
 
@@ -178,6 +183,9 @@ public class Player : MonoBehaviour {
 
         weapon = null;
         hud.UpdateWeapon(weapon);
+
+        // Zoom the camera out
+        gameCamera.ZoomOut();
 
         // Cycle between the available tools
         int currentToolIndex = (int)tool;
@@ -267,6 +275,7 @@ public class Player : MonoBehaviour {
             if (type == ItemBox.ItemType.Pistol && weapons[i] is Pistol) currentWeapon = weapons[i];
             else if (type == ItemBox.ItemType.MachineGun && weapons[i] is MachineGun) currentWeapon = weapons[i];
             else if (type == ItemBox.ItemType.Shotgun && weapons[i] is Shotgun) currentWeapon = weapons[i];
+            else if (type == ItemBox.ItemType.Sniper && weapons[i] is Sniper) currentWeapon = weapons[i];
         }
 
         // If we don't have a weapon of this type, create one and
@@ -275,6 +284,7 @@ public class Player : MonoBehaviour {
             if (type == ItemBox.ItemType.Pistol) currentWeapon = new Pistol();
             else if (type == ItemBox.ItemType.MachineGun) currentWeapon = new MachineGun();
             else if (type == ItemBox.ItemType.Shotgun) currentWeapon = new Shotgun();
+            else if (type == ItemBox.ItemType.Sniper) currentWeapon = new Sniper();
             weapons.Add(currentWeapon);
         }
 
@@ -288,9 +298,11 @@ public class Player : MonoBehaviour {
 
     private void UpdateWeapon()
     {
-        if (weapon != null) {
+        if (weapon != null)
+        {
 
-            if (Input.GetKeyDown(KeyCode.R)) {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
                 weapon.Reload();
             }
 
@@ -300,8 +312,18 @@ public class Player : MonoBehaviour {
             bool hasShot = weapon.Update(timeElapsed, isPressingTrigger);
             hud.UpdateWeapon(weapon);
 
-            if (hasShot) {
+            if (hasShot)
+            {
                 Shoot();
+            }
+
+            // Zoom logic
+            if (weapon is Sniper)
+            {
+                if (Input.GetMouseButtonDown(1))
+                {
+                    gameCamera.TriggerZoom();
+                }
             }
         }
     }
@@ -322,12 +344,14 @@ public class Player : MonoBehaviour {
             if (isTargetHit)
             {
                 Vector3 hitPosition = targetHit.point;
-                hitPosition = new Vector3(
-                    hitPosition.x + UnityEngine.Random.Range(-weapon.AimVariation, weapon.AimVariation),
-                    hitPosition.y + UnityEngine.Random.Range(-weapon.AimVariation, weapon.AimVariation),
-                    hitPosition.z + UnityEngine.Random.Range(-weapon.AimVariation, weapon.AimVariation)
-                );
                 Vector3 shootDirection = (hitPosition - shootOrigin.transform.position).normalized;
+                shootDirection = new Vector3(
+                    shootDirection.x + UnityEngine.Random.Range(-weapon.AimVariation, weapon.AimVariation),
+                    shootDirection.y + UnityEngine.Random.Range(-weapon.AimVariation, weapon.AimVariation),
+                    shootDirection.z + UnityEngine.Random.Range(-weapon.AimVariation, weapon.AimVariation)
+                );
+                shootDirection.Normalize();
+
                 RaycastHit shootHit;
                 bool isShootHit = Physics.Raycast(shootOrigin.transform.position, shootDirection, out shootHit);
                 if (isShootHit)
