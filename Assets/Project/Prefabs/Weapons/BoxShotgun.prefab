@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7854d6c2ef1519e4e8c536804e40a7ce, type: 2}
+  - {fileID: 2100000, guid: c4bfd4c625ecfa5408ca7f0a53e64728, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 5770109955432495012}
   - component: {fileID: 5770109955432495015}
   m_Layer: 0
-  m_Name: BoxPistol
+  m_Name: BoxShotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,8 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66805493cc684724fac9cc3d0221504b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
-  itemAmount: 36
+  itemType: 2
+  itemAmount: 60
   rotationAngle: 60
   verticalRange: 0.125
   verticalSpeed: 2

@@ -253,13 +253,7 @@ public class Player : MonoBehaviour {
     private void OnTriggerEnter(Collider otherCollider) {
         if (otherCollider.GetComponent<ItemBox>() != null) {
             ItemBox itemBox = otherCollider.gameObject.GetComponent<ItemBox>();
-            if (itemBox.Type == ItemBox.ItemType.Pistol) {
-                GiveItem(itemBox.Type, itemBox.Amount);
-            } else if (itemBox.Type == ItemBox.ItemType.MachineGun)
-            {
-                GiveItem(itemBox.Type, itemBox.Amount);
-            }
-
+            GiveItem(itemBox.Type, itemBox.Amount);
             Destroy(otherCollider.gameObject);
         }
     }
@@ -272,6 +266,7 @@ public class Player : MonoBehaviour {
         for (int i = 0; i < weapons.Count; i++) {
             if (type == ItemBox.ItemType.Pistol && weapons[i] is Pistol) currentWeapon = weapons[i];
             else if (type == ItemBox.ItemType.MachineGun && weapons[i] is MachineGun) currentWeapon = weapons[i];
+            else if (type == ItemBox.ItemType.Shotgun && weapons[i] is Shotgun) currentWeapon = weapons[i];
         }
 
         // If we don't have a weapon of this type, create one and
@@ -279,6 +274,7 @@ public class Player : MonoBehaviour {
         if (currentWeapon == null) {
             if (type == ItemBox.ItemType.Pistol) currentWeapon = new Pistol();
             else if (type == ItemBox.ItemType.MachineGun) currentWeapon = new MachineGun();
+            else if (type == ItemBox.ItemType.Shotgun) currentWeapon = new Shotgun();
             weapons.Add(currentWeapon);
         }
 
@@ -312,32 +308,41 @@ public class Player : MonoBehaviour {
 
     private void Shoot()
     {
-        float distanceFromCamera = Vector3.Distance(gameCamera.transform.position, transform.position);
-        RaycastHit targetHit;
-        bool isTargetHit = Physics.Raycast(
-            gameCamera.transform.position + gameCamera.transform.forward * distanceFromCamera,
-            gameCamera.transform.forward, out targetHit);
-        if (isTargetHit) {
-            Vector3 hitPosition = targetHit.point;
-            hitPosition = new Vector3(
-                hitPosition.x + UnityEngine.Random.Range(-weapon.AimVariation, weapon.AimVariation),
-                hitPosition.y + UnityEngine.Random.Range(-weapon.AimVariation, weapon.AimVariation),
-                hitPosition.z + UnityEngine.Random.Range(-weapon.AimVariation, weapon.AimVariation)
-            );
-            Vector3 shootDirection = (hitPosition - shootOrigin.transform.position).normalized;
-            RaycastHit shootHit;
-            bool isShootHit = Physics.Raycast(shootOrigin.transform.position, shootDirection, out shootHit);
-            if (isShootHit)
-            {
-                GameObject debugPositionInstance = Instantiate(debugPositionPrefab);
-                debugPositionInstance.transform.position = shootHit.point;
-                Destroy(debugPositionInstance, 0.5f);
+        int amountOfBullets = 1;
+        if (weapon is Shotgun) {
+            amountOfBullets = ((Shotgun)weapon).AmountOfBullets;
+        }
 
-                GameObject target = shootHit.transform.gameObject;
-                if (target.GetComponent<Obstacle>() != null) {
-                    target.GetComponent<Obstacle>().Hit();
+        for (int i = 0; i < amountOfBullets; i++) {
+            float distanceFromCamera = Vector3.Distance(gameCamera.transform.position, transform.position);
+            RaycastHit targetHit;
+            bool isTargetHit = Physics.Raycast(
+                gameCamera.transform.position + gameCamera.transform.forward * distanceFromCamera,
+                gameCamera.transform.forward, out targetHit);
+            if (isTargetHit)
+            {
+                Vector3 hitPosition = targetHit.point;
+                hitPosition = new Vector3(
+                    hitPosition.x + UnityEngine.Random.Range(-weapon.AimVariation, weapon.AimVariation),
+                    hitPosition.y + UnityEngine.Random.Range(-weapon.AimVariation, weapon.AimVariation),
+                    hitPosition.z + UnityEngine.Random.Range(-weapon.AimVariation, weapon.AimVariation)
+                );
+                Vector3 shootDirection = (hitPosition - shootOrigin.transform.position).normalized;
+                RaycastHit shootHit;
+                bool isShootHit = Physics.Raycast(shootOrigin.transform.position, shootDirection, out shootHit);
+                if (isShootHit)
+                {
+                    GameObject debugPositionInstance = Instantiate(debugPositionPrefab);
+                    debugPositionInstance.transform.position = shootHit.point;
+                    Destroy(debugPositionInstance, 0.5f);
+
+                    GameObject target = shootHit.transform.gameObject;
+                    if (target.GetComponent<Obstacle>() != null)
+                    {
+                        target.GetComponent<Obstacle>().Hit();
+                    }
+                    Debug.DrawLine(shootOrigin.transform.position, shootOrigin.transform.position + shootDirection * 100, Color.red);
                 }
-                Debug.DrawLine(shootOrigin.transform.position, shootOrigin.transform.position + shootDirection * 100, Color.red);
             }
         }
     }

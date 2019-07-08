@@ -7,6 +7,7 @@ public class ItemBox : MonoBehaviour
     public enum ItemType {
         Pistol,
         MachineGun,
+        Shotgun,
     }
 
     [Header("Values")]
