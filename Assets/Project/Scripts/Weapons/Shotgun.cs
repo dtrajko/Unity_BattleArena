@@ -13,7 +13,7 @@ public class Shotgun : Weapon
         cooldownDuration = 1.0f;
         isAutomatic = false;
         name = "Shotgun";
-        aimVariation = 0.08f;
+        aimVariation = 0.05f;
     }
     public int AmountOfBullets { get { return amountOfBullets; } }
 }

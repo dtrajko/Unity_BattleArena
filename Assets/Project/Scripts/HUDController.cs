@@ -11,6 +11,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Text weaponNameText;
     [SerializeField] private Text weaponAmmunitionText;
     [SerializeField] private RectTransform weaponReloadBar;
+    [SerializeField] private GameObject sniperAim;
 
     [Header("Tool Selector")]
     [SerializeField] private GameObject toolFocus;
@@ -51,6 +52,8 @@ public class HUDController : MonoBehaviour
         }
     }
 
+    public bool SniperAimVisibility { set { sniperAim.SetActive(value); } }
+
     // Start is called before the first frame update
     void Start() {
         targetFocusX = toolContainer.transform.GetChild(0).transform.position.x;
@@ -60,6 +63,9 @@ public class HUDController : MonoBehaviour
         );
         // weaponNameText.enabled = false;
         // weaponAmmunitionText.enabled = false;
+
+        // Hide the sniper aim
+        sniperAim.SetActive(false);
     }
 
     // Update is called once per frame
