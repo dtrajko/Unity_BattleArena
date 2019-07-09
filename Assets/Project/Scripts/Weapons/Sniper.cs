@@ -11,6 +11,6 @@ public class Sniper : Weapon
         cooldownDuration = 0.5f;
         isAutomatic = false;
         name = "Sniper";
-        aimVariation = 0.002f;
+        aimVariation = 0.003f;
     }
 }

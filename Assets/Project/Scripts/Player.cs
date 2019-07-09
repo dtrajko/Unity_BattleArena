@@ -324,7 +324,22 @@ public class Player : MonoBehaviour {
                 if (Input.GetMouseButtonDown(1)) {
                     gameCamera.TriggerZoom();
                     hud.SniperAimVisibility = gameCamera.IsZoomedIn;
+                    Visibility = !gameCamera.IsZoomedIn;
                 }
+            }
+        }
+    }
+
+    // Hide player (3rd person character) models in zoom in mode
+    // Unhide player (3rd person character) models in zoom out mode
+    public bool Visibility
+    {
+        set
+        {
+            Renderer[] playerRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
+            foreach (Renderer playerRenderer in playerRenderers)
+            {
+                playerRenderer.enabled = value;
             }
         }
     }
