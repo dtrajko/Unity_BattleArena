@@ -390,7 +390,9 @@ public class Player : MonoBehaviour {
                     }
                 }
                 else {
-
+                    GameObject rocket = Instantiate(rocketPrefab);
+                    rocket.transform.position = shootOrigin.transform.position + shootDirection;
+                    rocket.GetComponent<Rocket>().Shoot(shootDirection);
                 }
             }
         }
