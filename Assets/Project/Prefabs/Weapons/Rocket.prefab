@@ -47,6 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  lifetime: 5
+  explosionPrefab: {fileID: 8107772546918971049, guid: a2d45eef51bf86648b768ab1355e4224,
+    type: 3}
+  explosionRange: 4
+  explosionDamage: 30
 --- !u!136 &4385981907322233697
 CapsuleCollider:
   m_ObjectHideFlags: 0
