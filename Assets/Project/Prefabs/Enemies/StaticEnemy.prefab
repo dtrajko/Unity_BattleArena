@@ -191,7 +191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 293142627245608488}
-  - component: {fileID: 293142627245608503}
+  - component: {fileID: 1181088933360057301}
   - component: {fileID: 293142627245608502}
   m_Layer: 0
   m_Name: StaticEnemy
@@ -216,7 +216,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &293142627245608503
+--- !u!114 &1181088933360057301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 293142627245608489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58771de49669e4a4aa8b3852e2a22615, type: 3}
+  m_Script: {fileID: 11500000, guid: 610459e5467f7dc49898a3cd900932a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 25
