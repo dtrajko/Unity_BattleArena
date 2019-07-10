@@ -235,7 +235,7 @@ public class Player : MonoBehaviour {
                 {
                     resourceCollectionCooldownTimer = resourceCollectionCooldown;
                     ResourceObject resourceObject = hit.transform.GetComponent<ResourceObject>();
-                    int collectedResources = resourceObject.Collect();
+                    int collectedResources = resourceObject.Damage(1);
                     resources += collectedResources;
                     hud.Resources = resources;
                 }
@@ -381,11 +381,14 @@ public class Player : MonoBehaviour {
                         debugPositionInstance.transform.position = shootHit.point;
                         Destroy(debugPositionInstance, 0.5f);
 
-                        GameObject target = shootHit.transform.gameObject;
-                        if (target.GetComponent<Obstacle>() != null)
+                        if (shootHit.transform.GetComponent<IDamageable>() != null)
                         {
-                            target.GetComponent<Obstacle>().Hit();
+                            shootHit.transform.GetComponent<IDamageable>().Damage(weapon.Damage);
+                        } else if (shootHit.transform.GetComponentInParent<IDamageable>() != null)
+                        {
+                            shootHit.transform.GetComponentInParent<IDamageable>().Damage(weapon.Damage);
                         }
+
                         Debug.DrawLine(shootOrigin.transform.position, shootOrigin.transform.position + shootDirection * 100, Color.red);
                     }
                 }

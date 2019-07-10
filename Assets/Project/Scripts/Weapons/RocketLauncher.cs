@@ -12,5 +12,6 @@ public class RocketLauncher : Weapon
         isAutomatic = false;
         name = "RPG";
         aimVariation = 0.03f;
+        damage = 80.0f;
     }
 }

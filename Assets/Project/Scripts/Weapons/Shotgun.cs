@@ -14,6 +14,7 @@ public class Shotgun : Weapon
         isAutomatic = false;
         name = "Shotgun";
         aimVariation = 0.05f;
+        damage = 4.0f;
     }
     public int AmountOfBullets { get { return amountOfBullets; } }
 }

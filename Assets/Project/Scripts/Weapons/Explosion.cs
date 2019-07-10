@@ -8,7 +8,13 @@ public class Explosion : MonoBehaviour
         transform.GetChild(0).localScale = Vector3.one * range * 2;
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, range, transform.up);
         foreach (RaycastHit hit in hits) {
-            Destroy(hit.transform.gameObject);
+            // Destroy(hit.transform.gameObject);
+            if (hit.transform.GetComponent<IDamageable>() != null) {
+                hit.transform.GetComponent<IDamageable>().Damage(damage);
+            }
+            if (hit.transform.GetComponentInParent<IDamageable>() != null) {
+                hit.transform.GetComponentInParent<IDamageable>().Damage(damage);
+            }
         }
         Destroy(gameObject, 0.5f);
     }

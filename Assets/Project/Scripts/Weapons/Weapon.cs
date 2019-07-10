@@ -16,6 +16,7 @@ public abstract class Weapon
     protected bool isAutomatic = false;
     protected string name = "";
     protected float aimVariation = 0.0f;
+    protected float damage = 0.0f;
 
     // Private fields
     private float reloadTimer = -1.0f;
@@ -32,6 +33,7 @@ public abstract class Weapon
     public bool IsAutomatic { get { return isAutomatic; } }
     public string Name { get { return name; } }
     public float AimVariation { get { return aimVariation; } }
+    public float Damage { get { return damage; } }
 
     public float ReloadTimer { get { return reloadTimer; } }
 

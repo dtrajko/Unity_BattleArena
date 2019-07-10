@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceObject : MonoBehaviour
+public class ResourceObject : MonoBehaviour, IDamageable
 {
     [SerializeField] private int resourceAmount = 10;
-    [SerializeField] private int amountOfHits = 5;
+    [SerializeField] private float amountOfHits = 5;
     [SerializeField] private float hitScale = 0.8f;
     [SerializeField] private float hitSmoothness = 10.0f;
 
-    private int hits;
+    private float hits;
     private float targetScale;
 
     // Start is called before the first frame update
@@ -27,14 +27,18 @@ public class ResourceObject : MonoBehaviour
             Mathf.Lerp(transform.localScale.z, targetScale, Time.deltaTime * hitSmoothness)
         );
     }
-    public int Collect() {
-        hits++;
+
+    public int Damage(float amount)
+    {
+        hits += amount;
         transform.localScale = Vector3.one * hitScale;
-        if (hits >= amountOfHits) {
+        if (hits >= amountOfHits)
+        {
             Destroy(gameObject, 1.0f);
             targetScale = 0;
             return resourceAmount;
         }
+
         return 0;
     }
 }
