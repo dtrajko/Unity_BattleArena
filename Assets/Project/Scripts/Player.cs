@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IDamageable {
 
+    public delegate void DiedDelegate();
+    public event DiedDelegate OnPlayerDied;
+
     public enum PlayerTool {
         Pickaxe,
         ObstacleVertical,
@@ -416,6 +419,10 @@ public class Player : MonoBehaviour, IDamageable {
                 health = 0;
                 Destroy(gameObject);
                 hud.ShowScreen("gameOver");
+
+                if (OnPlayerDied != null) {
+                    OnPlayerDied();
+                }
             }
             hud.Health = health;
             hud.UpdateHealthBar(health / 100);
