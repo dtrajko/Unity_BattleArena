@@ -415,8 +415,10 @@ public class Player : MonoBehaviour, IDamageable {
             {
                 health = 0;
                 Destroy(gameObject);
+                hud.ShowScreen("gameOver");
             }
             hud.Health = health;
+            hud.UpdateHealthBar(health / 100);
         }
         return 0;
     }

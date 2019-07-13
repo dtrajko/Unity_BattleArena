@@ -1,10 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HUDController : MonoBehaviour
 {
+    [Header("Screens")]
+    [SerializeField] private GameObject regularScreen;
+    [SerializeField] private GameObject gameOverScreen;
+
     [Header("Interface Elements")]
     [SerializeField] private Text healthText;
     [SerializeField] private Text resourcesText;
@@ -12,6 +17,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Text weaponNameText;
     [SerializeField] private Text weaponAmmunitionText;
     [SerializeField] private RectTransform weaponReloadBar;
+    [SerializeField] private RectTransform healthBar;
     [SerializeField] private GameObject sniperAim;
 
     [Header("Tool Selector")]
@@ -65,6 +71,8 @@ public class HUDController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
+        ShowScreen("regular");
+
         targetFocusX = toolContainer.transform.GetChild(0).transform.position.x;
         toolFocus.transform.position = new Vector3(
             targetFocusX,
@@ -116,5 +124,14 @@ public class HUDController : MonoBehaviour
                 weaponReloadBar.localScale = new Vector3(0, 1, 1);
             }
         }
+    }
+    public void UpdateHealthBar(float health)
+    {
+        healthBar.localScale = new Vector3(health, 1, 1);
+    }
+
+    public void ShowScreen(string screenName) {
+        regularScreen.SetActive(screenName == "regular");
+        gameOverScreen.SetActive(screenName == "gameOver");
     }
 }
