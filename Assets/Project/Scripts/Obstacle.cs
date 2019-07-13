@@ -8,7 +8,7 @@ public class Obstacle : MonoBehaviour, IDamageable
     [SerializeField] private int cost;
     [SerializeField] private float hitSmoothness;
 
-    private Collider obstacleCollider;
+    private Collider[] obstacleColliders;
     private Renderer obstacleRenderer;
     private int targetScale = 1;
 
@@ -31,9 +31,11 @@ public class Obstacle : MonoBehaviour, IDamageable
     }
 
     void Awake() {
-        obstacleCollider = GetComponentInChildren<Collider>();
+        obstacleColliders = GetComponentsInChildren<Collider>();
         // Start with the obstacle collider disabled
-        obstacleCollider.enabled = false;
+        foreach (Collider obstacleCollider in obstacleColliders) {
+            obstacleCollider.enabled = false;
+        }
 
         // Work with transparency
         obstacleRenderer = GetComponentInChildren<Renderer>();
@@ -43,7 +45,10 @@ public class Obstacle : MonoBehaviour, IDamageable
 
     public void Place() {
         // Enable the collider
-        obstacleCollider.enabled = true;
+        foreach (Collider obstacleCollider in obstacleColliders)
+        {
+            obstacleCollider.enabled = true;
+        }
 
         // Make the obstacle opaque
         obstacleRenderer.material.color = Color.white;
@@ -59,7 +64,7 @@ public class Obstacle : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             targetScale = 0;
-            Destroy(gameObject, 0.1f);
+            Destroy(gameObject, 0.05f);
         }
 
         return 0;

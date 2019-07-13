@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class HUDController : MonoBehaviour
 {
     [Header("Interface Elements")]
+    [SerializeField] private Text healthText;
     [SerializeField] private Text resourcesText;
     [SerializeField] private Text resourcesRequirementText;
     [SerializeField] private Text weaponNameText;
     [SerializeField] private Text weaponAmmunitionText;
     [SerializeField] private RectTransform weaponReloadBar;
     [SerializeField] private GameObject sniperAim;
-    [SerializeField] private Text healthText;
 
     [Header("Tool Selector")]
     [SerializeField] private GameObject toolFocus;
@@ -21,17 +21,17 @@ public class HUDController : MonoBehaviour
 
     private float targetFocusX = 0;
 
-    public int Resources {
-        set {
-            resourcesText.text = "Resources: " + value;
-        }
-    }
-
-    public int Health
+    public float Health
     {
         set
         {
-            healthText.text = "Health: " + value;
+            healthText.text = "Health: " + Mathf.CeilToInt(value);
+        }
+    }
+
+    public int Resources {
+        set {
+            resourcesText.text = "Resources: " + value;
         }
     }
 

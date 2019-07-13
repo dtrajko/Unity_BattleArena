@@ -13,9 +13,6 @@ public class Player : MonoBehaviour, IDamageable {
         None
     }
 
-    [Header("Health")]
-    [SerializeField] private int health = 100;
-
     [Header("Focal Point Variables")]
     [SerializeField] private GameObject focalPoint = null;
     [SerializeField] private float focalDistance = -0.3f;
@@ -56,10 +53,11 @@ public class Player : MonoBehaviour, IDamageable {
     private GameObject currentObstacle;
     private bool obstaclePlacementLock;
 
+    private bool isUsingTools = false;
     private List<Weapon> weapons;
     private Weapon weapon;
 
-    private bool isUsingTools = false;
+    private float health;
 
     public float Health { get { return health; } }
 
@@ -67,9 +65,10 @@ public class Player : MonoBehaviour, IDamageable {
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        health = 100;
+        hud.Health = health;
         resources = initialResourceCount;
         hud.Resources = resources;
-        hud.Health = health;
         tool = PlayerTool.Pickaxe;
         hud.Tool = tool; // PlayerTool: Pickaxe
         hud.UpdateWeapon(null);
@@ -329,6 +328,7 @@ public class Player : MonoBehaviour, IDamageable {
             }
 
             // Zoom logic
+            Visibility = true;
             if (weapon is Sniper) {
                 if (Input.GetMouseButtonDown(1)) {
                     gameCamera.TriggerZoom();
@@ -409,12 +409,15 @@ public class Player : MonoBehaviour, IDamageable {
 
     public int Damage(float amount)
     {
-        health -= (int)amount;
-        if (health <= 0) {
-            Destroy(gameObject);
-            return 1;
+        if (health > 0) {
+            health -= amount;
+            if (health <= 0)
+            {
+                health = 0;
+                Destroy(gameObject);
+            }
+            hud.Health = health;
         }
-        hud.Health = health;
         return 0;
     }
 }

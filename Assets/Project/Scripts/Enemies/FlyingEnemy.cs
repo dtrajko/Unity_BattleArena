@@ -101,7 +101,6 @@ public class FlyingEnemy : Enemy
                 if (hit.transform.GetComponent<Player>() != null)
                 {
                     target = hit.transform.GetComponent<Player>();
-                    Debug.Log("Target found!");
                 }
             }
         }
@@ -133,7 +132,8 @@ public class FlyingEnemy : Enemy
     }
 
     private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.GetComponent<IDamageable>() != null) {
+        if (collision.gameObject.GetComponent<IDamageable>() != null &&
+            collision.gameObject.GetComponent<IDamageable>() is Player) {
             collision.gameObject.GetComponent<IDamageable>().Damage(damage);
 
             Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
