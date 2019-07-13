@@ -6,8 +6,10 @@ public class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] private float health = 25.0f;
     [SerializeField] private float hitSmoothness = 10.0f;
+    [SerializeField] protected float damage = 1.0f;
 
     protected Rigidbody enemyRigidbody;
+    protected float damageScale = 0.8f;
     private float targetScale = 1.0f;
 
     void Awake() {
@@ -15,7 +17,7 @@ public class Enemy : MonoBehaviour, IDamageable
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         transform.localScale = new Vector3(
             Mathf.Lerp(transform.localScale.x, targetScale, hitSmoothness * Time.deltaTime),
@@ -26,7 +28,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public int Damage(float amount)
     {
         if (health > 0) {
-            transform.localScale = Vector3.one * 0.9f;
+            transform.localScale = Vector3.one * damageScale;
         }
         health -= amount;
 

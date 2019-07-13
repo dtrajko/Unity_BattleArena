@@ -9,12 +9,16 @@ public class FlyingEnemy : Enemy
     [SerializeField] private float distanceFromFloor = 2.0f;
     [SerializeField] private float hoverSmoothness = 0.25f;
     [SerializeField] private float bounceAmplitude = 0.25f;
-    [SerializeField] private float bounceSpeed = 2f;
+    [SerializeField] private float bounceSpeed = 2.0f;
 
     [Header("Chasing")]
     [SerializeField] private float chasingRange = 20.0f;
     [SerializeField] private float chasingSpeed = 1.0f;
     [SerializeField] private float chasingSmoothness = 10.0f;
+
+    [Header("Attacking")]
+    [SerializeField] private float attackingRange = 10.0f;
+    [SerializeField] private float bounceBackSpeed = 4.0f;
 
     private float bounceAngle = 60.0f;
     private Player target;
@@ -25,14 +29,20 @@ public class FlyingEnemy : Enemy
     void Start()
     {
         floatingObject = transform.GetChild(0).gameObject;
+        damage = 2.0f;
+        damageScale = 0.6f;
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
+        base.Update();
+        Chase();
+    }
+
+    void FixedUpdate() {
         // Make the enemy fly
         Fly();
-        Chase();
     }
 
     private void Fly()
@@ -60,6 +70,16 @@ public class FlyingEnemy : Enemy
                 targetPosition.y + offset,
                 targetPosition.z
             );
+
+            // Move the enemy towards the target (if any)
+            if (target != null && Vector3.Distance(transform.position, target.transform.position) <= attackingRange)
+            {
+                targetPosition = new Vector3(
+                    targetPosition.x,
+                    target.transform.position.y + 1,
+                    targetPosition.z
+                );
+            }
 
             // Apply the position
             transform.position = new Vector3(
@@ -110,5 +130,14 @@ public class FlyingEnemy : Enemy
             Mathf.Lerp(enemyRigidbody.velocity.y, targetVelocity.y, Time.deltaTime * chasingSmoothness),
             Mathf.Lerp(enemyRigidbody.velocity.z, targetVelocity.z, Time.deltaTime * chasingSmoothness)
         );
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.GetComponent<IDamageable>() != null) {
+            collision.gameObject.GetComponent<IDamageable>().Damage(damage);
+
+            Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
+            enemyRigidbody.velocity = direction * bounceBackSpeed;
+        }
     }
 }

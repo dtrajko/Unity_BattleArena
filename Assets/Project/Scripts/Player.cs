@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour, IDamageable {
 
     public enum PlayerTool {
         Pickaxe,
@@ -12,6 +12,9 @@ public class Player : MonoBehaviour {
         ObstacleHorizontal,
         None
     }
+
+    [Header("Health")]
+    [SerializeField] private int health = 100;
 
     [Header("Focal Point Variables")]
     [SerializeField] private GameObject focalPoint = null;
@@ -58,12 +61,15 @@ public class Player : MonoBehaviour {
 
     private bool isUsingTools = false;
 
+    public float Health { get { return health; } }
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         resources = initialResourceCount;
         hud.Resources = resources;
+        hud.Health = health;
         tool = PlayerTool.Pickaxe;
         hud.Tool = tool; // PlayerTool: Pickaxe
         hud.UpdateWeapon(null);
@@ -399,5 +405,16 @@ public class Player : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public int Damage(float amount)
+    {
+        health -= (int)amount;
+        if (health <= 0) {
+            Destroy(gameObject);
+            return 1;
+        }
+        hud.Health = health;
+        return 0;
     }
 }

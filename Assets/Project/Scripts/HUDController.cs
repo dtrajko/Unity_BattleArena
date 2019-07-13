@@ -12,6 +12,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Text weaponAmmunitionText;
     [SerializeField] private RectTransform weaponReloadBar;
     [SerializeField] private GameObject sniperAim;
+    [SerializeField] private Text healthText;
 
     [Header("Tool Selector")]
     [SerializeField] private GameObject toolFocus;
@@ -23,6 +24,14 @@ public class HUDController : MonoBehaviour
     public int Resources {
         set {
             resourcesText.text = "Resources: " + value;
+        }
+    }
+
+    public int Health
+    {
+        set
+        {
+            healthText.text = "Health: " + value;
         }
     }
 
