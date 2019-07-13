@@ -36,6 +36,8 @@ public class GameCamera : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (target == null) return;
+
         // Make the camera look at the target
         float yAngle = target.transform.eulerAngles.y;
         Quaternion rotation = Quaternion.Euler(0, yAngle, 0);
