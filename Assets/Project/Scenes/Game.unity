@@ -2253,11 +2253,31 @@ PrefabInstance:
     - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
         type: 3}
       propertyPath: bounceAmplitude
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
         type: 3}
       propertyPath: bounceSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
+        type: 3}
+      propertyPath: chasingRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
+        type: 3}
+      propertyPath: chasingSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
+        type: 3}
+      propertyPath: chasingSmoothness
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
+        type: 3}
+      propertyPath: hoverSmoothness
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6816,11 +6836,31 @@ PrefabInstance:
     - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
         type: 3}
       propertyPath: bounceAmplitude
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
         type: 3}
       propertyPath: bounceSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
+        type: 3}
+      propertyPath: chasingRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
+        type: 3}
+      propertyPath: chasingSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
+        type: 3}
+      propertyPath: chasingSmoothness
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
+        type: 3}
+      propertyPath: hoverSmoothness
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -20011,8 +20051,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733844018}
-  m_LocalRotation: {x: -0.09064307, y: 0.73248523, z: 0.09949064, w: 0.6673461}
-  m_LocalPosition: {x: -23.45103, y: -2.1993787, z: -21.467077}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.6399999, z: -22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 322342785}
@@ -21098,17 +21138,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
         type: 3}
-      propertyPath: distanceFromFloor
+      propertyPath: bounceAmplitude
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
+        type: 3}
+      propertyPath: chasingRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
+        type: 3}
+      propertyPath: chasingSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
         type: 3}
-      propertyPath: bounceAmplitude
-      value: 1
+      propertyPath: chasingSmoothness
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
         type: 3}
-      propertyPath: bounceSpeed
+      propertyPath: hoverSmoothness
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -22901,11 +22951,31 @@ PrefabInstance:
     - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
         type: 3}
       propertyPath: bounceAmplitude
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
         type: 3}
       propertyPath: bounceSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
+        type: 3}
+      propertyPath: chasingRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
+        type: 3}
+      propertyPath: chasingSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
+        type: 3}
+      propertyPath: chasingSmoothness
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413075280136967807, guid: 74bfc90e2736378449b2fa9d749e67d2,
+        type: 3}
+      propertyPath: hoverSmoothness
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -23493,8 +23563,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000715531}
-  m_LocalRotation: {x: -0.030359112, y: 0.71527755, z: 0.031135181, w: 0.69748616}
-  m_LocalPosition: {x: 10.306213, y: 1.5472662, z: -29.52172}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.6399999, z: -22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 322342785}

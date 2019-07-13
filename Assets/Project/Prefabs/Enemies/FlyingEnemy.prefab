@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 293142627245608488}
   - component: {fileID: 8413075280136967807}
   - component: {fileID: 3133504983311593448}
+  - component: {fileID: 8812046562733202867}
   m_Layer: 0
   m_Name: FlyingEnemy
   m_TagString: Untagged
@@ -61,8 +62,24 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 0.55
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &8812046562733202867
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293142627245608489}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3125292338212556045
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +91,6 @@ GameObject:
   - component: {fileID: 3345249465432991314}
   - component: {fileID: 7609478435893343433}
   - component: {fileID: 5978749133464777939}
-  - component: {fileID: 5085848172511029072}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -141,16 +157,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &5085848172511029072
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3125292338212556045}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
