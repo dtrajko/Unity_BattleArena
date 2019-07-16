@@ -12,6 +12,7 @@ public class GameCamera : MonoBehaviour
     [SerializeField] private float maxViewingAngle = 22f;
     [SerializeField] private float minViewingAngle = -55f;
     [SerializeField] private float rotationSensitivity = 2f;
+    [SerializeField] private GameObject obstaclePlacementContainer;
 
     [Header("Zooming")]
     [SerializeField] private float zoomOutFOV = 60.0f;
@@ -21,6 +22,9 @@ public class GameCamera : MonoBehaviour
 
     public Vector3 FollowOffset { get { return followOffset; } }
     public bool IsZoomedIn { get { return Mathf.RoundToInt(GetComponent<Camera>().fieldOfView) == Mathf.RoundToInt(zoomInFOV); } }
+    public GameObject ObstaclePlacementContainer { get { return obstaclePlacementContainer; } }
+    public GameObject Target { set { target = value; } get { return target; } }
+    public GameObject RotationAnchorObject { set { rotationAnchorObject = value; } get { return rotationAnchorObject; } }
 
     // Start is called before the first frame update
     void Start()

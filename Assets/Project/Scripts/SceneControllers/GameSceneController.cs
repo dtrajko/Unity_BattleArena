@@ -5,23 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class GameSceneController : MonoBehaviour
 {
-    [Header("Gameplay")]
-    [SerializeField] private Player player;
-
     private float gameOverCooldownDuration = 3.0f;
     private float gameOverCooldownTimer;
+
+    private Player player; // remove after implementing multiplayer
 
     // Start is called before the first frame update
     void Start()
     {
-        player.OnPlayerDied += OnPlayerDied;
         gameOverCooldownTimer = gameOverCooldownDuration;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player == null) {
+        if (false && player == null) {
             gameOverCooldownTimer -= Time.deltaTime;
             if (Input.anyKey && gameOverCooldownTimer <= 0)
             {

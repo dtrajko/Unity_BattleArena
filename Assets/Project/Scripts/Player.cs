@@ -18,17 +18,14 @@ public class Player : MonoBehaviour, IDamageable {
 
     [Header("Focal Point Variables")]
     [SerializeField] private GameObject focalPoint = null;
+    [SerializeField] private GameObject rotationPoint = null;
     [SerializeField] private float focalDistance = -0.3f;
     [SerializeField] private float focalSmoothness = 4f;
     [SerializeField] private KeyCode changeFocalSideKey = KeyCode.Q;
 
     [Header("Interaction")]
-    [SerializeField] private GameCamera gameCamera;
     [SerializeField] private KeyCode interactionKey = KeyCode.E;
     [SerializeField] private float interactionDistance = 6f;
-
-    [Header("Interface")]
-    [SerializeField] private HUDController hud;
 
     [Header("Gameplay")]
     [SerializeField] private KeyCode toolSwitchKey = KeyCode.Tab;
@@ -37,8 +34,6 @@ public class Player : MonoBehaviour, IDamageable {
     [SerializeField] private float resourceCollectionCooldown = 0.4f;
 
     [Header("Obstacles")]
-    [SerializeField] private GameObject obstaclePlacementContainer;
-    [SerializeField] private GameObject obstacleContainer;
     [SerializeField] private GameObject[] obstaclePrefabs;
     [SerializeField] private float obstaclePlacementCooldown = 0.4f;
 
@@ -55,12 +50,13 @@ public class Player : MonoBehaviour, IDamageable {
     private float obstaclePlacementCooldownTimer = 0;
     private GameObject currentObstacle;
     private bool obstaclePlacementLock;
-
-    private bool isUsingTools = false;
     private List<Weapon> weapons;
     private Weapon weapon;
-
     private float health;
+    private HUDController hud;
+    private GameCamera gameCamera;
+    private GameObject obstaclePlacementContainer;
+    private GameObject obstacleContainer;
 
     public float Health { get { return health; } }
 
@@ -68,15 +64,29 @@ public class Player : MonoBehaviour, IDamageable {
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
+        // Initialize values
         health = 100;
-        hud.Health = health;
         resources = initialResourceCount;
-        hud.Resources = resources;
+        weapons = new List<Weapon>();
         tool = PlayerTool.Pickaxe;
+
+        // Game camera
+        gameCamera = FindObjectOfType<GameCamera>();
+        obstaclePlacementContainer = gameCamera.ObstaclePlacementContainer;
+        gameCamera.Target = focalPoint;
+        gameCamera.RotationAnchorObject = rotationPoint;
+
+        // HUD elements
+        hud = FindObjectOfType<HUDController>();
+        hud.ShowScreen("regular");
+        hud.Health = health;
+        hud.Resources = resources;
         hud.Tool = tool; // PlayerTool: Pickaxe
         hud.UpdateWeapon(null);
 
-        weapons = new List<Weapon>();
+        // Obstacle container
+        obstacleContainer = GameObject.Find("ObstacleContainer");
     }
  
     // Update is called once per frame
@@ -169,7 +179,6 @@ public class Player : MonoBehaviour, IDamageable {
     private void SwitchWeapon(int index)
     {
         if (index < weapons.Count) {
-            isUsingTools = false;
 
             weapon = weapons[index];
             hud.UpdateWeapon(weapon);
@@ -188,8 +197,6 @@ public class Player : MonoBehaviour, IDamageable {
     }
 
     private void SwitchTool() {
-
-        isUsingTools = true;
 
         weapon = null;
         hud.UpdateWeapon(weapon);

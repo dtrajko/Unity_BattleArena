@@ -71,7 +71,7 @@ public class HUDController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        ShowScreen("regular");
+        ShowScreen("");
 
         targetFocusX = toolContainer.transform.GetChild(0).transform.position.x;
         toolFocus.transform.position = new Vector3(
