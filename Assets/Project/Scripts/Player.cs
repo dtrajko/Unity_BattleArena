@@ -2,10 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
-[Obsolete]
-public class Player : NetworkBehaviour, IDamageable {
+public class Player : MonoBehaviour, IDamageable {
 
     public delegate void DiedDelegate();
     public event DiedDelegate OnPlayerDied;
@@ -74,20 +72,18 @@ public class Player : NetworkBehaviour, IDamageable {
         tool = PlayerTool.Pickaxe;
 
         // Game camera
-        if (isLocalPlayer) {
-            gameCamera = FindObjectOfType<GameCamera>();
-            obstaclePlacementContainer = gameCamera.ObstaclePlacementContainer;
-            gameCamera.Target = focalPoint;
-            gameCamera.RotationAnchorObject = rotationPoint;
+        gameCamera = FindObjectOfType<GameCamera>();
+        obstaclePlacementContainer = gameCamera.ObstaclePlacementContainer;
+        gameCamera.Target = focalPoint;
+        gameCamera.RotationAnchorObject = rotationPoint;
 
-            // HUD elements
-            hud = FindObjectOfType<HUDController>();
-            hud.ShowScreen("regular");
-            hud.Health = health;
-            hud.Resources = resources;
-            hud.Tool = tool; // PlayerTool: Pickaxe
-            hud.UpdateWeapon(null);
-        }
+        // HUD elements
+        hud = FindObjectOfType<HUDController>();
+        hud.ShowScreen("regular");
+        hud.Health = health;
+        hud.Resources = resources;
+        hud.Tool = tool; // PlayerTool: Pickaxe
+        hud.UpdateWeapon(null);
 
         // Obstacle container
         obstacleContainer = GameObject.Find("ObstacleContainer");
@@ -96,8 +92,6 @@ public class Player : NetworkBehaviour, IDamageable {
     // Update is called once per frame
     void Update()
     {
-        if (!isLocalPlayer) return;
-
         // Update timers
         resourceCollectionCooldownTimer -= Time.deltaTime;
         obstaclePlacementCooldownTimer -= Time.deltaTime;
@@ -282,10 +276,7 @@ public class Player : NetworkBehaviour, IDamageable {
         }
     }
 
-    private void OnTriggerEnter(Collider otherCollider)
-    {
-        if (!isLocalPlayer) return;
-
+    private void OnTriggerEnter(Collider otherCollider) {
         if (otherCollider.GetComponent<ItemBox>() != null) {
             ItemBox itemBox = otherCollider.gameObject.GetComponent<ItemBox>();
             GiveItem(itemBox.Type, itemBox.Amount);
@@ -293,8 +284,7 @@ public class Player : NetworkBehaviour, IDamageable {
         }
     }
 
-    private void GiveItem(ItemBox.ItemType type, int amount)
-    {
+    private void GiveItem(ItemBox.ItemType type, int amount) {
         // Create a weapon reference
         Weapon currentWeapon = null;
 
@@ -330,6 +320,7 @@ public class Player : NetworkBehaviour, IDamageable {
     {
         if (weapon != null)
         {
+
             if (Input.GetKeyDown(KeyCode.R))
             {
                 weapon.Reload();
@@ -428,8 +419,6 @@ public class Player : NetworkBehaviour, IDamageable {
 
     public int Damage(float amount)
     {
-        if (!isLocalPlayer) return 0;
-
         if (health > 0) {
             health -= amount;
             if (health <= 0)
