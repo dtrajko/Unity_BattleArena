@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Player : MonoBehaviour, IDamageable {
+[Obsolete]
+public class Player : NetworkBehaviour, IDamageable {
 
     public delegate void DiedDelegate();
     public event DiedDelegate OnPlayerDied;
@@ -73,7 +74,7 @@ public class Player : MonoBehaviour, IDamageable {
         tool = PlayerTool.Pickaxe;
 
         // Game camera
-        // if (isLocalPlayer) {
+        if (isLocalPlayer) {
             gameCamera = FindObjectOfType<GameCamera>();
             obstaclePlacementContainer = gameCamera.ObstaclePlacementContainer;
             gameCamera.Target = focalPoint;
@@ -86,7 +87,7 @@ public class Player : MonoBehaviour, IDamageable {
             hud.Resources = resources;
             hud.Tool = tool; // PlayerTool: Pickaxe
             hud.UpdateWeapon(null);
-        // }
+        }
 
         // Obstacle container
         obstacleContainer = GameObject.Find("ObstacleContainer");
@@ -95,7 +96,7 @@ public class Player : MonoBehaviour, IDamageable {
     // Update is called once per frame
     void Update()
     {
-        // if (!isLocalPlayer) return;
+        if (!isLocalPlayer) return;
 
         // Update timers
         resourceCollectionCooldownTimer -= Time.deltaTime;
@@ -283,7 +284,7 @@ public class Player : MonoBehaviour, IDamageable {
 
     private void OnTriggerEnter(Collider otherCollider)
     {
-        // if (!isLocalPlayer) return;
+        if (!isLocalPlayer) return;
 
         if (otherCollider.GetComponent<ItemBox>() != null) {
             ItemBox itemBox = otherCollider.gameObject.GetComponent<ItemBox>();
@@ -427,7 +428,7 @@ public class Player : MonoBehaviour, IDamageable {
 
     public int Damage(float amount)
     {
-        // if (!isLocalPlayer) return 0;
+        if (!isLocalPlayer) return 0;
 
         if (health > 0) {
             health -= amount;
