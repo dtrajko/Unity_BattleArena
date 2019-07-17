@@ -446,7 +446,9 @@ public class Player : NetworkBehaviour, IDamageable {
 
     [Command]
     private void CmdDamage(GameObject target, float damage) {
-        target.GetComponent<IDamageable>().Damage(damage);
+        if (target != null) {
+            target.GetComponent<IDamageable>().Damage(damage);
+        }
     }
 
     public int Damage(float amount)
@@ -463,7 +465,13 @@ public class Player : NetworkBehaviour, IDamageable {
         hud.UpdateHealthBar(health.Value / 100);
 
         if (newHealth < 0.01f) {
-            Destroy(gameObject);
+            hud.ShowScreen("gameOver");
+            CmdDestroy();
         }
+    }
+
+    [Command]
+    public void CmdDestroy() {
+        Destroy(gameObject);
     }
 }
