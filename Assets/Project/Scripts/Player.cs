@@ -54,14 +54,14 @@ public class Player : NetworkBehaviour, IDamageable {
     private bool obstaclePlacementLock;
     private List<Weapon> weapons;
     private Weapon weapon;
-    private float health;
     private HUDController hud;
     private GameCamera gameCamera;
     private GameObject obstaclePlacementContainer;
     private GameObject obstacleContainer;
     private int obstacleToAddIndex;
+    private Health health;
 
-    public float Health { get { return health; } }
+    public float Health { get { return health.Value; } }
 
     // Start is called before the first frame update
     void Start()
@@ -69,7 +69,8 @@ public class Player : NetworkBehaviour, IDamageable {
         Cursor.lockState = CursorLockMode.Locked;
 
         // Initialize values
-        health = 100;
+        health = GetComponent<Health>();
+        health.OnHealthChanged += OnHealthChanged;
         resources = initialResourceCount;
         weapons = new List<Weapon>();
         tool = PlayerTool.Pickaxe;
@@ -84,7 +85,7 @@ public class Player : NetworkBehaviour, IDamageable {
             // HUD elements
             hud = FindObjectOfType<HUDController>();
             hud.ShowScreen("regular");
-            hud.Health = health;
+            hud.Health = health.Value;
             hud.Resources = resources;
             hud.Tool = tool; // PlayerTool: Pickaxe
             hud.UpdateWeapon(null);
@@ -93,7 +94,7 @@ public class Player : NetworkBehaviour, IDamageable {
         // Obstacle container
         obstacleContainer = GameObject.Find("ObstacleContainer");
     }
- 
+
     // Update is called once per frame
     void Update()
     {
@@ -427,12 +428,13 @@ public class Player : NetworkBehaviour, IDamageable {
 
                         if (shootHit.transform.GetComponent<IDamageable>() != null)
                         {
-                            shootHit.transform.GetComponent<IDamageable>().Damage(weapon.Damage);
+                            CmdDamage(shootHit.transform.gameObject, weapon.Damage);
+                            // shootHit.transform.GetComponent<IDamageable>().Damage(weapon.Damage);
                         } else if (shootHit.transform.GetComponentInParent<IDamageable>() != null)
                         {
-                            shootHit.transform.GetComponentInParent<IDamageable>().Damage(weapon.Damage);
+                            CmdDamage(shootHit.transform.parent.gameObject, weapon.Damage);
+                            // shootHit.transform.GetComponentInParent<IDamageable>().Damage(weapon.Damage);
                         }
-
                         Debug.DrawLine(shootOrigin.transform.position, shootOrigin.transform.position + shootDirection * 100, Color.red);
                     }
                 }
@@ -445,25 +447,44 @@ public class Player : NetworkBehaviour, IDamageable {
         }
     }
 
+    [Command]
+    private void CmdDamage(GameObject target, float damage) {
+        target.GetComponent<IDamageable>().Damage(damage);
+    }
+
     public int Damage(float amount)
     {
-        if (!isLocalPlayer) return 0;
+        GetComponent<Health>().Damage(amount);
+        return 0;
+    }
 
-        if (health > 0) {
-            health -= amount;
-            if (health <= 0)
+    public void OnHealthChanged(float newHealth) {
+
+        hud.Health = newHealth;
+        hud.UpdateHealthBar(health.Value / 100);
+
+        if (newHealth < 0.01f) {
+            Destroy(gameObject);
+        }
+
+        /*
+        if (health.Value > 0)
+        {
+            health.Value -= amount;
+            if (health.Value <= 0)
             {
-                health = 0;
+                health.Value = 0;
                 Destroy(gameObject);
                 hud.ShowScreen("gameOver");
 
-                if (OnPlayerDied != null) {
+                if (OnPlayerDied != null)
+                {
                     OnPlayerDied();
                 }
             }
-            hud.Health = health;
-            hud.UpdateHealthBar(health / 100);
+            hud.Health = health.Value;
+            hud.UpdateHealthBar(health.Value / 100);
         }
-        return 0;
+        */
     }
 }
