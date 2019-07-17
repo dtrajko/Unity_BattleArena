@@ -300,8 +300,16 @@ public class Player : NetworkBehaviour, IDamageable {
         if (otherCollider.GetComponent<ItemBox>() != null) {
             ItemBox itemBox = otherCollider.gameObject.GetComponent<ItemBox>();
             GiveItem(itemBox.Type, itemBox.Amount);
-            Destroy(otherCollider.gameObject);
+
+            // Destroy(otherCollider.gameObject);
+            // NetworkServer.Destroy(otherCollider.gameObject);
+            CmdCollectBox(otherCollider.gameObject);
         }
+    }
+
+    [Command]
+    void CmdCollectBox(GameObject box) {
+        Destroy(box);
     }
 
     private void GiveItem(ItemBox.ItemType type, int amount) {
