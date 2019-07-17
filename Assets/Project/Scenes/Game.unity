@@ -6175,8 +6175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NetworkPort: 7777
-  m_ServerBindToIP: 1
-  m_ServerBindAddress: 192.168.0.15
+  m_ServerBindToIP: 0
+  m_ServerBindAddress: 
   m_NetworkAddress: 192.168.0.15
   m_DontDestroyOnLoad: 1
   m_RunInBackground: 1
@@ -6246,7 +6246,7 @@ MonoBehaviour:
     m_MinNetSimulatorTimeout: 1
     m_MaxNetSimulatorTimeout: 12000
   m_Channels: 
-  m_UseWebSockets: 1
+  m_UseWebSockets: 0
   m_UseSimulator: 0
   m_SimulatedLatency: 1
   m_PacketLossPercentage: 0
@@ -25134,8 +25134,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000715531}
-  m_LocalRotation: {x: -0.2012892, y: 0.035518624, z: 0.007297648, w: 0.9788605}
-  m_LocalPosition: {x: -6.191904, y: -5.3218613, z: -56.71341}
+  m_LocalRotation: {x: 0.16159107, y: 0.0086139925, z: 0.0014157316, w: -0.9868192}
+  m_LocalPosition: {x: -4.245287, y: -5.3155994, z: -51.613308}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 322342785}

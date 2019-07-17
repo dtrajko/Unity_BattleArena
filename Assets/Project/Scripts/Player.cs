@@ -7,9 +7,6 @@ using UnityEngine.Networking;
 [Obsolete]
 public class Player : NetworkBehaviour, IDamageable {
 
-    public delegate void DiedDelegate();
-    public event DiedDelegate OnPlayerDied;
-
     public enum PlayerTool {
         Pickaxe,
         ObstacleVertical,
@@ -460,31 +457,13 @@ public class Player : NetworkBehaviour, IDamageable {
 
     public void OnHealthChanged(float newHealth) {
 
+        if (!isLocalPlayer) return;
+
         hud.Health = newHealth;
         hud.UpdateHealthBar(health.Value / 100);
 
         if (newHealth < 0.01f) {
             Destroy(gameObject);
         }
-
-        /*
-        if (health.Value > 0)
-        {
-            health.Value -= amount;
-            if (health.Value <= 0)
-            {
-                health.Value = 0;
-                Destroy(gameObject);
-                hud.ShowScreen("gameOver");
-
-                if (OnPlayerDied != null)
-                {
-                    OnPlayerDied();
-                }
-            }
-            hud.Health = health.Value;
-            hud.UpdateHealthBar(health.Value / 100);
-        }
-        */
     }
 }
