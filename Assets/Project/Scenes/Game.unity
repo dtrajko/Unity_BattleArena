@@ -6175,8 +6175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NetworkPort: 7777
-  m_ServerBindToIP: 0
-  m_ServerBindAddress: 
+  m_ServerBindToIP: 1
+  m_ServerBindAddress: 192.168.0.15
   m_NetworkAddress: 192.168.0.15
   m_DontDestroyOnLoad: 1
   m_RunInBackground: 1
@@ -6246,7 +6246,7 @@ MonoBehaviour:
     m_MinNetSimulatorTimeout: 1
     m_MaxNetSimulatorTimeout: 12000
   m_Channels: 
-  m_UseWebSockets: 0
+  m_UseWebSockets: 1
   m_UseSimulator: 0
   m_SimulatedLatency: 1
   m_PacketLossPercentage: 0
