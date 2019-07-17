@@ -11,7 +11,7 @@ public class RocketLauncher : Weapon
         cooldownDuration = 0.5f;
         isAutomatic = false;
         name = "RPG";
-        aimVariation = 0.03f;
+        aimVariation = 0.01f;
         damage = 80.0f;
     }
 }

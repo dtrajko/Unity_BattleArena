@@ -21,8 +21,14 @@ public class Obstacle : MonoBehaviour, IDamageable
     // Start is called before the first frame update
     void Start() {}
 
+    void Awake() {
+        obstacleColliders = GetComponentsInChildren<Collider>();
+        obstacleRenderer = GetComponentInChildren<Renderer>();
+    }
+
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         transform.localScale = new Vector3(
             Mathf.Lerp(transform.localScale.x, targetScale, hitSmoothness * Time.deltaTime),
             Mathf.Lerp(transform.localScale.y, targetScale, hitSmoothness * Time.deltaTime),
@@ -30,17 +36,13 @@ public class Obstacle : MonoBehaviour, IDamageable
         );
     }
 
-    void Awake() {
-        obstacleColliders = GetComponentsInChildren<Collider>();
+    public void SetPositioningMode() {
         // Start with the obstacle collider disabled
         foreach (Collider obstacleCollider in obstacleColliders) {
             obstacleCollider.enabled = false;
         }
-
-        // Work with transparency
-        obstacleRenderer = GetComponentInChildren<Renderer>();
+        // Make the obstacle transparent
         obstacleRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
-
     }
 
     public void Place() {

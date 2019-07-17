@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2345090364550221862}
   - component: {fileID: 5689871592989678863}
   - component: {fileID: 1950561228963418359}
+  - component: {fileID: -6386136418390858771}
   m_Layer: 0
   m_Name: ObstacleHorizontal
   m_TagString: Untagged
@@ -78,6 +79,39 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.151184, y: 0.35187674, z: 2.1435013}
   m_Center: {x: -0.007514, y: -0.11830211, z: 0.005207062}
+--- !u!114 &-6386136418390858771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2345090364550221860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!1001 &2345090365215296905
 PrefabInstance:
   m_ObjectHideFlags: 0
