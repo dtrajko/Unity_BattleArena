@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class ResourceObject : MonoBehaviour, IDamageable
+[System.Obsolete]
+public class ResourceObject : NetworkBehaviour, IDamageable
 {
     [SerializeField] private int resourceAmount = 10;
     [SerializeField] private float amountOfHits = 5;
@@ -11,11 +14,18 @@ public class ResourceObject : MonoBehaviour, IDamageable
 
     private float hits;
     private float targetScale;
+    private Health health;
+
+    public float HealthValue { get { return health.Value; } }
+    public int ResourceAmount { get { return resourceAmount; } }
 
     // Start is called before the first frame update
     void Start()
     {
         targetScale = 1;
+        health = GetComponent<Health>();
+        health.Value = amountOfHits;
+        health.OnHealthChanged += OnHealthChanged;
     }
 
     // Update is called once per frame
@@ -30,15 +40,34 @@ public class ResourceObject : MonoBehaviour, IDamageable
 
     public int Damage(float amount)
     {
-        hits += amount;
-        transform.localScale = Vector3.one * hitScale;
-        if (hits >= amountOfHits)
-        {
-            Destroy(gameObject, 1.0f);
-            targetScale = 0;
-            return resourceAmount;
+        health.Damage(amount);
+        if (health.Value < 0.01f) {
+            return (int)health.Value;
         }
+        else return 0;
+    }
 
-        return 0;
+    public void OnHealthChanged(float newHealth)
+    {
+        transform.localScale = Vector3.one * hitScale;
+
+        Debug.Log("OnHealthChanged newHealth: " + newHealth);
+
+        if (newHealth < 0.01f)
+        {
+            targetScale = 0;
+
+            if (isServer)
+            {
+                CmdDestroy();
+            }
+        }
+    }
+
+    [Command]
+    [System.Obsolete]
+    public void CmdDestroy()
+    {
+        Destroy(gameObject, 0.05f);
     }
 }

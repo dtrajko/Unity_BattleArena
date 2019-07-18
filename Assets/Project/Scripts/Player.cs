@@ -256,8 +256,17 @@ public class Player : NetworkBehaviour, IDamageable {
                     && hit.transform.GetComponentInChildren<ResourceObject>() != null)
                 {
                     resourceCollectionCooldownTimer = resourceCollectionCooldown;
+
                     ResourceObject resourceObject = hit.transform.GetComponent<ResourceObject>();
-                    int collectedResources = resourceObject.Damage(1);
+
+                    int collectedResources = 0;
+                    float resourceHealth = resourceObject.HealthValue;
+                    if (resourceHealth - 1 < 0.01f) {
+                        collectedResources = resourceObject.ResourceAmount;
+                    }
+
+                    CmdDamage(hit.transform.gameObject, 1);
+
                     resources += collectedResources;
                     hud.Resources = resources;
                 }
@@ -298,9 +307,6 @@ public class Player : NetworkBehaviour, IDamageable {
         if (otherCollider.GetComponent<ItemBox>() != null) {
             ItemBox itemBox = otherCollider.gameObject.GetComponent<ItemBox>();
             GiveItem(itemBox.Type, itemBox.Amount);
-
-            // Destroy(otherCollider.gameObject);
-            // NetworkServer.Destroy(otherCollider.gameObject);
             CmdCollectBox(otherCollider.gameObject);
         }
     }
@@ -426,11 +432,9 @@ public class Player : NetworkBehaviour, IDamageable {
                         if (shootHit.transform.GetComponent<IDamageable>() != null)
                         {
                             CmdDamage(shootHit.transform.gameObject, weapon.Damage);
-                            // shootHit.transform.GetComponent<IDamageable>().Damage(weapon.Damage);
                         } else if (shootHit.transform.GetComponentInParent<IDamageable>() != null)
                         {
                             CmdDamage(shootHit.transform.parent.gameObject, weapon.Damage);
-                            // shootHit.transform.GetComponentInParent<IDamageable>().Damage(weapon.Damage);
                         }
                         Debug.DrawLine(shootOrigin.transform.position, shootOrigin.transform.position + shootDirection * 100, Color.red);
                     }

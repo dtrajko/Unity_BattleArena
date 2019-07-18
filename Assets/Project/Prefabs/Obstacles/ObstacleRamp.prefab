@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8478709331990066558}
   - component: {fileID: 2628794990705541502}
   - component: {fileID: -3378375519432907182}
+  - component: {fileID: 2368798862467222378}
   m_Layer: 0
   m_Name: ObstacleRamp
   m_TagString: Untagged
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b0c6f37ab7019499155f84bd590493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  initialHealth: 10
   cost: 6
   hitSmoothness: 10
 --- !u!114 &8478709331990066558
@@ -112,6 +113,18 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &2368798862467222378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063802292457311014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3d6d610b9c5d44eb6808944acf48ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9063802292156802419
 PrefabInstance:
   m_ObjectHideFlags: 0

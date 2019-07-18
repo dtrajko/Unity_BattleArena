@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Obstacle : MonoBehaviour, IDamageable
+[System.Obsolete]
+public class Obstacle : NetworkBehaviour, IDamageable
 {
-    [SerializeField] private float health;
+    [SerializeField] private float initialHealth;
     [SerializeField] private int cost;
     [SerializeField] private float hitSmoothness;
 
     private Collider[] obstacleColliders;
     private Renderer obstacleRenderer;
     private int targetScale = 1;
+    [System.Obsolete]
+    private Health health;
 
     public int Cost {
         get {
@@ -21,9 +25,14 @@ public class Obstacle : MonoBehaviour, IDamageable
     // Start is called before the first frame update
     void Start() {}
 
+    [System.Obsolete]
     void Awake() {
         obstacleColliders = GetComponentsInChildren<Collider>();
         obstacleRenderer = GetComponentInChildren<Renderer>();
+
+        health = GetComponent<Health>();
+        health.Value = initialHealth;
+        health.OnHealthChanged += OnHealthChanged;
     }
 
     // Update is called once per frame
@@ -59,16 +68,30 @@ public class Obstacle : MonoBehaviour, IDamageable
     public void Hit() {
     }
 
+    [System.Obsolete]
     public int Damage(float amount)
     {
-        transform.localScale = Vector3.one * 0.8f;
-        health -= amount;
-        if (health <= 0)
-        {
-            targetScale = 0;
-            Destroy(gameObject, 0.05f);
-        }
-
+        health.Damage(amount);
         return 0;
+    }
+
+    public void OnHealthChanged(float newHealth)
+    {
+        transform.localScale = Vector3.one * 0.8f;
+
+        if (newHealth < 0.01f) {
+            targetScale = 0;
+
+            if (isServer) {
+                CmdDestroy();
+            }
+        }
+    }
+
+    [Command]
+    [System.Obsolete]
+    public void CmdDestroy()
+    {
+        Destroy(gameObject, 0.05f);
     }
 }
