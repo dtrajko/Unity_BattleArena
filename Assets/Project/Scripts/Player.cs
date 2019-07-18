@@ -261,7 +261,7 @@ public class Player : NetworkBehaviour, IDamageable {
 
                     int collectedResources = 0;
                     float resourceHealth = resourceObject.HealthValue;
-                    if (resourceHealth - 1 < 0.01f) {
+                    if (resourceHealth < 0.01f) {
                         collectedResources = resourceObject.ResourceAmount;
                     }
 

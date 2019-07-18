@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Enemy : MonoBehaviour, IDamageable
+[Obsolete]
+public class Enemy : NetworkBehaviour, IDamageable
 {
-    [SerializeField] private float health = 25.0f;
+    [SerializeField] private float initialHealth = 25.0f;
     [SerializeField] private float hitSmoothness = 10.0f;
     [SerializeField] protected float damage = 1.0f;
 
@@ -12,8 +15,14 @@ public class Enemy : MonoBehaviour, IDamageable
     protected float damageScale = 0.8f;
     private float targetScale = 1.0f;
 
+    private Health health;
+
     void Awake() {
         enemyRigidbody = transform.GetComponent<Rigidbody>();
+
+        health = GetComponent<Health>();
+        health.Value = initialHealth;
+        health.OnHealthChanged += OnHealthChanged;
     }
 
     // Update is called once per frame
@@ -27,15 +36,29 @@ public class Enemy : MonoBehaviour, IDamageable
     }
     public int Damage(float amount)
     {
-        if (health > 0) {
-            transform.localScale = Vector3.one * damageScale;
-        }
-        health -= amount;
-
-        if (health <= 0) {
-            targetScale = 0;
-            Destroy(gameObject, 1.0f);
-        }
+        health.Damage(amount);
         return 0;
+    }
+
+    public void OnHealthChanged(float newHealth)
+    {
+        transform.localScale = Vector3.one * damageScale;
+
+        if (newHealth < 0.01f)
+        {
+            targetScale = 0;
+
+            if (isServer)
+            {
+                CmdDestroy();
+            }
+        }
+    }
+
+    [Command]
+    [System.Obsolete]
+    public void CmdDestroy()
+    {
+        Destroy(gameObject, 1.0f);
     }
 }

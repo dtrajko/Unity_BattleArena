@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 1181088933360057301}
   - component: {fileID: 293142627245608502}
   - component: {fileID: -4527949890672194565}
+  - component: {fileID: 2588300691466932614}
   m_Layer: 0
   m_Name: StaticEnemy
   m_TagString: Untagged
@@ -229,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610459e5467f7dc49898a3cd900932a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 25
+  initialHealth: 25
   hitSmoothness: 10
   damage: 1
 --- !u!65 &293142627245608502
@@ -278,3 +279,15 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &2588300691466932614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293142627245608489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3d6d610b9c5d44eb6808944acf48ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

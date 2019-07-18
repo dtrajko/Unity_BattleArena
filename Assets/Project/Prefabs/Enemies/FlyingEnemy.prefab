@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3133504983311593448}
   - component: {fileID: 8812046562733202867}
   - component: {fileID: -2864560252669712758}
+  - component: {fileID: -8504632627310451754}
   m_Layer: 0
   m_Name: FlyingEnemy
   m_TagString: Untagged
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b79f58dc3d69d24d8b264c664b8c514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 25
+  initialHealth: 25
   hitSmoothness: 10
   damage: 1
   distanceFromFloor: 2
@@ -121,6 +122,18 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &-8504632627310451754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293142627245608489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3d6d610b9c5d44eb6808944acf48ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3125292338212556045
 GameObject:
   m_ObjectHideFlags: 0
