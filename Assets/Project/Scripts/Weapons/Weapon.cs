@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public abstract class Weapon
+public abstract class Weapon : IComparable
 {
     // Ammunition fields
     private int clipAmmunition = 0;
@@ -17,6 +17,7 @@ public abstract class Weapon
     protected string name = "";
     protected float aimVariation = 0.0f;
     protected float damage = 0.0f;
+    protected int sortIndex = 0;
 
     // Private fields
     private float reloadTimer = -1.0f;
@@ -34,6 +35,7 @@ public abstract class Weapon
     public string Name { get { return name; } }
     public float AimVariation { get { return aimVariation; } }
     public float Damage { get { return damage; } }
+    // public int SortIndex { get { return sortIndex; } }
 
     public float ReloadTimer { get { return reloadTimer; } }
 
@@ -94,5 +96,11 @@ public abstract class Weapon
         if (reloadTimer <= 0.0f && clipAmmunition < clipSize && totalAmmunition > 0) {
             reloadTimer = reloadDuration;
         }
+    }
+    public int CompareTo(object otherWeapon)
+    {
+        if (sortIndex > ((Weapon)otherWeapon).sortIndex) return 1;
+        if (sortIndex < ((Weapon)otherWeapon).sortIndex) return -1;
+        return 0;
     }
 }

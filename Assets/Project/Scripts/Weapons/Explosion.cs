@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Explosion : MonoBehaviour
+[System.Obsolete]
+public class Explosion : NetworkBehaviour
 {
-    public void Explode(float range, float damage) {
+    public void Explode(float range, float damage)
+    {
         transform.GetChild(0).localScale = Vector3.one * range * 2;
+
+        if (!isServer) return;
+
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, range, transform.up);
         foreach (RaycastHit hit in hits) {
             // Destroy(hit.transform.gameObject);

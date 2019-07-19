@@ -13,5 +13,6 @@ public class Pistol : Weapon
         name = "Pistol";
         aimVariation = 0.03f;
         damage = 5.0f;
+        sortIndex = 0;
     }
 }

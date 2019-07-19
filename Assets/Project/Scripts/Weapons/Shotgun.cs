@@ -15,6 +15,7 @@ public class Shotgun : Weapon
         name = "Shotgun";
         aimVariation = 0.05f;
         damage = 4.0f;
+        sortIndex = 2;
     }
     public int AmountOfBullets { get { return amountOfBullets; } }
 }

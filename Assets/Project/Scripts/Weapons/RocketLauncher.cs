@@ -13,5 +13,6 @@ public class RocketLauncher : Weapon
         name = "RPG";
         aimVariation = 0.01f;
         damage = 80.0f;
+        sortIndex = 4;
     }
 }

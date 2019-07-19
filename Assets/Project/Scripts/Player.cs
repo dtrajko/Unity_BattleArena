@@ -338,6 +338,7 @@ public class Player : NetworkBehaviour, IDamageable {
             else if (type == ItemBox.ItemType.Sniper) currentWeapon = new Sniper();
             else if (type == ItemBox.ItemType.RocketLauncher) currentWeapon = new RocketLauncher();
             weapons.Add(currentWeapon);
+            weapons.Sort();
         }
 
         currentWeapon.AddAmmunition(amount);
@@ -440,12 +441,18 @@ public class Player : NetworkBehaviour, IDamageable {
                     }
                 }
                 else {
-                    GameObject rocket = Instantiate(rocketPrefab);
-                    rocket.transform.position = shootOrigin.transform.position + shootDirection;
-                    rocket.GetComponent<Rocket>().Shoot(shootDirection);
+                    CmdSpawnRocket(shootDirection);
                 }
             }
         }
+    }
+
+    [Command]
+    private void CmdSpawnRocket(Vector3 shootDirection) {
+        GameObject rocket = Instantiate(rocketPrefab);
+        rocket.transform.position = shootOrigin.transform.position + shootDirection;
+        rocket.GetComponent<Rocket>().Shoot(shootDirection);
+        NetworkServer.Spawn(rocket);
     }
 
     [Command]

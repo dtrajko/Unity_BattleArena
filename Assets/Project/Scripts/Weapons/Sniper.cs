@@ -13,5 +13,6 @@ public class Sniper : Weapon
         name = "Sniper";
         aimVariation = 0.003f;
         damage = 80.0f;
+        sortIndex = 3;
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Rocket : MonoBehaviour
+[System.Obsolete]
+public class Rocket : NetworkBehaviour
 {
     [SerializeField] private float speed = 15.0f;
     [SerializeField] private float lifetime;
@@ -39,9 +41,17 @@ public class Rocket : MonoBehaviour
     }
 
     private void Explode() {
+        if (!isServer) return;
+
+        CmdAddExplosion();
+        Destroy(gameObject);
+    }
+
+    [Command]
+    private void CmdAddExplosion() {
         GameObject explosion = Instantiate(explosionPrefab);
         explosion.transform.position = transform.position;
+        NetworkServer.Spawn(explosion);
         explosion.GetComponent<Explosion>().Explode(explosionRange, explosionDamage);
-        Destroy(gameObject);
     }
 }

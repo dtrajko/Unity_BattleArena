@@ -13,5 +13,6 @@ public class MachineGun : Weapon
         name = "Machine Gun";
         aimVariation = 0.02f;
         damage = 4.0f;
+        sortIndex = 1;
     }
 }
