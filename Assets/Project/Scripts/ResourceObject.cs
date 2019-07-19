@@ -51,8 +51,6 @@ public class ResourceObject : NetworkBehaviour, IDamageable
     {
         transform.localScale = Vector3.one * hitScale;
 
-        Debug.Log("OnHealthChanged newHealth: " + newHealth);
-
         if (newHealth < 0.01f)
         {
             targetScale = 0;

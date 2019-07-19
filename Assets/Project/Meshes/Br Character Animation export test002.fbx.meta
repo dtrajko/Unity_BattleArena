@@ -1,0 +1,247 @@
+fileFormatVersion: 2
+guid: ea55e0730040b4142926b6b9b5f5a37f
+timeCreated: 1540932411
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Biceps.L
+    100002: Biceps.R.001
+    100004: Body Bones
+    100006: //RootNode
+    100008: Character Base Model
+    100010: Chest
+    100012: Foot.L
+    100014: Foot.R.001
+    100016: Forearm.L
+    100018: Forearm.R.001
+    100020: Hand.L
+    100022: Hand.R.001
+    100024: Head
+    100026: Head_end
+    100028: Head_end_end
+    100030: Hip
+    100032: Index001.L
+    100034: Index001.R.001
+    100036: Index002.L
+    100038: Index002.R.001
+    100040: Index003.L
+    100042: Index003.L_end
+    100044: Index003.L_end.001
+    100046: Index003.L_end.001_end
+    100048: Index003.L_end_end
+    100050: Index003.R.001
+    100052: Middle001.L
+    100054: Middle001.R.001
+    100056: Middle002.L
+    100058: Middle002.R.001
+    100060: Middle003.L
+    100062: Middle003.L_end
+    100064: Middle003.L_end.001
+    100066: Middle003.L_end.001_end
+    100068: Middle003.L_end_end
+    100070: Middle003.R.001
+    100072: Neck
+    100074: Pinky001.L
+    100076: Pinky001.R.001
+    100078: Pinky002.L
+    100080: Pinky002.R.001
+    100082: Pinky003.L
+    100084: Pinky003.L_end
+    100086: Pinky003.L_end.001
+    100088: Pinky003.L_end.001_end
+    100090: Pinky003.L_end_end
+    100092: Pinky003.R.001
+    100094: Ring001.L
+    100096: Ring001.R.001
+    100098: Ring002.L
+    100100: Ring002.R.001
+    100102: Ring003.L
+    100104: Ring003.L_end
+    100106: Ring003.L_end.001
+    100108: Ring003.L_end.001_end
+    100110: Ring003.L_end_end
+    100112: Ring003.R.001
+    100114: Shin.L
+    100116: Shin.R.001
+    100118: Shoulder.L
+    100120: Shoulder.R.001
+    100122: Spine
+    100124: Thigh.L
+    100126: Thigh.R.001
+    100128: Thumb001.L
+    100130: Thumb001.R.001
+    100132: Thumb002.L
+    100134: Thumb002.R.001
+    100136: Thumb003.L
+    100138: Thumb003.L_end
+    100140: Thumb003.L_end.001
+    100142: Thumb003.L_end.001_end
+    100144: Thumb003.L_end_end
+    100146: Thumb003.R.001
+    100148: Toe.L
+    100150: Toe.L_end
+    100152: Toe.L_end.001
+    100154: Toe.L_end.001_end
+    100156: Toe.L_end_end
+    100158: Toe.R.001
+    400000: Biceps.L
+    400002: Biceps.R.001
+    400004: Body Bones
+    400006: //RootNode
+    400008: Character Base Model
+    400010: Chest
+    400012: Foot.L
+    400014: Foot.R.001
+    400016: Forearm.L
+    400018: Forearm.R.001
+    400020: Hand.L
+    400022: Hand.R.001
+    400024: Head
+    400026: Head_end
+    400028: Head_end_end
+    400030: Hip
+    400032: Index001.L
+    400034: Index001.R.001
+    400036: Index002.L
+    400038: Index002.R.001
+    400040: Index003.L
+    400042: Index003.L_end
+    400044: Index003.L_end.001
+    400046: Index003.L_end.001_end
+    400048: Index003.L_end_end
+    400050: Index003.R.001
+    400052: Middle001.L
+    400054: Middle001.R.001
+    400056: Middle002.L
+    400058: Middle002.R.001
+    400060: Middle003.L
+    400062: Middle003.L_end
+    400064: Middle003.L_end.001
+    400066: Middle003.L_end.001_end
+    400068: Middle003.L_end_end
+    400070: Middle003.R.001
+    400072: Neck
+    400074: Pinky001.L
+    400076: Pinky001.R.001
+    400078: Pinky002.L
+    400080: Pinky002.R.001
+    400082: Pinky003.L
+    400084: Pinky003.L_end
+    400086: Pinky003.L_end.001
+    400088: Pinky003.L_end.001_end
+    400090: Pinky003.L_end_end
+    400092: Pinky003.R.001
+    400094: Ring001.L
+    400096: Ring001.R.001
+    400098: Ring002.L
+    400100: Ring002.R.001
+    400102: Ring003.L
+    400104: Ring003.L_end
+    400106: Ring003.L_end.001
+    400108: Ring003.L_end.001_end
+    400110: Ring003.L_end_end
+    400112: Ring003.R.001
+    400114: Shin.L
+    400116: Shin.R.001
+    400118: Shoulder.L
+    400120: Shoulder.R.001
+    400122: Spine
+    400124: Thigh.L
+    400126: Thigh.R.001
+    400128: Thumb001.L
+    400130: Thumb001.R.001
+    400132: Thumb002.L
+    400134: Thumb002.R.001
+    400136: Thumb003.L
+    400138: Thumb003.L_end
+    400140: Thumb003.L_end.001
+    400142: Thumb003.L_end.001_end
+    400144: Thumb003.L_end_end
+    400146: Thumb003.R.001
+    400148: Toe.L
+    400150: Toe.L_end
+    400152: Toe.L_end.001
+    400154: Toe.L_end.001_end
+    400156: Toe.L_end_end
+    400158: Toe.R.001
+    4300000: Character Base Model
+    7400000: Body Bones|Melee swing
+    7400002: Body Bones|Pistol Holding
+    7400004: Body Bones|Rifle Holding
+    7400006: Body Bones|Rocket Holding
+    7400008: Body Bones|Shooting Rocket
+    7400010: Body Bones|Shotting Pistol
+    7400012: Body Bones|Shotting Rifle
+    9500000: //RootNode
+    13700000: Character Base Model
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

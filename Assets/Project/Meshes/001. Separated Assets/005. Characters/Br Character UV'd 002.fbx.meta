@@ -1,0 +1,266 @@
+fileFormatVersion: 2
+guid: f0d987e67345246a28fca042d472c1d2
+timeCreated: 1540939790
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Biceps.L
+    100002: Biceps.R.001
+    100004: Body Bones.002
+    100006: //RootNode
+    100008: Chest
+    100010: Cube.004
+    100012: Foot.L
+    100014: Foot.R.001
+    100016: Forearm.L
+    100018: Forearm.R.001
+    100020: Hand.L
+    100022: Hand.R.001
+    100024: Head
+    100026: Head_end
+    100028: Head_end_end
+    100030: Head_end_end_end
+    100032: Hip
+    100034: Index001.L
+    100036: Index001.R.001
+    100038: Index002.L
+    100040: Index002.R.001
+    100042: Index003.L
+    100044: Index003.L_end
+    100046: Index003.L_end.001
+    100048: Index003.L_end.001_end
+    100050: Index003.L_end.001_end_end
+    100052: Index003.L_end_end
+    100054: Index003.L_end_end_end
+    100056: Index003.R.001
+    100058: Middle001.L
+    100060: Middle001.R.001
+    100062: Middle002.L
+    100064: Middle002.R.001
+    100066: Middle003.L
+    100068: Middle003.L_end
+    100070: Middle003.L_end.001
+    100072: Middle003.L_end.001_end
+    100074: Middle003.L_end.001_end_end
+    100076: Middle003.L_end_end
+    100078: Middle003.L_end_end_end
+    100080: Middle003.R.001
+    100082: Neck
+    100084: Pinky001.L
+    100086: Pinky001.R.001
+    100088: Pinky002.L
+    100090: Pinky002.R.001
+    100092: Pinky003.L
+    100094: Pinky003.L_end
+    100096: Pinky003.L_end.001
+    100098: Pinky003.L_end.001_end
+    100100: Pinky003.L_end.001_end_end
+    100102: Pinky003.L_end_end
+    100104: Pinky003.L_end_end_end
+    100106: Pinky003.R.001
+    100108: Ring001.L
+    100110: Ring001.R.001
+    100112: Ring002.L
+    100114: Ring002.R.001
+    100116: Ring003.L
+    100118: Ring003.L_end
+    100120: Ring003.L_end.001
+    100122: Ring003.L_end.001_end
+    100124: Ring003.L_end.001_end_end
+    100126: Ring003.L_end_end
+    100128: Ring003.L_end_end_end
+    100130: Ring003.R.001
+    100132: Shin.L
+    100134: Shin.R.001
+    100136: Shoulder.L
+    100138: Shoulder.R.001
+    100140: Spine
+    100142: Thigh.L
+    100144: Thigh.R.001
+    100146: Thumb001.L
+    100148: Thumb001.R.001
+    100150: Thumb002.L
+    100152: Thumb002.R.001
+    100154: Thumb003.L
+    100156: Thumb003.L_end
+    100158: Thumb003.L_end.001
+    100160: Thumb003.L_end.001_end
+    100162: Thumb003.L_end.001_end_end
+    100164: Thumb003.L_end_end
+    100166: Thumb003.L_end_end_end
+    100168: Thumb003.R.001
+    100170: Toe.L
+    100172: Toe.L_end
+    100174: Toe.L_end.001
+    100176: Toe.L_end.001_end
+    100178: Toe.L_end.001_end_end
+    100180: Toe.L_end_end
+    100182: Toe.L_end_end_end
+    100184: Toe.R.001
+    400000: Biceps.L
+    400002: Biceps.R.001
+    400004: Body Bones.002
+    400006: //RootNode
+    400008: Chest
+    400010: Cube.004
+    400012: Foot.L
+    400014: Foot.R.001
+    400016: Forearm.L
+    400018: Forearm.R.001
+    400020: Hand.L
+    400022: Hand.R.001
+    400024: Head
+    400026: Head_end
+    400028: Head_end_end
+    400030: Head_end_end_end
+    400032: Hip
+    400034: Index001.L
+    400036: Index001.R.001
+    400038: Index002.L
+    400040: Index002.R.001
+    400042: Index003.L
+    400044: Index003.L_end
+    400046: Index003.L_end.001
+    400048: Index003.L_end.001_end
+    400050: Index003.L_end.001_end_end
+    400052: Index003.L_end_end
+    400054: Index003.L_end_end_end
+    400056: Index003.R.001
+    400058: Middle001.L
+    400060: Middle001.R.001
+    400062: Middle002.L
+    400064: Middle002.R.001
+    400066: Middle003.L
+    400068: Middle003.L_end
+    400070: Middle003.L_end.001
+    400072: Middle003.L_end.001_end
+    400074: Middle003.L_end.001_end_end
+    400076: Middle003.L_end_end
+    400078: Middle003.L_end_end_end
+    400080: Middle003.R.001
+    400082: Neck
+    400084: Pinky001.L
+    400086: Pinky001.R.001
+    400088: Pinky002.L
+    400090: Pinky002.R.001
+    400092: Pinky003.L
+    400094: Pinky003.L_end
+    400096: Pinky003.L_end.001
+    400098: Pinky003.L_end.001_end
+    400100: Pinky003.L_end.001_end_end
+    400102: Pinky003.L_end_end
+    400104: Pinky003.L_end_end_end
+    400106: Pinky003.R.001
+    400108: Ring001.L
+    400110: Ring001.R.001
+    400112: Ring002.L
+    400114: Ring002.R.001
+    400116: Ring003.L
+    400118: Ring003.L_end
+    400120: Ring003.L_end.001
+    400122: Ring003.L_end.001_end
+    400124: Ring003.L_end.001_end_end
+    400126: Ring003.L_end_end
+    400128: Ring003.L_end_end_end
+    400130: Ring003.R.001
+    400132: Shin.L
+    400134: Shin.R.001
+    400136: Shoulder.L
+    400138: Shoulder.R.001
+    400140: Spine
+    400142: Thigh.L
+    400144: Thigh.R.001
+    400146: Thumb001.L
+    400148: Thumb001.R.001
+    400150: Thumb002.L
+    400152: Thumb002.R.001
+    400154: Thumb003.L
+    400156: Thumb003.L_end
+    400158: Thumb003.L_end.001
+    400160: Thumb003.L_end.001_end
+    400162: Thumb003.L_end.001_end_end
+    400164: Thumb003.L_end_end
+    400166: Thumb003.L_end_end_end
+    400168: Thumb003.R.001
+    400170: Toe.L
+    400172: Toe.L_end
+    400174: Toe.L_end.001
+    400176: Toe.L_end.001_end
+    400178: Toe.L_end.001_end_end
+    400180: Toe.L_end_end
+    400182: Toe.L_end_end_end
+    400184: Toe.R.001
+    4300000: Cube.004
+    9500000: //RootNode
+    13700000: Cube.004
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

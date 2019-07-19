@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: b5d37f7819b284e1e8708f5de5d74d22
+timeCreated: 1539211106
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Ammo .45 ACP
+    100002: Ammo 5.56
+    100004: Ammo 7.62
+    100006: Ammo 9mm
+    100008: Ammo Shotgun Shells
+    100010: Cube.001
+    100012: Gun Scar
+    100014: Gun Shotgun
+    100016: Gun Sniper
+    100018: Gun UMP
+    100020: Gun Uzi
+    100022: Gun Winchester
+    100024: Melee Fireaxe
+    100026: Melee Pan
+    100028: Melee Pickaxe
+    100030: Melee Shovel
+    100032: Melee Throwing Axe
+    100034: Melee Woodcutting Axe
+    100036: Sidearm Revolver
+    100038: //RootNode
+    400000: Ammo .45 ACP
+    400002: Ammo 5.56
+    400004: Ammo 7.62
+    400006: Ammo 9mm
+    400008: Ammo Shotgun Shells
+    400010: Cube.001
+    400012: Gun Scar
+    400014: Gun Shotgun
+    400016: Gun Sniper
+    400018: Gun UMP
+    400020: Gun Uzi
+    400022: Gun Winchester
+    400024: Melee Fireaxe
+    400026: Melee Pan
+    400028: Melee Pickaxe
+    400030: Melee Shovel
+    400032: Melee Throwing Axe
+    400034: Melee Woodcutting Axe
+    400036: Sidearm Revolver
+    400038: //RootNode
+    2300000: Ammo .45 ACP
+    2300002: Ammo 5.56
+    2300004: Ammo 7.62
+    2300006: Ammo 9mm
+    2300008: Ammo Shotgun Shells
+    2300010: Cube.001
+    2300012: Gun Scar
+    2300014: Gun Shotgun
+    2300016: Gun Sniper
+    2300018: Gun UMP
+    2300020: Gun Uzi
+    2300022: Gun Winchester
+    2300024: Melee Fireaxe
+    2300026: Melee Pan
+    2300028: Melee Pickaxe
+    2300030: Melee Shovel
+    2300032: Melee Throwing Axe
+    2300034: Melee Woodcutting Axe
+    2300036: Sidearm Revolver
+    3300000: Ammo .45 ACP
+    3300002: Ammo 5.56
+    3300004: Ammo 7.62
+    3300006: Ammo 9mm
+    3300008: Ammo Shotgun Shells
+    3300010: Cube.001
+    3300012: Gun Scar
+    3300014: Gun Shotgun
+    3300016: Gun Sniper
+    3300018: Gun UMP
+    3300020: Gun Uzi
+    3300022: Gun Winchester
+    3300024: Melee Fireaxe
+    3300026: Melee Pan
+    3300028: Melee Pickaxe
+    3300030: Melee Shovel
+    3300032: Melee Throwing Axe
+    3300034: Melee Woodcutting Axe
+    3300036: Sidearm Revolver
+    4300000: Cube.001
+    4300002: Ammo .45 ACP
+    4300004: Ammo 7.62
+    4300006: Ammo 5.56
+    4300008: Ammo Shotgun Shells
+    4300010: Ammo 9mm
+    4300012: Gun UMP
+    4300014: Gun Scar
+    4300016: Gun Winchester
+    4300018: Melee Shovel
+    4300020: Sidearm Revolver
+    4300022: Melee Pickaxe
+    4300024: Melee Fireaxe
+    4300026: Melee Throwing Axe
+    4300028: Gun Uzi
+    4300030: Melee Woodcutting Axe
+    4300032: Gun Sniper
+    4300034: Melee Pan
+    4300036: Gun Shotgun
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
