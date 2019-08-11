@@ -40,6 +40,9 @@ public class Player : NetworkBehaviour, IDamageable {
     [SerializeField] private GameObject shootOrigin;
     [SerializeField] private GameObject rocketPrefab;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource soundInterface;
+
     [Header("Debug")]
     [SerializeField] private GameObject debugPositionPrefab;
 
@@ -185,6 +188,8 @@ public class Player : NetworkBehaviour, IDamageable {
     {
         if (index < weapons.Count) {
 
+            soundInterface.Play();
+
             weapon = weapons[index];
             hud.UpdateWeapon(weapon);
 
@@ -202,6 +207,8 @@ public class Player : NetworkBehaviour, IDamageable {
     }
 
     private void SwitchTool() {
+
+        soundInterface.Play();
 
         weapon = null;
         hud.UpdateWeapon(weapon);
@@ -241,7 +248,6 @@ public class Player : NetworkBehaviour, IDamageable {
             hud.UpdateResourcesRequirement(currentObstacle.GetComponent<Obstacle>().Cost, resources);
 
             currentObstacle.GetComponentInChildren<Collider>().enabled = true;
-
         }
     }
 
