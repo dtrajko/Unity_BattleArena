@@ -60,6 +60,7 @@ public class Player : NetworkBehaviour, IDamageable {
     private GameObject obstacleContainer;
     private int obstacleToAddIndex;
     private Health health;
+    private int weaponIndex = 0; // by dtrajko
 
     public float Health { get { return health.Value; } }
 
@@ -149,6 +150,19 @@ public class Player : NetworkBehaviour, IDamageable {
             SwitchWeapon(4);
         }
 
+        // by dtrajko: use mouse scrollwheel to switch weapons
+        if (Input.mouseScrollDelta.y < -0.05f)
+        {
+            weaponIndex++;
+            if (weaponIndex >= weapons.Count) weaponIndex = 0;
+            SwitchWeapon(weaponIndex);
+        }
+        if (Input.mouseScrollDelta.y > 0.05f) {
+            weaponIndex--;
+            if (weaponIndex < 0) weaponIndex = weapons.Count > 0 ? weapons.Count - 1 : 0;
+            SwitchWeapon(weaponIndex);
+        }
+
         // Tool switch logic
         hud.Tool = tool;
         if (Input.GetKeyDown(toolSwitchKey))
@@ -204,6 +218,7 @@ public class Player : NetworkBehaviour, IDamageable {
                 hud.SniperAimVisibility = false;
             }
         }
+        weaponIndex = index; // by dtrajko
     }
 
     private void SwitchTool() {
@@ -379,7 +394,7 @@ public class Player : NetworkBehaviour, IDamageable {
             // Zoom logic
             Visibility = true;
             if (weapon is Sniper) {
-                if (Input.GetMouseButtonDown(1)) {
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1)) {
                     gameCamera.TriggerZoom();
                     hud.SniperAimVisibility = gameCamera.IsZoomedIn;
                     Visibility = !gameCamera.IsZoomedIn;
