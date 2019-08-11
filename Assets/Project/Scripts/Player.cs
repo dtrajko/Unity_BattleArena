@@ -290,6 +290,8 @@ public class Player : NetworkBehaviour, IDamageable {
 
                     resources += collectedResources;
                     hud.Resources = resources;
+
+                    soundInterface.Play();
                 }
             }
         }
@@ -329,6 +331,8 @@ public class Player : NetworkBehaviour, IDamageable {
             ItemBox itemBox = otherCollider.gameObject.GetComponent<ItemBox>();
             GiveItem(itemBox.Type, itemBox.Amount);
             CmdCollectBox(otherCollider.gameObject);
+
+            soundInterface.Play();
         }
     }
 
