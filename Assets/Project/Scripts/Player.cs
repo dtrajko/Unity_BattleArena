@@ -42,6 +42,10 @@ public class Player : NetworkBehaviour, IDamageable {
 
     [Header("Audio")]
     [SerializeField] private AudioSource soundInterface;
+    [SerializeField] private AudioSource soundShootPistol;
+    [SerializeField] private AudioSource soundShootMachineGun;
+    [SerializeField] private AudioSource soundShootShotgun;
+    [SerializeField] private AudioSource soundShootSniper;
 
     [Header("Debug")]
     [SerializeField] private GameObject debugPositionPrefab;
@@ -427,6 +431,11 @@ public class Player : NetworkBehaviour, IDamageable {
         if (weapon is Shotgun) {
             amountOfBullets = ((Shotgun)weapon).AmountOfBullets;
         }
+
+        if (weapon is Pistol)     soundShootPistol.Play();
+        if (weapon is MachineGun) soundShootMachineGun.Play();
+        if (weapon is Shotgun)    soundShootShotgun.Play();
+        if (weapon is Sniper)     soundShootSniper.Play();
 
         for (int i = 0; i < amountOfBullets; i++) {
             float distanceFromCamera = Vector3.Distance(gameCamera.transform.position, transform.position);
