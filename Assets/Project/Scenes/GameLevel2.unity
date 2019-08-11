@@ -33511,7 +33511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1641530702}
   m_Layer: 0
-  m_Name: SpawnerPart2
+  m_Name: Spawner2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

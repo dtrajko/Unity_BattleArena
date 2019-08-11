@@ -51,7 +51,12 @@ public class Obstacle : NetworkBehaviour, IDamageable
             obstacleCollider.enabled = false;
         }
         // Make the obstacle transparent
-        obstacleRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+        obstacleRenderer.material.color = new Color(
+            obstacleRenderer.material.color.r,
+            obstacleRenderer.material.color.g,
+            obstacleRenderer.material.color.b,
+            0.5f
+        );
     }
 
     public void Place() {
@@ -62,7 +67,12 @@ public class Obstacle : NetworkBehaviour, IDamageable
         }
 
         // Make the obstacle opaque
-        obstacleRenderer.material.color = Color.white;
+        obstacleRenderer.material.color = new Color(
+            obstacleRenderer.material.color.r,
+            obstacleRenderer.material.color.g,
+            obstacleRenderer.material.color.b,
+            1.0f
+        );
     }
 
     public void Hit() {
