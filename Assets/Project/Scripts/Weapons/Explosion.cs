@@ -22,6 +22,6 @@ public class Explosion : NetworkBehaviour
                 hit.transform.GetComponentInParent<IDamageable>().Damage(damage);
             }
         }
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 1.5f);
     }
 }
