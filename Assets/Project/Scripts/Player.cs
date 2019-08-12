@@ -69,8 +69,6 @@ public class Player : NetworkBehaviour, IDamageable {
     private int obstacleToAddIndex;
     private Health health;
 
-    private NetworkPlayerAudioController networkPlayerAudio;
-
     private int weaponIndex = -1; // by dtrajko
 
     public float Health { get { return health.Value; } }
@@ -102,9 +100,6 @@ public class Player : NetworkBehaviour, IDamageable {
             hud.Resources = resources;
             hud.Tool = tool; // PlayerTool: Pickaxe
             hud.UpdateWeapon(null);
-
-            // Network audio
-            networkPlayerAudio = FindObjectOfType<NetworkPlayerAudioController>();
         }
 
         // Obstacle container
@@ -436,6 +431,18 @@ public class Player : NetworkBehaviour, IDamageable {
         }
     }
 
+    [Command]
+    void CmdPlayWeaponSound(GameObject caller, int index) {
+        if (!isServer) return;
+
+        RpcPlayWeaponSound(caller, index);
+    }
+
+    [ClientRpc]
+    void RpcPlayWeaponSound(GameObject caller, int index) {
+        caller.GetComponent<Player>().PlayWeaponSound(index);
+    }
+
     public void PlayWeaponSound(int index)
     {
         soundsWeapons[index].Play();
@@ -448,15 +455,10 @@ public class Player : NetworkBehaviour, IDamageable {
             amountOfBullets = ((Shotgun)weapon).AmountOfBullets;
         }
 
-        // if (weapon is Pistol)     soundsWeapons[(int)WeaponSound.Pistol].Play();
-        // if (weapon is MachineGun) soundsWeapons[(int)WeaponSound.MachineGun].Play();
-        // if (weapon is Shotgun)    soundsWeapons[(int)WeaponSound.Shotgun].Play();
-        // if (weapon is Sniper)     soundsWeapons[(int)WeaponSound.Sniper].Play();
-
-        if (weapon is Pistol)     networkPlayerAudio.PlayWeaponSound(gameObject, (int)WeaponSound.Pistol);
-        if (weapon is MachineGun) networkPlayerAudio.PlayWeaponSound(gameObject, (int)WeaponSound.MachineGun);
-        if (weapon is Shotgun)    networkPlayerAudio.PlayWeaponSound(gameObject, (int)WeaponSound.Shotgun);
-        if (weapon is Sniper)     networkPlayerAudio.PlayWeaponSound(gameObject, (int)WeaponSound.Sniper);
+        if (weapon is Pistol)     CmdPlayWeaponSound(gameObject, (int)WeaponSound.Pistol);
+        if (weapon is MachineGun) CmdPlayWeaponSound(gameObject, (int)WeaponSound.MachineGun);
+        if (weapon is Shotgun)    CmdPlayWeaponSound(gameObject, (int)WeaponSound.Shotgun);
+        if (weapon is Sniper)     CmdPlayWeaponSound(gameObject, (int)WeaponSound.Sniper);
 
         for (int i = 0; i < amountOfBullets; i++) {
             float distanceFromCamera = Vector3.Distance(gameCamera.transform.position, transform.position);
