@@ -54,7 +54,7 @@ public class Player : NetworkBehaviour, IDamageable {
     [SerializeField] private AudioSource soundJump;
     [SerializeField] private AudioSource soundLand;
     [SerializeField] private float stepInterval = 0.25f;
-
+    [SerializeField] private AudioSource soundHit;
 
     [Header("Debug")]
     [SerializeField] private GameObject debugPositionPrefab;
@@ -298,6 +298,8 @@ public class Player : NetworkBehaviour, IDamageable {
                 if (resourceCollectionCooldownTimer <= 0
                     && hit.transform.GetComponentInChildren<ResourceObject>() != null)
                 {
+                    CmdHit(gameObject);
+
                     resourceCollectionCooldownTimer = resourceCollectionCooldown;
 
                     ResourceObject resourceObject = hit.transform.GetComponent<ResourceObject>();
@@ -312,19 +314,19 @@ public class Player : NetworkBehaviour, IDamageable {
 
                     resources += collectedResources;
                     hud.Resources = resources;
-
-                    soundInterface.Play();
                 }
             }
         }
     }
 
     private void UseToolTrigger() {
-        if (obstaclePlacementCooldownTimer <= 0 &&
-            currentObstacle != null &&
-            resources >= currentObstacle.GetComponent<Obstacle>().Cost)
+        if (obstaclePlacementCooldownTimer <= 0 && currentObstacle != null && resources >= currentObstacle.GetComponent<Obstacle>().Cost)
         {
-            resources -= currentObstacle.GetComponent<Obstacle>().Cost;
+            CmdHit(gameObject);
+
+            int cost = currentObstacle.GetComponent<Obstacle>().Cost;
+            resources -= cost;
+
             hud.Resources = resources;
             hud.UpdateResourcesRequirement(currentObstacle.GetComponent<Obstacle>().Cost, resources);
 
@@ -353,8 +355,6 @@ public class Player : NetworkBehaviour, IDamageable {
             ItemBox itemBox = otherCollider.gameObject.GetComponent<ItemBox>();
             GiveItem(itemBox.Type, itemBox.Amount);
             CmdCollectBox(otherCollider.gameObject);
-
-            soundInterface.Play();
         }
     }
 
@@ -364,6 +364,9 @@ public class Player : NetworkBehaviour, IDamageable {
     }
 
     private void GiveItem(ItemBox.ItemType type, int amount) {
+
+        CmdHit(gameObject);
+
         // Create a weapon reference
         Weapon currentWeapon = null;
 
@@ -538,6 +541,7 @@ public class Player : NetworkBehaviour, IDamageable {
         Destroy(gameObject);
     }
 
+    // Network weapon sound
     [Command]
     void CmdPlayWeaponSound(GameObject caller, int index)
     {
@@ -557,6 +561,7 @@ public class Player : NetworkBehaviour, IDamageable {
         soundsWeapons[index].Play();
     }
 
+    // Network footstep sound
     [Command]
     void CmdPlayFootstepSound(GameObject caller) {
         if (!isServer) return;
@@ -587,6 +592,7 @@ public class Player : NetworkBehaviour, IDamageable {
         CmdJump(gameObject);
     }
 
+    // Network jump sound
     [Command]
     void CmdJump(GameObject caller) {
         if (!isServer) return;
@@ -602,5 +608,24 @@ public class Player : NetworkBehaviour, IDamageable {
     public void PlayJumpSound()
     {
         soundJump.Play();
+    }
+
+    // Network hit sound
+    [Command]
+    void CmdHit(GameObject caller) {
+        if (!isServer) return;
+
+        RpcHit(caller);
+    }
+
+    [ClientRpc]
+    void RpcHit(GameObject caller)
+    {
+        caller.GetComponent<Player>().PlayHitSound();
+    }
+
+    public void PlayHitSound()
+    {
+        soundHit.Play();
     }
 }
