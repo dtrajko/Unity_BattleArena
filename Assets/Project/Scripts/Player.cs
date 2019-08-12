@@ -53,6 +53,8 @@ public class Player : NetworkBehaviour, IDamageable {
     [SerializeField] private AudioSource[] soundsFootsteps;
     [SerializeField] private AudioSource soundJump;
     [SerializeField] private AudioSource soundLand;
+    [SerializeField] private float stepInterval = 0.25f;
+
 
     [Header("Debug")]
     [SerializeField] private GameObject debugPositionPrefab;
@@ -71,6 +73,8 @@ public class Player : NetworkBehaviour, IDamageable {
     private GameObject obstacleContainer;
     private int obstacleToAddIndex;
     private Health health;
+
+    private float stepTimer;
 
     private int weaponIndex = -1; // by dtrajko
 
@@ -103,6 +107,10 @@ public class Player : NetworkBehaviour, IDamageable {
             hud.Resources = resources;
             hud.Tool = tool; // PlayerTool: Pickaxe
             hud.UpdateWeapon(null);
+
+            // Listen to events
+            GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter>().OnFootstep += OnFootstep;
+            GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter>().OnJump += OnJump;
         }
 
         // Obstacle container
@@ -117,6 +125,7 @@ public class Player : NetworkBehaviour, IDamageable {
         // Update timers
         resourceCollectionCooldownTimer -= Time.deltaTime;
         obstaclePlacementCooldownTimer -= Time.deltaTime;
+        stepTimer -= Time.deltaTime;
 
         if (Input.GetKeyDown(changeFocalSideKey))
         {
@@ -564,5 +573,34 @@ public class Player : NetworkBehaviour, IDamageable {
     public void PlayFootstepSound()
     {
         soundsFootsteps[UnityEngine.Random.Range(0, soundsFootsteps.Length)].Play();
+    }
+
+    // This event is emitted in the ThirdPersonCharacter
+    void OnFootstep(float forwardAmount) {
+        if (forwardAmount > 0.6f && stepTimer <= 0) {
+            stepTimer = stepInterval;
+            CmdPlayFootstepSound(gameObject);
+        }
+    }
+
+    void OnJump() {
+        CmdJump(gameObject);
+    }
+
+    [Command]
+    void CmdJump(GameObject caller) {
+        if (!isServer) return;
+
+        RpcJump(caller);
+    }
+
+    [ClientRpc]
+    void RpcJump(GameObject caller)
+    {
+        caller.GetComponent<Player>().PlayJumpSound();
+    }
+    public void PlayJumpSound()
+    {
+        soundJump.Play();
     }
 }
