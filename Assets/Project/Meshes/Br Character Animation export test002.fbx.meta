@@ -1,184 +1,529 @@
 fileFormatVersion: 2
 guid: ea55e0730040b4142926b6b9b5f5a37f
-timeCreated: 1540932411
-licenseType: Free
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: Biceps.L
-    100002: Biceps.R.001
-    100004: Body Bones
-    100006: //RootNode
-    100008: Character Base Model
-    100010: Chest
-    100012: Foot.L
-    100014: Foot.R.001
-    100016: Forearm.L
-    100018: Forearm.R.001
-    100020: Hand.L
-    100022: Hand.R.001
-    100024: Head
-    100026: Head_end
-    100028: Head_end_end
-    100030: Hip
-    100032: Index001.L
-    100034: Index001.R.001
-    100036: Index002.L
-    100038: Index002.R.001
-    100040: Index003.L
-    100042: Index003.L_end
-    100044: Index003.L_end.001
-    100046: Index003.L_end.001_end
-    100048: Index003.L_end_end
-    100050: Index003.R.001
-    100052: Middle001.L
-    100054: Middle001.R.001
-    100056: Middle002.L
-    100058: Middle002.R.001
-    100060: Middle003.L
-    100062: Middle003.L_end
-    100064: Middle003.L_end.001
-    100066: Middle003.L_end.001_end
-    100068: Middle003.L_end_end
-    100070: Middle003.R.001
-    100072: Neck
-    100074: Pinky001.L
-    100076: Pinky001.R.001
-    100078: Pinky002.L
-    100080: Pinky002.R.001
-    100082: Pinky003.L
-    100084: Pinky003.L_end
-    100086: Pinky003.L_end.001
-    100088: Pinky003.L_end.001_end
-    100090: Pinky003.L_end_end
-    100092: Pinky003.R.001
-    100094: Ring001.L
-    100096: Ring001.R.001
-    100098: Ring002.L
-    100100: Ring002.R.001
-    100102: Ring003.L
-    100104: Ring003.L_end
-    100106: Ring003.L_end.001
-    100108: Ring003.L_end.001_end
-    100110: Ring003.L_end_end
-    100112: Ring003.R.001
-    100114: Shin.L
-    100116: Shin.R.001
-    100118: Shoulder.L
-    100120: Shoulder.R.001
-    100122: Spine
-    100124: Thigh.L
-    100126: Thigh.R.001
-    100128: Thumb001.L
-    100130: Thumb001.R.001
-    100132: Thumb002.L
-    100134: Thumb002.R.001
-    100136: Thumb003.L
-    100138: Thumb003.L_end
-    100140: Thumb003.L_end.001
-    100142: Thumb003.L_end.001_end
-    100144: Thumb003.L_end_end
-    100146: Thumb003.R.001
-    100148: Toe.L
-    100150: Toe.L_end
-    100152: Toe.L_end.001
-    100154: Toe.L_end.001_end
-    100156: Toe.L_end_end
-    100158: Toe.R.001
-    400000: Biceps.L
-    400002: Biceps.R.001
-    400004: Body Bones
-    400006: //RootNode
-    400008: Character Base Model
-    400010: Chest
-    400012: Foot.L
-    400014: Foot.R.001
-    400016: Forearm.L
-    400018: Forearm.R.001
-    400020: Hand.L
-    400022: Hand.R.001
-    400024: Head
-    400026: Head_end
-    400028: Head_end_end
-    400030: Hip
-    400032: Index001.L
-    400034: Index001.R.001
-    400036: Index002.L
-    400038: Index002.R.001
-    400040: Index003.L
-    400042: Index003.L_end
-    400044: Index003.L_end.001
-    400046: Index003.L_end.001_end
-    400048: Index003.L_end_end
-    400050: Index003.R.001
-    400052: Middle001.L
-    400054: Middle001.R.001
-    400056: Middle002.L
-    400058: Middle002.R.001
-    400060: Middle003.L
-    400062: Middle003.L_end
-    400064: Middle003.L_end.001
-    400066: Middle003.L_end.001_end
-    400068: Middle003.L_end_end
-    400070: Middle003.R.001
-    400072: Neck
-    400074: Pinky001.L
-    400076: Pinky001.R.001
-    400078: Pinky002.L
-    400080: Pinky002.R.001
-    400082: Pinky003.L
-    400084: Pinky003.L_end
-    400086: Pinky003.L_end.001
-    400088: Pinky003.L_end.001_end
-    400090: Pinky003.L_end_end
-    400092: Pinky003.R.001
-    400094: Ring001.L
-    400096: Ring001.R.001
-    400098: Ring002.L
-    400100: Ring002.R.001
-    400102: Ring003.L
-    400104: Ring003.L_end
-    400106: Ring003.L_end.001
-    400108: Ring003.L_end.001_end
-    400110: Ring003.L_end_end
-    400112: Ring003.R.001
-    400114: Shin.L
-    400116: Shin.R.001
-    400118: Shoulder.L
-    400120: Shoulder.R.001
-    400122: Spine
-    400124: Thigh.L
-    400126: Thigh.R.001
-    400128: Thumb001.L
-    400130: Thumb001.R.001
-    400132: Thumb002.L
-    400134: Thumb002.R.001
-    400136: Thumb003.L
-    400138: Thumb003.L_end
-    400140: Thumb003.L_end.001
-    400142: Thumb003.L_end.001_end
-    400144: Thumb003.L_end_end
-    400146: Thumb003.R.001
-    400148: Toe.L
-    400150: Toe.L_end
-    400152: Toe.L_end.001
-    400154: Toe.L_end.001_end
-    400156: Toe.L_end_end
-    400158: Toe.R.001
-    4300000: Character Base Model
-    7400000: Body Bones|Melee swing
-    7400002: Body Bones|Pistol Holding
-    7400004: Body Bones|Rifle Holding
-    7400006: Body Bones|Rocket Holding
-    7400008: Body Bones|Shooting Rocket
-    7400010: Body Bones|Shotting Pistol
-    7400012: Body Bones|Shotting Rifle
-    9500000: //RootNode
-    13700000: Character Base Model
+  serializedVersion: 25
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Biceps.L
+  - first:
+      1: 100002
+    second: Biceps.R.001
+  - first:
+      1: 100004
+    second: Body Bones
+  - first:
+      1: 100006
+    second: //RootNode
+  - first:
+      1: 100008
+    second: Character Base Model
+  - first:
+      1: 100010
+    second: Chest
+  - first:
+      1: 100012
+    second: Foot.L
+  - first:
+      1: 100014
+    second: Foot.R.001
+  - first:
+      1: 100016
+    second: Forearm.L
+  - first:
+      1: 100018
+    second: Forearm.R.001
+  - first:
+      1: 100020
+    second: Hand.L
+  - first:
+      1: 100022
+    second: Hand.R.001
+  - first:
+      1: 100024
+    second: Head
+  - first:
+      1: 100026
+    second: Head_end
+  - first:
+      1: 100028
+    second: Head_end_end
+  - first:
+      1: 100030
+    second: Hip
+  - first:
+      1: 100032
+    second: Index001.L
+  - first:
+      1: 100034
+    second: Index001.R.001
+  - first:
+      1: 100036
+    second: Index002.L
+  - first:
+      1: 100038
+    second: Index002.R.001
+  - first:
+      1: 100040
+    second: Index003.L
+  - first:
+      1: 100042
+    second: Index003.L_end
+  - first:
+      1: 100044
+    second: Index003.L_end.001
+  - first:
+      1: 100046
+    second: Index003.L_end.001_end
+  - first:
+      1: 100048
+    second: Index003.L_end_end
+  - first:
+      1: 100050
+    second: Index003.R.001
+  - first:
+      1: 100052
+    second: Middle001.L
+  - first:
+      1: 100054
+    second: Middle001.R.001
+  - first:
+      1: 100056
+    second: Middle002.L
+  - first:
+      1: 100058
+    second: Middle002.R.001
+  - first:
+      1: 100060
+    second: Middle003.L
+  - first:
+      1: 100062
+    second: Middle003.L_end
+  - first:
+      1: 100064
+    second: Middle003.L_end.001
+  - first:
+      1: 100066
+    second: Middle003.L_end.001_end
+  - first:
+      1: 100068
+    second: Middle003.L_end_end
+  - first:
+      1: 100070
+    second: Middle003.R.001
+  - first:
+      1: 100072
+    second: Neck
+  - first:
+      1: 100074
+    second: Pinky001.L
+  - first:
+      1: 100076
+    second: Pinky001.R.001
+  - first:
+      1: 100078
+    second: Pinky002.L
+  - first:
+      1: 100080
+    second: Pinky002.R.001
+  - first:
+      1: 100082
+    second: Pinky003.L
+  - first:
+      1: 100084
+    second: Pinky003.L_end
+  - first:
+      1: 100086
+    second: Pinky003.L_end.001
+  - first:
+      1: 100088
+    second: Pinky003.L_end.001_end
+  - first:
+      1: 100090
+    second: Pinky003.L_end_end
+  - first:
+      1: 100092
+    second: Pinky003.R.001
+  - first:
+      1: 100094
+    second: Ring001.L
+  - first:
+      1: 100096
+    second: Ring001.R.001
+  - first:
+      1: 100098
+    second: Ring002.L
+  - first:
+      1: 100100
+    second: Ring002.R.001
+  - first:
+      1: 100102
+    second: Ring003.L
+  - first:
+      1: 100104
+    second: Ring003.L_end
+  - first:
+      1: 100106
+    second: Ring003.L_end.001
+  - first:
+      1: 100108
+    second: Ring003.L_end.001_end
+  - first:
+      1: 100110
+    second: Ring003.L_end_end
+  - first:
+      1: 100112
+    second: Ring003.R.001
+  - first:
+      1: 100114
+    second: Shin.L
+  - first:
+      1: 100116
+    second: Shin.R.001
+  - first:
+      1: 100118
+    second: Shoulder.L
+  - first:
+      1: 100120
+    second: Shoulder.R.001
+  - first:
+      1: 100122
+    second: Spine
+  - first:
+      1: 100124
+    second: Thigh.L
+  - first:
+      1: 100126
+    second: Thigh.R.001
+  - first:
+      1: 100128
+    second: Thumb001.L
+  - first:
+      1: 100130
+    second: Thumb001.R.001
+  - first:
+      1: 100132
+    second: Thumb002.L
+  - first:
+      1: 100134
+    second: Thumb002.R.001
+  - first:
+      1: 100136
+    second: Thumb003.L
+  - first:
+      1: 100138
+    second: Thumb003.L_end
+  - first:
+      1: 100140
+    second: Thumb003.L_end.001
+  - first:
+      1: 100142
+    second: Thumb003.L_end.001_end
+  - first:
+      1: 100144
+    second: Thumb003.L_end_end
+  - first:
+      1: 100146
+    second: Thumb003.R.001
+  - first:
+      1: 100148
+    second: Toe.L
+  - first:
+      1: 100150
+    second: Toe.L_end
+  - first:
+      1: 100152
+    second: Toe.L_end.001
+  - first:
+      1: 100154
+    second: Toe.L_end.001_end
+  - first:
+      1: 100156
+    second: Toe.L_end_end
+  - first:
+      1: 100158
+    second: Toe.R.001
+  - first:
+      4: 400000
+    second: Biceps.L
+  - first:
+      4: 400002
+    second: Biceps.R.001
+  - first:
+      4: 400004
+    second: Body Bones
+  - first:
+      4: 400006
+    second: //RootNode
+  - first:
+      4: 400008
+    second: Character Base Model
+  - first:
+      4: 400010
+    second: Chest
+  - first:
+      4: 400012
+    second: Foot.L
+  - first:
+      4: 400014
+    second: Foot.R.001
+  - first:
+      4: 400016
+    second: Forearm.L
+  - first:
+      4: 400018
+    second: Forearm.R.001
+  - first:
+      4: 400020
+    second: Hand.L
+  - first:
+      4: 400022
+    second: Hand.R.001
+  - first:
+      4: 400024
+    second: Head
+  - first:
+      4: 400026
+    second: Head_end
+  - first:
+      4: 400028
+    second: Head_end_end
+  - first:
+      4: 400030
+    second: Hip
+  - first:
+      4: 400032
+    second: Index001.L
+  - first:
+      4: 400034
+    second: Index001.R.001
+  - first:
+      4: 400036
+    second: Index002.L
+  - first:
+      4: 400038
+    second: Index002.R.001
+  - first:
+      4: 400040
+    second: Index003.L
+  - first:
+      4: 400042
+    second: Index003.L_end
+  - first:
+      4: 400044
+    second: Index003.L_end.001
+  - first:
+      4: 400046
+    second: Index003.L_end.001_end
+  - first:
+      4: 400048
+    second: Index003.L_end_end
+  - first:
+      4: 400050
+    second: Index003.R.001
+  - first:
+      4: 400052
+    second: Middle001.L
+  - first:
+      4: 400054
+    second: Middle001.R.001
+  - first:
+      4: 400056
+    second: Middle002.L
+  - first:
+      4: 400058
+    second: Middle002.R.001
+  - first:
+      4: 400060
+    second: Middle003.L
+  - first:
+      4: 400062
+    second: Middle003.L_end
+  - first:
+      4: 400064
+    second: Middle003.L_end.001
+  - first:
+      4: 400066
+    second: Middle003.L_end.001_end
+  - first:
+      4: 400068
+    second: Middle003.L_end_end
+  - first:
+      4: 400070
+    second: Middle003.R.001
+  - first:
+      4: 400072
+    second: Neck
+  - first:
+      4: 400074
+    second: Pinky001.L
+  - first:
+      4: 400076
+    second: Pinky001.R.001
+  - first:
+      4: 400078
+    second: Pinky002.L
+  - first:
+      4: 400080
+    second: Pinky002.R.001
+  - first:
+      4: 400082
+    second: Pinky003.L
+  - first:
+      4: 400084
+    second: Pinky003.L_end
+  - first:
+      4: 400086
+    second: Pinky003.L_end.001
+  - first:
+      4: 400088
+    second: Pinky003.L_end.001_end
+  - first:
+      4: 400090
+    second: Pinky003.L_end_end
+  - first:
+      4: 400092
+    second: Pinky003.R.001
+  - first:
+      4: 400094
+    second: Ring001.L
+  - first:
+      4: 400096
+    second: Ring001.R.001
+  - first:
+      4: 400098
+    second: Ring002.L
+  - first:
+      4: 400100
+    second: Ring002.R.001
+  - first:
+      4: 400102
+    second: Ring003.L
+  - first:
+      4: 400104
+    second: Ring003.L_end
+  - first:
+      4: 400106
+    second: Ring003.L_end.001
+  - first:
+      4: 400108
+    second: Ring003.L_end.001_end
+  - first:
+      4: 400110
+    second: Ring003.L_end_end
+  - first:
+      4: 400112
+    second: Ring003.R.001
+  - first:
+      4: 400114
+    second: Shin.L
+  - first:
+      4: 400116
+    second: Shin.R.001
+  - first:
+      4: 400118
+    second: Shoulder.L
+  - first:
+      4: 400120
+    second: Shoulder.R.001
+  - first:
+      4: 400122
+    second: Spine
+  - first:
+      4: 400124
+    second: Thigh.L
+  - first:
+      4: 400126
+    second: Thigh.R.001
+  - first:
+      4: 400128
+    second: Thumb001.L
+  - first:
+      4: 400130
+    second: Thumb001.R.001
+  - first:
+      4: 400132
+    second: Thumb002.L
+  - first:
+      4: 400134
+    second: Thumb002.R.001
+  - first:
+      4: 400136
+    second: Thumb003.L
+  - first:
+      4: 400138
+    second: Thumb003.L_end
+  - first:
+      4: 400140
+    second: Thumb003.L_end.001
+  - first:
+      4: 400142
+    second: Thumb003.L_end.001_end
+  - first:
+      4: 400144
+    second: Thumb003.L_end_end
+  - first:
+      4: 400146
+    second: Thumb003.R.001
+  - first:
+      4: 400148
+    second: Toe.L
+  - first:
+      4: 400150
+    second: Toe.L_end
+  - first:
+      4: 400152
+    second: Toe.L_end.001
+  - first:
+      4: 400154
+    second: Toe.L_end.001_end
+  - first:
+      4: 400156
+    second: Toe.L_end_end
+  - first:
+      4: 400158
+    second: Toe.R.001
+  - first:
+      43: 4300000
+    second: Character Base Model
+  - first:
+      74: 7400000
+    second: Body Bones|Melee swing
+  - first:
+      74: 7400002
+    second: Body Bones|Pistol Holding
+  - first:
+      74: 7400004
+    second: Body Bones|Rifle Holding
+  - first:
+      74: 7400006
+    second: Body Bones|Rocket Holding
+  - first:
+      74: 7400008
+    second: Body Bones|Shooting Rocket
+  - first:
+      74: 7400010
+    second: Body Bones|Shotting Pistol
+  - first:
+      74: 7400012
+    second: Body Bones|Shotting Rifle
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Character Base Model
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Character 001
+    second: {fileID: 2100000, guid: 5406afcf91dba4df9bf78e9953e61f44, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -191,26 +536,241 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Body Bones|Melee swing
+      takeName: Body Bones|Melee swing
+      internalID: 7400000
+      firstFrame: 0
+      lastFrame: 18
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Body Bones|Pistol Holding
+      takeName: Body Bones|Pistol Holding
+      internalID: 7400002
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Body Bones|Rifle Holding
+      takeName: Body Bones|Rifle Holding
+      internalID: 7400004
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Body Bones|Rocket Holding
+      takeName: Body Bones|Rocket Holding
+      internalID: 7400006
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Body Bones|Shooting Rocket
+      takeName: Body Bones|Shooting Rocket
+      internalID: 7400008
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Body Bones|Shotting Pistol
+      takeName: Body Bones|Shotting Pistol
+      internalID: 7400010
+      firstFrame: 0
+      lastFrame: 7
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Body Bones|Shotting Rifle
+      takeName: Body Bones|Shotting Rifle
+      internalID: 7400012
+      firstFrame: 0
+      lastFrame: 7
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -220,10 +780,15 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -233,13 +798,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
