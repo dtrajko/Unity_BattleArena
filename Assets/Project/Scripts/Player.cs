@@ -50,6 +50,9 @@ public class Player : NetworkBehaviour, IDamageable {
     [Header("Audio")]
     [SerializeField] private AudioSource soundInterface;
     [SerializeField] private AudioSource[] soundsWeapons;
+    [SerializeField] private AudioSource[] soundsFootsteps;
+    [SerializeField] private AudioSource soundJump;
+    [SerializeField] private AudioSource soundLand;
 
     [Header("Debug")]
     [SerializeField] private GameObject debugPositionPrefab;
@@ -431,23 +434,6 @@ public class Player : NetworkBehaviour, IDamageable {
         }
     }
 
-    [Command]
-    void CmdPlayWeaponSound(GameObject caller, int index) {
-        if (!isServer) return;
-
-        RpcPlayWeaponSound(caller, index);
-    }
-
-    [ClientRpc]
-    void RpcPlayWeaponSound(GameObject caller, int index) {
-        caller.GetComponent<Player>().PlayWeaponSound(index);
-    }
-
-    public void PlayWeaponSound(int index)
-    {
-        soundsWeapons[index].Play();
-    }
-
     private void Shoot()
     {
         int amountOfBullets = 1;
@@ -541,5 +527,42 @@ public class Player : NetworkBehaviour, IDamageable {
     [Command]
     public void CmdDestroy() {
         Destroy(gameObject);
+    }
+
+    [Command]
+    void CmdPlayWeaponSound(GameObject caller, int index)
+    {
+        if (!isServer) return;
+
+        RpcPlayWeaponSound(caller, index);
+    }
+
+    [ClientRpc]
+    void RpcPlayWeaponSound(GameObject caller, int index)
+    {
+        caller.GetComponent<Player>().PlayWeaponSound(index);
+    }
+
+    public void PlayWeaponSound(int index)
+    {
+        soundsWeapons[index].Play();
+    }
+
+    [Command]
+    void CmdPlayFootstepSound(GameObject caller) {
+        if (!isServer) return;
+
+        RpcPlayFootstepSound(caller);
+    }
+
+    [ClientRpc]
+    void RpcPlayFootstepSound(GameObject caller)
+    {
+        caller.GetComponent<Player>().PlayFootstepSound();
+    }
+
+    public void PlayFootstepSound()
+    {
+        soundsFootsteps[UnityEngine.Random.Range(0, soundsFootsteps.Length)].Play();
     }
 }
