@@ -76,6 +76,8 @@ public class Player : NetworkBehaviour, IDamageable {
 
     private float stepTimer;
 
+    private Animator playerAnimator;
+
     private int weaponIndex = -1; // by dtrajko
 
     public float Health { get { return health.Value; } }
@@ -111,6 +113,9 @@ public class Player : NetworkBehaviour, IDamageable {
             // Listen to events
             GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter>().OnFootstep += OnFootstep;
             GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter>().OnJump += OnJump;
+
+            // Get animator
+            playerAnimator = GetComponent<Animator>();
         }
 
         // Obstacle container
@@ -220,6 +225,24 @@ public class Player : NetworkBehaviour, IDamageable {
         UpdateWeapon();
     }
 
+    private void AnimateWeaponHold(string weaponName) {
+        playerAnimator.SetTrigger("Hold" + weaponName);
+    }
+
+    private void AnimateShoot()
+    {
+        playerAnimator.SetTrigger("Shoot");
+    }
+
+    private void AnimateUnequip() {
+        playerAnimator.SetTrigger("HoldNothing");
+    }
+
+    private void AnimateMelee()
+    {
+        playerAnimator.SetTrigger("MeleeSwing");
+    }
+
     private void SwitchWeapon(int index)
     {
         if (index < weapons.Count) {
@@ -228,6 +251,12 @@ public class Player : NetworkBehaviour, IDamageable {
 
             weapon = weapons[index];
             hud.UpdateWeapon(weapon);
+
+            if (weapon is Pistol) AnimateWeaponHold("Pistol");
+            else if (weapon is RocketLauncher) AnimateWeaponHold("Rocket");
+            else if (weapon is MachineGun) AnimateWeaponHold("Rifle");
+            else if (weapon is Sniper) AnimateWeaponHold("Rifle");
+            else if (weapon is Shotgun) AnimateWeaponHold("Rifle");
 
             tool = PlayerTool.None;
             hud.Tool = tool;
@@ -246,6 +275,8 @@ public class Player : NetworkBehaviour, IDamageable {
     private void SwitchTool() {
 
         soundInterface.Play();
+
+        AnimateUnequip();
 
         weapon = null;
         hud.UpdateWeapon(weapon);
@@ -299,6 +330,8 @@ public class Player : NetworkBehaviour, IDamageable {
                     && hit.transform.GetComponentInChildren<ResourceObject>() != null)
                 {
                     CmdHit(gameObject);
+
+                    AnimateMelee();
 
                     resourceCollectionCooldownTimer = resourceCollectionCooldown;
 
@@ -457,6 +490,8 @@ public class Player : NetworkBehaviour, IDamageable {
         if (weapon is MachineGun) CmdPlayWeaponSound(gameObject, (int)WeaponSound.MachineGun);
         if (weapon is Shotgun)    CmdPlayWeaponSound(gameObject, (int)WeaponSound.Shotgun);
         if (weapon is Sniper)     CmdPlayWeaponSound(gameObject, (int)WeaponSound.Sniper);
+
+        AnimateShoot();
 
         for (int i = 0; i < amountOfBullets; i++) {
             float distanceFromCamera = Vector3.Distance(gameCamera.transform.position, transform.position);
