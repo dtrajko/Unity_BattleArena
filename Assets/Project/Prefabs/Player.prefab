@@ -859,6 +859,11 @@ MonoBehaviour:
   soundShootMachineGun: {fileID: 4029222153613788401}
   soundShootShotgun: {fileID: 5483263251614136212}
   soundShootSniper: {fileID: 2068757859207705147}
+  soundsWeapons:
+  - {fileID: 4920230945458787682}
+  - {fileID: 4029222153613788401}
+  - {fileID: 5483263251614136212}
+  - {fileID: 2068757859207705147}
   debugPositionPrefab: {fileID: 8897594785129476820, guid: 8bb961162f4081a439869a520031de8e,
     type: 3}
 --- !u!114 &2090063044439672952

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-[Obsolete]
 public class Player : NetworkBehaviour, IDamageable {
 
     public enum PlayerTool {
@@ -13,6 +12,14 @@ public class Player : NetworkBehaviour, IDamageable {
         ObstacleRamp,
         ObstacleHorizontal,
         None
+    }
+
+    public enum WeaponSound
+    {
+        Pistol,
+        MachineGun,
+        Shotgun,
+        Sniper
     }
 
     [Header("Focal Point Variables")]
@@ -42,10 +49,7 @@ public class Player : NetworkBehaviour, IDamageable {
 
     [Header("Audio")]
     [SerializeField] private AudioSource soundInterface;
-    [SerializeField] private AudioSource soundShootPistol;
-    [SerializeField] private AudioSource soundShootMachineGun;
-    [SerializeField] private AudioSource soundShootShotgun;
-    [SerializeField] private AudioSource soundShootSniper;
+    [SerializeField] private AudioSource[] soundsWeapons;
 
     [Header("Debug")]
     [SerializeField] private GameObject debugPositionPrefab;
@@ -64,7 +68,10 @@ public class Player : NetworkBehaviour, IDamageable {
     private GameObject obstacleContainer;
     private int obstacleToAddIndex;
     private Health health;
-    private int weaponIndex = 0; // by dtrajko
+
+    private NetworkPlayerAudioController networkPlayerAudio;
+
+    private int weaponIndex = -1; // by dtrajko
 
     public float Health { get { return health.Value; } }
 
@@ -80,7 +87,8 @@ public class Player : NetworkBehaviour, IDamageable {
         weapons = new List<Weapon>();
         tool = PlayerTool.Pickaxe;
 
-        if (isLocalPlayer) {
+        if (isLocalPlayer)
+        {
             // Game camera
             gameCamera = FindObjectOfType<GameCamera>();
             obstaclePlacementContainer = gameCamera.ObstaclePlacementContainer;
@@ -94,6 +102,9 @@ public class Player : NetworkBehaviour, IDamageable {
             hud.Resources = resources;
             hud.Tool = tool; // PlayerTool: Pickaxe
             hud.UpdateWeapon(null);
+
+            // Network audio
+            networkPlayerAudio = FindObjectOfType<NetworkPlayerAudioController>();
         }
 
         // Obstacle container
@@ -425,6 +436,11 @@ public class Player : NetworkBehaviour, IDamageable {
         }
     }
 
+    public void PlayWeaponSound(int index)
+    {
+        soundsWeapons[index].Play();
+    }
+
     private void Shoot()
     {
         int amountOfBullets = 1;
@@ -432,10 +448,15 @@ public class Player : NetworkBehaviour, IDamageable {
             amountOfBullets = ((Shotgun)weapon).AmountOfBullets;
         }
 
-        if (weapon is Pistol)     soundShootPistol.Play();
-        if (weapon is MachineGun) soundShootMachineGun.Play();
-        if (weapon is Shotgun)    soundShootShotgun.Play();
-        if (weapon is Sniper)     soundShootSniper.Play();
+        // if (weapon is Pistol)     soundsWeapons[(int)WeaponSound.Pistol].Play();
+        // if (weapon is MachineGun) soundsWeapons[(int)WeaponSound.MachineGun].Play();
+        // if (weapon is Shotgun)    soundsWeapons[(int)WeaponSound.Shotgun].Play();
+        // if (weapon is Sniper)     soundsWeapons[(int)WeaponSound.Sniper].Play();
+
+        if (weapon is Pistol)     networkPlayerAudio.PlayWeaponSound(gameObject, (int)WeaponSound.Pistol);
+        if (weapon is MachineGun) networkPlayerAudio.PlayWeaponSound(gameObject, (int)WeaponSound.MachineGun);
+        if (weapon is Shotgun)    networkPlayerAudio.PlayWeaponSound(gameObject, (int)WeaponSound.Shotgun);
+        if (weapon is Sniper)     networkPlayerAudio.PlayWeaponSound(gameObject, (int)WeaponSound.Sniper);
 
         for (int i = 0; i < amountOfBullets; i++) {
             float distanceFromCamera = Vector3.Distance(gameCamera.transform.position, transform.position);

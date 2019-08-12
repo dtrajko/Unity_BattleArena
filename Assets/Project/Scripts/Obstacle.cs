@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-[System.Obsolete]
 public class Obstacle : NetworkBehaviour, IDamageable
 {
     [SerializeField] private float initialHealth;
