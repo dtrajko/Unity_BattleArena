@@ -22121,7 +22121,7 @@ MonoBehaviour:
   target: {fileID: 0}
   rotationAnchorObject: {fileID: 0}
   translationOffset: {x: 0, y: 0, z: 0}
-  followOffset: {x: 0, y: 0.4, z: -4.2}
+  followOffset: {x: -1, y: 0.3, z: -4.2}
   maxViewingAngle: 22
   minViewingAngle: -55
   rotationSensitivity: 2
