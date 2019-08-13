@@ -86,6 +86,8 @@ public class Player : NetworkBehaviour, IDamageable {
     private float stepTimer;
 
     private Animator playerAnimator;
+    private NetworkAnimator playerNetworkAnimator;
+    private string modelName; // Current weapon or tool the player is holding
 
     private int weaponIndex = -1; // by dtrajko
 
@@ -125,9 +127,11 @@ public class Player : NetworkBehaviour, IDamageable {
 
             // Get animator
             playerAnimator = GetComponent<Animator>();
+            playerNetworkAnimator = GetComponent<NetworkAnimator>();
 
             // Show no models
-            ShowModel("");
+            CmdShowModel(gameObject, "Pickaxe");
+            CmdRefreshModels();
         }
 
         // Obstacle container
@@ -240,30 +244,24 @@ public class Player : NetworkBehaviour, IDamageable {
 
     private void AnimateWeaponHold(string weaponName) {
         playerAnimator.SetTrigger("Hold" + weaponName);
-    }
-
-    public void ShowModel(string modelName) {
-        modelAxe.SetActive(modelName == "Pickaxe");
-        modelPistol.SetActive(modelName == "Pistol");
-        modelMachineGun.SetActive(modelName == "MachineGun");
-        modelShotgun.SetActive(modelName == "Shotgun");
-        modelSniper.SetActive(modelName == "Sniper");
-        modelRocketLauncher.SetActive(modelName == "RocketLauncher");
-        modelRocketLauncherUnloaded.SetActive(modelName == "RocketLauncherUnloaded");
+        playerNetworkAnimator.SetTrigger("Hold" + weaponName);
     }
 
     private void AnimateShoot()
     {
         playerAnimator.SetTrigger("Shoot");
+        playerNetworkAnimator.SetTrigger("Shoot");
     }
 
     private void AnimateUnequip() {
         playerAnimator.SetTrigger("HoldNothing");
+        playerNetworkAnimator.SetTrigger("HoldNothing");
     }
 
     private void AnimateMelee()
     {
         playerAnimator.SetTrigger("MeleeSwing");
+        playerNetworkAnimator.SetTrigger("MeleeSwing");
     }
 
     private void SwitchWeapon(int index)
@@ -283,11 +281,11 @@ public class Player : NetworkBehaviour, IDamageable {
             else if (weapon is RocketLauncher) AnimateWeaponHold("Rocket");
 
             // Show models
-            if (weapon is Pistol)              ShowModel("Pistol");
-            else if (weapon is MachineGun)     ShowModel("MachineGun");
-            else if (weapon is Shotgun)        ShowModel("Shotgun");
-            else if (weapon is Sniper)         ShowModel("Sniper");
-            else if (weapon is RocketLauncher) ShowModel("RocketLauncher");
+            if (weapon is Pistol)              CmdShowModel(gameObject, "Pistol");
+            else if (weapon is MachineGun)     CmdShowModel(gameObject, "MachineGun");
+            else if (weapon is Shotgun)        CmdShowModel(gameObject, "Shotgun");
+            else if (weapon is Sniper)         CmdShowModel(gameObject, "Sniper");
+            else if (weapon is RocketLauncher) CmdShowModel(gameObject, "RocketLauncher");
 
             tool = PlayerTool.None;
             hud.Tool = tool;
@@ -330,10 +328,10 @@ public class Player : NetworkBehaviour, IDamageable {
 
         if (tool == PlayerTool.Pickaxe)
         {
-            ShowModel("Pickaxe");
+            CmdShowModel(gameObject, "Pickaxe");
         }
         else {
-            ShowModel("");
+            CmdShowModel(gameObject, "");
         }
 
         // Check for obstacle placement logic
@@ -477,8 +475,8 @@ public class Player : NetworkBehaviour, IDamageable {
         {
             // by dtrajko - display loaded RocketLauncher model instead of RocketLauncherUnloaded model
             if (weapon is RocketLauncher && rocketLauncherCooldownTimer <= 0) {
-                if (weapon.ClipAmmunition > 0) ShowModel("RocketLauncher");
-                else ShowModel("RocketLauncherUnloaded");
+                if (weapon.ClipAmmunition > 0) CmdShowModel(gameObject, "RocketLauncher");
+                else CmdShowModel(gameObject, "RocketLauncherUnloaded");
                 rocketLauncherCooldownTimer = rocketLauncherCooldown;
             }
 
@@ -588,7 +586,7 @@ public class Player : NetworkBehaviour, IDamageable {
         rocket.transform.position = shootOrigin.transform.position + shootDirection;
         rocket.GetComponent<Rocket>().Shoot(shootDirection);
         NetworkServer.Spawn(rocket);
-        ShowModel("RocketLauncherUnloaded");
+        CmdShowModel(gameObject, "RocketLauncherUnloaded");
     }
 
     [Command]
@@ -708,5 +706,51 @@ public class Player : NetworkBehaviour, IDamageable {
     public void PlayHitSound()
     {
         soundHit.Play();
+    }
+
+    // Network show model
+    [Command]
+    void CmdShowModel(GameObject caller, string newModel) {
+        if (!isServer) return;
+
+        RpcShowModel(caller, newModel);
+    }
+
+    [ClientRpc]
+    void RpcShowModel(GameObject caller, string newModel) {
+        caller.GetComponent<Player>().ShowModel(newModel);
+    }
+
+    public void ShowModel(string newModel)
+    {
+        modelName = newModel;
+        modelAxe.SetActive(newModel == "Pickaxe");
+        modelPistol.SetActive(newModel == "Pistol");
+        modelMachineGun.SetActive(newModel == "MachineGun");
+        modelShotgun.SetActive(newModel == "Shotgun");
+        modelSniper.SetActive(newModel == "Sniper");
+        modelRocketLauncher.SetActive(newModel == "RocketLauncher");
+        modelRocketLauncherUnloaded.SetActive(newModel == "RocketLauncherUnloaded");
+    }
+
+    public override void OnStartLocalPlayer()
+    {
+        base.OnStartLocalPlayer();
+
+        CmdRefreshModels();
+    }
+
+    [Command]
+    void CmdRefreshModels() {
+        if (!isServer) return;
+
+        foreach (Player player in FindObjectsOfType<Player>()) {
+            player.RpcRefreshModels();
+        }
+    }
+
+    [ClientRpc]
+    public void RpcRefreshModels() {
+        CmdShowModel(gameObject, modelName);
     }
 }

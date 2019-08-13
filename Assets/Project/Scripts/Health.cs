@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-[System.Obsolete]
 public class Health : NetworkBehaviour
 {
     // Event
@@ -13,7 +12,6 @@ public class Health : NetworkBehaviour
     // Health
     private const float defaultHealth = 100;
     [SyncVar(hook = "OnHealthSynced")]
-    [System.Obsolete]
     private float health = defaultHealth;
 
     // Properties
@@ -27,7 +25,7 @@ public class Health : NetworkBehaviour
     private void OnHealthSynced(float newHealth) {
         if (OnHealthChanged != null)
         { // If somebody subscribed to this event
-            OnHealthChanged(health);
+            OnHealthChanged(newHealth);
         }
     }
 }
