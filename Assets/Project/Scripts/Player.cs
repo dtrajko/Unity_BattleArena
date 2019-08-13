@@ -46,6 +46,14 @@ public class Player : NetworkBehaviour, IDamageable {
     [Header("Weapons")]
     [SerializeField] private GameObject shootOrigin;
     [SerializeField] private GameObject rocketPrefab;
+    [SerializeField] private GameObject modelAxe;
+    [SerializeField] private GameObject modelPistol;
+    [SerializeField] private GameObject modelMachineGun;
+    [SerializeField] private GameObject modelShotgun;
+    [SerializeField] private GameObject modelSniper;
+    [SerializeField] private GameObject modelRocketLauncher;
+    [SerializeField] private GameObject modelRocketLauncherUnloaded;
+    [SerializeField] private float rocketLauncherCooldown = 5.0f; // by dtrajko
 
     [Header("Audio")]
     [SerializeField] private AudioSource soundInterface;
@@ -63,6 +71,7 @@ public class Player : NetworkBehaviour, IDamageable {
     private int resources = 0;
     private float resourceCollectionCooldownTimer = 0;
     private float obstaclePlacementCooldownTimer = 0;
+    private float rocketLauncherCooldownTimer = 0; // by dtrajko
     private GameObject currentObstacle;
     private bool obstaclePlacementLock;
     private List<Weapon> weapons;
@@ -116,6 +125,9 @@ public class Player : NetworkBehaviour, IDamageable {
 
             // Get animator
             playerAnimator = GetComponent<Animator>();
+
+            // Show no models
+            ShowModel("");
         }
 
         // Obstacle container
@@ -130,6 +142,7 @@ public class Player : NetworkBehaviour, IDamageable {
         // Update timers
         resourceCollectionCooldownTimer -= Time.deltaTime;
         obstaclePlacementCooldownTimer -= Time.deltaTime;
+        rocketLauncherCooldownTimer -= Time.deltaTime;
         stepTimer -= Time.deltaTime;
 
         if (Input.GetKeyDown(changeFocalSideKey))
@@ -229,6 +242,16 @@ public class Player : NetworkBehaviour, IDamageable {
         playerAnimator.SetTrigger("Hold" + weaponName);
     }
 
+    public void ShowModel(string modelName) {
+        modelAxe.SetActive(modelName == "Pickaxe");
+        modelPistol.SetActive(modelName == "Pistol");
+        modelMachineGun.SetActive(modelName == "MachineGun");
+        modelShotgun.SetActive(modelName == "Shotgun");
+        modelSniper.SetActive(modelName == "Sniper");
+        modelRocketLauncher.SetActive(modelName == "RocketLauncher");
+        modelRocketLauncherUnloaded.SetActive(modelName == "RocketLauncherUnloaded");
+    }
+
     private void AnimateShoot()
     {
         playerAnimator.SetTrigger("Shoot");
@@ -252,11 +275,19 @@ public class Player : NetworkBehaviour, IDamageable {
             weapon = weapons[index];
             hud.UpdateWeapon(weapon);
 
-            if (weapon is Pistol) AnimateWeaponHold("Pistol");
+            // Show animations
+            if (weapon is Pistol)              AnimateWeaponHold("Pistol");
+            else if (weapon is MachineGun)     AnimateWeaponHold("Rifle");
+            else if (weapon is Shotgun)        AnimateWeaponHold("Rifle");
+            else if (weapon is Sniper)         AnimateWeaponHold("Rifle");
             else if (weapon is RocketLauncher) AnimateWeaponHold("Rocket");
-            else if (weapon is MachineGun) AnimateWeaponHold("Rifle");
-            else if (weapon is Sniper) AnimateWeaponHold("Rifle");
-            else if (weapon is Shotgun) AnimateWeaponHold("Rifle");
+
+            // Show models
+            if (weapon is Pistol)              ShowModel("Pistol");
+            else if (weapon is MachineGun)     ShowModel("MachineGun");
+            else if (weapon is Shotgun)        ShowModel("Shotgun");
+            else if (weapon is Sniper)         ShowModel("Sniper");
+            else if (weapon is RocketLauncher) ShowModel("RocketLauncher");
 
             tool = PlayerTool.None;
             hud.Tool = tool;
@@ -296,6 +327,14 @@ public class Player : NetworkBehaviour, IDamageable {
         // Get the new tool
         tool = (PlayerTool)currentToolIndex;
         hud.Tool = tool;
+
+        if (tool == PlayerTool.Pickaxe)
+        {
+            ShowModel("Pickaxe");
+        }
+        else {
+            ShowModel("");
+        }
 
         // Check for obstacle placement logic
         obstacleToAddIndex = -1;
@@ -436,10 +475,16 @@ public class Player : NetworkBehaviour, IDamageable {
     {
         if (weapon != null)
         {
+            // by dtrajko - display loaded RocketLauncher model instead of RocketLauncherUnloaded model
+            if (weapon is RocketLauncher && rocketLauncherCooldownTimer <= 0) {
+                if (weapon.ClipAmmunition > 0) ShowModel("RocketLauncher");
+                else ShowModel("RocketLauncherUnloaded");
+                rocketLauncherCooldownTimer = rocketLauncherCooldown;
+            }
 
             if (Input.GetKeyDown(KeyCode.R))
             {
-                weapon.Reload();
+                bool reloaded = weapon.Reload();
             }
 
             float timeElapsed = Time.deltaTime;
@@ -543,6 +588,7 @@ public class Player : NetworkBehaviour, IDamageable {
         rocket.transform.position = shootOrigin.transform.position + shootDirection;
         rocket.GetComponent<Rocket>().Shoot(shootDirection);
         NetworkServer.Spawn(rocket);
+        ShowModel("RocketLauncherUnloaded");
     }
 
     [Command]

@@ -89,13 +89,15 @@ public abstract class Weapon : IComparable
         return hasShot;
     }
 
-    public void Reload() {
+    public bool Reload() {
         // Only reload if the weapon is not currently reloading
         // and the clip is not full
         // and we still have bullets left
         if (reloadTimer <= 0.0f && clipAmmunition < clipSize && totalAmmunition > 0) {
             reloadTimer = reloadDuration;
+            return true;
         }
+        return false;
     }
     public int CompareTo(object otherWeapon)
     {
