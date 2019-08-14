@@ -64,6 +64,10 @@ public class Player : NetworkBehaviour, IDamageable {
     [SerializeField] private float stepInterval = 0.25f;
     [SerializeField] private AudioSource soundHit;
 
+    [Header("Visuals")]
+    [SerializeField] private GameObject characterContainer;
+    [SerializeField] private GameObject energyBall;
+
     [Header("Debug")]
     [SerializeField] private GameObject debugPositionPrefab;
 
@@ -89,6 +93,23 @@ public class Player : NetworkBehaviour, IDamageable {
     private NetworkAnimator playerNetworkAnimator;
     private string modelName; // Current weapon or tool the player is holding
 
+    private bool isInEnergyMode;
+    public bool IsInEnergyMode {
+        get {
+            return isInEnergyMode;
+        }
+        set {
+            isInEnergyMode = value;
+            if (value == true) {
+                energyBall.SetActive(true);
+                characterContainer.transform.localScale = Vector3.zero;
+            } else {
+                energyBall.SetActive(false);
+                characterContainer.transform.localScale = Vector3.one;
+            } 
+        }
+    }
+
     private int weaponIndex = -1; // by dtrajko
 
     public float Health { get { return health.Value; } }
@@ -104,6 +125,8 @@ public class Player : NetworkBehaviour, IDamageable {
         resources = initialResourceCount;
         weapons = new List<Weapon>();
         tool = PlayerTool.Pickaxe;
+
+        IsInEnergyMode = true;
 
         if (isLocalPlayer)
         {
@@ -142,6 +165,17 @@ public class Player : NetworkBehaviour, IDamageable {
     void Update()
     {
         if (!isLocalPlayer) return;
+
+        if (IsInEnergyMode) {
+            // Check if touched the floor
+            RaycastHit hitInfo;
+            if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, 0.5f))
+            {
+                if (hitInfo.transform.GetComponent<Player>() == null) {
+                    IsInEnergyMode = false;
+                }
+            }
+        }
 
         // Update timers
         resourceCollectionCooldownTimer -= Time.deltaTime;
