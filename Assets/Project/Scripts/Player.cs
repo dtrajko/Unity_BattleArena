@@ -68,6 +68,10 @@ public class Player : NetworkBehaviour, IDamageable {
     [SerializeField] private GameObject characterContainer;
     [SerializeField] private GameObject energyBall;
 
+    [Header("EnergyMode")]
+    [SerializeField] private float energyFallingSpeed = -3.0f;
+    [SerializeField] private float energyMovingSpeed = 10.0f;
+
     [Header("Debug")]
     [SerializeField] private GameObject debugPositionPrefab;
 
@@ -92,6 +96,7 @@ public class Player : NetworkBehaviour, IDamageable {
     private Animator playerAnimator;
     private NetworkAnimator playerNetworkAnimator;
     private string modelName; // Current weapon or tool the player is holding
+    private Rigidbody playerRigidbody;
 
     private bool isInEnergyMode;
     public bool IsInEnergyMode {
@@ -101,9 +106,11 @@ public class Player : NetworkBehaviour, IDamageable {
         set {
             isInEnergyMode = value;
             if (value == true) {
+                playerRigidbody.useGravity = false;
                 energyBall.SetActive(true);
                 characterContainer.transform.localScale = Vector3.zero;
             } else {
+                playerRigidbody.useGravity = true;
                 energyBall.SetActive(false);
                 characterContainer.transform.localScale = Vector3.one;
             } 
@@ -120,10 +127,12 @@ public class Player : NetworkBehaviour, IDamageable {
         Cursor.lockState = CursorLockMode.Locked;
 
         // Initialize values
-        health = GetComponent<Health>();
-        health.OnHealthChanged += OnHealthChanged;
         resources = initialResourceCount;
         weapons = new List<Weapon>();
+        health = GetComponent<Health>();
+        health.OnHealthChanged += OnHealthChanged;
+        playerRigidbody = GetComponent<Rigidbody>();
+
         tool = PlayerTool.Pickaxe;
 
         IsInEnergyMode = true;
@@ -161,6 +170,22 @@ public class Player : NetworkBehaviour, IDamageable {
         obstacleContainer = GameObject.Find("ObstacleContainer");
     }
 
+    private void FixedUpdate() {
+        if (IsInEnergyMode) {
+            float horizontalSpeed = Input.GetAxis("Horizontal") * energyMovingSpeed;
+            float depthSpeed = Input.GetAxis("Vertical") * energyMovingSpeed;
+
+            Vector3 cameraForward = Vector3.Scale(gameCamera.transform.forward, new Vector3(1, 0, 1)).normalized;
+            Vector3 moveVector = (horizontalSpeed * gameCamera.transform.right) + (depthSpeed * cameraForward);
+
+            playerRigidbody.velocity = new Vector3(
+                moveVector.x,
+                energyFallingSpeed,
+                moveVector.z
+            );
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -169,7 +194,7 @@ public class Player : NetworkBehaviour, IDamageable {
         if (IsInEnergyMode) {
             // Check if touched the floor
             RaycastHit hitInfo;
-            if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, 0.5f))
+            if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, 2.0f))
             {
                 if (hitInfo.transform.GetComponent<Player>() == null) {
                     IsInEnergyMode = false;
