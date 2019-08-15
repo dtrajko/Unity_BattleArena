@@ -98,6 +98,17 @@ public class Player : NetworkBehaviour, IDamageable {
     private string modelName; // Current weapon or tool the player is holding
     private Rigidbody playerRigidbody;
 
+    private bool shouldAllowEnergyMovement;
+    public bool ShouldAllowEnergyMovement {
+        get { return shouldAllowEnergyMovement; }
+        set {
+            shouldAllowEnergyMovement = value;
+            if (value) {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
+    }
+
     private bool isInEnergyMode;
     public bool IsInEnergyMode {
         get {
@@ -127,7 +138,7 @@ public class Player : NetworkBehaviour, IDamageable {
         energyFallingSpeed = -3.0f;
         energyMovingSpeed = 10.0f;
 
-        Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.lockState = CursorLockMode.Locked;
 
         // Initialize values
         resources = initialResourceCount;
@@ -150,7 +161,8 @@ public class Player : NetworkBehaviour, IDamageable {
 
             // HUD elements
             hud = FindObjectOfType<HUDController>();
-            hud.ShowScreen("regular");
+            if (isServer) hud.ShowScreen("server");
+            else if (isClient) hud.ShowScreen("client");
             hud.Health = health.Value;
             hud.Resources = resources;
             hud.Tool = tool; // PlayerTool: Pickaxe
@@ -178,17 +190,22 @@ public class Player : NetworkBehaviour, IDamageable {
         if (!isLocalPlayer) return;
 
         if (IsInEnergyMode) {
-            float horizontalSpeed = Input.GetAxis("Horizontal") * energyMovingSpeed;
-            float depthSpeed = Input.GetAxis("Vertical") * energyMovingSpeed;
+            if (ShouldAllowEnergyMovement)
+            {
+                float horizontalSpeed = Input.GetAxis("Horizontal") * energyMovingSpeed;
+                float depthSpeed = Input.GetAxis("Vertical") * energyMovingSpeed;
 
-            Vector3 cameraForward = Vector3.Scale(gameCamera.transform.forward, new Vector3(1, 0, 1)).normalized;
-            Vector3 moveVector = (horizontalSpeed * gameCamera.transform.right) + (depthSpeed * cameraForward);
+                Vector3 cameraForward = Vector3.Scale(gameCamera.transform.forward, new Vector3(1, 0, 1)).normalized;
+                Vector3 moveVector = (horizontalSpeed * gameCamera.transform.right) + (depthSpeed * cameraForward);
 
-            playerRigidbody.velocity = new Vector3(
-                moveVector.x,
-                energyFallingSpeed,
-                moveVector.z
-            );
+                playerRigidbody.velocity = new Vector3(
+                    moveVector.x,
+                    energyFallingSpeed,
+                    moveVector.z
+                );
+            } else {
+                playerRigidbody.velocity = Vector3.zero;
+            }
         }
     }
 
@@ -676,6 +693,7 @@ public class Player : NetworkBehaviour, IDamageable {
         hud.UpdateHealthBar(health.Value / 100);
 
         if (newHealth < 0.01f) {
+            Cursor.lockState = CursorLockMode.None;
             hud.ShowScreen("gameOver");
             CmdDestroy();
         }

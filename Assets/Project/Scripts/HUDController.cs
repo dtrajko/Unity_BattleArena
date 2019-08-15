@@ -9,6 +9,7 @@ public class HUDController : MonoBehaviour
     [Header("Screens")]
     [SerializeField] private GameObject regularScreen;
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject serverScreen;
 
     [Header("Interface Elements")]
     [SerializeField] private Text healthText;
@@ -19,6 +20,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private RectTransform weaponReloadBar;
     [SerializeField] private RectTransform healthBar;
     [SerializeField] private GameObject sniperAim;
+    [SerializeField] private Text serverPlayersText;
 
     [Header("Tool Selector")]
     [SerializeField] private GameObject toolFocus;
@@ -38,6 +40,12 @@ public class HUDController : MonoBehaviour
     public int Resources {
         set {
             resourcesText.text = "Resources: " + value;
+        }
+    }
+
+    public int Players {
+        set {
+            serverPlayersText.text = "Players: " + value;
         }
     }
 
@@ -133,5 +141,10 @@ public class HUDController : MonoBehaviour
     public void ShowScreen(string screenName) {
         regularScreen.SetActive(screenName == "regular");
         gameOverScreen.SetActive(screenName == "gameOver");
+        serverScreen.SetActive(screenName == "server");
+    }
+
+    public void OnStartMatch() {
+
     }
 }
