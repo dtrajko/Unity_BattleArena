@@ -69,8 +69,8 @@ public class Player : NetworkBehaviour, IDamageable {
     [SerializeField] private GameObject energyBall;
 
     [Header("EnergyMode")]
-    [SerializeField] private float energyFallingSpeed = -3.0f;
-    [SerializeField] private float energyMovingSpeed = 10.0f;
+    [SerializeField] private float energyFallingSpeed;
+    [SerializeField] private float energyMovingSpeed;
 
     [Header("Debug")]
     [SerializeField] private GameObject debugPositionPrefab;
@@ -124,6 +124,9 @@ public class Player : NetworkBehaviour, IDamageable {
     // Start is called before the first frame update
     void Start()
     {
+        energyFallingSpeed = -3.0f;
+        energyMovingSpeed = 10.0f;
+
         Cursor.lockState = CursorLockMode.Locked;
 
         // Initialize values
@@ -171,6 +174,9 @@ public class Player : NetworkBehaviour, IDamageable {
     }
 
     private void FixedUpdate() {
+
+        if (!isLocalPlayer) return;
+
         if (IsInEnergyMode) {
             float horizontalSpeed = Input.GetAxis("Horizontal") * energyMovingSpeed;
             float depthSpeed = Input.GetAxis("Vertical") * energyMovingSpeed;
@@ -198,6 +204,7 @@ public class Player : NetworkBehaviour, IDamageable {
             {
                 if (hitInfo.transform.GetComponent<Player>() == null) {
                     IsInEnergyMode = false;
+                    CmdDeactivateEnergyBall(gameObject);
                 }
             }
         }
@@ -811,5 +818,21 @@ public class Player : NetworkBehaviour, IDamageable {
     [ClientRpc]
     public void RpcRefreshModels() {
         CmdShowModel(gameObject, modelName);
+    }
+
+    // Network energy balls
+    [Command]
+    void CmdDeactivateEnergyBall(GameObject caller) {
+        RpcDeactivateEnergyBall(caller);
+    }
+
+    [ClientRpc]
+    private void RpcDeactivateEnergyBall(GameObject caller)
+    {
+        DeactivateEnergyBall(caller);
+    }
+
+    void DeactivateEnergyBall(GameObject caller) {
+        caller.GetComponent<Player>().IsInEnergyMode = false;
     }
 }
