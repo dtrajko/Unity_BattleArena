@@ -105,6 +105,7 @@ public class Player : NetworkBehaviour, IDamageable {
             shouldAllowEnergyMovement = value;
             if (value) {
                 Cursor.lockState = CursorLockMode.Locked;
+                hud.ShowScreen("regular");
             }
         }
     }
@@ -167,6 +168,7 @@ public class Player : NetworkBehaviour, IDamageable {
             hud.Resources = resources;
             hud.Tool = tool; // PlayerTool: Pickaxe
             hud.UpdateWeapon(null);
+            hud.OnStartMatch += OnServerStartMatch;
 
             // Listen to events
             GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter>().OnFootstep += OnFootstep;
@@ -183,6 +185,12 @@ public class Player : NetworkBehaviour, IDamageable {
 
         // Obstacle container
         obstacleContainer = GameObject.Find("ObstacleContainer");
+    }
+
+    void OnServerStartMatch() {
+        if (!isServer) return;
+
+        ShouldAllowEnergyMovement = true;
     }
 
     private void FixedUpdate() {
@@ -213,6 +221,10 @@ public class Player : NetworkBehaviour, IDamageable {
     void Update()
     {
         if (!isLocalPlayer) return;
+
+        if (!ShouldAllowEnergyMovement) {
+            hud.Players = FindObjectsOfType<Player>().Length;
+        }
 
         if (IsInEnergyMode) {
             // Check if touched the floor

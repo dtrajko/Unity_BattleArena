@@ -36206,7 +36206,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 479900325}
-        m_MethodName: OnStartMatch
+        m_MethodName: OnPressedStartMatch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

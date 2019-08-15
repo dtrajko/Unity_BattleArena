@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class HUDController : MonoBehaviour
 {
+    public delegate void StartMatchHandler();
+    public event StartMatchHandler OnStartMatch;
+
     [Header("Screens")]
     [SerializeField] private GameObject regularScreen;
     [SerializeField] private GameObject gameOverScreen;
@@ -144,7 +147,7 @@ public class HUDController : MonoBehaviour
         serverScreen.SetActive(screenName == "server");
     }
 
-    public void OnStartMatch() {
-
+    public void OnPressedStartMatch() {
+        OnStartMatch?.Invoke();
     }
 }
