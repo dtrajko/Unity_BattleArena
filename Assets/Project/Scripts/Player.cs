@@ -191,6 +191,18 @@ public class Player : NetworkBehaviour, IDamageable {
         if (!isServer) return;
 
         ShouldAllowEnergyMovement = true;
+        foreach (Player player in FindObjectsOfType<Player>()) {
+            if (player != this) {
+                player.RpcAllowMovement();
+            }
+        }
+    }
+
+    [ClientRpc]
+    public void RpcAllowMovement() {
+        if (!isLocalPlayer) return;
+
+        ShouldAllowEnergyMovement = true;
     }
 
     private void FixedUpdate() {

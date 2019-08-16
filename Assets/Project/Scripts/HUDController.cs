@@ -148,7 +148,7 @@ public class HUDController : MonoBehaviour
         regularScreen.SetActive(screenName == "regular");
         gameOverScreen.SetActive(screenName == "gameOver");
         serverScreen.SetActive(screenName == "server");
-        serverScreen.SetActive(screenName == "client");
+        clientScreen.SetActive(screenName == "client");
     }
 
     public void OnPressedStartMatch() {
