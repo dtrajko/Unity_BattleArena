@@ -136,8 +136,8 @@ public class Player : NetworkBehaviour, IDamageable {
     // Start is called before the first frame update
     void Start()
     {
-        energyFallingSpeed = -3.0f;
-        energyMovingSpeed = 10.0f;
+        energyFallingSpeed = -4.0f;
+        energyMovingSpeed = 16.0f;
 
         // Cursor.lockState = CursorLockMode.Locked;
 
@@ -714,13 +714,22 @@ public class Player : NetworkBehaviour, IDamageable {
         if (!isLocalPlayer) return;
 
         hud.Health = newHealth;
-        hud.UpdateHealthBar(health.Value / 100);
+
+        foreach (Player player in FindObjectsOfType<Player>())
+        {
+            player.RpcUpdateHealthBar(player.Health);
+        }
 
         if (newHealth < 0.01f) {
             Cursor.lockState = CursorLockMode.None;
             hud.ShowScreen("gameOver");
             CmdDestroy();
         }
+    }
+
+    [ClientRpc]
+    public void RpcUpdateHealthBar(float health) {
+        hud.UpdateHealthBar(health / 100);
     }
 
     [Command]
