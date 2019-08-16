@@ -191,6 +191,8 @@ public class Player : NetworkBehaviour, IDamageable {
         if (!isServer) return;
 
         ShouldAllowEnergyMovement = true;
+        FindObjectOfType<StormManager>().ShouldShrink = true;
+
         foreach (Player player in FindObjectsOfType<Player>()) {
             if (player != this) {
                 player.RpcAllowMovement();
