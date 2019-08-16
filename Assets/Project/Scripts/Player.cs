@@ -714,22 +714,13 @@ public class Player : NetworkBehaviour, IDamageable {
         if (!isLocalPlayer) return;
 
         hud.Health = newHealth;
-
-        foreach (Player player in FindObjectsOfType<Player>())
-        {
-            player.RpcUpdateHealthBar(player.Health);
-        }
+        // hud.UpdateHealthBar(health / 100);
 
         if (newHealth < 0.01f) {
             Cursor.lockState = CursorLockMode.None;
             hud.ShowScreen("gameOver");
             CmdDestroy();
         }
-    }
-
-    [ClientRpc]
-    public void RpcUpdateHealthBar(float health) {
-        hud.UpdateHealthBar(health / 100);
     }
 
     [Command]
