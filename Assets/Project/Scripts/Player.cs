@@ -97,6 +97,7 @@ public class Player : NetworkBehaviour, IDamageable {
     private NetworkAnimator playerNetworkAnimator;
     private string modelName; // Current weapon or tool the player is holding
     private Rigidbody playerRigidbody;
+    private float stormDamageTimer = 1;
 
     private bool shouldAllowEnergyMovement;
     public bool ShouldAllowEnergyMovement {
@@ -257,6 +258,7 @@ public class Player : NetworkBehaviour, IDamageable {
         obstaclePlacementCooldownTimer -= Time.deltaTime;
         rocketLauncherCooldownTimer -= Time.deltaTime;
         stepTimer -= Time.deltaTime;
+        stormDamageTimer -= Time.deltaTime;
 
         if (Input.GetKeyDown(changeFocalSideKey))
         {
@@ -709,6 +711,16 @@ public class Player : NetworkBehaviour, IDamageable {
     {
         GetComponent<Health>().Damage(amount);
         return 0;
+    }
+
+    public void StormDamage()
+    {
+        if (!isServer) return;
+
+        if (stormDamageTimer <= 0) {
+            stormDamageTimer = 1;
+            CmdDamage(gameObject, 2);
+        }
     }
 
     public void OnHealthChanged(float newHealth) {

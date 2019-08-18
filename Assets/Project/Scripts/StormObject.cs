@@ -27,4 +27,10 @@ public class StormObject : MonoBehaviour
     public void MoveToDistance(float distance) {
         targetDistance = distance;
     }
+
+    private void OnTriggerStay(Collider otherCollider) {
+        if (otherCollider.GetComponent<Player>() != null) {
+            otherCollider.GetComponent<Player>().StormDamage();
+        }
+    }
 }
