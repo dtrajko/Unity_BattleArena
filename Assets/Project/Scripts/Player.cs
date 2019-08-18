@@ -98,6 +98,7 @@ public class Player : NetworkBehaviour, IDamageable {
     private string modelName; // Current weapon or tool the player is holding
     private Rigidbody playerRigidbody;
     private float stormDamageTimer = 1;
+    private StormManager stormManager;
 
     private bool shouldAllowEnergyMovement;
     public bool ShouldAllowEnergyMovement {
@@ -149,6 +150,11 @@ public class Player : NetworkBehaviour, IDamageable {
         health.OnHealthChanged += OnHealthChanged;
         playerRigidbody = GetComponent<Rigidbody>();
 
+        if (isServer) {
+            stormManager = FindObjectOfType<StormManager>();
+            stormManager.OnShrink += OnStormShrink;
+        }
+
         tool = PlayerTool.Pickaxe;
 
         IsInEnergyMode = true;
@@ -163,6 +169,7 @@ public class Player : NetworkBehaviour, IDamageable {
 
             // HUD elements
             hud = FindObjectOfType<HUDController>();
+            hud.ShowScreen("");
             if (isServer) hud.ShowScreen("server");
             else if (isClient) hud.ShowScreen("client");
             hud.Health = health.Value;
@@ -192,12 +199,21 @@ public class Player : NetworkBehaviour, IDamageable {
         if (!isServer) return;
 
         ShouldAllowEnergyMovement = true;
-        FindObjectOfType<StormManager>().ShouldShrink = true;
+        stormManager.ShouldShrink = true;
 
         foreach (Player player in FindObjectsOfType<Player>()) {
             if (player != this) {
                 player.RpcAllowMovement();
             }
+        }
+    }
+
+    void OnStormShrink() {
+        if (!isServer) return;
+
+        foreach (Player player in FindObjectsOfType<Player>())
+        {
+            player.RpcAlertShrink();
         }
     }
 
@@ -207,6 +223,14 @@ public class Player : NetworkBehaviour, IDamageable {
 
         ShouldAllowEnergyMovement = true;
     }
+
+    [ClientRpc]
+    public void RpcAlertShrink() {
+        if (!isLocalPlayer) return;
+
+        hud.Alert();
+    }
+
 
     private void FixedUpdate() {
 

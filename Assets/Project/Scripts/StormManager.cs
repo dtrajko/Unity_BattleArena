@@ -5,6 +5,9 @@ using UnityEngine.Networking;
 
 public class StormManager : NetworkBehaviour
 {
+    public delegate void shrinkHandler();
+    public event shrinkHandler OnShrink;
+
     [SerializeField] private float[] shrinkTimes;
     [SerializeField] private float[] distancesFromCenter;
     [SerializeField] private GameObject[] stormObjects;
@@ -41,6 +44,11 @@ public class StormManager : NetworkBehaviour
                 float targetDistance = distancesFromCenter[i];
                 foreach (GameObject stormObject in stormObjects) {
                     stormObject.GetComponent<StormObject>().MoveToDistance(targetDistance);
+                }
+
+                // Alert
+                if (OnShrink != null) {
+                    OnShrink();
                 }
             }
         }

@@ -26,6 +26,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private GameObject sniperAim;
     [SerializeField] private Text serverPlayersText;
     [SerializeField] private Text clientPlayersText;
+    [SerializeField] private Text alertText;
 
     [Header("Tool Selector")]
     [SerializeField] private GameObject toolFocus;
@@ -97,6 +98,9 @@ public class HUDController : MonoBehaviour
 
         // Hide the sniper aim
         sniperAim.SetActive(false);
+
+        // Hide the alert text
+        alertText.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -153,5 +157,14 @@ public class HUDController : MonoBehaviour
 
     public void OnPressedStartMatch() {
         OnStartMatch?.Invoke();
+    }
+
+    public void Alert() {
+        alertText.gameObject.SetActive(true);
+        Invoke("HideAlert", 3);
+    }
+
+    public void HideAlert() {
+        alertText.gameObject.SetActive(false);
     }
 }
