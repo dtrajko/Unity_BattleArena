@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class StormManager : MonoBehaviour
+public class StormManager : NetworkBehaviour
 {
     [SerializeField] private float[] shrinkTimes;
     [SerializeField] private float[] distancesFromCenter;
@@ -25,6 +26,8 @@ public class StormManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isServer) return;
+
         if (!shouldShrink) return;
 
         // Update the storm timer

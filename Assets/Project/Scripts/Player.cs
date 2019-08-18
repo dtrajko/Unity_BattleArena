@@ -715,7 +715,7 @@ public class Player : NetworkBehaviour, IDamageable {
 
     public void StormDamage()
     {
-        if (!isServer) return;
+        if (!isLocalPlayer) return;
 
         if (stormDamageTimer <= 0) {
             stormDamageTimer = 1;
