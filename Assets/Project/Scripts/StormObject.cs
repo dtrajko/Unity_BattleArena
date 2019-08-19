@@ -18,6 +18,8 @@ public class StormObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (targetDistance <= 0) return;
+
         Vector3 direction = transform.position.normalized;
         Vector3 targetPosition = direction * targetDistance;
 
