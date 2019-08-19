@@ -5304,7 +5304,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -10454,7 +10454,7 @@ Transform:
   - {fileID: 636818142}
   - {fileID: 1168499812}
   m_Father: {fileID: 673693419}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &269412885
 GameObject:
@@ -10962,7 +10962,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 673693419}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &302748629
 GameObject:
@@ -17499,6 +17499,86 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 5770109955432495010, guid: 645a99d7d54f13d48b7a85c6fe910ae8, type: 3}
+--- !u!1 &518502775
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 518502776}
+  - component: {fileID: 518502778}
+  - component: {fileID: 518502777}
+  m_Layer: 0
+  m_Name: TerrainOutside
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967294
+  m_IsActive: 1
+--- !u!4 &518502776
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518502775}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -750, y: -10, z: -750}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 673693419}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!154 &518502777
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518502775}
+  m_Material: {fileID: 0}
+  m_Enabled: 1
+  m_TerrainData: {fileID: 15600000, guid: 06447a6d34b3e6844a1508dd96f55b34, type: 2}
+  m_EnableTreeColliders: 1
+--- !u!218 &518502778
+Terrain:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518502775}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_TerrainData: {fileID: 15600000, guid: 06447a6d34b3e6844a1508dd96f55b34, type: 2}
+  m_TreeDistance: 5000
+  m_TreeBillboardDistance: 50
+  m_TreeCrossFadeLength: 5
+  m_TreeMaximumFullLODCount: 50
+  m_DetailObjectDistance: 80
+  m_DetailObjectDensity: 1
+  m_HeightmapPixelError: 5
+  m_SplatMapDistance: 1000
+  m_HeightmapMaximumLOD: 0
+  m_ShadowCastingMode: 2
+  m_DrawHeightmap: 1
+  m_DrawInstanced: 0
+  m_DrawTreesAndFoliage: 1
+  m_ReflectionProbeUsage: 1
+  m_MaterialType: 0
+  m_LegacySpecular:
+    serializedVersion: 2
+    rgba: 4286545791
+  m_LegacyShininess: 0.078125
+  m_MaterialTemplate: {fileID: 0}
+  m_BakeLightProbesForTrees: 1
+  m_PreserveTreePrototypeLayers: 0
+  m_DeringLightProbesForTrees: 1
+  m_ScaleInLightmap: 0.0256
+  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+  m_GroupingID: 0
+  m_AllowAutoConnect: 1
 --- !u!1 &521068016
 GameObject:
   m_ObjectHideFlags: 0
@@ -17920,7 +18000,7 @@ Transform:
   - {fileID: 985241890}
   - {fileID: 548279286}
   m_Father: {fileID: 673693419}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &528011063
 GameObject:
@@ -18845,7 +18925,7 @@ Transform:
   - {fileID: 7049221254284525691}
   - {fileID: 1685281556}
   m_Father: {fileID: 673693419}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &574695427
 PrefabInstance:
@@ -21621,6 +21701,7 @@ Transform:
   m_Children:
   - {fileID: 59361592}
   - {fileID: 1333955215}
+  - {fileID: 518502776}
   - {fileID: 713651793}
   - {fileID: 527381433}
   - {fileID: 268902466}
@@ -21658,7 +21739,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 673693419}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &680181124
 GameObject:
@@ -22822,7 +22903,7 @@ Transform:
   - {fileID: 454899745}
   - {fileID: 1098726264}
   m_Father: {fileID: 673693419}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &714822253
 GameObject:
@@ -23061,7 +23142,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724366394}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -23653,6 +23734,11 @@ PrefabInstance:
     - target: {fileID: 7583764711668243804, guid: a125a00ac1951664aba35aa30c902d6d,
         type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7583764711668243804, guid: a125a00ac1951664aba35aa30c902d6d,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6596262722316707983, guid: a125a00ac1951664aba35aa30c902d6d,
@@ -29033,6 +29119,11 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7583764711668243804, guid: a125a00ac1951664aba35aa30c902d6d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6596262722316707983, guid: a125a00ac1951664aba35aa30c902d6d,
         type: 3}
       propertyPath: initialDistance
@@ -29362,7 +29453,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -41998,7 +42089,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -46925,7 +47016,7 @@ GameObject:
   - component: {fileID: 1333955216}
   - component: {fileID: 1333955218}
   m_Layer: 0
-  m_Name: Terrain
+  m_Name: TerrainMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52660,6 +52751,11 @@ PrefabInstance:
     - target: {fileID: 7583764711668243804, guid: a125a00ac1951664aba35aa30c902d6d,
         type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7583764711668243804, guid: a125a00ac1951664aba35aa30c902d6d,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6596262722316707983, guid: a125a00ac1951664aba35aa30c902d6d,
@@ -62893,7 +62989,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -67950,6 +68046,11 @@ PrefabInstance:
     - target: {fileID: 7583764711668243804, guid: a125a00ac1951664aba35aa30c902d6d,
         type: 3}
       propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7583764711668243804, guid: a125a00ac1951664aba35aa30c902d6d,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6596262722316707983, guid: a125a00ac1951664aba35aa30c902d6d,
