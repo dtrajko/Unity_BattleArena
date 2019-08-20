@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameSceneController : MonoBehaviour
 {
+    [SerializeField] private HUDController hud;
+
     private float gameOverCooldownDuration = 3.0f;
     private float gameOverCooldownTimer;
 
@@ -14,6 +16,7 @@ public class GameSceneController : MonoBehaviour
     void Start()
     {
         gameOverCooldownTimer = gameOverCooldownDuration;
+        hud.ShowScreen("");
     }
 
     // Update is called once per frame
