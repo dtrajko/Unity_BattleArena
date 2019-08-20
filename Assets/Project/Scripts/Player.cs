@@ -107,7 +107,7 @@ public class Player : NetworkBehaviour, IDamageable {
             shouldAllowEnergyMovement = value;
             if (value) {
                 Cursor.lockState = CursorLockMode.Locked;
-                hud.ShowScreen("regular");
+                hud.ShowScreen("spawn");
             }
         }
     }
@@ -127,6 +127,7 @@ public class Player : NetworkBehaviour, IDamageable {
                 playerRigidbody.useGravity = true;
                 energyBall.SetActive(false);
                 characterContainer.transform.localScale = Vector3.one;
+                hud.ShowScreen("regular");
             } 
         }
     }
@@ -437,6 +438,8 @@ public class Player : NetworkBehaviour, IDamageable {
     }
 
     private void SwitchTool() {
+
+        if (IsInEnergyMode) return;
 
         soundInterface.Play();
 

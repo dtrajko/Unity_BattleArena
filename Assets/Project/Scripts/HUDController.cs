@@ -14,6 +14,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private GameObject serverScreen;
     [SerializeField] private GameObject clientScreen;
+    [SerializeField] private GameObject spawnScreen;
 
     [Header("Interface Elements")]
     [SerializeField] private Text healthText;
@@ -153,6 +154,7 @@ public class HUDController : MonoBehaviour
         gameOverScreen.SetActive(screenName == "gameOver");
         serverScreen.SetActive(screenName == "server");
         clientScreen.SetActive(screenName == "client");
+        spawnScreen.SetActive(screenName == "spawn");
     }
 
     public void OnPressedStartMatch() {
