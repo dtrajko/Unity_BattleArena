@@ -44,6 +44,7 @@ public class Player : NetworkBehaviour, IDamageable {
     [SerializeField] private float obstaclePlacementCooldown = 0.4f;
 
     [Header("Weapons")]
+    [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject shootOrigin;
     [SerializeField] private GameObject rocketPrefab;
     [SerializeField] private GameObject modelAxe;
@@ -71,9 +72,6 @@ public class Player : NetworkBehaviour, IDamageable {
     [Header("EnergyMode")]
     [SerializeField] private float energyFallingSpeed;
     [SerializeField] private float energyMovingSpeed;
-
-    [Header("Debug")]
-    [SerializeField] private GameObject debugPositionPrefab;
 
     private bool isFocalPointOnLeft = true;
     private int resources = 0;
@@ -127,7 +125,7 @@ public class Player : NetworkBehaviour, IDamageable {
                 playerRigidbody.useGravity = true;
                 energyBall.SetActive(false);
                 characterContainer.transform.localScale = Vector3.one;
-                hud.ShowScreen("regular");
+                if (hud != null) hud.ShowScreen("regular");
             } 
         }
     }
@@ -139,7 +137,7 @@ public class Player : NetworkBehaviour, IDamageable {
     // Start is called before the first frame update
     void Start()
     {
-        energyFallingSpeed = -4.0f;
+        energyFallingSpeed = -5.0f;
         energyMovingSpeed = 16.0f;
 
         // Cursor.lockState = CursorLockMode.Locked;
@@ -697,9 +695,7 @@ public class Player : NetworkBehaviour, IDamageable {
                     bool isShootHit = Physics.Raycast(shootOrigin.transform.position, shootDirection, out shootHit);
                     if (isShootHit)
                     {
-                        GameObject debugPositionInstance = Instantiate(debugPositionPrefab);
-                        debugPositionInstance.transform.position = shootHit.point;
-                        Destroy(debugPositionInstance, 0.5f);
+                        CmdAddBullet(shootHit.point);
 
                         if (shootHit.transform.GetComponent<IDamageable>() != null)
                         {
@@ -917,5 +913,13 @@ public class Player : NetworkBehaviour, IDamageable {
 
     void DeactivateEnergyBall(GameObject caller) {
         caller.GetComponent<Player>().IsInEnergyMode = false;
+    }
+
+    [Command]
+    void CmdAddBullet(Vector3 bulletPosition) {
+        GameObject bulletInstance = Instantiate(bulletPrefab);
+        bulletInstance.transform.position = bulletPosition;
+        NetworkServer.Spawn(bulletInstance);
+        Destroy(bulletInstance, 0.5f);
     }
 }
