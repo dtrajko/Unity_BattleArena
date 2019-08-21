@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8447ddcd7140c4e44b6fd4fe1b302d9b
+guid: cd851971072d4438cac0790ad84cdb85
 timeCreated: 1542411331
 licenseType: Free
 ModelImporter:
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cactus 001
+    4300000: Cube.060
   materials:
     importMaterials: 1
     materialName: 0

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 8447ddcd7140c4e44b6fd4fe1b302d9b
-timeCreated: 1542411331
+guid: 61ff56c9ebe8f4512bb098a82eeef66b
+timeCreated: 1542411330
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cactus 001
+    4300000: Rock 003.002
   materials:
     importMaterials: 1
     materialName: 0
