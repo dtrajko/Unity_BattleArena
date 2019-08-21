@@ -12,7 +12,7 @@ public class Pistol : Weapon
         isAutomatic = false;
         name = "Pistol";
         aimVariation = 0.03f;
-        damage = 5.0f;
+        damage = 4.0f;
         sortIndex = 0;
     }
 }
