@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-[System.Obsolete]
 public class Spawner : NetworkBehaviour
 {
     [SerializeField] private GameObject prefab;
+    [SerializeField] private Vector3 positionOffset;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject instance = Instantiate(prefab, transform.position, transform.rotation, transform.parent);
+        GameObject instance = Instantiate(prefab, transform.position + positionOffset, transform.rotation, transform.parent);
         NetworkServer.Spawn(instance);
         Destroy(gameObject);
     }
