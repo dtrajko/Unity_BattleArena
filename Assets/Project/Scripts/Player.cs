@@ -98,6 +98,8 @@ public class Player : NetworkBehaviour, IDamageable {
     private float stormDamageTimer = 1;
     private StormManager stormManager;
 
+    private NetworkStartPosition[] spawnPositions;
+
     private bool shouldAllowEnergyMovement;
     public bool ShouldAllowEnergyMovement {
         get { return shouldAllowEnergyMovement; }
@@ -141,6 +143,9 @@ public class Player : NetworkBehaviour, IDamageable {
         energyMovingSpeed = 16.0f;
 
         // Cursor.lockState = CursorLockMode.Locked;
+
+        spawnPositions = FindObjectsOfType<NetworkStartPosition>();
+        CmdReSpawn(gameObject);
 
         // Initialize values
         resources = initialResourceCount;
@@ -921,5 +926,20 @@ public class Player : NetworkBehaviour, IDamageable {
         bulletInstance.transform.position = bulletPosition;
         NetworkServer.Spawn(bulletInstance);
         Destroy(bulletInstance, 0.5f);
+    }
+
+    // Player re-spawn position
+    [Command]
+    void CmdReSpawn(GameObject caller)
+    {
+        if (!isServer) return;
+
+        RpcReSpawn(caller);
+    }
+
+    [ClientRpc]
+    void RpcReSpawn(GameObject caller) {
+        Vector3 spawnPosition = spawnPositions[UnityEngine.Random.Range(0, spawnPositions.Length)].transform.position;
+        caller.transform.position = spawnPosition;
     }
 }

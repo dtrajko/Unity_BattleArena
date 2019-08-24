@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class HUDController : MonoBehaviour
+public class HUDController : NetworkBehaviour
 {
     public delegate void StartMatchHandler();
     public event StartMatchHandler OnStartMatch;
@@ -158,7 +160,9 @@ public class HUDController : MonoBehaviour
     }
 
     public void OnPressedStartMatch() {
-        OnStartMatch?.Invoke();
+        if (OnStartMatch != null) {
+            OnStartMatch();
+        }
     }
 
     public void Alert() {
@@ -168,5 +172,13 @@ public class HUDController : MonoBehaviour
 
     public void HideAlert() {
         alertText.gameObject.SetActive(false);
+    }
+
+    public void OnPressedRestart()
+    {
+        if (!isServer) return;
+
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        ShowScreen("server");
     }
 }
