@@ -11,6 +11,8 @@ public class StormManager : NetworkBehaviour
     [SerializeField] private float[] shrinkTimes;
     [SerializeField] private float[] distancesFromCenter;
     [SerializeField] private GameObject[] stormObjects;
+    [SerializeField] private GameObject stormObjectTop;
+    [SerializeField] private AudioSource soundSinister;
 
     private float timer = 0;
     private int stormIndex = -1;
@@ -18,6 +20,12 @@ public class StormManager : NetworkBehaviour
     private bool shouldShrink;
     public bool ShouldShrink {
         set { shouldShrink = value; }
+    }
+
+    public AudioSource SoundSinister {
+        get {
+            return soundSinister;
+        }
     }
 
     // Start is called before the first frame update
@@ -45,6 +53,8 @@ public class StormManager : NetworkBehaviour
                 foreach (GameObject stormObject in stormObjects) {
                     stormObject.GetComponent<StormObject>().MoveToDistance(targetDistance);
                 }
+
+                stormObjectTop.GetComponent<StormObjectTop>().MoveToDistance(targetDistance);
 
                 // Alert
                 if (OnShrink != null) {

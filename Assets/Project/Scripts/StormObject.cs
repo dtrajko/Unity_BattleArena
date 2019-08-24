@@ -6,13 +6,17 @@ public class StormObject : MonoBehaviour
 {
     [SerializeField] private float initialDistance;
     [SerializeField] private float shrinkSmoothness;
+    [SerializeField] private Light directionalLight;
 
     private float targetDistance;
+    private Color directionalLightDefaultColor;
+    private Color directionalLightStormColor;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        directionalLightStormColor = new Color(0.5f, 0, 0.5f, 0.5f);
+        directionalLightDefaultColor = directionalLight.color;
     }
 
     // Update is called once per frame
@@ -24,6 +28,12 @@ public class StormObject : MonoBehaviour
         Vector3 targetPosition = direction * targetDistance;
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * shrinkSmoothness);
+
+        transform.localScale = Vector3.Lerp(
+            transform.localScale, 
+            new Vector3(targetDistance / (initialDistance + 30), transform.localScale.y, transform.localScale.z),
+            Time.deltaTime * shrinkSmoothness
+        );
     }
 
     public void MoveToDistance(float distance) {
@@ -34,5 +44,15 @@ public class StormObject : MonoBehaviour
         if (otherCollider.GetComponent<Player>() != null) {
             otherCollider.GetComponent<Player>().StormDamage();
         }
+        directionalLight.color = directionalLightStormColor;
+    }
+
+    private void OnTriggerEnter(Collider otherCollider) {
+        FindObjectOfType<StormManager>().SoundSinister.Play();
+    }
+
+    private void OnTriggerExit(Collider otherCollider) {
+        directionalLight.color = directionalLightDefaultColor;
+        FindObjectOfType<StormManager>().SoundSinister.Stop();
     }
 }

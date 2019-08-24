@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameSceneController : MonoBehaviour
 {
+    /*
     [SerializeField] private HUDController hud;
 
     private float gameOverCooldownDuration = 3.0f;
@@ -37,4 +38,5 @@ public class GameSceneController : MonoBehaviour
     private void ReloadScene() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    */
 }

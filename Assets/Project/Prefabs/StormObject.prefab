@@ -126,6 +126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialDistance: 0
   shrinkSmoothness: 0
+  directionalLight: {fileID: 0}
+  soundSinister: {fileID: 0}
 --- !u!65 &7583764712201444103
 BoxCollider:
   m_ObjectHideFlags: 0

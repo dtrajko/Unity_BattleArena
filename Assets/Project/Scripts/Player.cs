@@ -88,19 +88,17 @@ public class Player : NetworkBehaviour, IDamageable {
     private GameObject obstacleContainer;
     private int obstacleToAddIndex;
     private Health health;
-
     private float stepTimer;
-
     private Animator playerAnimator;
     private NetworkAnimator playerNetworkAnimator;
     private string modelName; // Current weapon or tool the player is holding
     private Rigidbody playerRigidbody;
     private float stormDamageTimer = 1;
     private StormManager stormManager;
-
     private NetworkStartPosition[] spawnPositions;
-
     private bool shouldAllowEnergyMovement;
+    private int weaponIndex = -1; // by dtrajko
+
     public bool ShouldAllowEnergyMovement {
         get { return shouldAllowEnergyMovement; }
         set {
@@ -132,8 +130,6 @@ public class Player : NetworkBehaviour, IDamageable {
         }
     }
 
-    private int weaponIndex = -1; // by dtrajko
-
     public float Health { get { return health.Value; } }
 
     // Start is called before the first frame update
@@ -145,14 +141,9 @@ public class Player : NetworkBehaviour, IDamageable {
         // Cursor.lockState = CursorLockMode.Locked;
 
         spawnPositions = FindObjectsOfType<NetworkStartPosition>();
-        CmdReSpawn(gameObject);
 
         // Initialize values
-        resources = initialResourceCount;
-        weapons = new List<Weapon>();
-        health = GetComponent<Health>();
-        health.OnHealthChanged += OnHealthChanged;
-        playerRigidbody = GetComponent<Rigidbody>();
+        Initialize();
 
         if (isServer) {
             stormManager = FindObjectOfType<StormManager>();
@@ -379,6 +370,16 @@ public class Player : NetworkBehaviour, IDamageable {
         }
 
         UpdateWeapon();
+    }
+
+    private void Initialize()
+    {
+        resources = initialResourceCount;
+        weapons = new List<Weapon>();
+        health = GetComponent<Health>();
+        health.OnHealthChanged += OnHealthChanged;
+        playerRigidbody = GetComponent<Rigidbody>();
+        CmdReSpawn(gameObject);
     }
 
     private void AnimateWeaponHold(string weaponName) {

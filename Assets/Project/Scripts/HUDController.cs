@@ -176,8 +176,6 @@ public class HUDController : NetworkBehaviour
 
     public void OnPressedRestart()
     {
-        // if (!isServer) return;
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-        ShowScreen("server");
     }
 }
