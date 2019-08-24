@@ -15,7 +15,7 @@ public class StormObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        directionalLightStormColor = new Color(0.5f, 0, 0.5f, 0.5f);
+        directionalLightStormColor = new Color(0.6f, 0, 1.0f, 0.5f);
         directionalLightDefaultColor = directionalLight.color;
     }
 
@@ -29,11 +29,13 @@ public class StormObject : MonoBehaviour
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * shrinkSmoothness);
 
+        /*
         transform.localScale = Vector3.Lerp(
             transform.localScale, 
-            new Vector3(targetDistance / (initialDistance + 30), transform.localScale.y, transform.localScale.z),
+            new Vector3(targetDistance / initialDistance, transform.localScale.y, transform.localScale.z),
             Time.deltaTime * shrinkSmoothness
         );
+        */
     }
 
     public void MoveToDistance(float distance) {

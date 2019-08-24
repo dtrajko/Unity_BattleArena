@@ -29,9 +29,13 @@ public class StormManager : NetworkBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        foreach (GameObject stormObject in stormObjects)
+        {
+            stormObject.GetComponent<StormObject>().gameObject.SetActive(true);
+        }
+        stormObjectTop.GetComponent<StormObjectTop>().gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -53,7 +57,6 @@ public class StormManager : NetworkBehaviour
                 foreach (GameObject stormObject in stormObjects) {
                     stormObject.GetComponent<StormObject>().MoveToDistance(targetDistance);
                 }
-
                 stormObjectTop.GetComponent<StormObjectTop>().MoveToDistance(targetDistance);
 
                 // Alert
