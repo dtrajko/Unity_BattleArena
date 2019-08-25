@@ -587,15 +587,24 @@ public class Player : NetworkBehaviour, IDamageable {
         Destroy(box);
     }
 
-    private void GiveItem(ItemBox.ItemType type, int amount) {
+    private void GiveItem(ItemBox.ItemType type, int amount)
+    {
+        if (type == ItemBox.ItemType.FirstAid) {
+            GiveItemFirstAid(type, amount);
+        } else {
+            GiveItemWeapon(type, amount);
+        }
+    }
 
+    private void GiveItemWeapon(ItemBox.ItemType type, int amount) {
         CmdHit(gameObject);
 
         // Create a weapon reference
         Weapon currentWeapon = null;
 
         // Check if we already have an instance of this weapon
-        for (int i = 0; i < weapons.Count; i++) {
+        for (int i = 0; i < weapons.Count; i++)
+        {
             if (type == ItemBox.ItemType.Pistol && weapons[i] is Pistol) currentWeapon = weapons[i];
             else if (type == ItemBox.ItemType.MachineGun && weapons[i] is MachineGun) currentWeapon = weapons[i];
             else if (type == ItemBox.ItemType.Shotgun && weapons[i] is Shotgun) currentWeapon = weapons[i];
@@ -605,7 +614,8 @@ public class Player : NetworkBehaviour, IDamageable {
 
         // If we don't have a weapon of this type, create one and
         // add it to the weapon list
-        if (currentWeapon == null) {
+        if (currentWeapon == null)
+        {
             if (type == ItemBox.ItemType.Pistol) currentWeapon = new Pistol();
             else if (type == ItemBox.ItemType.MachineGun) currentWeapon = new MachineGun();
             else if (type == ItemBox.ItemType.Shotgun) currentWeapon = new Shotgun();
@@ -618,9 +628,16 @@ public class Player : NetworkBehaviour, IDamageable {
         currentWeapon.AddAmmunition(amount);
         currentWeapon.LoadClip();
 
-        if (currentWeapon == weapon) {
+        if (currentWeapon == weapon)
+        {
             hud.UpdateWeapon(weapon);
         }
+    }
+
+    private void GiveItemFirstAid(ItemBox.ItemType type, int amount)
+    {
+        CmdHit(gameObject);
+        CmdHeal(gameObject, amount);
     }
 
     private void UpdateWeapon()
@@ -741,6 +758,7 @@ public class Player : NetworkBehaviour, IDamageable {
         CmdShowModel(gameObject, "RocketLauncherUnloaded");
     }
 
+    // Damage methods
     [Command]
     private void CmdDamage(GameObject target, float damage) {
         if (!isServer) return;
@@ -761,6 +779,24 @@ public class Player : NetworkBehaviour, IDamageable {
         GetComponent<Health>().Damage(amount);
         healthBar.sizeDelta = new Vector2(health.Value * 2, healthBar.sizeDelta.y);
         return 0;
+    }
+
+    // Heal methods (opposite of damage)
+    [Command]
+    private void CmdHeal(GameObject target, float amount)
+    {
+        if (!isServer) return;
+        RpcHeal(target, amount);
+    }
+
+    [ClientRpc]
+    void RpcHeal(GameObject caller, float amount)
+    {
+        if (caller != null)
+        {
+            caller.GetComponent<Health>().Heal(amount);
+            healthBar.sizeDelta = new Vector2(health.Value * 2, healthBar.sizeDelta.y);
+        }
     }
 
     public void StormDamage()

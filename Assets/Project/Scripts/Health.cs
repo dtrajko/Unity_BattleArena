@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -19,6 +20,13 @@ public class Health : NetworkBehaviour
     public void Damage(float amount) {
         health -= amount;
         if (health < 0) health = 0;
+    }
+
+    // opposite of Damage
+    internal void Heal(float amount)
+    {
+        health += amount;
+        if (health > defaultHealth) health = defaultHealth;
     }
 
     private void OnHealthSynced(float newHealth) {
