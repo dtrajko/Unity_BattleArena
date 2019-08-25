@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class Player : NetworkBehaviour, IDamageable {
 
@@ -21,6 +22,10 @@ public class Player : NetworkBehaviour, IDamageable {
         Shotgun,
         Sniper
     }
+
+    [Header("Health")]
+    [SerializeField] public RectTransform healthBar;
+    [SerializeField] public Canvas healthBarCanvas;
 
     [Header("Focal Point Variables")]
     [SerializeField] private GameObject focalPoint = null;
@@ -121,10 +126,12 @@ public class Player : NetworkBehaviour, IDamageable {
                 playerRigidbody.useGravity = false;
                 energyBall.SetActive(true);
                 characterContainer.transform.localScale = Vector3.zero;
+                healthBarCanvas.transform.localScale = Vector3.zero;
             } else {
                 playerRigidbody.useGravity = true;
                 energyBall.SetActive(false);
                 characterContainer.transform.localScale = Vector3.one;
+                healthBarCanvas.transform.localScale = new Vector3(0.005f, 0.005f, 1);
                 if (hud != null) hud.ShowScreen("regular");
             } 
         }
@@ -201,6 +208,8 @@ public class Player : NetworkBehaviour, IDamageable {
                 player.RpcAllowMovement();
             }
         }
+
+        CmdReSpawn(gameObject);
     }
 
     void OnStormShrink() {
@@ -271,6 +280,9 @@ public class Player : NetworkBehaviour, IDamageable {
                 }
             }
         }
+
+        // Health bar should always face camera
+        healthBarCanvas.transform.LookAt(gameCamera.transform);
 
         // Update timers
         resourceCollectionCooldownTimer -= Time.deltaTime;
@@ -377,9 +389,9 @@ public class Player : NetworkBehaviour, IDamageable {
         resources = initialResourceCount;
         weapons = new List<Weapon>();
         health = GetComponent<Health>();
+        health.ResetHealth();
         health.OnHealthChanged += OnHealthChanged;
         playerRigidbody = GetComponent<Rigidbody>();
-        CmdReSpawn(gameObject);
     }
 
     private void AnimateWeaponHold(string weaponName) {
@@ -739,7 +751,22 @@ public class Player : NetworkBehaviour, IDamageable {
     public int Damage(float amount)
     {
         GetComponent<Health>().Damage(amount);
+        healthBar.sizeDelta = new Vector2(health.Value * 2, healthBar.sizeDelta.y);
         return 0;
+    }
+
+    [Command]
+    void CmdDamageNew(GameObject caller, float damage)
+    {
+        if (!isServer) return;
+
+        RpcDamageNew(caller, damage);
+    }
+
+    [ClientRpc]
+    void RpcDamageNew(GameObject caller, float damage)
+    {
+        caller.GetComponent<IDamageable>().Damage(damage);
     }
 
     public void StormDamage()
@@ -940,7 +967,13 @@ public class Player : NetworkBehaviour, IDamageable {
 
     [ClientRpc]
     void RpcReSpawn(GameObject caller) {
-        Vector3 spawnPosition = spawnPositions[UnityEngine.Random.Range(0, spawnPositions.Length)].transform.position;
-        caller.transform.position = spawnPosition;
+        if (!isLocalPlayer) return;
+
+        Initialize();
+
+        if (spawnPositions != null && spawnPositions.Length > 0) {
+            Vector3 spawnPosition = spawnPositions[UnityEngine.Random.Range(0, spawnPositions.Length)].transform.position;
+            caller.transform.position = spawnPosition;
+        }
     }
 }

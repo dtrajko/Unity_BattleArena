@@ -11,8 +11,7 @@ public class Health : NetworkBehaviour
 
     // Health
     private const float defaultHealth = 100;
-    [SyncVar(hook = "OnHealthSynced")]
-    private float health = defaultHealth;
+    [SyncVar(hook = "OnHealthSynced")] public float health = defaultHealth;
 
     // Properties
     public float Value { get { return health; } set { health = value; } }
@@ -27,5 +26,9 @@ public class Health : NetworkBehaviour
         { // If somebody subscribed to this event
             OnHealthChanged(newHealth);
         }
+    }
+
+    public void ResetHealth() {
+        health = defaultHealth;
     }
 }
