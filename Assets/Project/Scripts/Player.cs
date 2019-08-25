@@ -743,8 +743,16 @@ public class Player : NetworkBehaviour, IDamageable {
 
     [Command]
     private void CmdDamage(GameObject target, float damage) {
-        if (target != null) {
-            target.GetComponent<IDamageable>().Damage(damage);
+        if (!isServer) return;
+        RpcDamage(target, damage);
+    }
+
+    [ClientRpc]
+    void RpcDamage(GameObject caller, float damage)
+    {
+        if (caller != null)
+        {
+            caller.GetComponent<IDamageable>().Damage(damage);
         }
     }
 
@@ -753,20 +761,6 @@ public class Player : NetworkBehaviour, IDamageable {
         GetComponent<Health>().Damage(amount);
         healthBar.sizeDelta = new Vector2(health.Value * 2, healthBar.sizeDelta.y);
         return 0;
-    }
-
-    [Command]
-    void CmdDamageNew(GameObject caller, float damage)
-    {
-        if (!isServer) return;
-
-        RpcDamageNew(caller, damage);
-    }
-
-    [ClientRpc]
-    void RpcDamageNew(GameObject caller, float damage)
-    {
-        caller.GetComponent<IDamageable>().Damage(damage);
     }
 
     public void StormDamage()
