@@ -57,10 +57,30 @@ ExportedObj/
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
 NatureStarterKit2
-Standard Assets
+
+# Standard Assets
+Assets/Standard Assets/2D*
+Assets/Standard Assets/Cameras*
+Assets/Standard Assets/Characters/FirstPersonCharacter*
+Assets/Standard Assets/Characters/Rollerball*
+Assets/Standard Assets/CrossPlatformInput*
+Assets/Standard Assets/Editor*
+Assets/Standard Assets/Environment*
+Assets/Standard Assets/Effects*
+Assets/Standard Assets/Fonts*
+Assets/Standard Assets/ParticleSystems*
+Assets/Standard Assets/PhysicsMaterials*
+Assets/Standard Assets/Prototyping*
+Assets/Standard Assets/Utility*
+Assets/Standard Assets/Vehicles*
+
+Assets/Joystick Pack*
+Assets/Survival Character*
+
 SampleScenes
 Lens Flares
 Packages/*.unitypackage
+
 Assets/Survival Character/Textures/survival_accessories_Mask.tga
 Assets/Survival Character/Textures/survival_accessories_Metallic.tga
 Assets/Survival Character/Textures/survival_accessories_Normal.png
@@ -79,3 +99,5 @@ Assets/Survival Character/Textures/survival_body_Normal_medium.png
 Assets/Survival Character/Textures/survival_Clothes_Albedo2.png
 Assets/Survival Character/Textures/survival_Clothes_Albedo.png
 Assets/PostProcessing/Textures/Lens Dirt/LensDirt02.png
+Assets/Standard Assets/Vehicles/Aircraft/Textures/AircraftFuselageNormals.png
+Assets/Standard Assets/Vehicles/Aircraft/Textures/AircraftWingsPropellerNormals.png
