@@ -66,6 +66,6 @@ public class ResourceObject : NetworkBehaviour, IDamageable
     [System.Obsolete]
     public void CmdDestroy()
     {
-        Destroy(gameObject, 0.05f);
+        Destroy(gameObject, 1.0f);
     }
 }

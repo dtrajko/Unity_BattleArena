@@ -24,8 +24,8 @@ public class Player : NetworkBehaviour, IDamageable {
     }
 
     [Header("Health")]
-    [SerializeField] public RectTransform healthBar;
-    [SerializeField] public Canvas healthBarCanvas;
+    [SerializeField] private RectTransform healthBar;
+    [SerializeField] private Canvas healthBarCanvas;
 
     [Header("Focal Point Variables")]
     [SerializeField] private GameObject focalPoint = null;
@@ -139,6 +139,8 @@ public class Player : NetworkBehaviour, IDamageable {
 
     public float Health { get { return health.Value; } }
 
+    public Canvas HealthBarCanvas { get { return healthBarCanvas; } }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -172,8 +174,11 @@ public class Player : NetworkBehaviour, IDamageable {
             // HUD elements
             hud = FindObjectOfType<HUDController>();
             hud.ShowScreen("");
+
             if (isServer) hud.ShowScreen("server");
             else if (isClient) hud.ShowScreen("client");
+            Cursor.lockState = CursorLockMode.None;
+
             hud.Health = health.Value;
             hud.Resources = resources;
             hud.Tool = tool; // PlayerTool: Pickaxe
@@ -260,6 +265,20 @@ public class Player : NetworkBehaviour, IDamageable {
         }
     }
 
+    //Orient the camera after all movement is completed this frame to avoid jittering
+    void LateUpdate()
+    {
+        if (isLocalPlayer) {
+            foreach (Player player in FindObjectsOfType<Player>()) {
+                // You might want to change Vector3.back to Vector3.forward, depending on the initial orientation of your object
+                Vector3 orientation = Vector3.forward; // player.isLocalPlayer ? Vector3.back : Vector3.forward;
+                player.HealthBarCanvas.transform.LookAt(
+                    player.HealthBarCanvas.transform.position + gameCamera.transform.rotation * orientation,
+                    gameCamera.transform.rotation * Vector3.up);
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -280,9 +299,6 @@ public class Player : NetworkBehaviour, IDamageable {
                 }
             }
         }
-
-        // Health bar should always face camera
-        healthBarCanvas.transform.LookAt(gameCamera.transform);
 
         // Update timers
         resourceCollectionCooldownTimer -= Time.deltaTime;
@@ -526,16 +542,14 @@ public class Player : NetworkBehaviour, IDamageable {
 
                     resourceCollectionCooldownTimer = resourceCollectionCooldown;
 
+                    CmdDamage(hit.transform.gameObject, 1);
                     ResourceObject resourceObject = hit.transform.GetComponent<ResourceObject>();
 
                     int collectedResources = 0;
-                    float resourceHealth = resourceObject.HealthValue;
-                    if (resourceHealth < 0.01f) {
+                    float resourceHealth = resourceObject.HealthValue - 1; // dirty fix - return value must be adjusted because the Health value is updates with delay
+                    if (resourceHealth < 0.1f) {
                         collectedResources = resourceObject.ResourceAmount;
                     }
-
-                    CmdDamage(hit.transform.gameObject, 1);
-
                     resources += collectedResources;
                     hud.Resources = resources;
                 }
@@ -814,7 +828,6 @@ public class Player : NetworkBehaviour, IDamageable {
         if (!isLocalPlayer) return;
 
         hud.Health = newHealth;
-        // hud.UpdateHealthBar(health / 100);
 
         if (newHealth < 0.01f) {
             Cursor.lockState = CursorLockMode.None;
