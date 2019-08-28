@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : NetworkBehaviour, IDamageable {
 
@@ -109,7 +110,7 @@ public class Player : NetworkBehaviour, IDamageable {
         set {
             shouldAllowEnergyMovement = value;
             if (value) {
-                Cursor.lockState = CursorLockMode.Locked;
+                // Cursor.lockState = CursorLockMode.Locked;
                 hud.ShowScreen("spawn");
             }
         }
@@ -385,7 +386,7 @@ public class Player : NetworkBehaviour, IDamageable {
         }
 
         // Tool usage logic (continuous)
-        if (Input.GetAxis("Fire1") > 0.1f) {
+        if (CrossPlatformInputManager.GetAxis("Fire1") > 0.1f) {
             UseToolContinuous();
         }
 
@@ -641,6 +642,9 @@ public class Player : NetworkBehaviour, IDamageable {
             weapons.Add(currentWeapon);
             weapons.Sort();
         }
+
+        // Automatically equip if weapon still not available
+        if (weapon == null) SwitchWeapon(0);
 
         currentWeapon.AddAmmunition(amount);
         currentWeapon.LoadClip();
