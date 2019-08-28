@@ -391,7 +391,7 @@ public class Player : NetworkBehaviour, IDamageable {
         }
 
         // Tool usage logic (trigger)
-        if (Input.GetAxis("Fire1") > 0.1f) {
+        if (CrossPlatformInputManager.GetAxis("Fire1") > 0.1f) {
             if (!obstaclePlacementLock) // it doesn't work properly, using resourceCollectionCooldownTimer instead
             {
                 obstaclePlacementLock = true;
