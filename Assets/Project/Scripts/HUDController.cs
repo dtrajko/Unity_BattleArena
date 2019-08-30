@@ -95,7 +95,7 @@ public class HUDController : NetworkBehaviour
         // Display mobile UI only on mobile devices
         switch (Application.platform) {
             case RuntimePlatform.Android:
-            case RuntimePlatform.WindowsEditor:
+            // case RuntimePlatform.WindowsEditor:
                 mobileUI.gameObject.SetActive(true);
                 break;
             default:

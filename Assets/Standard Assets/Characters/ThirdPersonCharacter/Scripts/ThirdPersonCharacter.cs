@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
@@ -65,9 +66,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			move = transform.InverseTransformDirection(move);
 			CheckGroundStatus();
 			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
-            m_TurnAmount = Input.GetAxis("Mouse X") * m_CursorSensitivity;
+            m_TurnAmount = CrossPlatformInputManager.GetAxis("Mouse X") * m_CursorSensitivity;
             m_ForwardAmount = move.z;
-            m_StrafeAmount = Input.GetAxis("Horizontal");
+            m_StrafeAmount = CrossPlatformInputManager.GetAxis("Horizontal");
 
             if (OnFootstep != null && m_IsGrounded) {
                 OnFootstep(m_ForwardAmount);
