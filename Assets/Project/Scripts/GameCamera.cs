@@ -53,7 +53,7 @@ public class GameCamera : MonoBehaviour
         if (Application.platform == RuntimePlatform.Android ||
             Application.platform == RuntimePlatform.WindowsEditor)
         {
-            rotationSensitivity = 0;
+            // rotationSensitivity = 0;
         }
 
         // Make the camera look up or down

@@ -674,7 +674,8 @@ public class Player : NetworkBehaviour, IDamageable {
                 rocketLauncherCooldownTimer = rocketLauncherCooldown;
             }
 
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.R) ||
+                CrossPlatformInputManager.GetButtonDown("Submit"))
             {
                 bool reloaded = weapon.Reload();
             }
@@ -699,7 +700,9 @@ public class Player : NetworkBehaviour, IDamageable {
             // Zoom logic
             Visibility = true;
             if (weapon is Sniper) {
-                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1)) {
+                if (Input.GetKeyDown(KeyCode.Escape) ||
+                    Input.GetMouseButtonDown(1) ||
+                    CrossPlatformInputManager.GetButtonDown("Cancel")) {
                     gameCamera.TriggerZoom();
                     hud.SniperAimVisibility = gameCamera.IsZoomedIn;
                     Visibility = !gameCamera.IsZoomedIn;
