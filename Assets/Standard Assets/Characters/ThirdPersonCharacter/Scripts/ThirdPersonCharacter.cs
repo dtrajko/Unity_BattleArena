@@ -52,7 +52,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
 		}
 
-
 		public void Move(Vector3 move, bool crouch, bool jump)
 		{
 
@@ -69,6 +68,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_TurnAmount = CrossPlatformInputManager.GetAxis("Mouse X") * m_CursorSensitivity;
             m_ForwardAmount = move.z;
             m_StrafeAmount = CrossPlatformInputManager.GetAxis("Horizontal");
+
+            // dtrajko - Cross-platform input
+            if (Application.platform == RuntimePlatform.Android ||
+                Application.platform == RuntimePlatform.WindowsEditor) {
+                m_TurnAmount = CrossPlatformInputManager.GetAxis("Horizontal") * 0.3f;
+            }
 
             if (OnFootstep != null && m_IsGrounded) {
                 OnFootstep(m_ForwardAmount);

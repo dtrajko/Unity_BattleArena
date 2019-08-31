@@ -252,8 +252,8 @@ public class Player : NetworkBehaviour, IDamageable {
         if (IsInEnergyMode) {
             if (ShouldAllowEnergyMovement)
             {
-                float horizontalSpeed = Input.GetAxis("Horizontal") * energyMovingSpeed;
-                float depthSpeed = Input.GetAxis("Vertical") * energyMovingSpeed;
+                float horizontalSpeed = CrossPlatformInputManager.GetAxis("Horizontal") * energyMovingSpeed;
+                float depthSpeed = CrossPlatformInputManager.GetAxis("Vertical") * energyMovingSpeed;
 
                 Vector3 cameraForward = Vector3.Scale(gameCamera.transform.forward, new Vector3(1, 0, 1)).normalized;
                 Vector3 moveVector = (horizontalSpeed * gameCamera.transform.right) + (depthSpeed * cameraForward);
@@ -386,12 +386,12 @@ public class Player : NetworkBehaviour, IDamageable {
         }
 
         // Tool usage logic (continuous)
-        if (CrossPlatformInputManager.GetAxis("Fire1") > 0.1f) {
+        if (CrossPlatformInputManager.GetAxis("Fire1") > 0.1f || CrossPlatformInputManager.GetButtonDown("A_Button")) {
             UseToolContinuous();
         }
 
         // Tool usage logic (trigger)
-        if (CrossPlatformInputManager.GetAxis("Fire1") > 0.1f) {
+        if (CrossPlatformInputManager.GetAxis("Fire1") > 0.1f || CrossPlatformInputManager.GetButtonDown("A_Button")) {
             if (!obstaclePlacementLock) // it doesn't work properly, using resourceCollectionCooldownTimer instead
             {
                 obstaclePlacementLock = true;
@@ -679,6 +679,12 @@ public class Player : NetworkBehaviour, IDamageable {
 
             float timeElapsed = Time.deltaTime;
             bool isPressingTrigger = Input.GetAxis("Fire1") > 0.1f;
+
+            // dtrajko - Cross-platform input
+            if (Application.platform == RuntimePlatform.Android ||
+                Application.platform == RuntimePlatform.WindowsEditor) {
+                isPressingTrigger = CrossPlatformInputManager.GetButtonDown("A_Button");
+            }
 
             bool hasShot = weapon.Update(timeElapsed, isPressingTrigger);
             hud.UpdateWeapon(weapon);
