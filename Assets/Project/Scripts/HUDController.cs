@@ -30,7 +30,7 @@ public class HUDController : NetworkBehaviour
     [SerializeField] private Text serverPlayersText;
     [SerializeField] private Text clientPlayersText;
     [SerializeField] private Text alertText;
-    [SerializeField] private RectTransform mobileUI;
+    // [SerializeField] private RectTransform mobileUI;
 
     [Header("Tool Selector")]
     [SerializeField] private GameObject toolFocus;
@@ -96,10 +96,10 @@ public class HUDController : NetworkBehaviour
         switch (Application.platform) {
             case RuntimePlatform.Android:
             // case RuntimePlatform.WindowsEditor:
-                mobileUI.gameObject.SetActive(true);
+                // mobileUI.gameObject.SetActive(true);
                 break;
             default:
-                mobileUI.gameObject.SetActive(false);
+                // mobileUI.gameObject.SetActive(false);
                 break;
         }
 
