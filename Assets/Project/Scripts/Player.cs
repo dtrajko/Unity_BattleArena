@@ -357,7 +357,7 @@ public class Player : NetworkBehaviour, IDamageable {
         }
 
         // by dtrajko: use mouse scrollwheel to switch weapons
-        if (Input.mouseScrollDelta.y < -0.05f)
+        if (Input.mouseScrollDelta.y < -0.05f || CrossPlatformInputManager.GetButtonDown("Fire2"))
         {
             weaponIndex++;
             if (weaponIndex >= weapons.Count) weaponIndex = 0;
@@ -371,7 +371,7 @@ public class Player : NetworkBehaviour, IDamageable {
 
         // Tool switch logic
         hud.Tool = tool;
-        if (Input.GetKeyDown(toolSwitchKey))
+        if (Input.GetKeyDown(toolSwitchKey) || CrossPlatformInputManager.GetButtonDown("Fire3"))
         {
             SwitchTool();
         }
@@ -386,12 +386,14 @@ public class Player : NetworkBehaviour, IDamageable {
         }
 
         // Tool usage logic (continuous)
-        if (CrossPlatformInputManager.GetAxis("Fire1") > 0.1f || CrossPlatformInputManager.GetButtonDown("A_Button")) {
+        if (CrossPlatformInputManager.GetAxis("Fire1") > 0.1f) //  || CrossPlatformInputManager.GetButtonDown("A_Button")
+        {
             UseToolContinuous();
         }
 
         // Tool usage logic (trigger)
-        if (CrossPlatformInputManager.GetAxis("Fire1") > 0.1f || CrossPlatformInputManager.GetButtonDown("A_Button")) {
+        if (CrossPlatformInputManager.GetAxis("Fire1") > 0.1f) // || CrossPlatformInputManager.GetButtonDown("A_Button")
+        {
             if (!obstaclePlacementLock) // it doesn't work properly, using resourceCollectionCooldownTimer instead
             {
                 obstaclePlacementLock = true;
@@ -678,12 +680,12 @@ public class Player : NetworkBehaviour, IDamageable {
             }
 
             float timeElapsed = Time.deltaTime;
-            bool isPressingTrigger = Input.GetAxis("Fire1") > 0.1f;
+            bool isPressingTrigger = CrossPlatformInputManager.GetAxis("Fire1") > 0.1f;
 
             // dtrajko - Cross-platform input
             if (Application.platform == RuntimePlatform.Android ||
                 Application.platform == RuntimePlatform.WindowsEditor) {
-                isPressingTrigger = CrossPlatformInputManager.GetButtonDown("A_Button");
+                isPressingTrigger = CrossPlatformInputManager.GetButtonDown("Fire1");
             }
 
             bool hasShot = weapon.Update(timeElapsed, isPressingTrigger);
