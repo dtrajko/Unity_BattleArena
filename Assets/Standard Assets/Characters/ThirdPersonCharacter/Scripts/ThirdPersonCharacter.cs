@@ -66,11 +66,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			CheckGroundStatus();
 			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
 
-            // dtrajko - Cross-platform input
-            if (Application.platform == RuntimePlatform.Android ||
-                Application.platform == RuntimePlatform.WindowsEditor)
+            // dtrajko - Cross-platform input: Horizontal orientation (camera)
+            if (Application.platform == RuntimePlatform.Android)
             {
-                m_CursorSensitivity = 0.1f;
+                m_CursorSensitivity = 0.2f;
             }
             m_TurnAmount = CrossPlatformInputManager.GetAxis("Mouse X") * m_CursorSensitivity;
             m_ForwardAmount = move.z;

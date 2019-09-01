@@ -51,11 +51,10 @@ public class GameCamera : MonoBehaviour
         transform.LookAt(target.transform.position + translationOffset);
 
         // Make the camera look up or down
-        // dtrajko - Cross-platform input
-        if (Application.platform == RuntimePlatform.Android ||
-            Application.platform == RuntimePlatform.WindowsEditor)
+        // dtrajko - Cross-platform input: Vertical orientation (camera)
+        if (Application.platform == RuntimePlatform.Android)
         {
-            rotationSensitivity = 0.1f;
+            rotationSensitivity = 0.2f;
         }
         verticalRotationAngle += CrossPlatformInputManager.GetAxis("Mouse Y") * rotationSensitivity;
 

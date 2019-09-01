@@ -136,6 +136,7 @@ public class Player : NetworkBehaviour, IDamageable {
                 if (hud != null)
                 {
                     hud.ShowScreen("regular");
+                    Cursor.lockState = CursorLockMode.Locked;
                 }
             } 
         }
@@ -357,7 +358,7 @@ public class Player : NetworkBehaviour, IDamageable {
         }
 
         // by dtrajko: use mouse scrollwheel to switch weapons
-        if (Input.mouseScrollDelta.y < -0.05f || CrossPlatformInputManager.GetButtonDown("Fire2"))
+        if (Input.mouseScrollDelta.y < -0.05f)
         {
             weaponIndex++;
             if (weaponIndex >= weapons.Count) weaponIndex = 0;
@@ -366,6 +367,15 @@ public class Player : NetworkBehaviour, IDamageable {
         if (Input.mouseScrollDelta.y > 0.05f) {
             weaponIndex--;
             if (weaponIndex < 0) weaponIndex = weapons.Count > 0 ? weapons.Count - 1 : 0;
+            SwitchWeapon(weaponIndex);
+        }
+
+        // dtrajko - Cross-platform input: Switch weapon on Fire2 (yellow) button
+        if (Application.platform == RuntimePlatform.Android
+            && CrossPlatformInputManager.GetButtonDown("Fire2"))
+        {
+            weaponIndex++;
+            if (weaponIndex >= weapons.Count) weaponIndex = 0;
             SwitchWeapon(weaponIndex);
         }
 
