@@ -386,13 +386,15 @@ public class Player : NetworkBehaviour, IDamageable {
         }
 
         // Tool usage logic (continuous)
-        if (CrossPlatformInputManager.GetAxis("Fire1") > 0.1f) //  || CrossPlatformInputManager.GetButtonDown("A_Button")
+        if (CrossPlatformInputManager.GetAxis("Fire1") > 0.1f ||
+            CrossPlatformInputManager.GetButtonDown("Fire1"))
         {
             UseToolContinuous();
         }
 
         // Tool usage logic (trigger)
-        if (CrossPlatformInputManager.GetAxis("Fire1") > 0.1f) // || CrossPlatformInputManager.GetButtonDown("A_Button")
+        if (CrossPlatformInputManager.GetAxis("Fire1") > 0.1f ||
+            CrossPlatformInputManager.GetButtonDown("Fire1"))
         {
             if (!obstaclePlacementLock) // it doesn't work properly, using resourceCollectionCooldownTimer instead
             {

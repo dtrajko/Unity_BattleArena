@@ -52,19 +52,12 @@ public class GameCamera : MonoBehaviour
 
         // Make the camera look up or down
         // dtrajko - Cross-platform input
-        // if (Application.platform == RuntimePlatform.Android ||
-        //     Application.platform == RuntimePlatform.WindowsEditor)
-        // {
-        //     rotationSensitivity = 0;
-        // }
         if (Application.platform == RuntimePlatform.Android ||
             Application.platform == RuntimePlatform.WindowsEditor)
         {
-            verticalRotationAngle += CrossPlatformInputManager.GetAxis("Mouse Y") * 0.3f;
+            rotationSensitivity = 0.1f;
         }
-        else {
-            verticalRotationAngle += Input.GetAxis("Mouse Y") * rotationSensitivity;
-        }
+        verticalRotationAngle += CrossPlatformInputManager.GetAxis("Mouse Y") * rotationSensitivity;
 
         // verticalRotationAngle between min and max limit
         verticalRotationAngle = Mathf.Clamp(verticalRotationAngle, minViewingAngle, maxViewingAngle);

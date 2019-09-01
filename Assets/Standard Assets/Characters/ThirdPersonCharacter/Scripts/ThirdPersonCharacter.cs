@@ -65,15 +65,16 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			move = transform.InverseTransformDirection(move);
 			CheckGroundStatus();
 			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
-            m_TurnAmount = CrossPlatformInputManager.GetAxis("Mouse X") * m_CursorSensitivity;
-            m_ForwardAmount = move.z;
-            m_StrafeAmount = CrossPlatformInputManager.GetAxis("Horizontal");
 
             // dtrajko - Cross-platform input
             if (Application.platform == RuntimePlatform.Android ||
-                Application.platform == RuntimePlatform.WindowsEditor) {
-                m_TurnAmount = CrossPlatformInputManager.GetAxis("Mouse X") * m_CursorSensitivity;
+                Application.platform == RuntimePlatform.WindowsEditor)
+            {
+                m_CursorSensitivity = 0.1f;
             }
+            m_TurnAmount = CrossPlatformInputManager.GetAxis("Mouse X") * m_CursorSensitivity;
+            m_ForwardAmount = move.z;
+            m_StrafeAmount = CrossPlatformInputManager.GetAxis("Horizontal");
 
             if (OnFootstep != null && m_IsGrounded) {
                 OnFootstep(m_ForwardAmount);
