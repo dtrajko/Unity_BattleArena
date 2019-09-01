@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class GameCamera : MonoBehaviour
 {
@@ -49,15 +50,21 @@ public class GameCamera : MonoBehaviour
         transform.position = target.transform.position + rotation * followOffset;
         transform.LookAt(target.transform.position + translationOffset);
 
+        // Make the camera look up or down
         // dtrajko - Cross-platform input
+        // if (Application.platform == RuntimePlatform.Android ||
+        //     Application.platform == RuntimePlatform.WindowsEditor)
+        // {
+        //     rotationSensitivity = 0;
+        // }
         if (Application.platform == RuntimePlatform.Android ||
             Application.platform == RuntimePlatform.WindowsEditor)
         {
-            // rotationSensitivity = 0;
+            verticalRotationAngle += CrossPlatformInputManager.GetAxis("Mouse Y") * 0.3f;
         }
-
-        // Make the camera look up or down
-        verticalRotationAngle += Input.GetAxis("Mouse Y") * rotationSensitivity;
+        else {
+            verticalRotationAngle += Input.GetAxis("Mouse Y") * rotationSensitivity;
+        }
 
         // verticalRotationAngle between min and max limit
         verticalRotationAngle = Mathf.Clamp(verticalRotationAngle, minViewingAngle, maxViewingAngle);

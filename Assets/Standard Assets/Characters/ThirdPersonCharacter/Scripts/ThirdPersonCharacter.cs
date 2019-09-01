@@ -72,7 +72,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             // dtrajko - Cross-platform input
             if (Application.platform == RuntimePlatform.Android ||
                 Application.platform == RuntimePlatform.WindowsEditor) {
-                m_TurnAmount = CrossPlatformInputManager.GetAxis("Horizontal") * 0.3f;
+                m_TurnAmount = CrossPlatformInputManager.GetAxis("Mouse X") * m_CursorSensitivity;
             }
 
             if (OnFootstep != null && m_IsGrounded) {
