@@ -136,7 +136,9 @@ public class Player : NetworkBehaviour, IDamageable {
                 if (hud != null)
                 {
                     hud.ShowScreen("regular");
-                    Cursor.lockState = CursorLockMode.Locked;
+                    if (Application.platform == RuntimePlatform.WindowsPlayer) {
+                        Cursor.lockState = CursorLockMode.Locked;
+                    }
                 }
             } 
         }
@@ -371,7 +373,7 @@ public class Player : NetworkBehaviour, IDamageable {
         }
 
         // dtrajko - Cross-platform input: Switch weapon on Fire2 (yellow) button
-        if (Application.platform == RuntimePlatform.Android
+        if ((Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WindowsEditor)
             && CrossPlatformInputManager.GetButtonDown("Fire2"))
         {
             weaponIndex++;
