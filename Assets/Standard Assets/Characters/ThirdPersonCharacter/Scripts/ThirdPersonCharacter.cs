@@ -69,7 +69,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             // dtrajko - Cross-platform input: Horizontal orientation (camera)
             if (Application.platform == RuntimePlatform.Android)
             {
-                m_CursorSensitivity = 0.2f;
+                m_CursorSensitivity = 0.5f;
             }
             m_TurnAmount = CrossPlatformInputManager.GetAxis("Mouse X") * m_CursorSensitivity;
             m_ForwardAmount = move.z;

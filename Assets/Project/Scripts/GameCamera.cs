@@ -54,7 +54,7 @@ public class GameCamera : MonoBehaviour
         // dtrajko - Cross-platform input: Vertical orientation (camera)
         if (Application.platform == RuntimePlatform.Android)
         {
-            rotationSensitivity = 0.2f;
+            rotationSensitivity = 0.3f;
         }
         verticalRotationAngle += CrossPlatformInputManager.GetAxis("Mouse Y") * rotationSensitivity;
 

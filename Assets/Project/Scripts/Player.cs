@@ -713,16 +713,33 @@ public class Player : NetworkBehaviour, IDamageable {
 
             // Zoom logic
             Visibility = true;
-            if (weapon is Sniper) {
-                if (Input.GetKeyDown(KeyCode.Escape) ||
-                    Input.GetMouseButtonDown(1) ||
-                    CrossPlatformInputManager.GetButtonDown("Cancel")) {
-                    gameCamera.TriggerZoom();
-                    hud.SniperAimVisibility = gameCamera.IsZoomedIn;
-                    Visibility = !gameCamera.IsZoomedIn;
-                }
+            if (IsZoomModeTriggered(weapon)) {
+                gameCamera.TriggerZoom();
+                hud.SniperAimVisibility = gameCamera.IsZoomedIn;
+                Visibility = !gameCamera.IsZoomedIn;
             }
         }
+    }
+
+    private bool IsZoomModeTriggered(Weapon weapon) {
+
+        if (!(weapon is Sniper)) return false;
+
+        switch (Application.platform) {
+            case RuntimePlatform.WindowsEditor:
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1)) return true;
+                if (CrossPlatformInputManager.GetButtonDown("Cancel")) return true;
+                break;
+            case RuntimePlatform.WindowsPlayer:
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1)) return true;
+                break;
+            case RuntimePlatform.Android:
+                if (CrossPlatformInputManager.GetButtonDown("Cancel")) return true;
+                break;
+            default:
+                return false;
+        }
+        return false;
     }
 
     // Hide player (3rd person character) models in zoom in mode
