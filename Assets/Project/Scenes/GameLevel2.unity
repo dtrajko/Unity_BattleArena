@@ -15215,7 +15215,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   showGUI: 1
   offsetX: 0
-  offsetY: 220
+  offsetY: 160
 --- !u!114 &434419355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62418,7 +62418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1987863425
 Transform:
   m_ObjectHideFlags: 0
