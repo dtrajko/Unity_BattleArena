@@ -31,6 +31,9 @@ public class HUDController : NetworkBehaviour
     [SerializeField] private Text clientPlayersText;
     [SerializeField] private Text alertText;
     [SerializeField] private RectTransform mobileUI;
+    [SerializeField] private RectTransform turnAndLookTouchpad;
+    [SerializeField] private RectTransform buttonSwitchTool;
+    
 
     [Header("Tool Selector")]
     [SerializeField] private GameObject toolFocus;
@@ -169,6 +172,21 @@ public class HUDController : NetworkBehaviour
         serverScreen.SetActive(screenName == "server");
         clientScreen.SetActive(screenName == "client");
         spawnScreen.SetActive(screenName == "spawn");
+
+        switch (screenName) {
+            case "regular":
+                turnAndLookTouchpad.gameObject.SetActive(true);
+                buttonSwitchTool.gameObject.SetActive(true);
+                break;
+            case "server":
+                turnAndLookTouchpad.gameObject.SetActive(false);
+                buttonSwitchTool.gameObject.SetActive(false);
+                break;
+            default:
+                turnAndLookTouchpad.gameObject.SetActive(false);
+                buttonSwitchTool.gameObject.SetActive(false);
+                break;
+        }
     }
 
     public void OnPressedStartMatch() {
