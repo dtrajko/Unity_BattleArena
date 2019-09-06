@@ -15214,8 +15214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   showGUI: 1
-  offsetX: 300
-  offsetY: 0
+  offsetX: 0
+  offsetY: 220
 --- !u!114 &434419355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23166,7 +23166,8 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 3.830142e+30, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.7077775e+19, y: 1.7859842e+31, z: 4.3580604e+27,
+    w: 1.7077761e+19}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -52320,7 +52321,7 @@ PrefabInstance:
     - target: {fileID: 8251006342659488377, guid: 9529ecc3d479da5499993355e6c2cb4f,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 250
+      value: 380
       objectReference: {fileID: 0}
     - target: {fileID: 8251006342659488377, guid: 9529ecc3d479da5499993355e6c2cb4f,
         type: 3}
@@ -52345,7 +52346,7 @@ PrefabInstance:
     - target: {fileID: 2646038410238932245, guid: 9529ecc3d479da5499993355e6c2cb4f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2646038410238932245, guid: 9529ecc3d479da5499993355e6c2cb4f,
         type: 3}
@@ -52370,16 +52371,16 @@ PrefabInstance:
     - target: {fileID: 2646038410238932245, guid: 9529ecc3d479da5499993355e6c2cb4f,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 720
+      value: 660
       objectReference: {fileID: 0}
     - target: {fileID: 2646038410238932245, guid: 9529ecc3d479da5499993355e6c2cb4f,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 150
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 900503420, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 290
+      value: 420
       objectReference: {fileID: 0}
     - target: {fileID: 900503420, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -52589,6 +52590,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Button_SwitchTool
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621917669341826822, guid: 9529ecc3d479da5499993355e6c2cb4f,
+        type: 3}
+      propertyPath: m_Name
+      value: Button_SwitchWeapon
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 3}
       propertyPath: m_Color.a

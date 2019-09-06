@@ -172,21 +172,6 @@ public class HUDController : NetworkBehaviour
         serverScreen.SetActive(screenName == "server");
         clientScreen.SetActive(screenName == "client");
         spawnScreen.SetActive(screenName == "spawn");
-
-        switch (screenName) {
-            case "regular":
-                turnAndLookTouchpad.gameObject.SetActive(true);
-                buttonSwitchTool.gameObject.SetActive(true);
-                break;
-            case "server":
-                turnAndLookTouchpad.gameObject.SetActive(false);
-                buttonSwitchTool.gameObject.SetActive(false);
-                break;
-            default:
-                turnAndLookTouchpad.gameObject.SetActive(false);
-                buttonSwitchTool.gameObject.SetActive(false);
-                break;
-        }
     }
 
     public void OnPressedStartMatch() {
