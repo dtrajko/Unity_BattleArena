@@ -16,3 +16,4 @@ public class Pistol : Weapon
         sortIndex = 0;
     }
 }
+

@@ -58,3 +58,4 @@ public class StormObject : MonoBehaviour
         FindObjectOfType<StormManager>().SoundSinister.Stop();
     }
 }
+

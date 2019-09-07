@@ -2,9 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
+using Mirror;
 
-[System.Obsolete]
 public class ResourceObject : NetworkBehaviour, IDamageable
 {
     [SerializeField] private int resourceAmount = 10;
@@ -69,3 +68,4 @@ public class ResourceObject : NetworkBehaviour, IDamageable
         Destroy(gameObject, 1.0f);
     }
 }
+

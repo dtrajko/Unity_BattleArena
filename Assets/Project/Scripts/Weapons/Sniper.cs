@@ -16,3 +16,4 @@ public class Sniper : Weapon
         sortIndex = 3;
     }
 }
+

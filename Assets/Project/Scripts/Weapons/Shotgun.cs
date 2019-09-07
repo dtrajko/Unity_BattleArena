@@ -19,3 +19,4 @@ public class Shotgun : Weapon
     }
     public int AmountOfBullets { get { return amountOfBullets; } }
 }
+

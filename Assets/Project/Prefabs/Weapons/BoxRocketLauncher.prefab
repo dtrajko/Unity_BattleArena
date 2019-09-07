@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5770109955432495013}
   - component: {fileID: 5770109955432495012}
   - component: {fileID: 5770109955432495015}
-  - component: {fileID: -6801341108565036578}
+  - component: {fileID: -5475884748064434992}
   m_Layer: 0
   m_Name: BoxRocketLauncher
   m_TagString: Untagged
@@ -64,7 +64,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 1.8}
   m_Center: {x: 0, y: 0, z: 0.06333208}
---- !u!114 &-6801341108565036578
+--- !u!114 &-5475884748064434992
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,30 +73,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5770109955432495010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
+  serverOnly: 0
+  localPlayerAuthority: 0
+  m_AssetId: 
+  m_SceneId: 3557952027
 --- !u!1001 &7071435814635890662
 PrefabInstance:
   m_ObjectHideFlags: 0

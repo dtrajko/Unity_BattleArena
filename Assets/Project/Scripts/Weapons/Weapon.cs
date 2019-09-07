@@ -106,3 +106,4 @@ public abstract class Weapon : IComparable
         return 0;
     }
 }
+

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
@@ -251,3 +251,4 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		}
 	}
 }
+

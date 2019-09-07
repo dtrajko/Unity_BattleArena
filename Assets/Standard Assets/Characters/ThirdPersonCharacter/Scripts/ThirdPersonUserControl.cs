@@ -1,6 +1,6 @@
-using System;
+﻿using System;
 using UnityEngine;
-using UnityEngine.Networking;
+using Mirror;
 using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
@@ -78,3 +78,4 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
     }
 }
+

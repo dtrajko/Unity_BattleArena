@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
+using Mirror;
 
 public class Obstacle : NetworkBehaviour, IDamageable
 {
@@ -104,3 +104,4 @@ public class Obstacle : NetworkBehaviour, IDamageable
         Destroy(gameObject, 0.05f);
     }
 }
+

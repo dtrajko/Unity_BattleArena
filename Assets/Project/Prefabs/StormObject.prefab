@@ -88,8 +88,8 @@ GameObject:
   - component: {fileID: 7583764712201444096}
   - component: {fileID: 6596262722316707983}
   - component: {fileID: 7583764712201444103}
-  - component: {fileID: 7583764712201444101}
-  - component: {fileID: 7583764712201444102}
+  - component: {fileID: -3964275669308676131}
+  - component: {fileID: 3436446149157851288}
   m_Layer: 0
   m_Name: StormObject
   m_TagString: Untagged
@@ -127,7 +127,6 @@ MonoBehaviour:
   initialDistance: 0
   shrinkSmoothness: 0
   directionalLight: {fileID: 0}
-  soundSinister: {fileID: 0}
 --- !u!65 &7583764712201444103
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -141,7 +140,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 500, y: 200, z: 200}
   m_Center: {x: 0, y: 100, z: -100}
---- !u!114 &7583764712201444101
+--- !u!114 &-3964275669308676131
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,31 +149,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7583764712201444097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
---- !u!114 &7583764712201444102
+  serverOnly: 0
+  localPlayerAuthority: 0
+  m_AssetId: 
+  m_SceneId: 0
+--- !u!114 &3436446149157851288
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,16 +165,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7583764712201444097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13d6c522af31447398568cc65334232b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 1
-  m_SendInterval: 0.1
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_VelocityThreshold: 0.0001
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 1
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1

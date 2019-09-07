@@ -55,8 +55,8 @@ GameObject:
   - component: {fileID: 6679026031495876453}
   - component: {fileID: 6679026031495876452}
   - component: {fileID: 5194548950448099099}
-  - component: {fileID: 758701997360439800}
   - component: {fileID: -3779936643250556874}
+  - component: {fileID: 1183346439301338347}
   m_Layer: 0
   m_Name: ObstacleVertical
   m_TagString: Untagged
@@ -92,6 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b0c6f37ab7019499155f84bd590493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   initialHealth: 30
   cost: 4
   hitSmoothness: 10
@@ -107,43 +109,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5c153308033204ea62c09d74084168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   resourceAmount: 0
   amountOfHits: 5
   hitScale: 0.8
   hitSmoothness: 10
---- !u!114 &758701997360439800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6679026031495876458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!114 &-3779936643250556874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +127,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3d6d610b9c5d44eb6808944acf48ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  health: 100
+--- !u!114 &1183346439301338347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6679026031495876458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serverOnly: 0
+  localPlayerAuthority: 0
+  m_AssetId: f1d4564c5f7aae14fbeded2f4da7de1d
+  m_SceneId: 0
 --- !u!1001 &1342358707974092513
 PrefabInstance:
   m_ObjectHideFlags: 0

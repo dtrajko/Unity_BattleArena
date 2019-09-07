@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
@@ -41,3 +41,4 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
     }
 }
+

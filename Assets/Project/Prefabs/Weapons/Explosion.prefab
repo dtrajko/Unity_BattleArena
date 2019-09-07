@@ -4961,7 +4961,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1611202326101362227}
   - component: {fileID: 8115397976588516978}
-  - component: {fileID: -8227233522828800107}
+  - component: {fileID: 6250493315180894293}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -4997,7 +4997,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30b3c1f91ccfa840ac23ea1d173a441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-8227233522828800107
+  syncMode: 0
+  syncInterval: 0.1
+--- !u!114 &6250493315180894293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5006,27 +5008,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8107772546918971049}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 0
-    i1: 0
-    i2: 0
-    i3: 0
-    i4: 0
-    i5: 0
-    i6: 0
-    i7: 0
-    i8: 0
-    i9: 0
-    i10: 0
-    i11: 0
-    i12: 0
-    i13: 0
-    i14: 0
-    i15: 0
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
+  serverOnly: 0
+  localPlayerAuthority: 0
+  m_AssetId: 
+  m_SceneId: 2221571910

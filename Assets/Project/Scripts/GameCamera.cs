@@ -78,3 +78,4 @@ public class GameCamera : MonoBehaviour
         else ZoomIn();
     }
 }
+

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
+using Mirror;
 
 public class NetworkPlayerAudioController : NetworkBehaviour
 {
@@ -24,3 +24,4 @@ public class NetworkPlayerAudioController : NetworkBehaviour
         caller.GetComponent<Player>().PlayWeaponSound(index);
     }
 }
+

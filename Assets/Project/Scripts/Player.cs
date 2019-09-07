@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
+using Mirror;
 using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -133,6 +133,10 @@ public class Player : NetworkBehaviour, IDamageable {
                 energyBall.SetActive(false);
                 characterContainer.transform.localScale = Vector3.one;
                 healthBarCanvas.transform.localScale = new Vector3(0.005f, 0.005f, 1);
+                if (hud != null)
+                {
+                    hud.ShowScreen("regular");
+                }
             } 
         }
     }
@@ -214,13 +218,10 @@ public class Player : NetworkBehaviour, IDamageable {
             }
         }
 
-        if (hud != null) {
-            hud.ShowScreen("regular");
-            if (Application.platform == RuntimePlatform.WindowsPlayer ||
-                Application.platform == RuntimePlatform.WindowsEditor)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
+        if (Application.platform == RuntimePlatform.WindowsPlayer ||
+            Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         CmdReSpawn(gameObject);
@@ -1071,3 +1072,4 @@ public class Player : NetworkBehaviour, IDamageable {
         }
     }
 }
+

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.Networking;
+using Mirror;
 
 public class HUDController : NetworkBehaviour
 {
@@ -180,6 +180,11 @@ public class HUDController : NetworkBehaviour
         }
     }
 
+    public void OnPressedQuit()
+    {
+        Application.Quit();
+    }
+
     public void Alert() {
         alertText.gameObject.SetActive(true);
         Invoke("HideAlert", 3);
@@ -197,3 +202,4 @@ public class HUDController : NetworkBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 }
+

@@ -6,3 +6,4 @@ public interface IDamageable
 {
     int Damage(float amount);
 }
+

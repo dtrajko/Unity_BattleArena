@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
+using Mirror;
 
-[System.Obsolete]
 public class Explosion : NetworkBehaviour
 {
     public void Explode(float range, float damage)
@@ -25,3 +24,4 @@ public class Explosion : NetworkBehaviour
         Destroy(gameObject, 1.5f);
     }
 }
+

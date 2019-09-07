@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
+using Mirror;
 
-[System.Obsolete]
 public class Rocket : NetworkBehaviour
 {
     [SerializeField] private float speed = 15.0f;
@@ -55,3 +54,4 @@ public class Rocket : NetworkBehaviour
         explosion.GetComponent<Explosion>().Explode(explosionRange, explosionDamage);
     }
 }
+

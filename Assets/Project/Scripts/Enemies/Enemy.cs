@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
+using Mirror;
 
 [Obsolete]
 public class Enemy : NetworkBehaviour, IDamageable
@@ -62,3 +62,4 @@ public class Enemy : NetworkBehaviour, IDamageable
         Destroy(gameObject, 1.0f);
     }
 }
+

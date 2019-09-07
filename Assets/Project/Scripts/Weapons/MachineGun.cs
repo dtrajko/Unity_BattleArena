@@ -16,3 +16,4 @@ public class MachineGun : Weapon
         sortIndex = 1;
     }
 }
+
