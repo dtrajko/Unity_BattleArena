@@ -192,7 +192,8 @@ public class HUDController : NetworkBehaviour
     public void OnPressedRestart()
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-        // if (isServer) ShowScreen("server");
-        // else if (isClient) ShowScreen("client");
+        if (isServer) ShowScreen("server");
+        else if (isClient) ShowScreen("client");
+        Cursor.lockState = CursorLockMode.None;
     }
 }

@@ -133,13 +133,6 @@ public class Player : NetworkBehaviour, IDamageable {
                 energyBall.SetActive(false);
                 characterContainer.transform.localScale = Vector3.one;
                 healthBarCanvas.transform.localScale = new Vector3(0.005f, 0.005f, 1);
-                if (hud != null)
-                {
-                    hud.ShowScreen("regular");
-                    if (Application.platform == RuntimePlatform.WindowsPlayer) {
-                        Cursor.lockState = CursorLockMode.Locked;
-                    }
-                }
             } 
         }
     }
@@ -218,6 +211,15 @@ public class Player : NetworkBehaviour, IDamageable {
         foreach (Player player in FindObjectsOfType<Player>()) {
             if (player != this) {
                 player.RpcAllowMovement();
+            }
+        }
+
+        if (hud != null) {
+            hud.ShowScreen("regular");
+            if (Application.platform == RuntimePlatform.WindowsPlayer ||
+                Application.platform == RuntimePlatform.WindowsEditor)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
             }
         }
 
