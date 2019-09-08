@@ -11,7 +11,7 @@ public class Spawner : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject instance = Instantiate(prefab, transform.position + positionOffset, transform.rotation, transform.parent);
+        GameObject instance = Instantiate(prefab, transform.position + positionOffset, transform.rotation); // 4th param: transform.parent
         NetworkServer.Spawn(instance);
         Destroy(gameObject);
     }
