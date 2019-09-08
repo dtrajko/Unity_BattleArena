@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5770109955432495012}
   - component: {fileID: 5770109955432495015}
   - component: {fileID: -5475884748064434992}
+  - component: {fileID: -5690756241269382852}
   m_Layer: 0
   m_Name: BoxRocketLauncher
   m_TagString: Untagged
@@ -79,7 +80,22 @@ MonoBehaviour:
   serverOnly: 0
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3557952027
+  m_SceneId: 4095239644
+--- !u!114 &-5690756241269382852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5770109955432495010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1001 &7071435814635890662
 PrefabInstance:
   m_ObjectHideFlags: 0

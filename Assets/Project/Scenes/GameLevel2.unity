@@ -685,6 +685,7 @@ GameObject:
   - component: {fileID: 36023887}
   - component: {fileID: 36023888}
   - component: {fileID: 36023889}
+  - component: {fileID: 36023890}
   m_Layer: 0
   m_Name: Pistol 10
   m_TagString: Untagged
@@ -738,6 +739,21 @@ MonoBehaviour:
   localPlayerAuthority: 0
   m_AssetId: 
   m_SceneId: 575862490
+--- !u!114 &36023890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36023886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &43285552
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,6 +1492,7 @@ GameObject:
   - component: {fileID: 92398649}
   - component: {fileID: 92398650}
   - component: {fileID: 92398651}
+  - component: {fileID: 92398652}
   m_Layer: 0
   m_Name: Machine Gun 1
   m_TagString: Untagged
@@ -1529,6 +1546,21 @@ MonoBehaviour:
   localPlayerAuthority: 0
   m_AssetId: 
   m_SceneId: 1491290994
+--- !u!114 &92398652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92398648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &93034067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1695,15 +1727,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -5520329274035202924, guid: 838be333105b4064886ffa28b718975d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 616593679
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 838be333105b4064886ffa28b718975d,
         type: 3}
       propertyPath: m_Name
       value: Cactus2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -5520329274035202924, guid: 838be333105b4064886ffa28b718975d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 616593679
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 838be333105b4064886ffa28b718975d,
         type: 3}
@@ -1857,15 +1889,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 1855597040
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
       propertyPath: m_Name
       value: TreeDead1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 1855597040
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
@@ -2007,6 +2039,7 @@ GameObject:
   - component: {fileID: 106061864}
   - component: {fileID: 106061866}
   - component: {fileID: 106061865}
+  - component: {fileID: 106061867}
   m_Layer: 0
   m_Name: Shotgun 2
   m_TagString: Untagged
@@ -2060,6 +2093,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 192b4ae750d9bbc4eb8e865f26e07041, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &106061867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106061863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &108161166
 GameObject:
   m_ObjectHideFlags: 0
@@ -3349,6 +3397,7 @@ GameObject:
   - component: {fileID: 166924539}
   - component: {fileID: 166924541}
   - component: {fileID: 166924540}
+  - component: {fileID: 166924542}
   m_Layer: 0
   m_Name: Pistol 5
   m_TagString: Untagged
@@ -3402,6 +3451,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: cba059aa05234ca4692c43a2c8d80583, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &166924542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166924538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &186210513
 GameObject:
   m_ObjectHideFlags: 0
@@ -3615,15 +3679,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 2935419904
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
       propertyPath: m_Name
       value: Tree3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 2935419904
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
@@ -4018,15 +4082,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 133968231589934730, guid: 6ff686fea0c2eae44b1dd7f198dff717,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 20415165
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 6ff686fea0c2eae44b1dd7f198dff717,
         type: 3}
       propertyPath: m_Name
       value: TreeDead2
+      objectReference: {fileID: 0}
+    - target: {fileID: 133968231589934730, guid: 6ff686fea0c2eae44b1dd7f198dff717,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 20415165
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 6ff686fea0c2eae44b1dd7f198dff717,
         type: 3}
@@ -4092,15 +4156,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 2446959772
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
       propertyPath: m_Name
       value: TreeDead1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 2446959772
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
@@ -4170,6 +4234,7 @@ GameObject:
   - component: {fileID: 222590097}
   - component: {fileID: 222590099}
   - component: {fileID: 222590098}
+  - component: {fileID: 222590100}
   m_Layer: 0
   m_Name: Sniper 6
   m_TagString: Untagged
@@ -4223,6 +4288,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: a83aae78541b27044babcdf2d905697e, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &222590100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222590096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1001 &227529558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4230,15 +4310,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -5520329274035202924, guid: 838be333105b4064886ffa28b718975d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 2731400244
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 838be333105b4064886ffa28b718975d,
         type: 3}
       propertyPath: m_Name
       value: Cactus2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: -5520329274035202924, guid: 838be333105b4064886ffa28b718975d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 2731400244
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 838be333105b4064886ffa28b718975d,
         type: 3}
@@ -4475,15 +4555,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 82429042211919089, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 4018091445
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
         type: 3}
       propertyPath: m_Name
       value: Tree2
+      objectReference: {fileID: 0}
+    - target: {fileID: 82429042211919089, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 4018091445
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
         type: 3}
@@ -9833,15 +9913,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 2069858220
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
       propertyPath: m_Name
       value: Tree1
+      objectReference: {fileID: 0}
+    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 2069858220
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
@@ -9937,6 +10017,7 @@ GameObject:
   - component: {fileID: 291551730}
   - component: {fileID: 291551732}
   - component: {fileID: 291551731}
+  - component: {fileID: 291551733}
   m_Layer: 0
   m_Name: Shotgun 4
   m_TagString: Untagged
@@ -9990,6 +10071,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 192b4ae750d9bbc4eb8e865f26e07041, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &291551733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291551729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1001 &293734576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9997,15 +10093,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 82429042211919089, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 3339266421
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
         type: 3}
       propertyPath: m_Name
       value: Tree2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 82429042211919089, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 3339266421
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
         type: 3}
@@ -10662,15 +10758,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 82429042211919089, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 1364540007
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
         type: 3}
       propertyPath: m_Name
       value: Tree2
+      objectReference: {fileID: 0}
+    - target: {fileID: 82429042211919089, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 1364540007
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
         type: 3}
@@ -11021,15 +11117,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 2660039192
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
       propertyPath: m_Name
       value: Tree3
+      objectReference: {fileID: 0}
+    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 2660039192
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
@@ -11197,6 +11293,7 @@ GameObject:
   - component: {fileID: 318875013}
   - component: {fileID: 318875015}
   - component: {fileID: 318875014}
+  - component: {fileID: 318875016}
   m_Layer: 0
   m_Name: Pistol 1
   m_TagString: Untagged
@@ -11250,6 +11347,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: cba059aa05234ca4692c43a2c8d80583, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &318875016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318875012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &322848572
 GameObject:
   m_ObjectHideFlags: 0
@@ -11589,15 +11701,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 3754459722
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
       propertyPath: m_Name
       value: Tree3
+      objectReference: {fileID: 0}
+    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 3754459722
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
@@ -11859,6 +11971,7 @@ GameObject:
   - component: {fileID: 368574906}
   - component: {fileID: 368574908}
   - component: {fileID: 368574907}
+  - component: {fileID: 368574909}
   m_Layer: 0
   m_Name: Shotgun 5
   m_TagString: Untagged
@@ -11912,6 +12025,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 192b4ae750d9bbc4eb8e865f26e07041, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &368574909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368574905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &376288217
 GameObject:
   m_ObjectHideFlags: 0
@@ -12537,6 +12665,7 @@ GameObject:
   - component: {fileID: 391671204}
   - component: {fileID: 391671206}
   - component: {fileID: 391671205}
+  - component: {fileID: 391671207}
   m_Layer: 0
   m_Name: FirstAid 5
   m_TagString: Untagged
@@ -12590,6 +12719,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 2aae539e7437af046b67e5ef4add2b06, type: 3}
   positionOffset: {x: 0, y: 0.3, z: 0}
+--- !u!114 &391671207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391671203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &393442863
 GameObject:
   m_ObjectHideFlags: 0
@@ -12877,15 +13021,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -6341300364634171681, guid: 2b159c432bde09446bb9ac12636125fc,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 569774332
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 2b159c432bde09446bb9ac12636125fc,
         type: 3}
       propertyPath: m_Name
       value: Cactus1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: -6341300364634171681, guid: 2b159c432bde09446bb9ac12636125fc,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 569774332
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 2b159c432bde09446bb9ac12636125fc,
         type: 3}
@@ -13935,15 +14079,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 133968231589934730, guid: 6ff686fea0c2eae44b1dd7f198dff717,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 1180547899
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 6ff686fea0c2eae44b1dd7f198dff717,
         type: 3}
       propertyPath: m_Name
       value: TreeDead2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 133968231589934730, guid: 6ff686fea0c2eae44b1dd7f198dff717,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 1180547899
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 6ff686fea0c2eae44b1dd7f198dff717,
         type: 3}
@@ -14341,15 +14485,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -6341300364634171681, guid: 2b159c432bde09446bb9ac12636125fc,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 3167407426
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 2b159c432bde09446bb9ac12636125fc,
         type: 3}
       propertyPath: m_Name
       value: Cactus1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: -6341300364634171681, guid: 2b159c432bde09446bb9ac12636125fc,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 3167407426
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 2b159c432bde09446bb9ac12636125fc,
         type: 3}
@@ -14979,6 +15123,7 @@ GameObject:
   - component: {fileID: 491591405}
   - component: {fileID: 491591407}
   - component: {fileID: 491591406}
+  - component: {fileID: 491591408}
   m_Layer: 0
   m_Name: Shotgun 3
   m_TagString: Untagged
@@ -15032,6 +15177,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 192b4ae750d9bbc4eb8e865f26e07041, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &491591408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491591404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &496603237
 GameObject:
   m_ObjectHideFlags: 0
@@ -15043,6 +15203,7 @@ GameObject:
   - component: {fileID: 496603238}
   - component: {fileID: 496603240}
   - component: {fileID: 496603239}
+  - component: {fileID: 496603241}
   m_Layer: 0
   m_Name: Sniper 3
   m_TagString: Untagged
@@ -15096,6 +15257,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: a83aae78541b27044babcdf2d905697e, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &496603241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496603237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &496755922
 GameObject:
   m_ObjectHideFlags: 0
@@ -15107,6 +15283,7 @@ GameObject:
   - component: {fileID: 496755923}
   - component: {fileID: 496755925}
   - component: {fileID: 496755924}
+  - component: {fileID: 496755926}
   m_Layer: 0
   m_Name: Sniper 4
   m_TagString: Untagged
@@ -15160,6 +15337,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: a83aae78541b27044babcdf2d905697e, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &496755926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496755922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1001 &506076514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15935,15 +16127,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 2328575240840474277, guid: 46d76c3913ea895418469fe0f53c82e2,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 3236715063
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 46d76c3913ea895418469fe0f53c82e2,
         type: 3}
       propertyPath: m_Name
       value: Tree4 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328575240840474277, guid: 46d76c3913ea895418469fe0f53c82e2,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 3236715063
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 46d76c3913ea895418469fe0f53c82e2,
         type: 3}
@@ -16079,15 +16271,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 2223341415
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
       propertyPath: m_Name
       value: TreeDead1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 2223341415
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
@@ -16257,6 +16449,7 @@ GameObject:
   - component: {fileID: 550892025}
   - component: {fileID: 550892027}
   - component: {fileID: 550892026}
+  - component: {fileID: 550892028}
   m_Layer: 0
   m_Name: Machine Gun 6
   m_TagString: Untagged
@@ -16310,6 +16503,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 645a99d7d54f13d48b7a85c6fe910ae8, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &550892028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550892024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &551022600 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 6ff448eb7711643e8806e1d640f167ab,
@@ -16408,15 +16616,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 2752798685
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
       propertyPath: m_Name
       value: Tree1
+      objectReference: {fileID: 0}
+    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 2752798685
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
@@ -16860,6 +17068,7 @@ GameObject:
   - component: {fileID: 578615951}
   - component: {fileID: 578615953}
   - component: {fileID: 578615952}
+  - component: {fileID: 578615954}
   m_Layer: 0
   m_Name: RPG 4
   m_TagString: Untagged
@@ -16913,6 +17122,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 3eb427f2249a41a448b761ae1d28de9b, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &578615954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578615950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &578626742 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 812598b8a557e4ae0a2a8ccc0465b6f0,
@@ -17190,6 +17414,7 @@ GameObject:
   - component: {fileID: 597528526}
   - component: {fileID: 597528528}
   - component: {fileID: 597528527}
+  - component: {fileID: 597528529}
   m_Layer: 0
   m_Name: Machine Gun 7
   m_TagString: Untagged
@@ -17243,6 +17468,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 645a99d7d54f13d48b7a85c6fe910ae8, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &597528529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597528525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &599367234
 GameObject:
   m_ObjectHideFlags: 0
@@ -17911,6 +18151,7 @@ GameObject:
   - component: {fileID: 625753975}
   - component: {fileID: 625753977}
   - component: {fileID: 625753976}
+  - component: {fileID: 625753978}
   m_Layer: 0
   m_Name: RPG 5
   m_TagString: Untagged
@@ -17964,6 +18205,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 3eb427f2249a41a448b761ae1d28de9b, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &625753978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625753974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &647696394
 GameObject:
   m_ObjectHideFlags: 0
@@ -19013,15 +19269,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 1259153627
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
       propertyPath: m_Name
       value: Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 1259153627
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
@@ -19262,6 +19518,7 @@ GameObject:
   - component: {fileID: 684251060}
   - component: {fileID: 684251062}
   - component: {fileID: 684251061}
+  - component: {fileID: 684251063}
   m_Layer: 0
   m_Name: Pistol 9
   m_TagString: Untagged
@@ -19315,6 +19572,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: cba059aa05234ca4692c43a2c8d80583, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &684251063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684251059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &684823938
 GameObject:
   m_ObjectHideFlags: 0
@@ -20180,15 +20452,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -6341300364634171681, guid: 2b159c432bde09446bb9ac12636125fc,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 1234421189
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 2b159c432bde09446bb9ac12636125fc,
         type: 3}
       propertyPath: m_Name
       value: Cactus1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -6341300364634171681, guid: 2b159c432bde09446bb9ac12636125fc,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 1234421189
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 2b159c432bde09446bb9ac12636125fc,
         type: 3}
@@ -20739,15 +21011,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 1399732841
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
       propertyPath: m_Name
       value: Tree3
+      objectReference: {fileID: 0}
+    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 1399732841
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
@@ -20839,11 +21111,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1037085689}
     m_Modifications:
-    - target: {fileID: -3964275669308676131, guid: a125a00ac1951664aba35aa30c902d6d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 2801284913
-      objectReference: {fileID: 0}
     - target: {fileID: 7583764712201444097, guid: a125a00ac1951664aba35aa30c902d6d,
         type: 3}
       propertyPath: m_Name
@@ -20853,6 +21120,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3964275669308676131, guid: a125a00ac1951664aba35aa30c902d6d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 2801284913
       objectReference: {fileID: 0}
     - target: {fileID: 7583764712201444096, guid: a125a00ac1951664aba35aa30c902d6d,
         type: 3}
@@ -21190,15 +21462,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 82429042211919089, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 3721450128
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
         type: 3}
       propertyPath: m_Name
       value: Tree2
+      objectReference: {fileID: 0}
+    - target: {fileID: 82429042211919089, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 3721450128
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
         type: 3}
@@ -21404,6 +21676,7 @@ GameObject:
   - component: {fileID: 778566355}
   - component: {fileID: 778566357}
   - component: {fileID: 778566356}
+  - component: {fileID: 778566358}
   m_Layer: 0
   m_Name: Pistol 8
   m_TagString: Untagged
@@ -21457,6 +21730,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: cba059aa05234ca4692c43a2c8d80583, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &778566358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778566354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &779201462
 GameObject:
   m_ObjectHideFlags: 0
@@ -22056,15 +22344,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 133968231589934730, guid: 6ff686fea0c2eae44b1dd7f198dff717,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 1468346860
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 6ff686fea0c2eae44b1dd7f198dff717,
         type: 3}
       propertyPath: m_Name
       value: TreeDead2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 133968231589934730, guid: 6ff686fea0c2eae44b1dd7f198dff717,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 1468346860
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 6ff686fea0c2eae44b1dd7f198dff717,
         type: 3}
@@ -22234,6 +22522,7 @@ GameObject:
   - component: {fileID: 801806162}
   - component: {fileID: 801806164}
   - component: {fileID: 801806163}
+  - component: {fileID: 801806165}
   m_Layer: 0
   m_Name: Sniper 7
   m_TagString: Untagged
@@ -22287,6 +22576,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: a83aae78541b27044babcdf2d905697e, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &801806165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801806161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1001 &807347801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22294,15 +22598,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -6341300364634171681, guid: 2b159c432bde09446bb9ac12636125fc,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 4237775290
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 2b159c432bde09446bb9ac12636125fc,
         type: 3}
       propertyPath: m_Name
       value: Cactus1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: -6341300364634171681, guid: 2b159c432bde09446bb9ac12636125fc,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 4237775290
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 2b159c432bde09446bb9ac12636125fc,
         type: 3}
@@ -22544,15 +22848,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -6341300364634171681, guid: 2b159c432bde09446bb9ac12636125fc,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 2842594923
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 2b159c432bde09446bb9ac12636125fc,
         type: 3}
       propertyPath: m_Name
       value: Cactus1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: -6341300364634171681, guid: 2b159c432bde09446bb9ac12636125fc,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 2842594923
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 2b159c432bde09446bb9ac12636125fc,
         type: 3}
@@ -23397,15 +23701,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 657866299
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
       propertyPath: m_Name
       value: TreeDead1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 657866299
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
@@ -23477,11 +23781,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 574087124}
     m_Modifications:
-    - target: {fileID: -351969089775660510, guid: ef5c443fc1b891940bd641a0db9d70c4,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 147857956
-      objectReference: {fileID: 0}
     - target: {fileID: 293142627245608489, guid: ef5c443fc1b891940bd641a0db9d70c4,
         type: 3}
       propertyPath: m_Name
@@ -23542,6 +23841,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -351969089775660510, guid: ef5c443fc1b891940bd641a0db9d70c4,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 147857956
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef5c443fc1b891940bd641a0db9d70c4, type: 3}
 --- !u!4 &835310237 stripped
@@ -23561,6 +23865,7 @@ GameObject:
   - component: {fileID: 836036145}
   - component: {fileID: 836036146}
   - component: {fileID: 836036147}
+  - component: {fileID: 836036148}
   m_Layer: 0
   m_Name: RPG 10
   m_TagString: Untagged
@@ -23614,6 +23919,21 @@ MonoBehaviour:
   localPlayerAuthority: 0
   m_AssetId: 
   m_SceneId: 3799104964
+--- !u!114 &836036148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836036144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &838295963
 GameObject:
   m_ObjectHideFlags: 0
@@ -23975,6 +24295,7 @@ GameObject:
   - component: {fileID: 857672139}
   - component: {fileID: 857672141}
   - component: {fileID: 857672140}
+  - component: {fileID: 857672142}
   m_Layer: 0
   m_Name: Sniper 1
   m_TagString: Untagged
@@ -24028,6 +24349,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: a83aae78541b27044babcdf2d905697e, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &857672142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857672138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &860879680
 GameObject:
   m_ObjectHideFlags: 0
@@ -25005,15 +25341,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 973603536
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
       propertyPath: m_Name
       value: Tree1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 973603536
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
@@ -25085,15 +25421,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 905013754
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
       propertyPath: m_Name
       value: TreeDead1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 905013754
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
@@ -25165,15 +25501,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -6341300364634171681, guid: 2b159c432bde09446bb9ac12636125fc,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 1702062692
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 2b159c432bde09446bb9ac12636125fc,
         type: 3}
       propertyPath: m_Name
       value: Cactus1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: -6341300364634171681, guid: 2b159c432bde09446bb9ac12636125fc,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 1702062692
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 2b159c432bde09446bb9ac12636125fc,
         type: 3}
@@ -25471,15 +25807,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 4225589466
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
       propertyPath: m_Name
       value: Tree1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 4225589466
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
@@ -25551,11 +25887,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1037085689}
     m_Modifications:
-    - target: {fileID: -3964275669308676131, guid: a125a00ac1951664aba35aa30c902d6d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 3948746101
-      objectReference: {fileID: 0}
     - target: {fileID: 7583764712201444097, guid: a125a00ac1951664aba35aa30c902d6d,
         type: 3}
       propertyPath: m_Name
@@ -25565,6 +25896,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3964275669308676131, guid: a125a00ac1951664aba35aa30c902d6d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 3948746101
       objectReference: {fileID: 0}
     - target: {fileID: 7583764712201444096, guid: a125a00ac1951664aba35aa30c902d6d,
         type: 3}
@@ -30663,15 +30999,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 133968231589934730, guid: 6ff686fea0c2eae44b1dd7f198dff717,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 3042631498
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 6ff686fea0c2eae44b1dd7f198dff717,
         type: 3}
       propertyPath: m_Name
       value: TreeDead2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 133968231589934730, guid: 6ff686fea0c2eae44b1dd7f198dff717,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 3042631498
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 6ff686fea0c2eae44b1dd7f198dff717,
         type: 3}
@@ -31256,6 +31592,7 @@ GameObject:
   - component: {fileID: 986056041}
   - component: {fileID: 986056043}
   - component: {fileID: 986056042}
+  - component: {fileID: 986056044}
   m_Layer: 0
   m_Name: Machine Gun 3
   m_TagString: Untagged
@@ -31309,6 +31646,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 645a99d7d54f13d48b7a85c6fe910ae8, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &986056044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986056040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &992081259
 GameObject:
   m_ObjectHideFlags: 0
@@ -32280,15 +32632,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 133968231589934730, guid: 6ff686fea0c2eae44b1dd7f198dff717,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 128404295
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 6ff686fea0c2eae44b1dd7f198dff717,
         type: 3}
       propertyPath: m_Name
       value: TreeDead2
+      objectReference: {fileID: 0}
+    - target: {fileID: 133968231589934730, guid: 6ff686fea0c2eae44b1dd7f198dff717,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 128404295
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 6ff686fea0c2eae44b1dd7f198dff717,
         type: 3}
@@ -32364,6 +32716,7 @@ GameObject:
   - component: {fileID: 1063808739}
   - component: {fileID: 1063808741}
   - component: {fileID: 1063808740}
+  - component: {fileID: 1063808742}
   m_Layer: 0
   m_Name: FirstAid 4
   m_TagString: Untagged
@@ -32417,6 +32770,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 2aae539e7437af046b67e5ef4add2b06, type: 3}
   positionOffset: {x: 0, y: 0.3, z: 0}
+--- !u!114 &1063808742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063808738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1072894506
 GameObject:
   m_ObjectHideFlags: 0
@@ -32428,6 +32796,7 @@ GameObject:
   - component: {fileID: 1072894507}
   - component: {fileID: 1072894509}
   - component: {fileID: 1072894508}
+  - component: {fileID: 1072894510}
   m_Layer: 0
   m_Name: Pistol 3
   m_TagString: Untagged
@@ -32481,6 +32850,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: cba059aa05234ca4692c43a2c8d80583, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1072894510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072894506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1076449259
 GameObject:
   m_ObjectHideFlags: 0
@@ -33367,15 +33751,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 683945412
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
       propertyPath: m_Name
       value: TreeDead1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 683945412
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
@@ -34820,15 +35204,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -5520329274035202924, guid: 838be333105b4064886ffa28b718975d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 3658403716
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 838be333105b4064886ffa28b718975d,
         type: 3}
       propertyPath: m_Name
       value: Cactus2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5520329274035202924, guid: 838be333105b4064886ffa28b718975d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 3658403716
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 838be333105b4064886ffa28b718975d,
         type: 3}
@@ -34924,6 +35308,7 @@ GameObject:
   - component: {fileID: 1173226592}
   - component: {fileID: 1173226594}
   - component: {fileID: 1173226593}
+  - component: {fileID: 1173226595}
   m_Layer: 0
   m_Name: Sniper 2
   m_TagString: Untagged
@@ -34977,6 +35362,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: a83aae78541b27044babcdf2d905697e, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1173226595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173226591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1173818251
 GameObject:
   m_ObjectHideFlags: 0
@@ -34988,6 +35388,7 @@ GameObject:
   - component: {fileID: 1173818252}
   - component: {fileID: 1173818254}
   - component: {fileID: 1173818253}
+  - component: {fileID: 1173818255}
   m_Layer: 0
   m_Name: Machine Gun 5
   m_TagString: Untagged
@@ -35041,6 +35442,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 645a99d7d54f13d48b7a85c6fe910ae8, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1173818255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173818251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1175088272
 GameObject:
   m_ObjectHideFlags: 0
@@ -35271,11 +35687,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 574087124}
     m_Modifications:
-    - target: {fileID: -351969089775660510, guid: ef5c443fc1b891940bd641a0db9d70c4,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 3094022914
-      objectReference: {fileID: 0}
     - target: {fileID: 293142627245608489, guid: ef5c443fc1b891940bd641a0db9d70c4,
         type: 3}
       propertyPath: m_Name
@@ -35335,6 +35746,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -351969089775660510, guid: ef5c443fc1b891940bd641a0db9d70c4,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 3094022914
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef5c443fc1b891940bd641a0db9d70c4, type: 3}
@@ -35489,15 +35905,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 133968231589934730, guid: 6ff686fea0c2eae44b1dd7f198dff717,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 2105913960
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 6ff686fea0c2eae44b1dd7f198dff717,
         type: 3}
       propertyPath: m_Name
       value: TreeDead2
+      objectReference: {fileID: 0}
+    - target: {fileID: 133968231589934730, guid: 6ff686fea0c2eae44b1dd7f198dff717,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 2105913960
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 6ff686fea0c2eae44b1dd7f198dff717,
         type: 3}
@@ -35823,6 +36239,7 @@ GameObject:
   - component: {fileID: 1226614364}
   - component: {fileID: 1226614366}
   - component: {fileID: 1226614365}
+  - component: {fileID: 1226614367}
   m_Layer: 0
   m_Name: RPG 1
   m_TagString: Untagged
@@ -35876,6 +36293,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 3eb427f2249a41a448b761ae1d28de9b, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1226614367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226614363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1227663670
 GameObject:
   m_ObjectHideFlags: 0
@@ -36308,6 +36740,7 @@ GameObject:
   - component: {fileID: 1247799379}
   - component: {fileID: 1247799381}
   - component: {fileID: 1247799380}
+  - component: {fileID: 1247799382}
   m_Layer: 0
   m_Name: FirstAid 2
   m_TagString: Untagged
@@ -36361,6 +36794,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 2aae539e7437af046b67e5ef4add2b06, type: 3}
   positionOffset: {x: 0, y: 0.3, z: 0}
+--- !u!114 &1247799382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247799378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1001 &1248333319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36368,15 +36816,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -6341300364634171681, guid: 2b159c432bde09446bb9ac12636125fc,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 1668976317
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 2b159c432bde09446bb9ac12636125fc,
         type: 3}
       propertyPath: m_Name
       value: Cactus1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6341300364634171681, guid: 2b159c432bde09446bb9ac12636125fc,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 1668976317
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 2b159c432bde09446bb9ac12636125fc,
         type: 3}
@@ -42041,6 +42489,7 @@ GameObject:
   - component: {fileID: 1301322833}
   - component: {fileID: 1301322835}
   - component: {fileID: 1301322834}
+  - component: {fileID: 1301322836}
   m_Layer: 0
   m_Name: FirstAid 6
   m_TagString: Untagged
@@ -42094,6 +42543,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 2aae539e7437af046b67e5ef4add2b06, type: 3}
   positionOffset: {x: 0, y: 0.3, z: 0}
+--- !u!114 &1301322836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301322832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1317399944
 GameObject:
   m_ObjectHideFlags: 0
@@ -42268,6 +42732,7 @@ GameObject:
   - component: {fileID: 1323240970}
   - component: {fileID: 1323240972}
   - component: {fileID: 1323240971}
+  - component: {fileID: 1323240973}
   m_Layer: 0
   m_Name: Machine Gun 4
   m_TagString: Untagged
@@ -42321,6 +42786,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 645a99d7d54f13d48b7a85c6fe910ae8, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1323240973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323240969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1327328518
 GameObject:
   m_ObjectHideFlags: 0
@@ -42332,6 +42812,7 @@ GameObject:
   - component: {fileID: 1327328519}
   - component: {fileID: 1327328520}
   - component: {fileID: 1327328521}
+  - component: {fileID: 1327328522}
   m_Layer: 0
   m_Name: Pistol 11
   m_TagString: Untagged
@@ -42385,6 +42866,21 @@ MonoBehaviour:
   localPlayerAuthority: 0
   m_AssetId: 
   m_SceneId: 1343102183
+--- !u!114 &1327328522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327328518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1333955214
 GameObject:
   m_ObjectHideFlags: 0
@@ -42621,11 +43117,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 3799750735296707860, guid: ef0ac10c2c002e14992e7a81b86e6ab6,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 1573095653
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: ef0ac10c2c002e14992e7a81b86e6ab6,
         type: 3}
       propertyPath: m_Name
@@ -42685,6 +43176,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3799750735296707860, guid: ef0ac10c2c002e14992e7a81b86e6ab6,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 1573095653
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef0ac10c2c002e14992e7a81b86e6ab6, type: 3}
@@ -42797,6 +43293,7 @@ GameObject:
   - component: {fileID: 1356664791}
   - component: {fileID: 1356664793}
   - component: {fileID: 1356664792}
+  - component: {fileID: 1356664794}
   m_Layer: 0
   m_Name: RPG 7
   m_TagString: Untagged
@@ -42850,6 +43347,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 3eb427f2249a41a448b761ae1d28de9b, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1356664794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356664790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1001 &1357663704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43020,6 +43532,7 @@ GameObject:
   - component: {fileID: 1361857888}
   - component: {fileID: 1361857890}
   - component: {fileID: 1361857889}
+  - component: {fileID: 1361857891}
   m_Layer: 0
   m_Name: Pistol 2
   m_TagString: Untagged
@@ -43073,6 +43586,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: cba059aa05234ca4692c43a2c8d80583, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1361857891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361857887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1001 &1371452823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43339,6 +43867,7 @@ GameObject:
   - component: {fileID: 1391407800}
   - component: {fileID: 1391407802}
   - component: {fileID: 1391407801}
+  - component: {fileID: 1391407803}
   m_Layer: 0
   m_Name: RPG 8
   m_TagString: Untagged
@@ -43392,6 +43921,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 3eb427f2249a41a448b761ae1d28de9b, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1391407803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391407799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1392327476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 812598b8a557e4ae0a2a8ccc0465b6f0,
@@ -43622,15 +44166,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 82429042211919089, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 4205074329
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
         type: 3}
       propertyPath: m_Name
       value: Tree2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 82429042211919089, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 4205074329
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 7329f9380ff8ad446ac7e5b5a0a27334,
         type: 3}
@@ -44180,6 +44724,7 @@ GameObject:
   - component: {fileID: 1435870078}
   - component: {fileID: 1435870080}
   - component: {fileID: 1435870079}
+  - component: {fileID: 1435870081}
   m_Layer: 0
   m_Name: Shotgun 7
   m_TagString: Untagged
@@ -44233,6 +44778,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 192b4ae750d9bbc4eb8e865f26e07041, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1435870081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435870077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1436502578
 GameObject:
   m_ObjectHideFlags: 0
@@ -44332,11 +44892,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 3799750735296707860, guid: ef0ac10c2c002e14992e7a81b86e6ab6,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 3739255214
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: ef0ac10c2c002e14992e7a81b86e6ab6,
         type: 3}
       propertyPath: m_Name
@@ -44397,6 +44952,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3799750735296707860, guid: ef0ac10c2c002e14992e7a81b86e6ab6,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 3739255214
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef0ac10c2c002e14992e7a81b86e6ab6, type: 3}
 --- !u!4 &1439154888 stripped
@@ -44412,15 +44972,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -5520329274035202924, guid: 838be333105b4064886ffa28b718975d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 3002754877
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 838be333105b4064886ffa28b718975d,
         type: 3}
       propertyPath: m_Name
       value: Cactus2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: -5520329274035202924, guid: 838be333105b4064886ffa28b718975d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 3002754877
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 838be333105b4064886ffa28b718975d,
         type: 3}
@@ -44689,15 +45249,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 4002110503
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
       propertyPath: m_Name
       value: Tree1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 4002110503
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
@@ -45131,6 +45691,7 @@ GameObject:
   - component: {fileID: 1481176383}
   - component: {fileID: 1481176385}
   - component: {fileID: 1481176384}
+  - component: {fileID: 1481176386}
   m_Layer: 0
   m_Name: Pistol 6
   m_TagString: Untagged
@@ -45184,6 +45745,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: cba059aa05234ca4692c43a2c8d80583, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1481176386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481176382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1481940329
 GameObject:
   m_ObjectHideFlags: 0
@@ -45195,6 +45771,7 @@ GameObject:
   - component: {fileID: 1481940330}
   - component: {fileID: 1481940332}
   - component: {fileID: 1481940331}
+  - component: {fileID: 1481940333}
   m_Layer: 0
   m_Name: FirstAid 7
   m_TagString: Untagged
@@ -45248,6 +45825,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 2aae539e7437af046b67e5ef4add2b06, type: 3}
   positionOffset: {x: 0, y: 0.3, z: 0}
+--- !u!114 &1481940333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481940329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1001 &1484886370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45518,6 +46110,7 @@ GameObject:
   - component: {fileID: 1492294238}
   - component: {fileID: 1492294240}
   - component: {fileID: 1492294239}
+  - component: {fileID: 1492294241}
   m_Layer: 0
   m_Name: FirstAid 3
   m_TagString: Untagged
@@ -45571,6 +46164,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 2aae539e7437af046b67e5ef4add2b06, type: 3}
   positionOffset: {x: 0, y: 0.3, z: 0}
+--- !u!114 &1492294241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492294237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1495243373
 GameObject:
   m_ObjectHideFlags: 0
@@ -45806,15 +46414,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 2328575240840474277, guid: 46d76c3913ea895418469fe0f53c82e2,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 1489563226
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 46d76c3913ea895418469fe0f53c82e2,
         type: 3}
       propertyPath: m_Name
       value: Tree4 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328575240840474277, guid: 46d76c3913ea895418469fe0f53c82e2,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 1489563226
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 46d76c3913ea895418469fe0f53c82e2,
         type: 3}
@@ -45890,6 +46498,7 @@ GameObject:
   - component: {fileID: 1528169816}
   - component: {fileID: 1528169818}
   - component: {fileID: 1528169817}
+  - component: {fileID: 1528169819}
   m_Layer: 0
   m_Name: Shotgun 1
   m_TagString: Untagged
@@ -45943,6 +46552,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 192b4ae750d9bbc4eb8e865f26e07041, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1528169819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528169815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1529700938
 GameObject:
   m_ObjectHideFlags: 0
@@ -47272,15 +47896,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 4040807478
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
       propertyPath: m_Name
       value: Tree3 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 4040807478
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
@@ -47358,15 +47982,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 1177943802
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
       propertyPath: m_Name
       value: Tree1
+      objectReference: {fileID: 0}
+    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 1177943802
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
@@ -47438,15 +48062,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 3508585271
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
       propertyPath: m_Name
       value: Tree1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 3508585271
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
@@ -47518,15 +48142,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 1493734807
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
       propertyPath: m_Name
       value: TreeDead1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 1493734807
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
@@ -47690,11 +48314,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 3799750735296707860, guid: ef0ac10c2c002e14992e7a81b86e6ab6,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 397153636
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: ef0ac10c2c002e14992e7a81b86e6ab6,
         type: 3}
       propertyPath: m_Name
@@ -47754,6 +48373,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3799750735296707860, guid: ef0ac10c2c002e14992e7a81b86e6ab6,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 397153636
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef0ac10c2c002e14992e7a81b86e6ab6, type: 3}
@@ -48455,11 +49079,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1037085689}
     m_Modifications:
-    - target: {fileID: -3964275669308676131, guid: a125a00ac1951664aba35aa30c902d6d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 1821912455
-      objectReference: {fileID: 0}
     - target: {fileID: 7583764712201444097, guid: a125a00ac1951664aba35aa30c902d6d,
         type: 3}
       propertyPath: m_Name
@@ -48469,6 +49088,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3964275669308676131, guid: a125a00ac1951664aba35aa30c902d6d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 1821912455
       objectReference: {fileID: 0}
     - target: {fileID: 7583764712201444096, guid: a125a00ac1951664aba35aa30c902d6d,
         type: 3}
@@ -48624,6 +49248,7 @@ GameObject:
   - component: {fileID: 1646203910}
   - component: {fileID: 1646203911}
   - component: {fileID: 1646203912}
+  - component: {fileID: 1646203913}
   m_Layer: 0
   m_Name: Machine Gun 11
   m_TagString: Untagged
@@ -48677,6 +49302,21 @@ MonoBehaviour:
   localPlayerAuthority: 0
   m_AssetId: 
   m_SceneId: 2474748343
+--- !u!114 &1646203913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646203909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1001 &1662754062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48684,15 +49324,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 133968231589934730, guid: 6ff686fea0c2eae44b1dd7f198dff717,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 3779669952
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 6ff686fea0c2eae44b1dd7f198dff717,
         type: 3}
       propertyPath: m_Name
       value: TreeDead2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 133968231589934730, guid: 6ff686fea0c2eae44b1dd7f198dff717,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 3779669952
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 6ff686fea0c2eae44b1dd7f198dff717,
         type: 3}
@@ -48915,15 +49555,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 574087124}
     m_Modifications:
-    - target: {fileID: 2899243934233956232, guid: e54c3a30f67f131478aa9b04b0879065,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 374027186
-      objectReference: {fileID: 0}
     - target: {fileID: 293142627245608489, guid: e54c3a30f67f131478aa9b04b0879065,
         type: 3}
       propertyPath: m_Name
       value: StaticEnemyCircleManTarget (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899243934233956232, guid: e54c3a30f67f131478aa9b04b0879065,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 374027186
       objectReference: {fileID: 0}
     - target: {fileID: 293142627245608488, guid: e54c3a30f67f131478aa9b04b0879065,
         type: 3}
@@ -49079,6 +49719,7 @@ GameObject:
   - component: {fileID: 1686555219}
   - component: {fileID: 1686555221}
   - component: {fileID: 1686555220}
+  - component: {fileID: 1686555222}
   m_Layer: 0
   m_Name: RPG 9
   m_TagString: Untagged
@@ -49132,6 +49773,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 3eb427f2249a41a448b761ae1d28de9b, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1686555222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686555218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1695734530
 GameObject:
   m_ObjectHideFlags: 0
@@ -49605,6 +50261,7 @@ GameObject:
   - component: {fileID: 1708673858}
   - component: {fileID: 1708673860}
   - component: {fileID: 1708673859}
+  - component: {fileID: 1708673861}
   m_Layer: 0
   m_Name: Machine Gun 2
   m_TagString: Untagged
@@ -49658,6 +50315,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 645a99d7d54f13d48b7a85c6fe910ae8, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1708673861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708673857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1718652187
 GameObject:
   m_ObjectHideFlags: 0
@@ -50348,6 +51020,7 @@ GameObject:
   - component: {fileID: 1739714411}
   - component: {fileID: 1739714413}
   - component: {fileID: 1739714412}
+  - component: {fileID: 1739714414}
   m_Layer: 0
   m_Name: Pistol 7
   m_TagString: Untagged
@@ -50401,6 +51074,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: cba059aa05234ca4692c43a2c8d80583, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1739714414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739714410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1745741857
 GameObject:
   m_ObjectHideFlags: 0
@@ -50412,6 +51100,7 @@ GameObject:
   - component: {fileID: 1745741858}
   - component: {fileID: 1745741860}
   - component: {fileID: 1745741859}
+  - component: {fileID: 1745741861}
   m_Layer: 0
   m_Name: Pistol 4
   m_TagString: Untagged
@@ -50465,6 +51154,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: cba059aa05234ca4692c43a2c8d80583, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1745741861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745741857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1746284025
 GameObject:
   m_ObjectHideFlags: 0
@@ -50476,6 +51180,7 @@ GameObject:
   - component: {fileID: 1746284026}
   - component: {fileID: 1746284027}
   - component: {fileID: 1746284028}
+  - component: {fileID: 1746284029}
   m_Layer: 0
   m_Name: Machine Gun 9
   m_TagString: Untagged
@@ -50529,6 +51234,21 @@ MonoBehaviour:
   localPlayerAuthority: 0
   m_AssetId: 
   m_SceneId: 3489480734
+--- !u!114 &1746284029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746284025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1746296860 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 812598b8a557e4ae0a2a8ccc0465b6f0,
@@ -51029,6 +51749,7 @@ GameObject:
   - component: {fileID: 1767559873}
   - component: {fileID: 1767559875}
   - component: {fileID: 1767559874}
+  - component: {fileID: 1767559876}
   m_Layer: 0
   m_Name: FirstAid 1
   m_TagString: Untagged
@@ -51082,6 +51803,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 2aae539e7437af046b67e5ef4add2b06, type: 3}
   positionOffset: {x: 0, y: 0.3, z: 0}
+--- !u!114 &1767559876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767559872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1001 &1768260519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51089,15 +51825,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 890866930
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
       propertyPath: m_Name
       value: Tree1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 890866930
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
@@ -51270,6 +52006,7 @@ GameObject:
   - component: {fileID: 1769616126}
   - component: {fileID: 1769616128}
   - component: {fileID: 1769616127}
+  - component: {fileID: 1769616129}
   m_Layer: 0
   m_Name: Shotgun 6
   m_TagString: Untagged
@@ -51323,6 +52060,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 192b4ae750d9bbc4eb8e865f26e07041, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1769616129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769616125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1770226140
 GameObject:
   m_ObjectHideFlags: 0
@@ -52086,6 +52838,7 @@ GameObject:
   - component: {fileID: 1800027460}
   - component: {fileID: 1800027461}
   - component: {fileID: 1800027462}
+  - component: {fileID: 1800027463}
   m_Layer: 0
   m_Name: Machine Gun 10
   m_TagString: Untagged
@@ -52139,6 +52892,21 @@ MonoBehaviour:
   localPlayerAuthority: 0
   m_AssetId: 
   m_SceneId: 2563966449
+--- !u!114 &1800027463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800027459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1807506867
 GameObject:
   m_ObjectHideFlags: 0
@@ -52397,11 +53165,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 574087124}
     m_Modifications:
-    - target: {fileID: -351969089775660510, guid: ef5c443fc1b891940bd641a0db9d70c4,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 3569606237
-      objectReference: {fileID: 0}
     - target: {fileID: 293142627245608489, guid: ef5c443fc1b891940bd641a0db9d70c4,
         type: 3}
       propertyPath: m_Name
@@ -52462,6 +53225,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -351969089775660510, guid: ef5c443fc1b891940bd641a0db9d70c4,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 3569606237
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef5c443fc1b891940bd641a0db9d70c4, type: 3}
 --- !u!1 &1840098974
@@ -52475,6 +53243,7 @@ GameObject:
   - component: {fileID: 1840098975}
   - component: {fileID: 1840098977}
   - component: {fileID: 1840098976}
+  - component: {fileID: 1840098978}
   m_Layer: 0
   m_Name: Sniper 5
   m_TagString: Untagged
@@ -52528,6 +53297,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: a83aae78541b27044babcdf2d905697e, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1840098978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840098974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1840778270
 GameObject:
   m_ObjectHideFlags: 0
@@ -52916,6 +53700,7 @@ GameObject:
   - component: {fileID: 1851559390}
   - component: {fileID: 1851559392}
   - component: {fileID: 1851559391}
+  - component: {fileID: 1851559393}
   m_Layer: 0
   m_Name: RPG 6
   m_TagString: Untagged
@@ -52969,6 +53754,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 3eb427f2249a41a448b761ae1d28de9b, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1851559393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851559389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1001 &1856144151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52976,15 +53776,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 2451704051
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
       propertyPath: m_Name
       value: Tree3
+      objectReference: {fileID: 0}
+    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 2451704051
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
@@ -54154,6 +54954,7 @@ GameObject:
   - component: {fileID: 1937521589}
   - component: {fileID: 1937521591}
   - component: {fileID: 1937521590}
+  - component: {fileID: 1937521592}
   m_Layer: 0
   m_Name: RPG 3
   m_TagString: Untagged
@@ -54207,6 +55008,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 3eb427f2249a41a448b761ae1d28de9b, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1937521592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937521588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &1952558280
 GameObject:
   m_ObjectHideFlags: 0
@@ -54492,15 +55308,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 519169197
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
       propertyPath: m_Name
       value: TreeDead1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 519169197
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
@@ -54572,15 +55388,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 3653031677
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
       propertyPath: m_Name
       value: Tree3 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 3653031677
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
@@ -55058,15 +55874,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -5520329274035202924, guid: 838be333105b4064886ffa28b718975d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 2987769404
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 838be333105b4064886ffa28b718975d,
         type: 3}
       propertyPath: m_Name
       value: Cactus2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: -5520329274035202924, guid: 838be333105b4064886ffa28b718975d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 2987769404
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 838be333105b4064886ffa28b718975d,
         type: 3}
@@ -55796,15 +56612,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 2328575240840474277, guid: 46d76c3913ea895418469fe0f53c82e2,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 2377295789
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 46d76c3913ea895418469fe0f53c82e2,
         type: 3}
       propertyPath: m_Name
       value: Tree4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328575240840474277, guid: 46d76c3913ea895418469fe0f53c82e2,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 2377295789
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 46d76c3913ea895418469fe0f53c82e2,
         type: 3}
@@ -55972,6 +56788,7 @@ GameObject:
   - component: {fileID: 2057435895}
   - component: {fileID: 2057435896}
   - component: {fileID: 2057435897}
+  - component: {fileID: 2057435898}
   m_Layer: 0
   m_Name: Machine Gun 8
   m_TagString: Untagged
@@ -56025,6 +56842,21 @@ MonoBehaviour:
   localPlayerAuthority: 0
   m_AssetId: 
   m_SceneId: 1477074764
+--- !u!114 &2057435898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057435894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1001 &2057716269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56032,11 +56864,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 3799750735296707860, guid: ef0ac10c2c002e14992e7a81b86e6ab6,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 1701369028
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: ef0ac10c2c002e14992e7a81b86e6ab6,
         type: 3}
       propertyPath: m_Name
@@ -56112,6 +56939,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3799750735296707860, guid: ef0ac10c2c002e14992e7a81b86e6ab6,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 1701369028
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef0ac10c2c002e14992e7a81b86e6ab6, type: 3}
 --- !u!1001 &2059013831
@@ -56121,15 +56953,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 2934379786
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
       propertyPath: m_Name
       value: TreeDead1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343438931384463653, guid: bffef7c64ceef094986418cc62df0f4c,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 2934379786
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: bffef7c64ceef094986418cc62df0f4c,
         type: 3}
@@ -56655,15 +57487,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 917758459
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
       propertyPath: m_Name
       value: Tree3 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 917758459
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
@@ -56829,15 +57661,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 383963543
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
       propertyPath: m_Name
       value: Tree1
+      objectReference: {fileID: 0}
+    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 383963543
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
@@ -57280,6 +58112,7 @@ GameObject:
   - component: {fileID: 2117255749}
   - component: {fileID: 2117255751}
   - component: {fileID: 2117255750}
+  - component: {fileID: 2117255752}
   m_Layer: 0
   m_Name: RPG 2
   m_TagString: Untagged
@@ -57333,6 +58166,21 @@ MonoBehaviour:
   syncInterval: 0.1
   prefab: {fileID: 5770109955432495010, guid: 3eb427f2249a41a448b761ae1d28de9b, type: 3}
   positionOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &2117255752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117255748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1 &2118436726 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7583764712201444097, guid: a125a00ac1951664aba35aa30c902d6d,
@@ -57346,15 +58194,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 2665385854
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
       propertyPath: m_Name
       value: Tree3 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: -3792177947021153371, guid: 31d327b14df53fa4997ab45900aa9f7d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 2665385854
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: 31d327b14df53fa4997ab45900aa9f7d,
         type: 3}
@@ -62495,15 +63343,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 70863687}
     m_Modifications:
-    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 2955083394
-      objectReference: {fileID: 0}
     - target: {fileID: 345675225480119639, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
       propertyPath: m_Name
       value: Tree1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: -584456559681652477, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 2955083394
       objectReference: {fileID: 0}
     - target: {fileID: 345675225480119632, guid: b98dd0a95ff28db41a0b6ebd5d334afa,
         type: 3}
@@ -62655,15 +63503,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 574087124}
     m_Modifications:
-    - target: {fileID: 2899243934233956232, guid: e54c3a30f67f131478aa9b04b0879065,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 256806184
-      objectReference: {fileID: 0}
     - target: {fileID: 293142627245608489, guid: e54c3a30f67f131478aa9b04b0879065,
         type: 3}
       propertyPath: m_Name
       value: StaticEnemyCircleManTarget
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899243934233956232, guid: e54c3a30f67f131478aa9b04b0879065,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 256806184
       objectReference: {fileID: 0}
     - target: {fileID: 293142627245608488, guid: e54c3a30f67f131478aa9b04b0879065,
         type: 3}
@@ -62815,11 +63663,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1037085689}
     m_Modifications:
-    - target: {fileID: -3964275669308676131, guid: a125a00ac1951664aba35aa30c902d6d,
-        type: 3}
-      propertyPath: m_SceneId
-      value: 1785456207
-      objectReference: {fileID: 0}
     - target: {fileID: 7583764712201444097, guid: a125a00ac1951664aba35aa30c902d6d,
         type: 3}
       propertyPath: m_Name
@@ -62829,6 +63672,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3964275669308676131, guid: a125a00ac1951664aba35aa30c902d6d,
+        type: 3}
+      propertyPath: m_SceneId
+      value: 1785456207
       objectReference: {fileID: 0}
     - target: {fileID: 7583764712201444096, guid: a125a00ac1951664aba35aa30c902d6d,
         type: 3}

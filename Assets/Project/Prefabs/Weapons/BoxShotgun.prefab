@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 5770109955432495012}
   - component: {fileID: 5770109955432495015}
   - component: {fileID: -6850087861083541881}
+  - component: {fileID: -8197718944954907663}
   m_Layer: 0
   m_Name: BoxShotgun
   m_TagString: Untagged
@@ -110,7 +111,22 @@ MonoBehaviour:
   serverOnly: 0
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 1172447153
+  m_SceneId: 2076308459
+--- !u!114 &-8197718944954907663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5770109955432495010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  compressRotation: 1
 --- !u!1001 &6546813522306169305
 PrefabInstance:
   m_ObjectHideFlags: 0
