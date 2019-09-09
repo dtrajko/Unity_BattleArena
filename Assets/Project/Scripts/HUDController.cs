@@ -33,7 +33,7 @@ public class HUDController : NetworkBehaviour
     [SerializeField] private RectTransform mobileUI;
     [SerializeField] private RectTransform turnAndLookTouchpad;
     [SerializeField] private RectTransform buttonSwitchTool;
-    
+
 
     [Header("Tool Selector")]
     [SerializeField] private GameObject toolFocus;
@@ -50,21 +50,27 @@ public class HUDController : NetworkBehaviour
         }
     }
 
-    public int Resources {
-        set {
+    public int Resources
+    {
+        set
+        {
             resourcesText.text = "Resources: " + value;
         }
     }
 
-    public int Players {
-        set {
+    public int Players
+    {
+        set
+        {
             serverPlayersText.text = "Players: " + value;
             clientPlayersText.text = "Players: " + value;
         }
     }
 
-    public Player.PlayerTool Tool {
-        set {
+    public Player.PlayerTool Tool
+    {
+        set
+        {
             /* Disabling the code from the lesson 251. Selecting Weapons
             if (value != Player.PlayerTool.None)
             {
@@ -92,20 +98,19 @@ public class HUDController : NetworkBehaviour
     public bool SniperAimVisibility { set { sniperAim.SetActive(value); } }
 
     // Start is called before the first frame update
-    void Start() {
-
+    void Start()
+    {
         ShowScreen("");
 
         // Display mobile UI only on mobile devices
-        switch (Application.platform) {
+        switch (Application.platform)
+        {
             case RuntimePlatform.Android:
             case RuntimePlatform.WindowsEditor:
                 mobileUI.gameObject.SetActive(true);
-                Debug.Log("Mobile UI enabled");
                 break;
             default:
                 mobileUI.gameObject.SetActive(false);
-                Debug.Log("Mobile UI disabled");
                 break;
         }
 
@@ -125,7 +130,8 @@ public class HUDController : NetworkBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
 
         toolFocus.transform.position = new Vector3(
             Mathf.Lerp(toolFocus.transform.position.x, targetFocusX, Time.deltaTime * focusSmoothness),
@@ -133,33 +139,40 @@ public class HUDController : NetworkBehaviour
         );
     }
 
-    public void UpdateResourcesRequirement(int cost, int balance) {
+    public void UpdateResourcesRequirement(int cost, int balance)
+    {
         resourcesRequirementText.text = "Requires: " + cost;
         if (cost > balance)
         {
             resourcesRequirementText.color = Color.red;
         }
-        else {
+        else
+        {
             resourcesRequirementText.color = Color.white;
         }
     }
 
-    public void UpdateWeapon(Weapon weapon) {
+    public void UpdateWeapon(Weapon weapon)
+    {
         if (weapon == null)
         {
             weaponNameText.enabled = false;
             weaponAmmunitionText.enabled = false;
             weaponReloadBar.localScale = new Vector3(0, 1, 1);
         }
-        else {
+        else
+        {
             weaponNameText.text = weapon.Name;
             weaponAmmunitionText.text = weapon.ClipAmmunition + " / " + weapon.TotalAmmunition;
             weaponNameText.enabled = true;
             weaponAmmunitionText.enabled = true;
 
-            if (weapon.ReloadTimer > 0) {
+            if (weapon.ReloadTimer > 0)
+            {
                 weaponReloadBar.localScale = new Vector3(weapon.ReloadTimer / weapon.ReloadDuration, 1, 1);
-            } else {
+            }
+            else
+            {
                 weaponReloadBar.localScale = new Vector3(0, 1, 1);
             }
         }
@@ -169,7 +182,8 @@ public class HUDController : NetworkBehaviour
         healthBar.localScale = new Vector3(health, 1, 1);
     }
 
-    public void ShowScreen(string screenName) {
+    public void ShowScreen(string screenName)
+    {
         regularScreen.SetActive(screenName == "regular");
         gameOverScreen.SetActive(screenName == "gameOver");
         serverScreen.SetActive(screenName == "server");
@@ -177,33 +191,29 @@ public class HUDController : NetworkBehaviour
         spawnScreen.SetActive(screenName == "spawn");
     }
 
-    public void OnPressedStartMatch() {
-        if (OnStartMatch != null) {
+    public void OnPressedStartMatch()
+    {
+        if (OnStartMatch != null)
+        {
             OnStartMatch();
         }
     }
 
-    public void OnPressedQuit()
+    public void Alert()
     {
-        Debug.Log("Application Quit");
-        Application.Quit();
-    }
-
-    public void Alert() {
         alertText.gameObject.SetActive(true);
         Invoke("HideAlert", 3);
     }
 
-    public void HideAlert() {
+    public void HideAlert()
+    {
         alertText.gameObject.SetActive(false);
     }
 
     public void OnPressedRestart()
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-        if (isServer) ShowScreen("server");
-        else if (isClient) ShowScreen("client");
-        Cursor.lockState = CursorLockMode.None;
+        // if (isServer) ShowScreen("server");
+        // else if (isClient) ShowScreen("client");
     }
 }
-
