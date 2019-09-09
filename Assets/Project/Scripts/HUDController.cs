@@ -93,6 +93,7 @@ public class HUDController : NetworkBehaviour
 
     // Start is called before the first frame update
     void Start() {
+
         ShowScreen("");
 
         // Display mobile UI only on mobile devices
@@ -100,9 +101,11 @@ public class HUDController : NetworkBehaviour
             case RuntimePlatform.Android:
             case RuntimePlatform.WindowsEditor:
                 mobileUI.gameObject.SetActive(true);
+                Debug.Log("Mobile UI enabled");
                 break;
             default:
                 mobileUI.gameObject.SetActive(false);
+                Debug.Log("Mobile UI disabled");
                 break;
         }
 
@@ -182,6 +185,7 @@ public class HUDController : NetworkBehaviour
 
     public void OnPressedQuit()
     {
+        Debug.Log("Application Quit");
         Application.Quit();
     }
 

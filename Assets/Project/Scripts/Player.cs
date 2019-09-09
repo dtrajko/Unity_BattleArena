@@ -104,14 +104,19 @@ public class Player : NetworkBehaviour, IDamageable {
     private NetworkStartPosition[] spawnPositions;
     private bool shouldAllowEnergyMovement;
     private int weaponIndex = -1; // by dtrajko
+    private bool isCursorLocked;
 
     public bool ShouldAllowEnergyMovement {
         get { return shouldAllowEnergyMovement; }
         set {
             shouldAllowEnergyMovement = value;
-            if (value) {
-                // Cursor.lockState = CursorLockMode.Locked;
+            if (value == true)
+            {
+                IsCursorLocked = true;
                 hud.ShowScreen("spawn");
+            }
+            else if (value == false) {
+                IsCursorLocked = false;
             }
         }
     }
@@ -136,8 +141,36 @@ public class Player : NetworkBehaviour, IDamageable {
                 if (hud != null)
                 {
                     hud.ShowScreen("regular");
+                    if (Application.platform == RuntimePlatform.WindowsPlayer ||
+                        Application.platform == RuntimePlatform.WindowsEditor)
+                    {
+                        IsCursorLocked = true;
+                    }
                 }
-            } 
+            }
+        }
+    }
+
+    public bool IsCursorLocked {
+        get {
+            if (Cursor.lockState == CursorLockMode.Locked) {
+                isCursorLocked = true;
+            } else if (Cursor.lockState == CursorLockMode.None)
+            {
+                isCursorLocked = false;
+            }
+            return isCursorLocked;
+        }
+        set {
+            isCursorLocked = value;
+            if (value == true)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+            else if (value == false)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
     }
 
@@ -181,7 +214,7 @@ public class Player : NetworkBehaviour, IDamageable {
 
             if (isServer) hud.ShowScreen("server");
             else if (isClient) hud.ShowScreen("client");
-            Cursor.lockState = CursorLockMode.None;
+            IsCursorLocked = false;
 
             hud.Health = health.Value;
             hud.Resources = resources;
@@ -216,12 +249,6 @@ public class Player : NetworkBehaviour, IDamageable {
             if (player != this) {
                 player.RpcAllowMovement();
             }
-        }
-
-        if (Application.platform == RuntimePlatform.WindowsPlayer ||
-            Application.platform == RuntimePlatform.WindowsEditor)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
         }
 
         CmdReSpawn(gameObject);
@@ -293,6 +320,10 @@ public class Player : NetworkBehaviour, IDamageable {
     void Update()
     {
         if (!isLocalPlayer) return;
+
+        if (Input.GetKeyDown(KeyCode.L)) {
+            IsCursorLocked = !IsCursorLocked;
+        }
 
         if (!ShouldAllowEnergyMovement) {
             hud.Players = FindObjectsOfType<Player>().Length;
