@@ -192,6 +192,8 @@ public class Player : NetworkBehaviour, IDamageable
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this);
+
         energyFallingSpeed = -5.0f;
         energyMovingSpeed = 16.0f;
 

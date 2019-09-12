@@ -17,6 +17,7 @@ public class HUDController : NetworkBehaviour
     [SerializeField] private GameObject serverScreen;
     [SerializeField] private GameObject clientScreen;
     [SerializeField] private GameObject spawnScreen;
+    [SerializeField] private GameObject multiplayerScreen;
 
     [Header("Interface Elements")]
     [SerializeField] private Text healthText;
@@ -189,6 +190,7 @@ public class HUDController : NetworkBehaviour
         serverScreen.SetActive(screenName == "server");
         clientScreen.SetActive(screenName == "client");
         spawnScreen.SetActive(screenName == "spawn");
+        multiplayerScreen.SetActive(screenName == "multiplayer");
     }
 
     public void OnPressedStartMatch()
@@ -208,12 +210,5 @@ public class HUDController : NetworkBehaviour
     public void HideAlert()
     {
         alertText.gameObject.SetActive(false);
-    }
-
-    public void OnPressedRestart()
-    {
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-        // if (isServer) ShowScreen("server");
-        // else if (isClient) ShowScreen("client");
     }
 }
