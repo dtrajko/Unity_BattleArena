@@ -26,6 +26,12 @@ public class CustomNetworkManager : NetworkManager
         base.StartHost();
     }
 
+    void SpawnObjects() {
+        foreach (Spawner spawner in FindObjectsOfType<Spawner>()) {
+            spawner.Start();
+        }
+    }
+
     public void CustomStartClient()
     {
         string newIP = networkAddressInput.GetComponent<Text>().text;

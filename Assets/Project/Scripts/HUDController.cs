@@ -195,9 +195,10 @@ public class HUDController : NetworkBehaviour
 
     public void OnPressedStartMatch()
     {
-        if (OnStartMatch != null)
+        foreach (Player player in FindObjectsOfType<Player>())
         {
-            OnStartMatch();
+            player.OnServerStartMatch();
+            player.RpcAllowMovement();
         }
     }
 

@@ -60,11 +60,11 @@ public class StormManager : NetworkBehaviour
                 stormObjectTop.GetComponent<StormObjectTop>().MoveToDistance(targetDistance);
 
                 // Alert
-                if (OnShrink != null) {
-                    OnShrink();
+                foreach (Player player in FindObjectsOfType<Player>())
+                {
+                    player.OnStormShrink();
                 }
             }
         }
     }
 }
-

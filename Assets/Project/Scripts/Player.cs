@@ -117,7 +117,7 @@ public class Player : NetworkBehaviour, IDamageable
             if (value)
             {
                 // Cursor.lockState = CursorLockMode.Locked;
-                hud.ShowScreen("spawn");
+                GetHUD().ShowScreen("spawn");
             }
         }
     }
@@ -189,6 +189,13 @@ public class Player : NetworkBehaviour, IDamageable
 
     public Canvas HealthBarCanvas { get { return healthBarCanvas; } }
 
+    HUDController GetHUD() {
+        if (hud == null) {
+            hud = FindObjectOfType<HUDController>();
+        }
+        return hud;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -253,32 +260,18 @@ public class Player : NetworkBehaviour, IDamageable
         obstacleContainer = GameObject.Find("ObstacleContainer");
     }
 
-    void OnServerStartMatch()
+    public void OnServerStartMatch()
     {
         if (!isServer) return;
 
         ShouldAllowEnergyMovement = true;
         stormManager.ShouldShrink = true;
-
-        foreach (Player player in FindObjectsOfType<Player>())
-        {
-            if (player != this)
-            {
-                player.RpcAllowMovement();
-            }
-        }
-
         CmdReSpawn(gameObject);
     }
 
-    void OnStormShrink()
+    public void OnStormShrink()
     {
-        if (!isServer) return;
-
-        foreach (Player player in FindObjectsOfType<Player>())
-        {
-            player.RpcAlertShrink();
-        }
+        RpcAlertShrink();
     }
 
     [ClientRpc]
@@ -1172,7 +1165,7 @@ public class Player : NetworkBehaviour, IDamageable
 
     // Player re-spawn position
     [Command]
-    void CmdReSpawn(GameObject caller)
+    public void CmdReSpawn(GameObject caller)
     {
         if (!isServer) return;
 
