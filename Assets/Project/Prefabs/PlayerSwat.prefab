@@ -7374,6 +7374,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.8861765
       objectReference: {fileID: 0}
+    - target: {fileID: 13615390, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 11469404, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_JumpPower
       value: 12
@@ -7561,7 +7565,7 @@ PrefabInstance:
     - target: {fileID: -6057140222963153312, guid: 9037e2068a5424245ba1f7aa13913a71,
         type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9037e2068a5424245ba1f7aa13913a71, type: 3}

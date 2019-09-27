@@ -78,4 +78,3 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
     }
 }
-
