@@ -15,7 +15,7 @@ public class CustomNetworkManager : NetworkManager
 
     public override void Awake() {
         hud = FindObjectOfType<HUDController>();
-        networkAddressInput.GetComponent<Text>().text = "192.168.0.10";
+        networkAddressInput.GetComponent<Text>().text = "192.168.0.15";
         base.Awake();
     }
 
