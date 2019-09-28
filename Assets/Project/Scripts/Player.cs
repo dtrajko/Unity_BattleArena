@@ -145,6 +145,7 @@ public class Player : NetworkBehaviour, IDamageable
                 energyBall.SetActive(false);
                 characterContainer.transform.localScale = Vector3.one;
                 healthBarCanvas.transform.localScale = new Vector3(0.005f, 0.005f, 1);
+                playerAnimator.updateMode = AnimatorUpdateMode.Normal;
                 if (hud != null)
                 {
                     hud.ShowScreen("regular");
