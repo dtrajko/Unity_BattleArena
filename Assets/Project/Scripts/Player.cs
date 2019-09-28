@@ -529,7 +529,6 @@ public class Player : NetworkBehaviour, IDamageable
     {
         if (index < weapons.Count)
         {
-
             soundInterface.Play();
 
             weapon = weapons[index];
@@ -566,7 +565,6 @@ public class Player : NetworkBehaviour, IDamageable
 
     private void SwitchTool()
     {
-
         if (IsInEnergyMode) return;
 
         soundInterface.Play();
