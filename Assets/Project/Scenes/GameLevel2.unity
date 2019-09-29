@@ -552,7 +552,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3104890768
+  m_SceneId: 4013348601
 --- !u!114 &36023890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1339,7 +1339,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 4199371604
+  m_SceneId: 3776577757
 --- !u!114 &92398652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1870,7 +1870,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 790392059
+  m_SceneId: 3167302165
 --- !u!114 &106061866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3359,7 +3359,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 4039517912
+  m_SceneId: 656021262
 --- !u!114 &166924541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4103,7 +4103,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 183109573
+  m_SceneId: 1578878193
 --- !u!114 &222590099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9965,7 +9965,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3626866559
+  m_SceneId: 3153906283
 --- !u!114 &291551732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11240,7 +11240,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 1163347004
+  m_SceneId: 3930781210
 --- !u!114 &318875015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11918,7 +11918,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 45989057
+  m_SceneId: 3328379630
 --- !u!114 &368574908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12612,7 +12612,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3132300334
+  m_SceneId: 3249987034
 --- !u!114 &391671206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14822,7 +14822,7 @@ MonoBehaviour:
   serverOnly: 0
   localPlayerAuthority: 1
   m_AssetId: 
-  m_SceneId: 2466267947
+  m_SceneId: 2286366188
 --- !u!1 &485213613
 GameObject:
   m_ObjectHideFlags: 0
@@ -15058,7 +15058,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3046623905
+  m_SceneId: 3984355087
 --- !u!114 &491591407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15138,7 +15138,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 2441678062
+  m_SceneId: 3061106824
 --- !u!114 &496603240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15218,7 +15218,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 1785342431
+  m_SceneId: 4167404825
 --- !u!114 &496755925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16384,7 +16384,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3692280386
+  m_SceneId: 3126870974
 --- !u!114 &550892027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17005,7 +17005,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 1075933590
+  m_SceneId: 3425431669
 --- !u!114 &578615953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17351,7 +17351,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 1474693169
+  m_SceneId: 2264432679
 --- !u!114 &597528528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18327,7 +18327,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3003455749
+  m_SceneId: 3122712277
 --- !u!114 &625753977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19920,7 +19920,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3323980865
+  m_SceneId: 3230676895
 --- !u!114 &684251062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21533,7 +21533,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 4089891318
+  m_SceneId: 1750451536
 --- !u!114 &736361972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21568,7 +21568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &738510118
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22449,7 +22449,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 1363355667
+  m_SceneId: 1949485868
 --- !u!114 &778566357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23295,7 +23295,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3341391089
+  m_SceneId: 1049857282
 --- !u!114 &801806164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24561,7 +24561,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 1723995880
+  m_SceneId: 3417787676
 --- !u!114 &836036148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24959,7 +24959,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3379078160
+  m_SceneId: 1432503282
 --- !u!4 &847761487
 Transform:
   m_ObjectHideFlags: 0
@@ -25078,7 +25078,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 2682646806
+  m_SceneId: 1184830680
 --- !u!114 &857672141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25344,7 +25344,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3453866895
+  m_SceneId: 1983974572
 --- !u!114 &870228008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32217,7 +32217,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 1195935232
+  m_SceneId: 1404204611
 --- !u!114 &986056043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32835,7 +32835,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 2311873784
+  m_SceneId: 2483388947
 --- !u!114 &1023483579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33553,7 +33553,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 4070088701
+  m_SceneId: 744795216
 --- !u!114 &1063808741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33633,7 +33633,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 2370646494
+  m_SceneId: 3843789008
 --- !u!114 &1072894509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36289,7 +36289,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3852998042
+  m_SceneId: 1359188976
 --- !u!114 &1173226594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36369,7 +36369,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 2625637460
+  m_SceneId: 1984862267
 --- !u!114 &1173818254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37220,7 +37220,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3440273010
+  m_SceneId: 1938905363
 --- !u!114 &1226614366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37386,6 +37386,7 @@ RectTransform:
   - {fileID: 255188530}
   - {fileID: 819221699}
   - {fileID: 126293131}
+  - {fileID: 1988620740}
   m_Father: {fileID: 1770226144}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37722,7 +37723,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 1794268532
+  m_SceneId: 2131253922
 --- !u!114 &1247799381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43471,7 +43472,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3359297480
+  m_SceneId: 1478816397
 --- !u!114 &1301322835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43714,7 +43715,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 2149929069
+  m_SceneId: 2739851612
 --- !u!114 &1323240972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43810,7 +43811,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 1365496530
+  m_SceneId: 3751538552
 --- !u!114 &1327328522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44355,7 +44356,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3464155819
+  m_SceneId: 943846490
 --- !u!114 &1356664793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44594,7 +44595,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 215158536
+  m_SceneId: 1556589382
 --- !u!114 &1361857890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44836,7 +44837,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 146957796
+  m_SceneId: 2968985176
 --- !u!114 &1391407802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45693,7 +45694,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3994510074
+  m_SceneId: 39578582
 --- !u!114 &1435870080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46660,7 +46661,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 1880472676
+  m_SceneId: 751644211
 --- !u!114 &1481176385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46740,7 +46741,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 1158576249
+  m_SceneId: 4130383870
 --- !u!114 &1481940332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47079,7 +47080,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 2803648040
+  m_SceneId: 3459097804
 --- !u!114 &1492294240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47706,7 +47707,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 2468814781
+  m_SceneId: 1023642947
 --- !u!114 &1528169818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50209,7 +50210,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 2455132813
+  m_SceneId: 1764298486
 --- !u!114 &1646203913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50664,7 +50665,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3067401514
+  m_SceneId: 1441467554
 --- !u!114 &1686555221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51206,7 +51207,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 2946497252
+  m_SceneId: 4036110875
 --- !u!114 &1708673860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51779,7 +51780,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 2257938852
+  m_SceneId: 226652029
 --- !u!114 &1739714413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51859,7 +51860,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 2760371199
+  m_SceneId: 2907089450
 --- !u!114 &1745741860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51955,7 +51956,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3608691176
+  m_SceneId: 1477733494
 --- !u!114 &1746284029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52508,7 +52509,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 1166933719
+  m_SceneId: 565399101
 --- !u!114 &1767559875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52765,7 +52766,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 2085012798
+  m_SceneId: 3329537029
 --- !u!114 &1769616128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53044,7 +53045,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3807041680
+  m_SceneId: 3748853627
 --- !u!114 &1778872030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53694,7 +53695,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3224850993
+  m_SceneId: 1861593909
 --- !u!114 &1800027463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54215,7 +54216,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 1090408552
+  m_SceneId: 66268974
 --- !u!114 &1840098977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54672,7 +54673,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3883438827
+  m_SceneId: 1428102755
 --- !u!114 &1851559392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55847,7 +55848,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 4206609260
+  m_SceneId: 4171272175
 --- !u!114 &1937521591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56645,6 +56646,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0400a670aac7d9849954e372e0561cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1988620739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1988620740}
+  - component: {fileID: 1988620742}
+  - component: {fileID: 1988620741}
+  m_Layer: 5
+  m_Name: Minimap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1988620740
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988620739}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1232692519}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -50, y: 50}
+  m_SizeDelta: {x: 200, y: 200}
+  m_Pivot: {x: 1, y: 0}
+--- !u!114 &1988620741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988620739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1988620742
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988620739}
+  m_CullTransparentMesh: 0
 --- !u!1 &1996402736
 GameObject:
   m_ObjectHideFlags: 0
@@ -57604,7 +57679,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 1635398848
+  m_SceneId: 1559859308
 --- !u!114 &2057435898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59073,7 +59148,7 @@ MonoBehaviour:
   serverOnly: 1
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 3657535471
+  m_SceneId: 2296178668
 --- !u!114 &2117255751
 MonoBehaviour:
   m_ObjectHideFlags: 0

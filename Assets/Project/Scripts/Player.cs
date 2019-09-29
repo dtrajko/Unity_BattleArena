@@ -196,13 +196,13 @@ public class Player : NetworkBehaviour, IDamageable
         }
         return hud;
     }
-
+      
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(this);
 
-        energyFallingSpeed = -5.0f;
+        energyFallingSpeed = -10.0f;
         energyMovingSpeed = 16.0f;
 
         transform.LookAt(new Vector3(0, transform.position.y, 0), Vector3.up);
@@ -212,7 +212,7 @@ public class Player : NetworkBehaviour, IDamageable
         // Initialize values
         Initialize();
 
-        if (isServer)
+        if (isServer && stormManager != null)
         {
             stormManager = FindObjectOfType<StormManager>();
             stormManager.OnShrink += OnStormShrink;
@@ -266,7 +266,9 @@ public class Player : NetworkBehaviour, IDamageable
         if (!isServer) return;
 
         ShouldAllowEnergyMovement = true;
-        stormManager.ShouldShrink = true;
+        if (stormManager != null) {
+            stormManager.ShouldShrink = true;
+        }
         CmdReSpawn(gameObject);
     }
 

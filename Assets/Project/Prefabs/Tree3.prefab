@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345675225480119639}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.75, y: 0.13000488, z: 47.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -97,7 +97,7 @@ MonoBehaviour:
   serverOnly: 0
   localPlayerAuthority: 0
   m_AssetId: 
-  m_SceneId: 0
+  m_SceneId: 439450080
 --- !u!136 &5861876364738022561
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -108,10 +108,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0043145744
-  m_Height: 0.06569554
+  m_Radius: 0.006
+  m_Height: 0.061145324
   m_Direction: 2
-  m_Center: {x: 0.000040588377, y: 0.00090512837, z: 0.031018883}
+  m_Center: {x: 0.000040588377, y: 0.0009051284, z: 0.03010576}
 --- !u!1001 &3584827583039503845
 PrefabInstance:
   m_ObjectHideFlags: 0
