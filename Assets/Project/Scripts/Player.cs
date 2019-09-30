@@ -149,7 +149,8 @@ public class Player : NetworkBehaviour, IDamageable
                 if (hud != null)
                 {
                     hud.ShowScreen("regular");
-                    if (Application.platform == RuntimePlatform.WindowsPlayer)
+                    if (Application.platform == RuntimePlatform.WindowsPlayer ||
+                        Application.platform == RuntimePlatform.WindowsEditor)
                     {
                         Cursor.lockState = CursorLockMode.Locked;
                     }
@@ -202,7 +203,7 @@ public class Player : NetworkBehaviour, IDamageable
     {
         DontDestroyOnLoad(this);
 
-        energyFallingSpeed = -10.0f;
+        energyFallingSpeed = -6.0f;
         energyMovingSpeed = 16.0f;
 
         transform.LookAt(new Vector3(0, transform.position.y, 0), Vector3.up);
