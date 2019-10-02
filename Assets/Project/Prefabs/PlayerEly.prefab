@@ -6451,8 +6451,8 @@ MonoBehaviour:
   soundHit: {fileID: 4341448769640670136}
   characterContainer: {fileID: 8081617606203189766}
   energyBall: {fileID: 5749915476904565140}
-  energyFallingSpeed: 0
-  energyMovingSpeed: 0
+  energyFallingSpeed: -6
+  energyMovingSpeed: 16
 --- !u!114 &3196536047732824299
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14765,17 +14765,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 479900324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 778bc7227e8471446aa838a2129675c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 21a8e37a9f29bd14fb57b44f702c1b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
   regularScreen: {fileID: 1232692518}
   gameOverScreen: {fileID: 103767040}
-  serverScreen: {fileID: 1200012183}
-  clientScreen: {fileID: 1176142309}
-  spawnScreen: {fileID: 2017985545}
-  multiplayerScreen: {fileID: 660094691}
   healthText: {fileID: 1155760887}
   resourcesText: {fileID: 1840778272}
   resourcesRequirementText: {fileID: 485213616}
@@ -14793,6 +14789,10 @@ MonoBehaviour:
   toolFocus: {fileID: 1337849596}
   toolContainer: {fileID: 1061468870}
   focusSmoothness: 10
+  serverScreen: {fileID: 1200012183}
+  clientScreen: {fileID: 1176142309}
+  spawnScreen: {fileID: 2017985545}
+  multiplayerScreen: {fileID: 660094691}
 --- !u!4 &479900326
 Transform:
   m_ObjectHideFlags: 0
@@ -14801,7 +14801,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 479900324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5937161, y: 40.723114, z: -119.01528}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -27,86 +27,86 @@ public class Player : NetworkBehaviour, IDamageable
     }
 
     [Header("Health")]
-    [SerializeField] private RectTransform healthBar;
-    [SerializeField] private Canvas healthBarCanvas;
+    [SerializeField] protected RectTransform healthBar;
+    [SerializeField] protected Canvas healthBarCanvas;
 
     [Header("Focal Point Variables")]
-    [SerializeField] private GameObject focalPoint = null;
-    [SerializeField] private GameObject rotationPoint = null;
-    [SerializeField] private float focalDistance = -0.3f;
-    [SerializeField] private float focalSmoothness = 4f;
-    [SerializeField] private KeyCode changeFocalSideKey = KeyCode.Q;
+    [SerializeField] protected GameObject focalPoint = null;
+    [SerializeField] protected GameObject rotationPoint = null;
+    [SerializeField] protected float focalDistance = -0.3f;
+    [SerializeField] protected float focalSmoothness = 4f;
+    [SerializeField] protected KeyCode changeFocalSideKey = KeyCode.Q;
 
     [Header("Interaction")]
-    [SerializeField] private KeyCode interactionKey = KeyCode.E;
-    [SerializeField] private float interactionDistance = 6f;
+    [SerializeField] protected KeyCode interactionKey = KeyCode.E;
+    [SerializeField] protected float interactionDistance = 6f;
 
     [Header("Gameplay")]
-    [SerializeField] private KeyCode toolSwitchKey = KeyCode.Tab;
-    [SerializeField] private PlayerTool tool;
-    [SerializeField] private int initialResourceCount = 100;
-    [SerializeField] private float resourceCollectionCooldown = 0.4f;
+    [SerializeField] protected KeyCode toolSwitchKey = KeyCode.Tab;
+    [SerializeField] protected PlayerTool tool;
+    [SerializeField] protected int initialResourceCount = 100;
+    [SerializeField] protected float resourceCollectionCooldown = 0.4f;
 
     [Header("Obstacles")]
-    [SerializeField] private GameObject[] obstaclePrefabs;
-    [SerializeField] private float obstaclePlacementCooldown = 0.4f;
+    [SerializeField] protected GameObject[] obstaclePrefabs;
+    [SerializeField] protected float obstaclePlacementCooldown = 0.4f;
 
     [Header("Weapons")]
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private GameObject shootOrigin;
-    [SerializeField] private GameObject rocketPrefab;
-    [SerializeField] private GameObject modelAxe;
-    [SerializeField] private GameObject modelPistol;
-    [SerializeField] private GameObject modelMachineGun;
-    [SerializeField] private GameObject modelShotgun;
-    [SerializeField] private GameObject modelSniper;
-    [SerializeField] private GameObject modelRocketLauncher;
-    [SerializeField] private GameObject modelRocketLauncherUnloaded;
-    [SerializeField] private float rocketLauncherCooldown = 5.0f; // by dtrajko
+    [SerializeField] protected GameObject bulletPrefab;
+    [SerializeField] protected GameObject shootOrigin;
+    [SerializeField] protected GameObject rocketPrefab;
+    [SerializeField] protected GameObject modelAxe;
+    [SerializeField] protected GameObject modelPistol;
+    [SerializeField] protected GameObject modelMachineGun;
+    [SerializeField] protected GameObject modelShotgun;
+    [SerializeField] protected GameObject modelSniper;
+    [SerializeField] protected GameObject modelRocketLauncher;
+    [SerializeField] protected GameObject modelRocketLauncherUnloaded;
+    [SerializeField] protected float rocketLauncherCooldown = 5.0f; // by dtrajko
 
     [Header("Audio")]
-    [SerializeField] private AudioSource soundInterface;
-    [SerializeField] private AudioSource[] soundsWeapons;
-    [SerializeField] private AudioSource[] soundsFootsteps;
-    [SerializeField] private AudioSource soundJump;
-    [SerializeField] private AudioSource soundLand;
-    [SerializeField] private float stepInterval = 0.25f;
-    [SerializeField] private AudioSource soundHit;
+    [SerializeField] protected AudioSource soundInterface;
+    [SerializeField] protected AudioSource[] soundsWeapons;
+    [SerializeField] protected AudioSource[] soundsFootsteps;
+    [SerializeField] protected AudioSource soundJump;
+    [SerializeField] protected AudioSource soundLand;
+    [SerializeField] protected float stepInterval = 0.25f;
+    [SerializeField] protected AudioSource soundHit;
 
     [Header("Visuals")]
-    [SerializeField] private GameObject characterContainer;
-    [SerializeField] private GameObject energyBall;
+    [SerializeField] protected GameObject characterContainer;
+    [SerializeField] protected GameObject energyBall;
 
     [Header("EnergyMode")]
-    [SerializeField] private float energyFallingSpeed;
-    [SerializeField] private float energyMovingSpeed;
+    [SerializeField] protected float energyFallingSpeed;
+    [SerializeField] protected float energyMovingSpeed;
 
-    private bool isFocalPointOnLeft = true;
-    private int resources = 0;
-    private float resourceCollectionCooldownTimer = 0;
-    private float obstaclePlacementCooldownTimer = 0;
-    private float rocketLauncherCooldownTimer = 0; // by dtrajko
-    private GameObject currentObstacle;
-    private bool obstaclePlacementLock;
-    private List<Weapon> weapons;
-    private Weapon weapon;
-    private HUDController hud;
-    private GameCamera gameCamera;
-    private GameObject obstaclePlacementContainer;
-    private GameObject obstacleContainer;
-    private int obstacleToAddIndex;
-    private Health health;
-    private float stepTimer;
-    private Animator playerAnimator;
-    private NetworkAnimator playerNetworkAnimator;
-    private string modelName; // Current weapon or tool the player is holding
-    private Rigidbody playerRigidbody;
-    private float stormDamageTimer = 1;
-    private StormManager stormManager;
-    private NetworkStartPosition[] spawnPositions;
-    private bool shouldAllowEnergyMovement;
-    private int weaponIndex = -1; // by dtrajko
-    private bool isCursorLocked;
+    protected bool isFocalPointOnLeft = true;
+    protected int resources = 0;
+    protected float resourceCollectionCooldownTimer = 0;
+    protected float obstaclePlacementCooldownTimer = 0;
+    protected float rocketLauncherCooldownTimer = 0; // by dtrajko
+    protected GameObject currentObstacle;
+    protected bool obstaclePlacementLock;
+    protected List<Weapon> weapons;
+    protected Weapon weapon;
+    protected HUDController hud;
+    protected GameCamera gameCamera;
+    protected GameObject obstaclePlacementContainer;
+    protected GameObject obstacleContainer;
+    protected int obstacleToAddIndex;
+    protected Health health;
+    protected float stepTimer;
+    protected Animator playerAnimator;
+    protected NetworkAnimator playerNetworkAnimator;
+    protected string modelName; // Current weapon or tool the player is holding
+    protected Rigidbody playerRigidbody;
+    protected float stormDamageTimer = 1;
+    protected StormManager stormManager;
+    protected NetworkStartPosition[] spawnPositions;
+    protected bool shouldAllowEnergyMovement;
+    protected int weaponIndex = -1; // by dtrajko
+    protected bool isCursorLocked;
 
     public bool ShouldAllowEnergyMovement
     {
@@ -122,7 +122,7 @@ public class Player : NetworkBehaviour, IDamageable
         }
     }
 
-    private bool isInEnergyMode;
+    protected bool isInEnergyMode;
     public bool IsInEnergyMode
     {
         get
@@ -197,80 +197,64 @@ public class Player : NetworkBehaviour, IDamageable
         }
         return hud;
     }
-      
-    // Start is called before the first frame update
-    void Start()
-    {
-        DontDestroyOnLoad(this);
 
+    // Start is called before the first frame update
+    protected virtual void Start()
+    {
         energyFallingSpeed = -6.0f;
         energyMovingSpeed = 16.0f;
 
         transform.LookAt(new Vector3(0, transform.position.y, 0), Vector3.up);
 
-        spawnPositions = FindObjectsOfType<NetworkStartPosition>();
-
         // Initialize values
         Initialize();
-
-        if (isServer && stormManager != null)
-        {
-            stormManager = FindObjectOfType<StormManager>();
-            stormManager.OnShrink += OnStormShrink;
-        }
 
         tool = PlayerTool.Pickaxe;
 
         IsInEnergyMode = true;
 
-        if (isLocalPlayer)
-        {
-            // Game camera
-            gameCamera = FindObjectOfType<GameCamera>();
-            obstaclePlacementContainer = gameCamera.ObstaclePlacementContainer;
-            gameCamera.Target = focalPoint;
-            gameCamera.RotationAnchorObject = rotationPoint;
+        // Game camera
+        gameCamera = FindObjectOfType<GameCamera>();
+        obstaclePlacementContainer = gameCamera.ObstaclePlacementContainer;
+        gameCamera.Target = focalPoint;
+        gameCamera.RotationAnchorObject = rotationPoint;
 
-            // HUD elements
-            hud = FindObjectOfType<HUDController>();
-            hud.ShowScreen("");
+        // HUD elements
+        hud = FindObjectOfType<HUDController>();
+        hud.ShowScreen("");
 
-            if (isServer) hud.ShowScreen("server");
-            else if (isClient) hud.ShowScreen("client");
-            Cursor.lockState = CursorLockMode.None;
+        if (isServer) hud.ShowScreen("server");
+        else if (isClient) hud.ShowScreen("client");
+        Cursor.lockState = CursorLockMode.None;
 
-            hud.Health = health.Value;
-            hud.Resources = resources;
-            hud.Tool = tool; // PlayerTool: Pickaxe
-            hud.UpdateWeapon(null);
-            hud.OnStartMatch += OnServerStartMatch;
+        hud.Health = health.Value;
+        hud.Resources = resources;
+        hud.Tool = tool; // PlayerTool: Pickaxe
+        hud.UpdateWeapon(null);
+        hud.OnStartMatch += OnServerStartMatch;
 
-            // Listen to events
-            GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter>().OnFootstep += OnFootstep;
-            GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter>().OnJump += OnJump;
+        // Listen to events
+        GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter>().OnFootstep += OnFootstep;
+        GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter>().OnJump += OnJump;
 
-            // Get animator
-            playerAnimator = GetComponent<Animator>();
-            playerNetworkAnimator = GetComponent<NetworkAnimator>();
+        // Get animator
+        playerAnimator = GetComponent<Animator>();
 
-            // Show no models
-            CmdShowModel(gameObject, "Pickaxe");
-            CmdRefreshModels();
-        }
+        // Show no models
+        ShowModel("Pickaxe");
 
         // Obstacle container
         obstacleContainer = GameObject.Find("ObstacleContainer");
+
+        OnServerStartMatch();
     }
 
-    public void OnServerStartMatch()
+    public virtual void OnServerStartMatch()
     {
-        if (!isServer) return;
-
         ShouldAllowEnergyMovement = true;
         if (stormManager != null) {
             stormManager.ShouldShrink = true;
         }
-        CmdReSpawn(gameObject);
     }
 
     public void OnStormShrink()
@@ -279,10 +263,8 @@ public class Player : NetworkBehaviour, IDamageable
     }
 
     [ClientRpc]
-    public void RpcAllowMovement()
+    public virtual void RpcAllowMovement()
     {
-        if (!isLocalPlayer) return;
-
         ShouldAllowEnergyMovement = true;
     }
 
@@ -294,12 +276,8 @@ public class Player : NetworkBehaviour, IDamageable
         hud.Alert();
     }
 
-
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
-
-        if (!isLocalPlayer) return;
-
         if (IsInEnergyMode)
         {
             if (ShouldAllowEnergyMovement)
@@ -315,6 +293,9 @@ public class Player : NetworkBehaviour, IDamageable
                     energyFallingSpeed,
                     moveVector.z
                 );
+
+                Debug.Log("Player FixedUpdate Falling... energyFallingSpeed: " + energyFallingSpeed);
+
             }
             else
             {
@@ -324,34 +305,21 @@ public class Player : NetworkBehaviour, IDamageable
     }
 
     //Orient the camera after all movement is completed this frame to avoid jittering
-    void LateUpdate()
+    protected virtual void LateUpdate()
     {
-        if (isLocalPlayer)
-        {
-            foreach (Player player in FindObjectsOfType<Player>())
-            {
-                // You might want to change Vector3.back to Vector3.forward, depending on the initial orientation of your object
-                Vector3 orientation = Vector3.forward; // player.isLocalPlayer ? Vector3.back : Vector3.forward;
-                player.HealthBarCanvas.transform.LookAt(
-                    player.HealthBarCanvas.transform.position + gameCamera.transform.rotation * orientation,
-                    gameCamera.transform.rotation * Vector3.up);
-            }
-        }
+        // You might want to change Vector3.back to Vector3.forward, depending on the initial orientation of your object
+        Vector3 orientation = Vector3.forward; // player.isLocalPlayer ? Vector3.back : Vector3.forward;
+        HealthBarCanvas.transform.LookAt(
+            HealthBarCanvas.transform.position + gameCamera.transform.rotation * orientation,
+            gameCamera.transform.rotation * Vector3.up);
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        if (!isLocalPlayer) return;
-
         if (Input.GetKeyDown(KeyCode.L))
         {
             IsCursorLocked = !IsCursorLocked;
-        }
-
-        if (!ShouldAllowEnergyMovement)
-        {
-            hud.Players = FindObjectsOfType<Player>().Length;
         }
 
         if (IsInEnergyMode)
@@ -363,7 +331,6 @@ public class Player : NetworkBehaviour, IDamageable
                 if (hitInfo.transform.GetComponent<Player>() == null)
                 {
                     IsInEnergyMode = false;
-                    CmdDeactivateEnergyBall(gameObject);
                 }
             }
         }
@@ -494,7 +461,7 @@ public class Player : NetworkBehaviour, IDamageable
         UpdateWeapon();
     }
 
-    private void Initialize()
+    protected void Initialize()
     {
         resources = initialResourceCount;
         weapons = new List<Weapon>();
@@ -504,31 +471,31 @@ public class Player : NetworkBehaviour, IDamageable
         playerRigidbody = GetComponent<Rigidbody>();
     }
 
-    private void AnimateWeaponHold(string weaponName)
+    protected void AnimateWeaponHold(string weaponName)
     {
         playerAnimator.SetTrigger("Hold" + weaponName);
         playerNetworkAnimator.SetTrigger("Hold" + weaponName);
     }
 
-    private void AnimateShoot()
+    protected void AnimateShoot()
     {
         playerAnimator.SetTrigger("Shoot");
         playerNetworkAnimator.SetTrigger("Shoot");
     }
 
-    private void AnimateUnequip()
+    protected void AnimateUnequip()
     {
         playerAnimator.SetTrigger("HoldNothing");
         playerNetworkAnimator.SetTrigger("HoldNothing");
     }
 
-    private void AnimateMelee()
+    protected void AnimateMelee()
     {
         playerAnimator.SetTrigger("MeleeSwing");
         playerNetworkAnimator.SetTrigger("MeleeSwing");
     }
 
-    private void SwitchWeapon(int index)
+    protected void SwitchWeapon(int index)
     {
         if (index < weapons.Count)
         {
@@ -566,7 +533,7 @@ public class Player : NetworkBehaviour, IDamageable
         weaponIndex = index; // by dtrajko
     }
 
-    private void SwitchTool()
+    protected void SwitchTool()
     {
         if (IsInEnergyMode) return;
 
@@ -624,7 +591,7 @@ public class Player : NetworkBehaviour, IDamageable
         }
     }
 
-    private void UseToolContinuous()
+    protected void UseToolContinuous()
     {
         if (tool == PlayerTool.Pickaxe)
         {
@@ -657,7 +624,7 @@ public class Player : NetworkBehaviour, IDamageable
         }
     }
 
-    private void UseToolTrigger()
+    protected void UseToolTrigger()
     {
         if (obstaclePlacementCooldownTimer <= 0 && currentObstacle != null && resources >= currentObstacle.GetComponent<Obstacle>().Cost)
         {
@@ -676,7 +643,7 @@ public class Player : NetworkBehaviour, IDamageable
     }
 
     [Command]
-    void CmdPlaceObstacle(int index, Vector3 position, Quaternion rotation)
+    protected void CmdPlaceObstacle(int index, Vector3 position, Quaternion rotation)
     {
         GameObject newObstacle = Instantiate(obstaclePrefabs[index]);
         newObstacle.transform.SetParent(obstacleContainer.transform);
@@ -687,10 +654,8 @@ public class Player : NetworkBehaviour, IDamageable
         NetworkServer.Spawn(newObstacle);
     }
 
-    private void OnTriggerEnter(Collider otherCollider)
+    protected virtual void OnTriggerEnter(Collider otherCollider)
     {
-        if (!isLocalPlayer) return;
-
         if (otherCollider.GetComponent<ItemBox>() != null)
         {
             ItemBox itemBox = otherCollider.gameObject.GetComponent<ItemBox>();
@@ -700,12 +665,12 @@ public class Player : NetworkBehaviour, IDamageable
     }
 
     [Command]
-    void CmdCollectBox(GameObject box)
+    protected void CmdCollectBox(GameObject box)
     {
         Destroy(box);
     }
 
-    private void GiveItem(ItemBox.ItemType type, int amount)
+    protected void GiveItem(ItemBox.ItemType type, int amount)
     {
         if (type == ItemBox.ItemType.FirstAid)
         {
@@ -717,7 +682,7 @@ public class Player : NetworkBehaviour, IDamageable
         }
     }
 
-    private void GiveItemWeapon(ItemBox.ItemType type, int amount)
+    protected void GiveItemWeapon(ItemBox.ItemType type, int amount)
     {
         CmdHit(gameObject);
 
@@ -759,13 +724,13 @@ public class Player : NetworkBehaviour, IDamageable
         }
     }
 
-    private void GiveItemFirstAid(ItemBox.ItemType type, int amount)
+    protected void GiveItemFirstAid(ItemBox.ItemType type, int amount)
     {
         CmdHit(gameObject);
         CmdHeal(gameObject, amount);
     }
 
-    private void UpdateWeapon()
+    protected void UpdateWeapon()
     {
         if (weapon != null)
         {
@@ -812,7 +777,7 @@ public class Player : NetworkBehaviour, IDamageable
         }
     }
 
-    private bool IsZoomModeTriggered(Weapon weapon)
+    protected bool IsZoomModeTriggered(Weapon weapon)
     {
 
         if (!(weapon is Sniper)) return false;
@@ -849,7 +814,7 @@ public class Player : NetworkBehaviour, IDamageable
         }
     }
 
-    private void Shoot()
+    protected void Shoot()
     {
         int amountOfBullets = 1;
         if (weapon is Shotgun)
@@ -910,7 +875,7 @@ public class Player : NetworkBehaviour, IDamageable
     }
 
     [Command]
-    private void CmdSpawnRocket(Vector3 shootDirection)
+    protected void CmdSpawnRocket(Vector3 shootDirection)
     {
         GameObject rocket = Instantiate(rocketPrefab);
         rocket.transform.position = shootOrigin.transform.position + shootDirection;
@@ -921,14 +886,14 @@ public class Player : NetworkBehaviour, IDamageable
 
     // Damage methods
     [Command]
-    private void CmdDamage(GameObject target, float damage)
+    protected void CmdDamage(GameObject target, float damage)
     {
         if (!isServer) return;
         RpcDamage(target, damage);
     }
 
     [ClientRpc]
-    void RpcDamage(GameObject caller, float damage)
+    protected void RpcDamage(GameObject caller, float damage)
     {
         if (caller != null)
         {
@@ -945,14 +910,14 @@ public class Player : NetworkBehaviour, IDamageable
 
     // Heal methods (opposite of damage)
     [Command]
-    private void CmdHeal(GameObject target, float amount)
+    protected void CmdHeal(GameObject target, float amount)
     {
         if (!isServer) return;
         RpcHeal(target, amount);
     }
 
     [ClientRpc]
-    void RpcHeal(GameObject caller, float amount)
+    protected void RpcHeal(GameObject caller, float amount)
     {
         if (caller != null)
         {
@@ -995,7 +960,7 @@ public class Player : NetworkBehaviour, IDamageable
 
     // Network weapon sound
     [Command]
-    void CmdPlayWeaponSound(GameObject caller, int index)
+    protected void CmdPlayWeaponSound(GameObject caller, int index)
     {
         if (!isServer) return;
 
@@ -1003,7 +968,7 @@ public class Player : NetworkBehaviour, IDamageable
     }
 
     [ClientRpc]
-    void RpcPlayWeaponSound(GameObject caller, int index)
+    protected void RpcPlayWeaponSound(GameObject caller, int index)
     {
         caller.GetComponent<Player>().PlayWeaponSound(index);
     }
@@ -1015,7 +980,7 @@ public class Player : NetworkBehaviour, IDamageable
 
     // Network footstep sound
     [Command]
-    void CmdPlayFootstepSound(GameObject caller)
+    protected void CmdPlayFootstepSound(GameObject caller)
     {
         if (!isServer) return;
 
@@ -1023,7 +988,7 @@ public class Player : NetworkBehaviour, IDamageable
     }
 
     [ClientRpc]
-    void RpcPlayFootstepSound(GameObject caller)
+    protected void RpcPlayFootstepSound(GameObject caller)
     {
         caller.GetComponent<Player>().PlayFootstepSound();
     }
@@ -1034,7 +999,7 @@ public class Player : NetworkBehaviour, IDamageable
     }
 
     // This event is emitted in the ThirdPersonCharacter
-    void OnFootstep(float forwardAmount)
+    protected void OnFootstep(float forwardAmount)
     {
         if (forwardAmount > 0.6f && stepTimer <= 0)
         {
@@ -1043,14 +1008,14 @@ public class Player : NetworkBehaviour, IDamageable
         }
     }
 
-    void OnJump()
+    protected void OnJump()
     {
         CmdJump(gameObject);
     }
 
     // Network jump sound
     [Command]
-    void CmdJump(GameObject caller)
+    protected void CmdJump(GameObject caller)
     {
         if (!isServer) return;
 
@@ -1058,7 +1023,7 @@ public class Player : NetworkBehaviour, IDamageable
     }
 
     [ClientRpc]
-    void RpcJump(GameObject caller)
+    protected void RpcJump(GameObject caller)
     {
         caller.GetComponent<Player>().PlayJumpSound();
     }
@@ -1069,7 +1034,7 @@ public class Player : NetworkBehaviour, IDamageable
 
     // Network hit sound
     [Command]
-    void CmdHit(GameObject caller)
+    protected void CmdHit(GameObject caller)
     {
         if (!isServer) return;
 
@@ -1077,7 +1042,7 @@ public class Player : NetworkBehaviour, IDamageable
     }
 
     [ClientRpc]
-    void RpcHit(GameObject caller)
+    protected void RpcHit(GameObject caller)
     {
         caller.GetComponent<Player>().PlayHitSound();
     }
@@ -1089,7 +1054,7 @@ public class Player : NetworkBehaviour, IDamageable
 
     // Network show model
     [Command]
-    void CmdShowModel(GameObject caller, string newModel)
+    protected void CmdShowModel(GameObject caller, string newModel)
     {
         if (!isServer) return;
 
@@ -1097,7 +1062,7 @@ public class Player : NetworkBehaviour, IDamageable
     }
 
     [ClientRpc]
-    void RpcShowModel(GameObject caller, string newModel)
+    protected void RpcShowModel(GameObject caller, string newModel)
     {
         caller.GetComponent<Player>().ShowModel(newModel);
     }
@@ -1122,7 +1087,7 @@ public class Player : NetworkBehaviour, IDamageable
     }
 
     [Command]
-    void CmdRefreshModels()
+    protected void CmdRefreshModels()
     {
         if (!isServer) return;
 
@@ -1140,24 +1105,24 @@ public class Player : NetworkBehaviour, IDamageable
 
     // Network energy balls
     [Command]
-    void CmdDeactivateEnergyBall(GameObject caller)
+    protected void CmdDeactivateEnergyBall(GameObject caller)
     {
         RpcDeactivateEnergyBall(caller);
     }
 
     [ClientRpc]
-    private void RpcDeactivateEnergyBall(GameObject caller)
+    protected void RpcDeactivateEnergyBall(GameObject caller)
     {
         DeactivateEnergyBall(caller);
     }
 
-    void DeactivateEnergyBall(GameObject caller)
+    protected void DeactivateEnergyBall(GameObject caller)
     {
         caller.GetComponent<Player>().IsInEnergyMode = false;
     }
 
     [Command]
-    void CmdAddBullet(Vector3 bulletPosition)
+    protected void CmdAddBullet(Vector3 bulletPosition)
     {
         GameObject bulletInstance = Instantiate(bulletPrefab);
         bulletInstance.transform.position = bulletPosition;
@@ -1175,7 +1140,7 @@ public class Player : NetworkBehaviour, IDamageable
     }
 
     [ClientRpc]
-    void RpcReSpawn(GameObject caller)
+    protected void RpcReSpawn(GameObject caller)
     {
         if (!isLocalPlayer) return;
 

@@ -11,11 +11,11 @@ public class CustomNetworkManager : NetworkManager
     [Header("UI Info")]
     [SerializeField] private RectTransform networkAddressInput;
 
-    private HUDController hud;
+    private HUDControllerNetwork hud;
 
     public override void Awake() {
-        hud = FindObjectOfType<HUDController>();
-        networkAddressInput.GetComponent<Text>().text = "192.168.0.15";
+        hud = FindObjectOfType<HUDControllerNetwork>();
+        if (networkAddressInput) networkAddressInput.GetComponent<Text>().text = "192.168.0.15";
         base.Awake();
     }
 

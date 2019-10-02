@@ -12,36 +12,31 @@ public class HUDController : NetworkBehaviour
     public event StartMatchHandler OnStartMatch;
 
     [Header("Screens")]
-    [SerializeField] private GameObject regularScreen;
-    [SerializeField] private GameObject gameOverScreen;
-    [SerializeField] private GameObject serverScreen;
-    [SerializeField] private GameObject clientScreen;
-    [SerializeField] private GameObject spawnScreen;
-    [SerializeField] private GameObject multiplayerScreen;
+    [SerializeField] protected GameObject regularScreen;
+    [SerializeField] protected GameObject gameOverScreen;
 
     [Header("Interface Elements")]
-    [SerializeField] private Text healthText;
-    [SerializeField] private Text resourcesText;
-    [SerializeField] private Text resourcesRequirementText;
-    [SerializeField] private Text weaponNameText;
-    [SerializeField] private Text weaponAmmunitionText;
-    [SerializeField] private RectTransform weaponReloadBar;
-    [SerializeField] private RectTransform healthBar;
-    [SerializeField] private GameObject sniperAim;
-    [SerializeField] private Text serverPlayersText;
-    [SerializeField] private Text clientPlayersText;
-    [SerializeField] private Text alertText;
-    [SerializeField] private RectTransform mobileUI;
-    [SerializeField] private RectTransform turnAndLookTouchpad;
-    [SerializeField] private RectTransform buttonSwitchTool;
-
+    [SerializeField] protected Text healthText;
+    [SerializeField] protected Text resourcesText;
+    [SerializeField] protected Text resourcesRequirementText;
+    [SerializeField] protected Text weaponNameText;
+    [SerializeField] protected Text weaponAmmunitionText;
+    [SerializeField] protected RectTransform weaponReloadBar;
+    [SerializeField] protected RectTransform healthBar;
+    [SerializeField] protected GameObject sniperAim;
+    [SerializeField] protected Text serverPlayersText;
+    [SerializeField] protected Text clientPlayersText;
+    [SerializeField] protected Text alertText;
+    [SerializeField] protected RectTransform mobileUI;
+    [SerializeField] protected RectTransform turnAndLookTouchpad;
+    [SerializeField] protected RectTransform buttonSwitchTool;
 
     [Header("Tool Selector")]
-    [SerializeField] private GameObject toolFocus;
-    [SerializeField] private GameObject toolContainer;
-    [SerializeField] private float focusSmoothness = 10.0f;
+    [SerializeField] protected GameObject toolFocus;
+    [SerializeField] protected GameObject toolContainer;
+    [SerializeField] protected float focusSmoothness = 10.0f;
 
-    private float targetFocusX = 0;
+    protected float targetFocusX = 0;
 
     public float Health
     {
@@ -59,14 +54,7 @@ public class HUDController : NetworkBehaviour
         }
     }
 
-    public int Players
-    {
-        set
-        {
-            serverPlayersText.text = "Players: " + value;
-            clientPlayersText.text = "Players: " + value;
-        }
-    }
+    public virtual int Players { set { } }
 
     public Player.PlayerTool Tool
     {
@@ -99,7 +87,7 @@ public class HUDController : NetworkBehaviour
     public bool SniperAimVisibility { set { sniperAim.SetActive(value); } }
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         ShowScreen("");
 
@@ -131,9 +119,8 @@ public class HUDController : NetworkBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
-
         toolFocus.transform.position = new Vector3(
             Mathf.Lerp(toolFocus.transform.position.x, targetFocusX, Time.deltaTime * focusSmoothness),
             toolFocus.transform.position.y
@@ -183,17 +170,13 @@ public class HUDController : NetworkBehaviour
         healthBar.localScale = new Vector3(health, 1, 1);
     }
 
-    public void ShowScreen(string screenName)
+    public virtual void ShowScreen(string screenName)
     {
         regularScreen.SetActive(screenName == "regular");
         gameOverScreen.SetActive(screenName == "gameOver");
-        serverScreen.SetActive(screenName == "server");
-        clientScreen.SetActive(screenName == "client");
-        spawnScreen.SetActive(screenName == "spawn");
-        multiplayerScreen.SetActive(screenName == "multiplayer");
     }
 
-    public void OnPressedStartMatch()
+    public virtual void OnPressedStartMatch()
     {
         foreach (Player player in FindObjectsOfType<Player>())
         {
