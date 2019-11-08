@@ -47,6 +47,7 @@ public class PlayerNetwork : Player, IDamageable
 
             if (isServer) hud.ShowScreen("server");
             else if (isClient) hud.ShowScreen("client");
+            // hud.OnPressedStartMatch();
             Cursor.lockState = CursorLockMode.None;
 
             hud.Health = health.Value;
