@@ -22,7 +22,7 @@ namespace Mirror
     [AddComponentMenu("")]
     public class NetworkBehaviour : MonoBehaviour
     {
-        float lastSyncTime;
+        internal float lastSyncTime;
 
         // hidden because NetworkBehaviourInspector shows it only if has OnSerialize.
         /// <summary>
@@ -35,11 +35,6 @@ namespace Mirror
         /// sync interval for OnSerialize (in seconds)
         /// </summary>
         [HideInInspector] public float syncInterval = 0.1f;
-
-        /// <summary>
-        /// This value is set on the NetworkIdentity and is accessible here for convenient access for scripts.
-        /// </summary>
-        public bool localPlayerAuthority => netIdentity.localPlayerAuthority;
 
         /// <summary>
         /// Returns true if this object is active on an active server.
@@ -91,12 +86,13 @@ namespace Mirror
         public NetworkConnection connectionToClient => netIdentity.connectionToClient;
 
         protected ulong syncVarDirtyBits { get; private set; }
-        private ulong syncVarHookGuard;
+        ulong syncVarHookGuard;
 
         protected bool getSyncVarHookGuard(ulong dirtyBit)
         {
             return (syncVarHookGuard & dirtyBit) != 0UL;
         }
+
         protected void setSyncVarHookGuard(ulong dirtyBit, bool value)
         {
             if (value)
@@ -172,7 +168,7 @@ namespace Mirror
 
         #region Commands
 
-        private static int GetMethodHash(Type invokeClass, string methodName)
+        static int GetMethodHash(Type invokeClass, string methodName)
         {
             // (invokeClass + ":" + cmdName).GetStableHashCode() would cause allocations.
             // so hash1 + hash2 is better.
@@ -438,9 +434,48 @@ namespace Mirror
             }
             return false;
         }
+
+        /// <summary>
+        /// Gets the handler function for a given hash
+        /// Can be used by profilers and debuggers
+        /// </summary>
+        /// <param name="cmdHash">rpc function hash</param>
+        /// <returns>The function delegate that will handle the command</returns>
+        public static CmdDelegate GetRpcHandler(int cmdHash)
+        {
+            if (cmdHandlerDelegates.TryGetValue(cmdHash, out Invoker invoker))
+            {
+                return invoker.invokeFunction;
+            }
+            return null;
+        }
+
         #endregion
 
         #region Helpers
+
+        // helper function for [SyncVar] GameObjects.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        protected bool SyncVarGameObjectEqual(GameObject newGameObject, uint netIdField)
+        {
+            uint newNetId = 0;
+            if (newGameObject != null)
+            {
+                NetworkIdentity identity = newGameObject.GetComponent<NetworkIdentity>();
+                if (identity != null)
+                {
+                    newNetId = identity.netId;
+                    if (newNetId == 0)
+                    {
+                        Debug.LogWarning("SetSyncVarGameObject GameObject " + newGameObject + " has a zero netId. Maybe it is not spawned yet?");
+                    }
+                }
+            }
+
+            return newNetId == netIdField;
+        }
+
+
         // helper function for [SyncVar] GameObjects.
         [EditorBrowsable(EditorBrowsableState.Never)]
         protected void SetSyncVarGameObject(GameObject newGameObject, ref GameObject gameObjectField, ulong dirtyBit, ref uint netIdField)
@@ -462,14 +497,10 @@ namespace Mirror
                 }
             }
 
-            // netId changed?
-            if (newNetId != netIdField)
-            {
-                if (LogFilter.Debug) Debug.Log("SetSyncVar GameObject " + GetType().Name + " bit [" + dirtyBit + "] netfieldId:" + netIdField + "->" + newNetId);
-                SetDirtyBit(dirtyBit);
-                gameObjectField = newGameObject; // assign new one on the server, and in case we ever need it on client too
-                netIdField = newNetId;
-            }
+            if (LogFilter.Debug) Debug.Log("SetSyncVar GameObject " + GetType().Name + " bit [" + dirtyBit + "] netfieldId:" + netIdField + "->" + newNetId);
+            SetDirtyBit(dirtyBit);
+            gameObjectField = newGameObject; // assign new one on the server, and in case we ever need it on client too
+            netIdField = newNetId;
         }
 
         // helper function for [SyncVar] GameObjects.
@@ -486,8 +517,27 @@ namespace Mirror
             // client always looks up based on netId because objects might get in and out of range
             // over and over again, which shouldn't null them forever
             if (NetworkIdentity.spawned.TryGetValue(netId, out NetworkIdentity identity) && identity != null)
-                return identity.gameObject;
+                return gameObjectField = identity.gameObject;
             return null;
+        }
+
+
+        // helper function for [SyncVar] NetworkIdentities.
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        protected bool SyncVarNetworkIdentityEqual(NetworkIdentity newIdentity, uint netIdField)
+        {
+            uint newNetId = 0;
+            if (newIdentity != null)
+            {
+                newNetId = newIdentity.netId;
+                if (newNetId == 0)
+                {
+                    Debug.LogWarning("SetSyncVarNetworkIdentity NetworkIdentity " + newIdentity + " has a zero netId. Maybe it is not spawned yet?");
+                }
+            }
+
+            // netId changed?
+            return newNetId == netIdField;
         }
 
         // helper function for [SyncVar] NetworkIdentities.
@@ -507,14 +557,10 @@ namespace Mirror
                 }
             }
 
-            // netId changed?
-            if (newNetId != netIdField)
-            {
-                if (LogFilter.Debug) Debug.Log("SetSyncVarNetworkIdentity NetworkIdentity " + GetType().Name + " bit [" + dirtyBit + "] netIdField:" + netIdField + "->" + newNetId);
-                SetDirtyBit(dirtyBit);
-                netIdField = newNetId;
-                identityField = newIdentity; // assign new one on the server, and in case we ever need it on client too
-            }
+            if (LogFilter.Debug) Debug.Log("SetSyncVarNetworkIdentity NetworkIdentity " + GetType().Name + " bit [" + dirtyBit + "] netIdField:" + netIdField + "->" + newNetId);
+            SetDirtyBit(dirtyBit);
+            netIdField = newNetId;
+            identityField = newIdentity; // assign new one on the server, and in case we ever need it on client too
         }
 
         // helper function for [SyncVar] NetworkIdentities.
@@ -530,20 +576,23 @@ namespace Mirror
 
             // client always looks up based on netId because objects might get in and out of range
             // over and over again, which shouldn't null them forever
-            NetworkIdentity.spawned.TryGetValue(netId, out NetworkIdentity identity);
-            return identity;
+            NetworkIdentity.spawned.TryGetValue(netId, out identityField);
+            return identityField;
+        }
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        protected bool SyncVarEqual<T>(T value, ref T fieldValue)
+        {
+            // newly initialized or changed value?
+            return EqualityComparer<T>.Default.Equals(value, fieldValue);
         }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         protected void SetSyncVar<T>(T value, ref T fieldValue, ulong dirtyBit)
         {
-            // newly initialized or changed value?
-            if (!EqualityComparer<T>.Default.Equals(value, fieldValue))
-            {
-                if (LogFilter.Debug) Debug.Log("SetSyncVar " + GetType().Name + " bit [" + dirtyBit + "] " + fieldValue + "->" + value);
-                SetDirtyBit(dirtyBit);
-                fieldValue = value;
-            }
+            if (LogFilter.Debug) Debug.Log("SetSyncVar " + GetType().Name + " bit [" + dirtyBit + "] " + fieldValue + "->" + value);
+            SetDirtyBit(dirtyBit);
+            fieldValue = value;
         }
         #endregion
 
@@ -568,8 +617,8 @@ namespace Mirror
 
             // flush all unsynchronized changes in syncobjects
             // note: don't use List.ForEach here, this is a hot path
-            // List.ForEach: 432b/frame
-            // for: 231b/frame
+            //   List.ForEach: 432b/frame
+            //   for: 231b/frame
             for (int i = 0; i < syncObjects.Count; ++i)
             {
                 syncObjects[i].Flush();

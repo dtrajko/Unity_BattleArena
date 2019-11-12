@@ -4,11 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Project/Scenes/PlaneDropScene.unity
-    guid: 151808d4f639b4848b743debe5edd475
-  - enabled: 1
-    path: Assets/Project/Scenes/GameLevelIsland.unity
-    guid: 9e2dad1da6209814ea34aad4d99abcba
+  m_Scenes: []
   m_configObjects: {}
